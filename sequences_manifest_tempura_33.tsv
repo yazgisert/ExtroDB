@@ -1,0 +1,34 @@
+assembly_accession	taxon_name	strain	thermophile	hyperthermophile	ogt_celsius	local_fasta_file	protein_count
+GCF_000223395.1	Pyrolobus fumarii	1A	yes	yes	103	GCF_000223395.1__Pyrolobus_fumarii__1A.faa	1954
+GCF_001577775.1	Pyrococcus kukulkanii	NCB100	yes	yes	105	GCF_001577775.1__Pyrococcus kukulkanii__NCB100.faa	2165
+GCF_000007185.1	Methanopyrus kandleri	AV19	yes	yes	98	GCF_000007185.1__Methanopyrus kandleri__AV19.faa	1778
+GCF_055379715.1	Pyrodictium brockii	S1	yes	yes	97	GCF_055379715.1__Pyrodictium brockii__S1.faa	1696
+GCF_001462395.1	Pyrodictium occultum	PL-19	yes	yes	97	GCF_001462395.1__Pyrodictium occultum__PL-19.faa	1683
+GCF_036323395.1	Pyrodictium abyssi	AV2	yes	yes	98	GCF_036323395.1__Pyrodictium_abyssi__AV2.faa	2387
+GCF_000015145.1	Hyperthermus butylicus	DSM 5456	yes	yes	99	GCF_000015145.1__Hyperthermus butylicus__DSM_5456.faa	1745
+GCF_000007225.1	Pyrobaculum aerophilum	IM2	yes	yes	98	GCF_000007225.1__Pyrobaculum aerophilum__IM2.faa	2559
+GCF_000007305.1	Pyrococcus furiosus	Vc1	yes	yes	97	GCF_000007305.1__Pyrococcus furiosus__Vc1.faa	2008
+GCF_055386755.1	Thermococcus fumicolans	ST557	yes	yes	85	GCF_055386755.1__Thermococcus fumicolans__ST557.faa	2153
+GCF_055384425.1	Pyrobaculum organotrophum	JCM 9190	yes	yes	95	GCF_055384425.1__Pyrobaculum organotrophum__JCM_9190.faa	2177
+GCF_000015205.1	Pyrobaculum islandicum	GEO3	yes	yes	95	GCF_000015205.1__Pyrobaculum islandicum__GEO3.faa	2084
+GCF_000011105.1	Pyrococcus horikoshii	OT3	yes	yes	95	GCF_000011105.1__Pyrococcus horikoshii__OT3.faa	1856
+GCF_000195935.2	Pyrococcus abyssi	GE5	yes	yes	90	GCF_000195935.2__Pyrococcus abyssi__GE5.faa	1903
+GCF_054657575.1	Stetteria hydrogenophila	DSM 11227	yes	yes	95	GCF_054657575.1__Stetteria hydrogenophila__DSM_11227.faa	1346
+GCF_000193375.1	Thermoproteus uzoniensis	Z-605	yes	yes	85	GCF_000193375.1__Thermoproteus uzoniensis__Z-605.faa	2183
+GCF_017873335.1	Thermococcus stetteri	K-3	yes	no	75	GCF_017873335.1__Thermococcus_stetteri__DSM_5262.faa	2216
+GCF_001652585.1	Thermosulfurimonas dismutans	S95	yes	no	74	GCF_001652585.1__Thermosulfurimonas dismutans__S95.faa	2081
+GCF_003999255.1	Caldicellulosiruptor changbaiensis	CBS-Z	yes	no	75	GCF_003999255.1__Caldicellulosiruptor changbaiensis__CBS-Z.faa	2636
+GCF_000816145.1	Pseudothermotoga hypogea	SEBR 7054	yes	no	70	GCF_000816145.1__Pseudothermotoga hypogea__SEBR_7054.faa	2087
+GCF_000022325.1	Caldicellulosiruptor bescii	Z-1320	yes	no	78	GCF_000022325.1__Caldicellulosiruptor bescii__Z-1320.faa	2638
+GCF_004117075.1	Fervidobacterium changbaicum	CBS-1	yes	no	75	GCF_004117075.1__Fervidobacterium changbaicum__CBS-1.faa	1970
+GCF_000022545.1	Thermococcus sibiricus	MM739	yes	no	78	GCF_000022545.1__Thermococcus sibiricus__MM739.faa	1967
+GCF_041505935.1	Fervidobacterium thailandense	FC2004	yes	yes	80	GCF_041505935.1__Fervidobacterium thailandense__FC2004.faa	1875
+GCF_003633715.1	Thermovibrio guaymasensis	SL19	yes	no	75	GCF_003633715.1__Thermovibrio guaymasensis__SL19.faa	1688
+GCF_000145215.1	Caldicellulosiruptor obsidiansis	OB47	yes	no	78	GCF_000145215.1__Caldicellulosiruptor obsidiansis__OB47.faa	2262
+GCF_900142435.1	Thermocrinis minervae	CR11	yes	no	75	GCF_900142435.1__Thermocrinis minervae__CR11.faa	1486
+GCF_900182835.1	Desulfurobacterium pacificum	SL17	yes	no	75	GCF_900182835.1__Desulfurobacterium pacificum__SL17.faa	1642
+GCF_000012285.1	Sulfolobus acidocaldarius	NBRC 15157	yes	no	70	GCF_000012285.1__Sulfolobus acidocaldarius__NBRC_15157.faa	2290
+GCF_016908415.1	Caldicoprobacter guelmensis	D2C22	yes	no	65	GCF_016908415.1__Caldicoprobacter guelmensis__D2C22.faa	2189
+GCF_000258515.1	Thermococcus zilligii	DSM2770	yes	no	75	GCF_000258515.1__Thermococcus zilligii__AN1(DSM2770).faa	1833
+GCF_055385515.1	Hydrogenivirga okinawensis	LS12-2	yes	no	72.5	GCF_055385515.1__Hydrogenivirga okinawensis__LS12-2.faa	2025
+GCF_000091545.1	Thermus thermophilus	HB8	yes	no	75	GCF_000091545.1__Thermus_thermophilus__HB8.faa	2150

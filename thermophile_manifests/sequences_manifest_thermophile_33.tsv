@@ -1,0 +1,34 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	thermophile	hyperthermophile	ogt_celsius
+GCF_000022325.1	Caldicellulosiruptor bescii	Z-1320	GTDB	RS_GCF_000022325.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/18022	GCF_000022325.1__Caldicellulosiruptor bescii__Z-1320.faa	2638	yes	no	78
+GCF_003999255.1	Caldicellulosiruptor changbaiensis	CBS-Z	GTDB	RS_GCF_003999255.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/130816	GCF_003999255.1__Caldicellulosiruptor changbaiensis__CBS-Z.faa	2636	yes	no	75
+GCF_000145215.1	Caldicellulosiruptor obsidiansis	OB47	GTDB	RS_GCF_000145215.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/140656	GCF_000145215.1__Caldicellulosiruptor obsidiansis__OB47.faa	2262	yes	no	78
+GCF_016908415.1	Caldicoprobacter guelmensis	D2C22	GTDB	RS_GCF_016908415.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/23443	GCF_016908415.1__Caldicoprobacter guelmensis__D2C22.faa	2189	yes	no	65
+GCF_900182835.1	Desulfurobacterium pacificum	SL17	GTDB	RS_GCF_900182835.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17644	GCF_900182835.1__Desulfurobacterium pacificum__SL17.faa	1642	yes	no	75
+GCF_004117075.1	Fervidobacterium changbaicum	CBS-1	GTDB	RS_GCF_004117075.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17038	GCF_004117075.1__Fervidobacterium changbaicum__CBS-1.faa	1970	yes	no	75
+GCF_041505935.1	Fervidobacterium thailandense	FC2004	GTDB	RS_GCF_041505935.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/133268	GCF_041505935.1__Fervidobacterium thailandense__FC2004.faa	1875	yes	yes	80
+GCF_055385515.1	Hydrogenivirga okinawensis	LS12-2	NCBI	GCF_055385515.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/510	GCF_055385515.1__Hydrogenivirga okinawensis__LS12-2.faa	2025	yes	no	72.5
+GCF_000015145.1	Hyperthermus butylicus	DSM 5456	GTDB	RS_GCF_000015145.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/13524	GCF_000015145.1__Hyperthermus butylicus__DSM_5456.faa	1745	yes	yes	99
+GCF_000007185.1	Methanopyrus kandleri	AV19	GTDB	RS_GCF_000007185.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/7044	GCF_000007185.1__Methanopyrus kandleri__AV19.faa	1778	yes	yes	98
+GCF_000816145.1	Pseudothermotoga hypogea	SEBR 7054	GTDB	RS_GCF_000816145.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17067	GCF_000816145.1__Pseudothermotoga hypogea__SEBR_7054.faa	2087	yes	no	70
+GCF_000007225.1	Pyrobaculum aerophilum	IM2	GTDB	RS_GCF_000007225.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17026	GCF_000007225.1__Pyrobaculum aerophilum__IM2.faa	2559	yes	yes	98
+GCF_000015205.1	Pyrobaculum islandicum	GEO3	GTDB	RS_GCF_000015205.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17024	GCF_000015205.1__Pyrobaculum islandicum__GEO3.faa	2084	yes	yes	95
+GCF_055384425.1	Pyrobaculum organotrophum	JCM 9190	NCBI	GCF_055384425.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17025	GCF_055384425.1__Pyrobaculum organotrophum__JCM_9190.faa	2177	yes	yes	95
+GCF_000195935.2	Pyrococcus abyssi	GE5	GTDB	RS_GCF_000195935.2	strain_genome_proteins	https://bacdive.dsmz.de/strain/16859	GCF_000195935.2__Pyrococcus abyssi__GE5.faa	1903	yes	yes	90
+GCF_000007305.1	Pyrococcus furiosus	Vc1	GTDB	RS_GCF_000007305.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16854	GCF_000007305.1__Pyrococcus furiosus__Vc1.faa	2008	yes	yes	97
+GCF_000011105.1	Pyrococcus horikoshii	OT3	GTDB	RS_GCF_000011105.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16857	GCF_000011105.1__Pyrococcus horikoshii__OT3.faa	1856	yes	yes	95
+GCF_001577775.1	Pyrococcus kukulkanii	NCB100	GTDB	RS_GCF_001577775.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/132578	GCF_001577775.1__Pyrococcus kukulkanii__NCB100.faa	2165	yes	yes	105
+GCF_036323395.1	Pyrodictium abyssi	AV2	GTDB	RS_GCF_036323395.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/13527	GCF_036323395.1__Pyrodictium_abyssi__AV2.faa	2387	yes	yes	98
+GCF_055379715.1	Pyrodictium brockii	S1	NCBI	GCF_055379715.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/13525	GCF_055379715.1__Pyrodictium brockii__S1.faa	1696	yes	yes	97
+GCF_001462395.1	Pyrodictium occultum	PL-19	GTDB	RS_GCF_001462395.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/13526	GCF_001462395.1__Pyrodictium occultum__PL-19.faa	1683	yes	yes	97
+GCF_000223395.1	Pyrolobus fumarii	1A	GTDB	RS_GCF_000223395.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/13523	GCF_000223395.1__Pyrolobus_fumarii__1A.faa	1954	yes	yes	103
+GCF_054657575.1	Stetteria hydrogenophila	DSM 11227	NCBI	GCF_054657575.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/4193	GCF_054657575.1__Stetteria hydrogenophila__DSM_11227.faa	1346	yes	yes	95
+GCF_000012285.1	Sulfolobus acidocaldarius	NBRC 15157	GTDB	RS_GCF_000012285.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16649	GCF_000012285.1__Sulfolobus acidocaldarius__NBRC_15157.faa	2290	yes	no	70
+GCF_055386755.1	Thermococcus fumicolans	ST557	NCBI	GCF_055386755.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16879	GCF_055386755.1__Thermococcus fumicolans__ST557.faa	2153	yes	yes	85
+GCF_000022545.1	Thermococcus sibiricus	MM739	GTDB	RS_GCF_000022545.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16880	GCF_000022545.1__Thermococcus sibiricus__MM739.faa	1967	yes	no	78
+GCF_017873335.1	Thermococcus stetteri	K-3	GTDB	RS_GCF_017873335.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16864	GCF_017873335.1__Thermococcus_stetteri__DSM_5262.faa	2216	yes	no	75
+GCF_000258515.1	Thermococcus zilligii	DSM2770	GTDB	RS_GCF_000258515.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16878	GCF_000258515.1__Thermococcus zilligii__AN1(DSM2770).faa	1833	yes	no	75
+GCF_900142435.1	Thermocrinis minervae	CR11	GTDB	RS_GCF_900142435.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/525	GCF_900142435.1__Thermocrinis minervae__CR11.faa	1486	yes	no	75
+GCF_000193375.1	Thermoproteus uzoniensis	Z-605	GTDB	RS_GCF_000193375.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17032	GCF_000193375.1__Thermoproteus uzoniensis__Z-605.faa	2183	yes	yes	85
+GCF_001652585.1	Thermosulfurimonas dismutans	S95	GTDB	RS_GCF_001652585.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16897	GCF_001652585.1__Thermosulfurimonas dismutans__S95.faa	2081	yes	no	74
+GCF_003633715.1	Thermovibrio guaymasensis	SL19	GTDB	RS_GCF_003633715.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17647	GCF_003633715.1__Thermovibrio guaymasensis__SL19.faa	1688	yes	no	75
+GCF_000091545.1	Thermus thermophilus	HB8	GTDB	RS_GCF_000091545.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16717	GCF_000091545.1__Thermus_thermophilus__HB8.faa	2150	yes	no	75

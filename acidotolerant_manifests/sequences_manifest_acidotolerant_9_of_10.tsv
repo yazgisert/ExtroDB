@@ -1,0 +1,10 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	acidophile	acidophile_class	ph_optimum
+GCF_057837225.1	Acidisoma sibiricum	DSM 21000	NCBI	GCF_057837225.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/82	GCF_057837225.1__Acidisoma sibiricum__DSM_21000.faa	4129	no	acidotolerant	5.750
+GCF_000702445.1	Bryobacter aggregatus	DSM 18758	NCBI	GCF_000702445.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/19651730/	GCF_000702445.1__Bryobacter aggregatus__DSM_18758.faa	4906	no	acidotolerant	6.000
+GCA_001029285.1	Desulfosporosinus acididurans	DSM 27692	NCBI	GCA_001029285.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/25370366/	GCA_001029285.1__Desulfosporosinus acididurans__DSM_27692.faa	4401	no	acidotolerant	5.500
+GCF_015277775.1	Paludibaculum fermentans	DSM 26340	NCBI	GCF_015277775.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/24867171/	GCF_015277775.1__Paludibaculum fermentans__DSM_26340.faa	7480	no	acidotolerant	5.750
+GCA_001956985.1	Paludisphaera borealis	DSM 28747	NCBI	GCA_001956985.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/132417	GCA_001956985.1__Paludisphaera borealis__DSM_28747.faa	5720	no	acidotolerant	5.250
+GCF_003315135.1	Roseiarcus fermentans	DSM 24875	NCBI	GCF_003315135.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/24812364/	GCF_003315135.1__Roseiarcus fermentans__DSM_24875.faa	6102	no	acidotolerant	6.000
+GCF_000255655.1	Schlesneria paludicola	DSM 18645	NCBI	GCF_000255655.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/11945	GCF_000255655.1__Schlesneria paludicola__DSM_18645.faa	6210	no	acidotolerant	5.600
+GCF_000242455.2	Singulisphaera acidiphila	DSM 18658	NCBI	GCF_000242455.2	strain_genome_proteins	https://bacdive.dsmz.de/strain/11943	GCF_000242455.2__Singulisphaera acidiphila__DSM_18658.faa	7053	no	acidotolerant	5.600
+GCF_054656855.1	Venenivibrio stagnispumantis	DSM 18763	NCBI	GCF_054656855.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/18218938/	GCF_054656855.1__Venenivibrio stagnispumantis__DSM_18763.faa	1674	no	acidotolerant	5.400

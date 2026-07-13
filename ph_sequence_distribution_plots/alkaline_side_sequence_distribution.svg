@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="980" viewBox="0 0 1280 980">
+<rect width="100%" height="100%" fill="#fcfcfb"/>
+<rect x="76" y="24" width="1168" height="896" rx="24" ry="24" fill="#ffffff" stroke="#e6e9ee"/>
+<text x="100" y="54" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" fill="#16212b">Alkaline-Side pH Distribution by Sequence Count</text>
+<text x="100" y="84" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5d6b7a">Current alkaliphile manifest, including entries below pH 9.0</text>
+<rect x="100.00" y="118" width="516.92" height="470" fill="#e8f3f8"/>
+<rect x="314.46" y="84.00" width="88.00" height="24" rx="12" ry="12" fill="#ffffff" stroke="#d8dee6"/>
+<text x="358.46" y="100.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#415466">7.5-&lt;9.0</text>
+<rect x="616.92" y="118" width="344.62" height="470" fill="#edf4ea"/>
+<rect x="743.23" y="84.00" width="92.00" height="24" rx="12" ry="12" fill="#ffffff" stroke="#d8dee6"/>
+<text x="789.23" y="100.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#415466">9.0-&lt;10.0</text>
+<rect x="961.54" y="118" width="258.46" height="470" fill="#f7ecef"/>
+<rect x="1046.77" y="84.00" width="88.00" height="24" rx="12" ry="12" fill="#ffffff" stroke="#d8dee6"/>
+<text x="1090.77" y="100.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#415466">&gt;= 10.0</text>
+<line x1="100" y1="588.00" x2="1220" y2="588.00" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="593.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">0</text>
+<line x1="100" y1="509.67" x2="1220" y2="509.67" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="514.67" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">2,500</text>
+<line x1="100" y1="431.33" x2="1220" y2="431.33" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="436.33" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">5,000</text>
+<line x1="100" y1="353.00" x2="1220" y2="353.00" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="358.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">7,500</text>
+<line x1="100" y1="274.67" x2="1220" y2="274.67" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="279.67" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">10,000</text>
+<line x1="100" y1="196.33" x2="1220" y2="196.33" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="201.33" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">12,500</text>
+<line x1="100" y1="118.00" x2="1220" y2="118.00" stroke="#d9dee5" stroke-width="1"/>
+<text x="88" y="123.00" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">15,000</text>
+<line x1="616.92" y1="118" x2="616.92" y2="588" stroke="#49606f" stroke-width="2" stroke-dasharray="7,6"/>
+<rect x="587.92" y="128.00" width="58.00" height="22" rx="11" ry="11" fill="#ffffff" stroke="#cad2dc"/>
+<text x="616.92" y="143.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#49606f">pH 9</text>
+<line x1="961.54" y1="118" x2="961.54" y2="588" stroke="#49606f" stroke-width="2" stroke-dasharray="7,6"/>
+<rect x="932.54" y="128.00" width="58.00" height="22" rx="11" ry="11" fill="#ffffff" stroke="#cad2dc"/>
+<text x="961.54" y="143.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#49606f">pH 10</text>
+<rect x="347.43" y="486.01" width="22.06" height="101.99" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="358.46" y1="588.00" x2="358.46" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="358.46" y="622.00" transform="rotate(-45 358.46 622.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">8.25</text>
+<rect x="399.13" y="499.14" width="22.06" height="88.86" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="410.15" y1="588.00" x2="410.15" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="410.15" y="638.00" transform="rotate(-45 410.15 638.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">8.40</text>
+<rect x="433.59" y="379.32" width="22.06" height="208.68" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="444.62" y1="588.00" x2="444.62" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="444.62" y="622.00" transform="rotate(-45 444.62 622.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">8.50</text>
+<rect x="519.74" y="466.80" width="22.06" height="121.20" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="530.77" y1="588.00" x2="530.77" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="530.77" y="638.00" transform="rotate(-45 530.77 638.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">8.75</text>
+<rect x="605.90" y="372.77" width="22.06" height="215.23" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="616.92" y1="588.00" x2="616.92" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="616.92" y="622.00" transform="rotate(-45 616.92 622.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">9.00</text>
+<rect x="640.36" y="368.95" width="22.06" height="219.05" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="651.38" y1="588.00" x2="651.38" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="651.38" y="638.00" transform="rotate(-45 651.38 638.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">9.10</text>
+<rect x="674.82" y="496.38" width="22.06" height="91.62" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="685.85" y1="588.00" x2="685.85" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="685.85" y="622.00" transform="rotate(-45 685.85 622.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">9.20</text>
+<rect x="778.20" y="168.92" width="22.06" height="419.08" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="789.23" y1="588.00" x2="789.23" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="789.23" y="638.00" transform="rotate(-45 789.23 638.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">9.50</text>
+<rect x="950.51" y="344.07" width="22.06" height="243.93" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="961.54" y1="588.00" x2="961.54" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="961.54" y="622.00" transform="rotate(-45 961.54 622.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">10.00</text>
+<rect x="1036.66" y="474.04" width="22.06" height="113.96" rx="3" ry="3" fill="#2d6d8a" stroke="#1e2b36" stroke-opacity="0.25" opacity="0.94"/>
+<line x1="1047.69" y1="588.00" x2="1047.69" y2="596.00" stroke="#7e8d9a" stroke-width="1"/>
+<text x="1047.69" y="638.00" transform="rotate(-45 1047.69 638.00)" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#334455">10.25</text>
+<line x1="100" y1="588" x2="1220" y2="588" stroke="#203040" stroke-width="2.2"/>
+<line x1="100" y1="118" x2="100" y2="588" stroke="#203040" stroke-width="2.2"/>
+<text x="660.00" y="706.00" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#203040">Stored pH optimum in the manifest</text>
+<text x="28" y="353.00" transform="rotate(-90 28 353.00)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#203040">Number of protein sequences</text>
+<rect x="100" y="738" width="1120" height="162" rx="16" ry="16" fill="#f7f9fb" stroke="#d8dee7"/>
+<text x="120" y="768" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#16212b">Summary</text>
+<rect x="120" y="782" width="180" height="42" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="134" y="800" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5d6b7a">Total sequences</text>
+<text x="134" y="818" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#16212b">58,200</text>
+<rect x="316" y="782" width="180" height="42" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="330" y="800" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5d6b7a">Total proteomes</text>
+<text x="330" y="818" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#16212b">16</text>
+<rect x="512" y="782" width="688" height="42" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="528" y="807" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#5d6b7a">Sequence counts come from the manifest protein_count values grouped by stored pH optimum.</text>
+<rect x="120.00" y="840.00" width="349.33" height="44" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="134.00" y="858.00" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#415466">7.5-&lt;9.0</text>
+<text x="134.00" y="874.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#253443">16,619 sequences across 5 proteomes</text>
+<rect x="485.33" y="840.00" width="349.33" height="44" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="499.33" y="858.00" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#415466">9.0-&lt;10.0</text>
+<text x="499.33" y="874.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#253443">30,159 sequences across 8 proteomes</text>
+<rect x="850.67" y="840.00" width="349.33" height="44" rx="10" ry="10" fill="#ffffff" stroke="#d5dce5"/>
+<text x="864.67" y="858.00" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#415466">&gt;= 10.0</text>
+<text x="864.67" y="874.00" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#253443">11,422 sequences across 3 proteomes</text>
+</svg>

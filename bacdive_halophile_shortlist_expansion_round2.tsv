@@ -1,0 +1,16 @@
+bacdive_id	species	strain	ncbi_taxid	is_type_strain	raw_optimum	nacl_optimum_M	halophile_label	include_in_core	reason	bacdive_url
+5972	Haladaptatus cibarius	D43	453847	yes	15 %	2.567	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/5972
+1516	Halalkalibacillus halophilus	BH2	392827	yes	12.5 %	2.139	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/1516
+1261	Halalkalibacter akibai	1139	1411	yes	4.5 %	0.770	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/1261
+140404	Halalkalibacter kiskunsagensis	B16-24	1548599	yes	5-7 %(w/v)	1.027	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/140404
+132157	Halalkalibacter oceani	SW109	1653776	yes	2.5-3 %(w/v)	0.471	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/132157
+158505	Halalkalibacter urbisdiaboli	FJAT-45385	1960589	yes	4 %(w/v)	0.684	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/158505
+134070	Halarchaeum nitratireducens	MH1-136-2	489913	yes	19.5 %	3.337	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/134070
+24088	Halarchaeum rubridurum	MH1-16-3	489911	yes	19.5 %	3.337	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/24088
+133995	Haloarcula pellucida	BNERC31	1427151	yes	25 %	4.278	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133995
+164426	Halobacteriovorax vibrionivorans	BL9	2152716	yes	2-4 %(w/v)	0.513	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/164426
+2441	Halochromatium roseum	JA134	391920	yes	2 %	0.342	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/2441
+5875	Halomicrobium mukohataei	AL-5	437163	yes	25 %	4.278	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/5875
+141118	Halomicrobium urmianum	DC8	1586233	yes	4 M	4.000	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/141118
+166473	Halonotius aquaticus	F13-13	2216978	yes	25 %(w/v)	4.278	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/166473
+133906	Halopelagius fulvigenes	CCTCC AB 2010456	1198324	yes	22.5 %	3.850	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133906

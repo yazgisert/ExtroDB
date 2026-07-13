@@ -1,0 +1,34 @@
+bacdive_id	species	strain	ncbi_taxid	is_type_strain	raw_optimum	nacl_optimum_M	halophile_label	include_in_core	reason	bacdive_url
+163852	Halalkaliarchaeum desulfuricum	AArc-Sl	2055893	yes	4 M	4.000	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/163852
+5977	Halarchaeum acidiphilum	MH1-52-1	489138	yes	21-24 %	3.850	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/5977
+133624	Haloarcula salaria	HST01-2R	43776	yes	22.5 %	3.850	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133624
+162366	Haloarcula sebkhae	SWO25	932660	yes	4.3-5.1 M	4.700	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/162366
+133623	Haloarcula tradensis	HST03	43776	yes	22.5 %	3.850	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133623
+141038	Halobacterium litoreum	ZS-54-S2	2039234	yes	3.9 M	3.900	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/141038
+164159	Halococcoides cellulosivorans	HArcel1	1679096	yes	3.5-4 M	3.750	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/164159
+133594	Halogeometricum limi	RO1-6	555875	yes	22.62 %	3.871	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133594
+133607	Halogeometricum rufum	RO1-4	553469	yes	21 %	3.593	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133607
+133561	Halogranum rubrum	RO2-11	553466	yes	22.62 %	3.871	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133561
+24089	Halolamina salifodinae	WSY15-H1	1202767	yes	21.17 %	3.623	extreme_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/24089
+134283	Chromohalobacter japonicus	43	223900	yes	10 %	1.711	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/134283
+6001	Chromohalobacter nigrandesensis	4N, LTS-4N	119863	yes	7.5 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6001
+6000	Chromohalobacter sarecensis	LV4	245294	yes	8 %	1.369	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6000
+23743	Gracilibacillus orientalis	XH-63	334253	yes	10 %	1.711	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/23743
+134280	Halobacillus campisalis	ASL-17	435909	yes	8 %	1.369	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/134280
+6048	Halomonas almeriensis	M8	308163	yes	7.5 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6048
+6043	Halomonas anticariensis	FP35	258591	yes	7.5 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6043
+133780	Halomonas beimenensis	NTU-107	475662	yes	7.5 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/133780
+6067	Halomonas cerina	SP4	447424	yes	7.5 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6067
+134359	Halomonas desiderata	DQD2-30	52021	yes	05-10 %	1.283	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/134359
+6049	Halomonas denitrificans	M29	370769	yes	08-10 %	1.540	moderate_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6049
+159837	Abyssibacter profundi	OUC007	2182787	yes	2-3 %(w/v)	0.428	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/159837
+132478	Vallitalea guaymasensis	L81	1675854	yes	3 %(w/v)	0.513	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/132478
+6149	Acidihalobacter aeolianus	V6	2792603	yes	0.428 M	0.428	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/6149
+24820	Acidihalobacter ferrooxydans	V8	1765967	yes	0.428 M	0.428	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/24820
+166169	Acidimangrovimonas sediminis	MS2-2	2056283	yes	4 %	0.684	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/166169
+134305	Actibacter sediminis	JC2129	449463	yes	2 %	0.342	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/134305
+141146	Actibacterium pelagium	JN33	2029103	yes	3 %(w/v)	0.513	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/141146
+141055	Actibacterium ureilyticum	LS-811	1590614	yes	3 %(w/v)	0.513	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/141055
+17008	Actinoallomurus coprocola	TT04-09	478106	yes	1.5 %	0.257	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/17008
+17015	Actinoallomurus oryzae	DSM 45651	502180	yes	2.5 %	0.428	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/17015
+17012	Actinoallomurus purpureus	TTN02-30	478114	yes	2.5 %	0.428	slight_halophile	yes	clear optimum	https://bacdive.dsmz.de/strain/17012

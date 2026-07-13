@@ -1,0 +1,16 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	psychrophile	ogt_celsius
+GCA_000196495.1	Aliivibrio salmonicida	HI 7751	NCBI	GCA_000196495.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000196495.1__Aliivibrio salmonicida__HI_7751.faa	3915	yes	15.0
+GCA_002076895.1	Colwellia beringensis	NB097-1	NCBI	GCA_002076895.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_002076895.1__Colwellia beringensis__NB097-1.faa	3807	yes	11.5
+GCA_000025945.1	Desulfotalea psychrophila	LSv54	NCBI	GCA_000025945.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000025945.1__Desulfotalea psychrophila__LSv54.faa	3236	yes	10.0
+GCA_003149515.1	Hymenobacter nivis	P3	NCBI	GCA_003149515.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_003149515.1__Hymenobacter nivis__P3.faa	4252	yes	15.0
+GCA_008369725.1	Paenibacillus antarcticus	20CM	NCBI	GCA_008369725.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_008369725.1__Paenibacillus antarcticus__20CM.faa	4777	yes	12.5
+GCA_000347635.1	Paraglaciecola psychrophila	170	NCBI	GCA_000347635.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000347635.1__Paraglaciecola psychrophila__170.faa	5618	yes	12.0
+GCA_001590605.1	Pedobacter cryoconitis	A37	NCBI	GCA_001590605.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_001590605.1__Pedobacter cryoconitis__A37.faa	4922	yes	15.0
+GCA_000196255.1	Photobacterium profundum	DSJ4	NCBI	GCA_000196255.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000196255.1__Photobacterium profundum__DSJ4.faa	5480	yes	10.0
+GCA_000238395.4	Pseudoalteromonas arctica	A 37-1-2	NCBI	GCA_000238395.4	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000238395.4__Pseudoalteromonas arctica__A_37-1-2.faa	4292	yes	12.5
+GCA_000153485.2	Psychroflexus torquis	ATCC 700755	NCBI	GCA_000153485.2	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000153485.2__Psychroflexus torquis__ATCC_700755.faa	3526	yes	12.5
+GCF_000015285.1	Psychromonas ingrahamii	37	NCBI	GCF_000015285.1	strain_genome_proteins	https://doi.org/10.1099/ijs.0.64068-0	GCF_000015285.1__Psychromonas ingrahamii__37.faa	3728	yes	10
+GCA_900476435.1	Shewanella benthica	W 145	NCBI	GCA_900476435.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_900476435.1__Shewanella benthica__W_145.faa	4457	yes	5.0
+GCA_000019185.1	Shewanella halifaxensis	HAW-EB4	NCBI	GCA_000019185.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000019185.1__Shewanella halifaxensis__HAW-EB4.faa	4278	yes	10.0
+GCA_002005305.1	Shewanella psychrophila	WP2	NCBI	GCA_002005305.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_002005305.1__Shewanella psychrophila__WP2.faa	5503	yes	12.5
+GCA_000018025.1	Shewanella sediminis	HAW-EB3	NCBI	GCA_000018025.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000018025.1__Shewanella sediminis__HAW-EB3.faa	4497	yes	10.0

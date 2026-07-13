@@ -1,0 +1,49 @@
+taxon_name	ncbi_taxid	strain	thermophile	hyperthermophile	halophile	halophile_class	ogt_celsius	nacl_optimum_M	evidence_type	evidence_source	include_in_core	notes	strain_aliases
+Abyssibacter profundi	2182787	OUC007	no	no	yes	slight		0.428	curated_database	https://bacdive.dsmz.de/strain/159837	yes	BacDive NaCl optimum 2-3 %(w/v); classified as slight; type strain yes.	
+Acidihalobacter aeolianus	2792603	V6	no	no	yes	slight		0.428	curated_database	https://bacdive.dsmz.de/strain/6149	yes	BacDive NaCl optimum 0.428 M; classified as slight; type strain yes.	
+Acidihalobacter ferrooxydans	1765967	V8	no	no	yes	slight		0.428	curated_database	https://bacdive.dsmz.de/strain/24820	yes	BacDive NaCl optimum 0.428 M; classified as slight; type strain yes.	
+Acidimangrovimonas sediminis	2056283	MS2-2	no	no	yes	slight		0.684	curated_database	https://bacdive.dsmz.de/strain/166169	yes	BacDive NaCl optimum 4 %; classified as slight; type strain yes.	
+Actibacter sediminis	449463	JC2129	no	no	yes	slight		0.342	curated_database	https://bacdive.dsmz.de/strain/134305	yes	BacDive NaCl optimum 2 %; classified as slight; type strain yes.	
+Actibacterium pelagium	2029103	JN33	no	no	yes	slight		0.513	curated_database	https://bacdive.dsmz.de/strain/141146	yes	BacDive NaCl optimum 3 %(w/v); classified as slight; type strain yes.	
+Actibacterium ureilyticum	1590614	LS-811	no	no	yes	slight		0.513	curated_database	https://bacdive.dsmz.de/strain/141055	yes	BacDive NaCl optimum 3 %(w/v); classified as slight; type strain yes.	
+Actinoallomurus coprocola	478106	TT04-09	no	no	yes	slight		0.257	curated_database	https://bacdive.dsmz.de/strain/17008	yes	BacDive NaCl optimum 1.5 %; classified as slight; type strain yes.	
+Actinoallomurus oryzae	502180	DSM 45651	no	no	yes	slight		0.428	curated_database	https://bacdive.dsmz.de/strain/17015	yes	BacDive NaCl optimum 2.5 %; classified as slight; type strain yes.	
+Actinoallomurus purpureus	478114	TTN02-30	no	no	yes	slight		0.428	curated_database	https://bacdive.dsmz.de/strain/17012	yes	BacDive NaCl optimum 2.5 %; classified as slight; type strain yes.	
+Chromohalobacter japonicus	223900	43	no	no	yes	moderate		1.711	curated_database	https://bacdive.dsmz.de/strain/134283	yes	BacDive NaCl optimum 10 %; classified as moderate; type strain yes.	
+Chromohalobacter nigrandesensis	119863	4N, LTS-4N	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/6001	yes	BacDive NaCl optimum 7.5 %; classified as moderate; type strain yes.	
+Chromohalobacter sarecensis	245294	LV4	no	no	yes	moderate		1.369	curated_database	https://bacdive.dsmz.de/strain/6000	yes	BacDive NaCl optimum 8 %; classified as moderate; type strain yes.	
+Gracilibacillus orientalis	334253	XH-63	no	no	yes	moderate		1.711	curated_database	https://bacdive.dsmz.de/strain/23743	yes	BacDive NaCl optimum 10 %; classified as moderate; type strain yes.	
+Haladaptatus cibarius	453847	D43	no	no	yes	moderate		2.567	curated_database	https://bacdive.dsmz.de/strain/5972	yes	BacDive NaCl optimum 15 %; classified as moderate; type strain yes.	DSM 19505, JCM 15962, KCTC 4055
+Halalkaliarchaeum desulfuricum	2055893	AArc-Sl	no	no	yes	extreme		4.000	curated_database	https://bacdive.dsmz.de/strain/163852	yes	BacDive NaCl optimum 4 M; classified as extreme; type strain yes.	
+Halalkalibacillus halophilus	392827	BH2	no	no	yes	moderate		2.139	curated_database	https://bacdive.dsmz.de/strain/1516	yes	BacDive NaCl optimum 12.5 %; classified as moderate; type strain yes.	DSM 18494, JCM 14192, BCRC 80128, CIP 109651
+Halalkalibacter akibai	1411	1139	no	no	yes	slight		0.770	curated_database	https://bacdive.dsmz.de/strain/1261	yes	BacDive NaCl optimum 4.5 %; classified as slight; type strain yes.	DSM 21942, ATCC 43226, CIP 109018, JCM 9157
+Halalkalibacter kiskunsagensis	1548599	B16-24	no	no	yes	moderate		1.027	curated_database	https://bacdive.dsmz.de/strain/140404	yes	BacDive NaCl optimum 5-7 %(w/v); classified as moderate; type strain yes.	DSM 29791, NCAIM B.02610
+Halalkalibacter oceani	1653776	SW109	no	no	yes	slight		0.471	curated_database	https://bacdive.dsmz.de/strain/132157	yes	BacDive NaCl optimum 2.5-3 %(w/v); classified as slight; type strain yes.	DSM 100579, CGMCC 1.12347
+Halalkalibacter urbisdiaboli	1960589	FJAT-45385	no	no	yes	slight		0.684	curated_database	https://bacdive.dsmz.de/strain/158505	yes	BacDive NaCl optimum 4 %(w/v); classified as slight; type strain yes.	DSM 104651, CCTCC AB 2016263
+Halarchaeum acidiphilum	489138	MH1-52-1	no	no	yes	extreme		3.850	curated_database	https://bacdive.dsmz.de/strain/5977	yes	BacDive NaCl optimum 21-24 %; classified as extreme; type strain yes.	
+Halarchaeum nitratireducens	489913	MH1-136-2	no	no	yes	moderate		3.337	curated_database	https://bacdive.dsmz.de/strain/134070	yes	BacDive NaCl optimum 19.5 %; classified as moderate; type strain yes.	JCM 16331, CECT 7573
+Halarchaeum rubridurum	489911	MH1-16-3	no	no	yes	moderate		3.337	curated_database	https://bacdive.dsmz.de/strain/24088	yes	BacDive NaCl optimum 19.5 %; classified as moderate; type strain yes.	DSM 22443, CECT 7535, JCM 16108
+Haloarcula pellucida	1427151	BNERC31	no	no	yes	extreme		4.278	curated_database	https://bacdive.dsmz.de/strain/133995	yes	BacDive NaCl optimum 25 %; classified as extreme; type strain yes.	JCM 17820, CECT 7537
+Haloarcula salaria	43776	HST01-2R	no	no	yes	extreme		3.850	curated_database	https://bacdive.dsmz.de/strain/133624	yes	BacDive NaCl optimum 22.5 %; classified as extreme; type strain yes.	
+Haloarcula sebkhae	932660	SWO25	no	no	yes	extreme		4.700	curated_database	https://bacdive.dsmz.de/strain/162366	yes	BacDive NaCl optimum 4.3-5.1 M; classified as extreme; type strain yes.	
+Haloarcula tradensis	43776	HST03	no	no	yes	extreme		3.850	curated_database	https://bacdive.dsmz.de/strain/133623	yes	BacDive NaCl optimum 22.5 %; classified as extreme; type strain yes.	
+Halobacillus campisalis	435909	ASL-17	no	no	yes	moderate		1.369	curated_database	https://bacdive.dsmz.de/strain/134280	yes	BacDive NaCl optimum 8 %; classified as moderate; type strain yes.	
+Halobacteriovorax vibrionivorans	2152716	BL9	no	no	yes	slight		0.513	curated_database	https://bacdive.dsmz.de/strain/164426	yes	BacDive NaCl optimum 2-4 %(w/v); classified as slight; type strain yes.	JCM 32962, MCCC 1K03527
+Halobacterium litoreum	2039234	ZS-54-S2	no	no	yes	extreme		3.900	curated_database	https://bacdive.dsmz.de/strain/141038	yes	BacDive NaCl optimum 3.9 M; classified as extreme; type strain yes.	
+Halochromatium roseum	391920	JA134	no	no	yes	slight		0.342	curated_database	https://bacdive.dsmz.de/strain/2441	yes	BacDive NaCl optimum 2 %; classified as slight; type strain yes.	DSM 18859, ATCC BAA-1363, JCM 14151, CIP 109733
+Halococcoides cellulosivorans	1679096	HArcel1	no	no	yes	extreme		3.750	curated_database	https://bacdive.dsmz.de/strain/164159	yes	BacDive NaCl optimum 3.5-4 M; classified as extreme; type strain yes.	
+Halogeometricum limi	555875	RO1-6	no	no	yes	extreme		3.871	curated_database	https://bacdive.dsmz.de/strain/133594	yes	BacDive NaCl optimum 22.62 %; classified as extreme; type strain yes.	
+Halogeometricum rufum	553469	RO1-4	no	no	yes	extreme		3.593	curated_database	https://bacdive.dsmz.de/strain/133607	yes	BacDive NaCl optimum 21 %; classified as extreme; type strain yes.	
+Halogranum rubrum	553466	RO2-11	no	no	yes	extreme		3.871	curated_database	https://bacdive.dsmz.de/strain/133561	yes	BacDive NaCl optimum 22.62 %; classified as extreme; type strain yes.	
+Halolamina salifodinae	1202767	WSY15-H1	no	no	yes	extreme		3.623	curated_database	https://bacdive.dsmz.de/strain/24089	yes	BacDive NaCl optimum 21.17 %; classified as extreme; type strain yes.	
+Halomicrobium mukohataei	437163	AL-5	no	no	yes	extreme		4.278	curated_database	https://bacdive.dsmz.de/strain/5875	yes	BacDive NaCl optimum 25 %; classified as extreme; type strain yes.	DSM 19301, CECT 7257
+Halomicrobium urmianum	1586233	DC8	no	no	yes	extreme		4.000	curated_database	https://bacdive.dsmz.de/strain/141118	yes	BacDive NaCl optimum 4 M; classified as extreme; type strain yes.	IBRC-M 10911, CECT 8793
+Halomonas almeriensis	308163	M8	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/6048	yes	BacDive NaCl optimum 7.5 %; classified as moderate; type strain yes.	
+Halomonas anticariensis	258591	FP35	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/6043	yes	BacDive NaCl optimum 7.5 %; classified as moderate; type strain yes.	
+Halomonas beimenensis	475662	NTU-107	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/133780	yes	BacDive NaCl optimum 7.5 %; classified as moderate; type strain yes.	
+Halomonas cerina	447424	SP4	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/6067	yes	BacDive NaCl optimum 7.5 %; classified as moderate; type strain yes.	
+Halomonas denitrificans	370769	M29	no	no	yes	moderate		1.540	curated_database	https://bacdive.dsmz.de/strain/6049	yes	BacDive NaCl optimum 08-10 %; classified as moderate; type strain yes.	
+Halomonas desiderata	52021	DQD2-30	no	no	yes	moderate		1.283	curated_database	https://bacdive.dsmz.de/strain/134359	yes	BacDive NaCl optimum 05-10 %; classified as moderate; type strain yes.	
+Halonotius aquaticus	2216978	F13-13	no	no	yes	extreme		4.278	curated_database	https://bacdive.dsmz.de/strain/166473	yes	BacDive NaCl optimum 25 %(w/v); classified as extreme; type strain yes.	CECT 9386, IBRC-M 11204
+Halopelagius fulvigenes	1198324	CCTCC AB 2010456	no	no	yes	extreme		3.850	curated_database	https://bacdive.dsmz.de/strain/133906	yes	BacDive NaCl optimum 22.5 %; classified as extreme; type strain yes.	CCTCC AB 2010456, JCM 17506, YIM 94188
+Vallitalea guaymasensis	1675854	L81	no	no	yes	slight		0.513	curated_database	https://bacdive.dsmz.de/strain/132478	yes	BacDive NaCl optimum 3 %(w/v); classified as slight; type strain yes.	

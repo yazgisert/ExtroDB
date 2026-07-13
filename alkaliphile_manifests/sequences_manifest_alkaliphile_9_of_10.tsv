@@ -1,0 +1,10 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	alkaliphile	alkaliphile_class	ph_optimum
+GCA_000422245	Alkalidesulfovibrio alkalitolerans	DSM 16529	NCBI	GCA_000422245	strain_genome_proteins	https://bacdive.dsmz.de/strain/4159	GCA_000422245.1__Alkalidesulfovibrio alkalitolerans__DSM_16529.faa	2924	yes		9.200
+GCA_900107845	Alkalimonas amylolytica	DSM 18337	NCBI	GCA_900107845	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/14986177/	GCA_900107845.1__Alkalimonas_amylolytica__DSM_18337.faa	3637	yes	extreme_alkaliphile	10.250
+GCA_000018325	Alkaliphilus oremlandii	DSM 21761	NCBI	GCA_000018325	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/18378595/	GCA_000018325.1__Alkaliphilus_oremlandii__DSM_21761.faa	2836	no	alkalitolerant	8.400
+GCA_039528175	Citricoccus alkalitolerans	JCM 13012	NCBI	GCA_039528175	strain_genome_proteins	https://bacdive.dsmz.de/strain/7632	GCA_039528175.1__Citricoccus_alkalitolerans__JCM_13012.faa	3108	no	alkalitolerant	8.500
+GCF_055378285.1	Desulfurispirillum alkaliphilum	DSM 18274	NCBI	GCF_055378285.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/17242870/	GCF_055378285.1__Desulfurispirillum alkaliphilum__DSM_18274.faa	2536	yes		9.000
+GCA_000787375	Halalkalibacter okhensis	DSM 23308	NCBI	GCA_000787375	strain_genome_proteins	https://bacdive.dsmz.de/strain/1262	GCA_000787375.1__Halalkalibacter okhensis__DSM_23308.faa	4333	yes		9.000
+GCA_000020005	Natranaerobius thermophilus	DSM 18059	NCBI	GCA_000020005	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/17978210/	GCA_000020005.1__Natranaerobius_thermophilus__DSM_18059.faa	2906	yes		9.500
+GCA_039521805	Oceanobacillus oncorhynchi	JCM 12661	NCBI	GCA_039521805	strain_genome_proteins	https://bacdive.dsmz.de/strain/134115	GCA_039521805.1__Oceanobacillus oncorhynchi__JCM_12661.faa	4762	yes		9.500
+GCA_900107405	Tindallia californiensis	DSM 14871	NCBI	GCA_900107405	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/12728359/	GCA_900107405.1__Tindallia_californiensis__DSM_14871.faa	2832	yes		9.500

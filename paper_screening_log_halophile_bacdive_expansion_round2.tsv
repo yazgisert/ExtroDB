@@ -1,0 +1,16 @@
+source_type	citation_or_resource_url	focus_category	taxon_name_candidate	strain_candidate	key_evidence	extracted_ogt_celsius	extracted_nacl_optimum_M	extracted_label	evidence_level_candidate	follow_up_action	notes
+BacDive	https://bacdive.dsmz.de/strain/5972	halophile	Haladaptatus cibarius	D43	BacDive NaCl optimum = 15 %		2.567	moderate_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/1516	halophile	Halalkalibacillus halophilus	BH2	BacDive NaCl optimum = 12.5 %		2.139	moderate_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/1261	halophile	Halalkalibacter akibai	1139	BacDive NaCl optimum = 4.5 %		0.770	slight_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/140404	halophile	Halalkalibacter kiskunsagensis	B16-24	BacDive NaCl optimum = 5-7 %(w/v)		1.027	moderate_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/132157	halophile	Halalkalibacter oceani	SW109	BacDive NaCl optimum = 2.5-3 %(w/v)		0.471	slight_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/158505	halophile	Halalkalibacter urbisdiaboli	FJAT-45385	BacDive NaCl optimum = 4 %(w/v)		0.684	slight_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/134070	halophile	Halarchaeum nitratireducens	MH1-136-2	BacDive NaCl optimum = 19.5 %		3.337	moderate_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/24088	halophile	Halarchaeum rubridurum	MH1-16-3	BacDive NaCl optimum = 19.5 %		3.337	moderate_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/133995	halophile	Haloarcula pellucida	BNERC31	BacDive NaCl optimum = 25 %		4.278	extreme_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/164426	halophile	Halobacteriovorax vibrionivorans	BL9	BacDive NaCl optimum = 2-4 %(w/v)		0.513	slight_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/2441	halophile	Halochromatium roseum	JA134	BacDive NaCl optimum = 2 %		0.342	slight_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/5875	halophile	Halomicrobium mukohataei	AL-5	BacDive NaCl optimum = 25 %		4.278	extreme_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/141118	halophile	Halomicrobium urmianum	DC8	BacDive NaCl optimum = 4 M		4.000	extreme_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/166473	halophile	Halonotius aquaticus	F13-13	BacDive NaCl optimum = 25 %(w/v)		4.278	extreme_halophile	curated_database	transfer_to_core	type strain; clear optimum
+BacDive	https://bacdive.dsmz.de/strain/133906	halophile	Halopelagius fulvigenes	CCTCC AB 2010456	BacDive NaCl optimum = 22.5 %		3.850	extreme_halophile	curated_database	transfer_to_core	type strain; clear optimum

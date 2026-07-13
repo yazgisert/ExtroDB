@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extremophile Searchable Resource</title>
+    <link rel="stylesheet" href="/styles.css?v=20260629-1" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Curated Local Resource</p>
+        <h1>Extremophile Proteome Index</h1>
+        <p class="hero-copy">
+          A small local interface for browsing the curated organism-level
+          extremophile dataset, filtering by phenotype and retrieval status, and
+          exporting subsets for downstream work.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-chip">
+            <span class="hero-chip-label">Layer</span>
+            <strong>Organism-level proteome index</strong>
+          </div>
+          <div class="hero-chip">
+            <span class="hero-chip-label">Index Updated</span>
+            <strong id="updated-at">Loading...</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel filters-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Filter</p>
+              <h2>Slice the dataset</h2>
+            </div>
+            <div class="button-row">
+              <button id="reset-filters" class="button button-secondary" type="button">Reset</button>
+              <button id="export-results" class="button" type="button">Export TSV</button>
+            </div>
+          </div>
+
+          <div class="filters-grid">
+            <label class="field">
+              <span>Search</span>
+              <input id="search" type="search" placeholder="Taxon, strain, accession, notes..." />
+            </label>
+
+            <label class="field">
+              <span>Phenotype Family</span>
+              <small class="field-help">
+                Includes all organisms carrying this phenotype, even if curated in another branch.
+              </small>
+              <select id="phenotype-focus">
+                <option value="">All phenotypes</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Phenotype Class</span>
+              <select id="phenotype-class">
+                <option value="">All classes</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Minimum Protein Count</span>
+              <input id="min-protein-count" type="number" min="0" step="1" placeholder="0" />
+            </label>
+
+            <label class="field">
+              <span>Minimum OGT (C)</span>
+              <input id="min-ogt" type="number" min="0" step="1" placeholder="0" />
+            </label>
+
+            <label class="field">
+              <span>Maximum OGT (C)</span>
+              <input id="max-ogt" type="number" min="0" step="1" placeholder="120" />
+            </label>
+
+            <label class="field">
+              <span>Minimum NaCl Optimum (M)</span>
+              <input id="min-nacl" type="number" min="0" step="0.01" placeholder="0.0" />
+            </label>
+
+            <label class="field">
+              <span>Maximum NaCl Optimum (M)</span>
+              <input id="max-nacl" type="number" min="0" step="0.01" placeholder="6.0" />
+            </label>
+
+            <label class="field">
+              <span>Minimum pH Optimum</span>
+              <input id="min-ph" type="number" min="0" step="0.01" placeholder="0.0" />
+            </label>
+
+            <label class="field">
+              <span>Maximum pH Optimum</span>
+              <input id="max-ph" type="number" min="0" step="0.01" placeholder="14.0" />
+            </label>
+          </div>
+        </section>
+
+        <section class="metrics-grid" id="metrics-grid" aria-live="polite"></section>
+
+        <section class="panel summary-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Coverage</p>
+              <h2>Curation Branch Summary</h2>
+            </div>
+          </div>
+          <div id="summary-table"></div>
+          <div id="class-summary-table"></div>
+        </section>
+
+        <section class="results-layout">
+          <section class="panel results-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Results</p>
+                <h2 id="results-title">Matching entries</h2>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Taxon</th>
+                    <th>Curation Branch</th>
+                    <th>Phenotype</th>
+                    <th>Status</th>
+                    <th>Protein Count</th>
+                    <th>OGT</th>
+                    <th>NaCl</th>
+                    <th>pH</th>
+                  </tr>
+                </thead>
+                <tbody id="results-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <aside class="panel detail-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Details</p>
+                <h2>Selected entry</h2>
+              </div>
+            </div>
+            <div id="detail-card" class="detail-empty">
+              Select a row to inspect evidence, sequence source, notes, and local file links.
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <template id="metric-card-template">
+      <article class="metric-card">
+        <p class="metric-label"></p>
+        <strong class="metric-value"></strong>
+        <p class="metric-note"></p>
+      </article>
+    </template>
+
+    <script src="/app.js?v=20260629-2" defer></script>
+  </body>
+</html>

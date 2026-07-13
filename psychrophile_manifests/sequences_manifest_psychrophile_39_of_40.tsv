@@ -1,0 +1,40 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	psychrophile	ogt_celsius
+GCF_000987775.1	Arsukibacterium ikkense	GCM72	NCBI	GCF_000987775.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_000987775.1__Arsukibacterium ikkense__GCM72.faa	3727	yes	15.0
+GCF_020176155.1	Clostridium bowmanii	A-1/C-an/C1	NCBI	GCF_020176155.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/2824	GCF_020176155.1__Clostridium bowmanii__A-1_C-an_C1.faa	4439	yes	15.0
+GCF_018861865.1	Clostridium frigoris	D-1/D-an/II	NCBI	GCF_018861865.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/2822	GCF_018861865.1__Clostridium frigoris__D-1_D-an_II.faa	3771	yes	6.0
+GCF_018861735.1	Clostridium lacusfryxellense	C/C-an/B1	NCBI	GCF_018861735.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/2823	GCF_018861735.1__Clostridium lacusfryxellense__C_C-an_B1.faa	5009	yes	10.0
+GCF_018861705.1	Clostridium psychrophilum	A-1/C-an/I	NCBI	GCF_018861705.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/2825	GCF_018861705.1__Clostridium psychrophilum__A-1_C-an_I.faa	3710	yes	4.0
+GCA_002076895.1	Colwellia beringensis	NB097-1	NCBI	GCA_002076895.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_002076895.1__Colwellia beringensis__NB097-1.faa	3807	yes	11.5
+GCF_002207865.1	Colwellia marinimaniae	MTCD1	NCBI	GCF_002207865.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/27902293/	GCF_002207865.1__Colwellia marinimaniae__MTCD1.faa	3859	yes	6.0
+GCF_000378625.1	Colwellia piezophila	Y223G	NCBI	GCF_000378625.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/15388720/	GCF_000378625.1__Colwellia piezophila__Y223G.faa	4414	yes	10.0
+GCF_000012325.1	Colwellia psychrerythraea	34H	NCBI	GCF_000012325.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/17537732/	GCF_000012325.1__Colwellia psychrerythraea__34H.faa	4408	yes	10.0
+GCF_002954245.1	Cryobacterium aureum	Hh31	NCBI	GCF_002954245.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_002954245.1__Cryobacterium aureum__Hh31.faa	4000	yes	11.0
+GCF_004402405.1	Cryobacterium levicorallinum	Hh34	NCBI	GCF_004402405.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_004402405.1__Cryobacterium levicorallinum__Hh34.faa	3395	yes	11.0
+GCA_000025945.1	Desulfotalea psychrophila	LSv54	NCBI	GCA_000025945.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000025945.1__Desulfotalea psychrophila__LSv54.faa	3236	yes	10.0
+GCF_001678675.1	Gelidibacter algens	ACAM 536	NCBI	GCF_001678675.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/5597	GCF_001678675.1__Gelidibacter algens__ACAM_536.faa	3778	yes	10.0
+GCF_007997295.1	Gillisia hiemivivida	IC154	NCBI	GCF_007997295.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_007997295.1__Gillisia hiemivivida__IC154.faa	3210	yes	13.0
+GCA_003149515.1	Hymenobacter nivis	P3	NCBI	GCA_003149515.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_003149515.1__Hymenobacter nivis__P3.faa	4252	yes	15.0
+GCF_000797445.1	Lacinutrix jangbogonensis	PAMC 27137	NCBI	GCF_000797445.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_000797445.1__Lacinutrix jangbogonensis__PAMC_27137.faa	3382	yes	10.0
+GCF_028728065.1	Lentisphaera profundi	SAORIC-696	NCBI	GCF_028728065.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_028728065.1__Lentisphaera profundi__SAORIC-696.faa	4227	yes	15.0
+GCF_008931805.1	Moritella marina	MP-1	NCBI	GCF_008931805.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/132847	GCF_008931805.1__Moritella marina__MP-1.faa	4063	yes	15.0
+GCF_001305295.1	Neptunomonas antarctica	S3-22	NCBI	GCF_001305295.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_001305295.1__Neptunomonas antarctica__S3-22.faa	4132	yes	15.0
+GCF_000967895.1	Oleispira antarctica	RB-8	NCBI	GCF_000967895.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/11291	GCF_000967895.1__Oleispira antarctica__RB-8.faa	3841	yes	15.0
+GCA_008369725.1	Paenibacillus antarcticus	20CM	NCBI	GCA_008369725.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_008369725.1__Paenibacillus antarcticus__20CM.faa	4777	yes	12.5
+GCA_000347635.1	Paraglaciecola psychrophila	170	NCBI	GCA_000347635.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000347635.1__Paraglaciecola psychrophila__170.faa	5618	yes	12.0
+GCA_001590605.1	Pedobacter cryoconitis	A37	NCBI	GCA_001590605.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_001590605.1__Pedobacter cryoconitis__A37.faa	4922	yes	15.0
+GCF_002849605.1	Photobacterium carnosum	TMW 2.2021	NCBI	GCF_002849605.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_002849605.1__Photobacterium carnosum__TMW_2.faa	4017	yes	12.5
+GCA_000196255.1	Photobacterium profundum	DSJ4	NCBI	GCA_000196255.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000196255.1__Photobacterium profundum__DSJ4.faa	5480	yes	10.0
+GCF_000744735.1	Porticoccus hydrocarbonoclasticus	MCTG13d	NCBI	GCF_000744735.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_000744735.1__Porticoccus hydrocarbonoclasticus__MCTG13d.faa	2309	yes	15.0
+GCA_000238395.4	Pseudoalteromonas arctica	A 37-1-2	NCBI	GCA_000238395.4	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000238395.4__Pseudoalteromonas arctica__A_37-1-2.faa	4292	yes	12.5
+GCF_000026085.1	Pseudoalteromonas translucida	TAC125	NCBI	GCF_000026085.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/14679221/	GCF_000026085.1__Pseudoalteromonas translucida__TAC125.faa	3359	yes	15.0
+GCA_000153485.2	Psychroflexus torquis	ATCC 700755	NCBI	GCA_000153485.2	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000153485.2__Psychroflexus torquis__ATCC_700755.faa	3526	yes	12.5
+GCF_000015285.1	Psychromonas ingrahamii	37	NCBI	GCF_000015285.1	strain_genome_proteins	https://doi.org/10.1099/ijs.0.64068-0	GCF_000015285.1__Psychromonas ingrahamii__37.faa	3728	yes	10
+GCF_030161115.1	Psychromonas marina	4-22	NCBI	GCF_030161115.1	strain_genome_proteins	https://pubmed.ncbi.nlm.nih.gov/12361246/	GCF_030161115.1__Psychromonas marina__4-22.faa	3715	yes	15.0
+GCF_002795845.1	Reinekea forsetii	Hel1_31_D35	NCBI	GCF_002795845.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_002795845.1__Reinekea forsetii__Hel1_31_D35.faa	3210	yes	12.0
+GCF_003966265.1	Shewanella atlantica	HAW-EB5	NCBI	GCF_003966265.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_003966265.1__Shewanella atlantica__HAW-EB5.faa	4471	yes	10.0
+GCA_900476435.1	Shewanella benthica	W 145	NCBI	GCA_900476435.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_900476435.1__Shewanella benthica__W_145.faa	4457	yes	5.0
+GCF_003966225.1	Shewanella canadensis	HAW-EB2	NCBI	GCF_003966225.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_003966225.1__Shewanella canadensis__HAW-EB2.faa	4745	yes	10.0
+GCA_000019185.1	Shewanella halifaxensis	HAW-EB4	NCBI	GCA_000019185.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000019185.1__Shewanella halifaxensis__HAW-EB4.faa	4278	yes	10.0
+GCA_002005305.1	Shewanella psychrophila	WP2	NCBI	GCA_002005305.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_002005305.1__Shewanella psychrophila__WP2.faa	5503	yes	12.5
+GCA_000018025.1	Shewanella sediminis	HAW-EB3	NCBI	GCA_000018025.1	strain_genome_proteins	https://togodb.org/db/tempura	GCA_000018025.1__Shewanella sediminis__HAW-EB3.faa	4497	yes	10.0
+GCF_000242915.1	Sulfurimonas gotlandica	GD1	NCBI	GCF_000242915.1	strain_genome_proteins	https://togodb.org/db/tempura	GCF_000242915.1__Sulfurimonas gotlandica__GD1.faa	2839	yes	15.0

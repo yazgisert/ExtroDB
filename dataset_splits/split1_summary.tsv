@@ -1,0 +1,16 @@
+label	partition	n_organisms	n_proteins	pct_proteins
+acidophile	train	26	110848	100.0%
+acidophile	val	0	0	0.0%
+acidophile	test	0	0	0.0%
+alkaliphile	train	30	106901	100.0%
+alkaliphile	val	0	0	0.0%
+alkaliphile	test	0	0	0.0%
+halophile	train	46	180326	100.0%
+halophile	val	0	0	0.0%
+halophile	test	0	0	0.0%
+psychrophile	train	40	162318	100.0%
+psychrophile	val	0	0	0.0%
+psychrophile	test	0	0	0.0%
+thermophile	train	50	107266	100.0%
+thermophile	val	0	0	0.0%
+thermophile	test	0	0	0.0%

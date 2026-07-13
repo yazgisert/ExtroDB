@@ -1,0 +1,12 @@
+dataset_branch	dataset_layer	proteome_status	row_count	protein_count_sum
+acidophile_expansion	expansion	downloaded	21	50761
+acidotolerant_expansion	expansion	downloaded	10	52214
+alkaliphile_core	core	downloaded	43	149056
+eukaryotic_algae_exploratory	exploratory	downloaded	13	185680
+eukaryotic_algae_exploratory	exploratory	not_started	6	0
+halophile_core	core	downloaded	46	180326
+halophile_core	core	missing	2	0
+moderate_acidophile_expansion	expansion	downloaded	15	55930
+psychrophile_core	core	downloaded	40	162318
+thermophile_core	core	downloaded	68	152071
+thermophile_core	core	missing	1	0

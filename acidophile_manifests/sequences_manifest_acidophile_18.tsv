@@ -1,0 +1,19 @@
+assembly_accession	taxon_name	strain	sequence_source_db	sequence_source_accession	sequence_level	evidence_source	local_fasta_file	protein_count	acidophile	acidophile_class	ph_optimum
+GCF_009428885.1	Acidianus ambivalens	DSM 3772	GTDB	RS_GCF_009428885.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16643	GCF_009428885.1__Acidianus_ambivalens__DSM_3772.faa	2607	yes		2.000
+GCF_003201835.2	Acidianus brierleyi	DSM 1651	GTDB	RS_GCF_003201835.2	strain_genome_proteins	https://bacdive.dsmz.de/strain/16640	GCF_003201835.2__Acidianus_brierleyi__DSM_1651.faa	2998	yes		1.750
+GCF_009729545.1	Acidianus infernus	DSM 3191	NCBI	GCF_009729545.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16642	GCF_009729545.1__Acidianus_infernus__DSM_3191.faa	2363	yes		2.000
+GCF_000023265.1	Acidimicrobium ferrooxidans	DSM 10331	NCBI	GCF_000023265.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/106	GCF_000023265.1__Acidimicrobium_ferrooxidans__DSM_10331.faa	1990	yes		2.000
+GCF_000175575.2	Acidithiobacillus caldus	DSM 8584	NCBI	GCF_000175575.2	strain_genome_proteins	https://bacdive.dsmz.de/strain/126	GCF_000175575.2__Acidithiobacillus_caldus__DSM_8584.faa	2812	yes		2.250
+GCF_003966655.1	Acidithiobacillus ferridurans	DSM 29468	NCBI	GCF_003966655.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/130138	GCF_003966655.1__Acidithiobacillus_ferridurans__DSM_29468.faa	2864	yes		2.100
+GCA_018854775	Acidithiobacillus ferriphilus	DSM 100412	NCBI	GCA_018854775	strain_genome_proteins	https://bacdive.dsmz.de/strain/132357	GCA_018854775__Acidithiobacillus ferriphilus__DSM_100412.faa	2527	yes		2.000
+GCF_000021485.1	Acidithiobacillus ferrooxidans	ATCC 23270	GTDB	RS_GCF_000021485.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/118	GCF_000021485.1__Acidithiobacillus_ferrooxidans__ATCC_23270.faa	2931	yes		2.000
+GCA_018854645	Acidithiobacillus thiooxidans	DSM 504	NCBI	GCA_018854645	strain_genome_proteins	https://bacdive.dsmz.de/strain/121	GCA_018854645__Acidithiobacillus thiooxidans__DSM_504.faa	2966	yes		2.500
+GCF_002078355.1	Ferroplasma acidiphilum	DSM 12658	GTDB	RS_GCF_002078355.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/5461	GCF_002078355.1__Ferroplasma_acidiphilum__DSM_12658.faa	1778	yes		1.700
+GCF_000755505.1	Leptospirillum ferriphilum	DSM 14647	NCBI	GCF_000755505.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/10536	GCF_000755505.1__Leptospirillum ferriphilum__DSM_14647.faa	2293	yes		1.600
+GCF_000016605.1	Metallosphaera sedula	TH2	GTDB	RS_GCF_000016605.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16645	GCF_000016605.1__Metallosphaera_sedula__TH2.faa	2335	yes		2.000
+GCF_900176435	Picrophilus oshimae	JCM 10054	NCBI	GCF_900176435	strain_genome_proteins	https://bacdive.dsmz.de/strain/11900	GCF_900176435__Picrophilus_oshimae__JCM_10054.faa	1576	yes	hyperacidophile	0.700
+GCF_009729035.1	Stygiolobus azoricus	DSM 6296	NCBI	GCF_009729035.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16648	GCF_009729035.1__Stygiolobus_azoricus__DSM_6296.faa	2118	yes		3.000
+GCA_000237975.1	Sulfobacillus acidophilus	DSM 10332	NCBI	GCA_000237975.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/18036	GCA_000237975.1__Sulfobacillus_acidophilus__DSM_10332.faa	3471	yes		1.800
+GCF_000012285.1	Sulfolobus acidocaldarius	NBRC 15157	GTDB	RS_GCF_000012285.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16649	GCF_000012285.1__Sulfolobus_acidocaldarius__NBRC_15157.faa	2290	yes		3.000
+GCF_009729055.1	Sulfurisphaera ohwakuensis	TA-1	GTDB	RS_GCF_009729055.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/16639	GCF_009729055.1__Sulfurisphaera_ohwakuensis__TA-1.faa	2900	yes		2.000
+GCF_000195915.1	Thermoplasma acidophilum	DSM 1728	GTDB	RS_GCF_000195915.1	strain_genome_proteins	https://bacdive.dsmz.de/strain/17017	GCF_000195915.1__Thermoplasma_acidophilum__DSM_1728.faa	1539	yes		2.000

@@ -1,0 +1,4 @@
+interval,sequence_count,proteome_count
+<= 3.0,46353,19
+3.0-5.0,42704,13
+5.0-7.5,69848,14
