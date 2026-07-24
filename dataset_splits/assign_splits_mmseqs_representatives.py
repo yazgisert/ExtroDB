@@ -6,7 +6,11 @@ assign_splits_mmseqs_representatives.py
   2. Look up each representative's phenotype label via its proteome_id prefix.
   3. Randomly split representatives into train / val / test (70/10/20),
      stratified by phenotype label so every class is proportionally represented.
-  4. Write output FASTAs for both splits:
+  4. Balance across classes: downsample every class to the size of the smallest
+     class. The cap is determined dynamically — no hardcoded numbers — so the
+     script adapts automatically if the dataset changes. Downsampling is done
+     per partition so the 70/10/20 ratio is preserved within each class.
+  5. Write output FASTAs for both splits:
        Split 1 (coarse, 5 classes):   rep_split1_train.faa / _val.faa / _test.faa
        Split 2 (subtypes, 12 classes): rep_split2_train.faa / _val.faa / _test.faa
 
@@ -17,6 +21,7 @@ RANDOM_SEED = 42. Document this in the thesis methods section.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import random
 from collections import defaultdict
@@ -126,15 +131,76 @@ def stratified_split(
     return assignments
 
 
+def balance_assignments(
+    records: list[dict],
+    assignments: dict[str, str],
+    label_key: str,
+    rng: random.Random,
+) -> dict[str, str]:
+    """
+    Downsample all classes to the size of the smallest class.
+
+    Downsampling is done per partition (train/val/test separately) so that
+    the 70/10/20 ratio is preserved within each class after balancing.
+    The cap is determined dynamically from the data — no hardcoded numbers.
+
+    Returns a new assignments dict containing only the kept records.
+    """
+    # Group headers by (label, partition)
+    by_label_partition: dict[str, dict[str, list[str]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
+    for rec in records:
+        header    = rec["header"]
+        partition = assignments.get(header)
+        if partition is None:
+            continue
+        by_label_partition[rec[label_key]][partition].append(header)
+
+    # Total size per class
+    class_totals = {
+        label: sum(len(v) for v in partitions.values())
+        for label, partitions in by_label_partition.items()
+    }
+    min_label = min(class_totals, key=class_totals.get)
+    min_size  = class_totals[min_label]
+    print(f"  Smallest class: '{min_label}' ({min_size:,} representatives) "
+          f"— downsampling all larger classes to match.")
+
+    balanced: dict[str, str] = {}
+    for label, partitions in sorted(by_label_partition.items()):
+        total = class_totals[label]
+        for partition, headers in partitions.items():
+            if total <= min_size:
+                # Already at or below the cap — keep everything
+                keep = headers
+            else:
+                # Keep the proportional share of min_size from this partition
+                n_keep = round(min_size * len(headers) / total)
+                keep   = rng.sample(headers, min(n_keep, len(headers)))
+            for h in keep:
+                balanced[h] = partition
+
+        if total > min_size:
+            kept = sum(
+                round(min_size * len(headers) / total)
+                for headers in partitions.values()
+            )
+            print(f"  {label}: {total:,} → ~{kept:,} representatives")
+
+    return balanced
+
+
 def write_fastas(
     records: list[dict],
     assignments: dict[str, str],
     label_key: str,
     split_name: str,
+    tag: str = "",
 ) -> dict[str, int]:
     """Write one FASTA per partition. Returns protein counts per partition."""
     handles = {
-        p: (SPLITS_DIR / f"rep_{split_name}_{p}.faa").open("w", encoding="utf-8")
+        p: (SPLITS_DIR / f"rep_{split_name}{tag}_{p}.faa").open("w", encoding="utf-8")
         for p in PARTITIONS
     }
     counts = {p: 0 for p in PARTITIONS}
@@ -162,6 +228,7 @@ def write_summary(
     assignments: dict[str, str],
     label_key: str,
     out_path: Path,
+    tag: str = "",
 ) -> None:
     counts: dict = defaultdict(lambda: defaultdict(int))
     for rec in records:
@@ -181,34 +248,67 @@ def write_summary(
     print(f"  Written: {out_path.name}")
 
 
+# ── CLI ──────────────────────────────────────────────────────────────────────
+
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="Assign MMseqs2 cluster representatives to train/val/test splits."
+    )
+    p.add_argument(
+        "--rep-fasta",
+        default=None,
+        help=(
+            "Path to the representative FASTA produced by mmseqs2 easy-cluster. "
+            f"Default: {REP_FASTA.name}"
+        ),
+    )
+    p.add_argument(
+        "--tag",
+        default="",
+        help=(
+            "Suffix added to output file names before the partition, e.g. "
+            "'_20pct' → rep_split1_20pct_train.faa. Default: '' (no suffix)."
+        ),
+    )
+    return p.parse_args()
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
+    args     = parse_args()
+    rep_fasta = Path(args.rep_fasta) if args.rep_fasta else REP_FASTA
+    tag       = args.tag   # e.g. "_20pct"
+
     print(f"Reading metadata: {META_TSV.name}")
     meta = read_metadata(META_TSV)
     print(f"  {len(meta)} organisms loaded")
 
-    print(f"\nParsing representatives: {REP_FASTA.name}")
-    records = parse_representatives(REP_FASTA, meta)
+    print(f"\nParsing representatives: {rep_fasta.name}")
+    records = parse_representatives(rep_fasta, meta)
     print(f"  {len(records):,} representative proteins loaded")
 
     print(f"\n── Split 1: coarse phenotype (5 classes) ──")
     rng = random.Random(RANDOM_SEED)
     s1  = stratified_split(records, "split1_label", rng)
-    counts1 = write_fastas(records, s1, "split1_label", "split1")
+    print(f"  Balancing classes:")
+    s1  = balance_assignments(records, s1, "split1_label", rng)
+    counts1 = write_fastas(records, s1, "split1_label", "split1", tag=tag)
     for p, n in counts1.items():
-        print(f"  rep_split1_{p}.faa: {n:,} proteins")
+        print(f"  rep_split1{tag}_{p}.faa: {n:,} proteins")
     write_summary(records, s1, "split1_label",
-                  SPLITS_DIR / "rep_split1_summary.tsv")
+                  SPLITS_DIR / f"rep_split1{tag}_summary.tsv")
 
     print(f"\n── Split 2: fine-grained subtypes ──")
     rng = random.Random(RANDOM_SEED)
     s2  = stratified_split(records, "split2_label", rng)
-    counts2 = write_fastas(records, s2, "split2_label", "split2")
+    print(f"  Balancing classes:")
+    s2  = balance_assignments(records, s2, "split2_label", rng)
+    counts2 = write_fastas(records, s2, "split2_label", "split2", tag=tag)
     for p, n in counts2.items():
-        print(f"  rep_split2_{p}.faa: {n:,} proteins")
+        print(f"  rep_split2{tag}_{p}.faa: {n:,} proteins")
     write_summary(records, s2, "split2_label",
-                  SPLITS_DIR / "rep_split2_summary.tsv")
+                  SPLITS_DIR / f"rep_split2{tag}_summary.tsv")
 
     print(f"\nTotal representatives: {len(records):,}")
     print(f"Split 1 total written: {sum(counts1.values()):,}")
