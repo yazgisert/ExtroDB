@@ -48,19 +48,29 @@
             </label>
 
             <label class="field">
-              <span>Phenotype Family</span>
+              <span>Prokaryote Phenotype Family</span>
               <small class="field-help">
-                Includes all organisms carrying this phenotype, even if curated in another branch.
+                Broad phenotype family for prokaryotes (thermophile, halophile, etc.).
               </small>
-              <select id="phenotype-focus">
-                <option value="">All phenotypes</option>
+              <select id="prokaryote-family">
+                <option value="">All prokaryote families</option>
               </select>
             </label>
 
             <label class="field">
-              <span>Phenotype Class</span>
-              <select id="phenotype-class">
-                <option value="">All classes</option>
+              <span>Prokaryote Phenotype Class</span>
+              <select id="prokaryote-class">
+                <option value="">All prokaryote classes</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Eukaryote Phenotype</span>
+              <small class="field-help">
+                Phenotype class for eukaryotic algae entries.
+              </small>
+              <select id="eukaryote-phenotype">
+                <option value="">All eukaryote types</option>
               </select>
             </label>
 
@@ -164,6 +174,6 @@
       </article>
     </template>
 
-    <script src="/app.js?v=20260629-2" defer></script>
+    <script src="/app.js?v=20260714-2" defer></script>
   </body>
 </html>

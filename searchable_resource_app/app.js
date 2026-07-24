@@ -7,8 +7,9 @@ const state = {
 
 const filterIds = [
   "search",
-  "phenotype-focus",
-  "phenotype-class",
+  "prokaryote-family",
+  "prokaryote-class",
+  "eukaryote-phenotype",
   "min-protein-count",
   "min-ogt",
   "max-ogt",
@@ -25,6 +26,10 @@ const CANONICAL_BRANCHES_BY_FAMILY = {
   psychrophile: ["psychrophile_core", "eukaryotic_algae_exploratory"],
   thermophile: ["thermophile_core", "eukaryotic_algae_exploratory"],
 };
+
+function isEukaryote(row) {
+  return splitMultiValue(row.dataset_branch).some((b) => b.startsWith("eukaryotic_algae"));
+}
 
 async function fetchJson(url) {
   const response = await fetch(url);
@@ -270,8 +275,9 @@ function populateSelect(id, values, formatter = (value) => value) {
 
 function applyFilters() {
   const query = controlValue("search").toLowerCase();
-  const phenotypeFocus = controlValue("phenotype-focus");
-  const phenotypeClass = controlValue("phenotype-class");
+  const prokaryoteFamily = controlValue("prokaryote-family");
+  const prokaryoteClass = controlValue("prokaryote-class");
+  const eukaryotePhenotype = controlValue("eukaryote-phenotype");
   const minProteinCount = Number(controlValue("min-protein-count") || 0);
   const minOgt = Number(controlValue("min-ogt") || 0);
   const maxOgtRaw = controlValue("max-ogt");
@@ -285,11 +291,17 @@ function applyFilters() {
   const maxPh = maxPhRaw ? Number(maxPhRaw) : null;
 
   state.filteredRows = state.rows.filter((row) => {
-    if (phenotypeFocus && !containsMultiValue(row.phenotype_focus, phenotypeFocus)) {
-      return false;
+    if (prokaryoteFamily) {
+      if (isEukaryote(row)) return false;
+      if (!containsMultiValue(row.phenotype_focus, prokaryoteFamily)) return false;
     }
-    if (phenotypeClass && !phenotypeClassValue(row).includes(phenotypeClass)) {
-      return false;
+    if (prokaryoteClass) {
+      if (isEukaryote(row)) return false;
+      if (!phenotypeClassValue(row).includes(prokaryoteClass)) return false;
+    }
+    if (eukaryotePhenotype) {
+      if (!isEukaryote(row)) return false;
+      if (!phenotypeClassValue(row).includes(eukaryotePhenotype)) return false;
     }
     if (minProteinCount && Number(row.protein_count || 0) < minProteinCount) {
       return false;
@@ -341,7 +353,7 @@ function applyFilters() {
 function renderMetrics() {
   const container = document.getElementById("metrics-grid");
   const template = document.getElementById("metric-card-template");
-  const phenotypeFamily = controlValue("phenotype-focus");
+  const phenotypeFamily = controlValue("prokaryote-family");
   const downloaded = state.filteredRows.filter((row) => row.proteome_status === "downloaded");
   const proteinSum = downloaded.reduce((sum, row) => sum + Number(row.protein_count || 0), 0);
   const branchCount = new Set(state.filteredRows.flatMap((row) => splitMultiValue(row.dataset_branch))).size;
@@ -645,7 +657,9 @@ async function init() {
       fetchJson("/api/summary"),
     ]);
 
-    state.rows = indexPayload.rows;
+    // Only show organisms that are actually accessible (have a downloaded FASTA).
+    // Missing and not_started entries are excluded from the table entirely.
+    state.rows = indexPayload.rows.filter((row) => row.proteome_status === "downloaded");
     state.summaryRows = summaryPayload.rows;
     state.filteredRows = state.rows.slice();
     state.selectedKey = state.rows[0] ? rowKey(state.rows[0]) : null;
@@ -655,12 +669,22 @@ async function init() {
       updatedElement.textContent = new Date(indexPayload.meta.updated_at).toLocaleString();
     }
 
+    const prokaryoteRows = state.rows.filter((row) => !isEukaryote(row));
+    const eukaryoteRows  = state.rows.filter((row) => isEukaryote(row));
+
     populateSelect(
-      "phenotype-focus",
-      [...new Set(state.rows.flatMap((row) => splitMultiValue(row.phenotype_focus)))].sort(),
+      "prokaryote-family",
+      [...new Set(prokaryoteRows.flatMap((row) => splitMultiValue(row.phenotype_focus)))].sort(),
       phenotypeFocusLabel
     );
-    populateSelect("phenotype-class", [...new Set(state.rows.flatMap((row) => phenotypeClassValue(row)))].sort());
+    populateSelect(
+      "prokaryote-class",
+      [...new Set(prokaryoteRows.flatMap((row) => phenotypeClassValue(row)))].sort()
+    );
+    populateSelect(
+      "eukaryote-phenotype",
+      [...new Set(eukaryoteRows.flatMap((row) => phenotypeClassValue(row)))].sort()
+    );
 
     attachEvents();
     render();

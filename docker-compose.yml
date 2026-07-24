@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    volumes:
+      - ./searchable_resource:/app/searchable_resource:ro
+      - ./acidophile_raw_protein_fastas:/app/acidophile_raw_protein_fastas:ro
+      - ./acidotolerant_raw_protein_fastas:/app/acidotolerant_raw_protein_fastas:ro
+      - ./moderate_acidophile_raw_protein_fastas:/app/moderate_acidophile_raw_protein_fastas:ro
+      - ./alkaliphile_raw_protein_fastas:/app/alkaliphile_raw_protein_fastas:ro
+      - ./halophile_raw_protein_fastas:/app/halophile_raw_protein_fastas:ro
+      - ./halophile_raw_protein_fastas_round2:/app/halophile_raw_protein_fastas_round2:ro
+      - ./psychrophile_raw_protein_fastas:/app/psychrophile_raw_protein_fastas:ro
+      - ./thermophile_raw_protein_fastas:/app/thermophile_raw_protein_fastas:ro
+      - ./algae_raw_protein_fastas:/app/algae_raw_protein_fastas:ro
+      - ./searchable_resource_app:/app/searchable_resource_app:ro
+    expose:
+      - "8000"
+    networks:
+      - app-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge

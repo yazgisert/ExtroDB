@@ -1,26 +1,64 @@
+"""
+searchable_resource_webapp.py
+
+FastAPI backend for the Extremophile Proteome searchable resource.
+
+Endpoints
+---------
+GET /api/index       — full master index as JSON
+GET /api/summary     — branch summary as JSON
+GET /api/download/{proteome_id}
+                     — stream the protein FASTA file for one proteome
+GET /               — serves index.html (development only; in production nginx does this)
+
+Run locally
+-----------
+    pip install fastapi uvicorn
+    uvicorn searchable_resource_webapp:app --host 127.0.0.1 --port 8123 --reload
+"""
+
 from __future__ import annotations
 
-import argparse
 import csv
-import json
-import mimetypes
 from datetime import datetime, timezone
-from http import HTTPStatus
-from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import unquote, urlparse
+from typing import Iterator
 
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 
-BASE_DIR = Path(__file__).resolve().parent
-APP_DIR = BASE_DIR / "searchable_resource_app"
-INDEX_PATH = BASE_DIR / "searchable_resource" / "extremophile_master_index.tsv"
+# ── Paths ────────────────────────────────────────────────────────────────────
+
+BASE_DIR     = Path(__file__).resolve().parent
+APP_DIR      = BASE_DIR / "searchable_resource_app"
+INDEX_PATH   = BASE_DIR / "searchable_resource" / "extremophile_master_index.tsv"
 SUMMARY_PATH = BASE_DIR / "searchable_resource" / "extremophile_master_summary.tsv"
-TSV_DELIMITER = "\t"
 
+# ── App ───────────────────────────────────────────────────────────────────────
+
+app = FastAPI(
+    title="Extremophile Proteome Resource",
+    description="Browse and download curated extremophile proteomes.",
+    version="2.0.0",
+)
+
+# CORS — allows the frontend (served by nginx on port 80) to call this backend
+# (served on port 8000) without the browser blocking the request.
+# In production, replace "*" with your actual domain.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
 def read_tsv(path: Path) -> list[dict[str, str]]:
-    with path.open("r", encoding="utf-8", newline="") as handle:
-        return list(csv.DictReader(handle, delimiter=TSV_DELIMITER))
+    with path.open(encoding="utf-8", newline="") as fh:
+        return list(csv.DictReader(fh, delimiter="\t"))
 
 
 def iso_timestamp(path: Path) -> str:
@@ -28,110 +66,84 @@ def iso_timestamp(path: Path) -> str:
     return modified.isoformat().replace("+00:00", "Z")
 
 
-def safe_join(base: Path, relative_path: str) -> Path | None:
-    candidate = (base / relative_path).resolve()
-    try:
-        candidate.relative_to(base.resolve())
-    except ValueError:
-        return None
-    return candidate
+def fasta_streamer(path: Path) -> Iterator[bytes]:
+    """Yield the FASTA file in 64 KB chunks so large files never fully load into memory."""
+    with path.open("rb") as fh:
+        while chunk := fh.read(65536):
+            yield chunk
 
 
-def dataset_payload() -> dict[str, object]:
+# ── API routes ────────────────────────────────────────────────────────────────
+
+@app.get("/api/index")
+def get_index():
+    """Return the full master index as JSON."""
     rows = read_tsv(INDEX_PATH)
-    total_protein_count = sum(int(row["protein_count"]) for row in rows if row.get("protein_count"))
-    return {
+    total_proteins = sum(
+        int(row["protein_count"])
+        for row in rows
+        if row.get("protein_count", "").isdigit()
+    )
+    return JSONResponse({
         "meta": {
             "source_file": str(INDEX_PATH.relative_to(BASE_DIR)),
-            "updated_at": iso_timestamp(INDEX_PATH),
-            "row_count": len(rows),
-            "protein_count_sum": total_protein_count,
+            "updated_at":  iso_timestamp(INDEX_PATH),
+            "row_count":   len(rows),
+            "protein_count_sum": total_proteins,
         },
         "rows": rows,
-    }
+    })
 
 
-def summary_payload() -> dict[str, object]:
+@app.get("/api/summary")
+def get_summary():
+    """Return the branch summary as JSON."""
     rows = read_tsv(SUMMARY_PATH)
-    return {
+    return JSONResponse({
         "meta": {
             "source_file": str(SUMMARY_PATH.relative_to(BASE_DIR)),
-            "updated_at": iso_timestamp(SUMMARY_PATH),
-            "row_count": len(rows),
+            "updated_at":  iso_timestamp(SUMMARY_PATH),
+            "row_count":   len(rows),
         },
         "rows": rows,
-    }
+    })
 
 
-class SearchableResourceHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(APP_DIR), **kwargs)
+@app.get("/api/download/{proteome_id}")
+def download_fasta(proteome_id: str):
+    """
+    Stream the protein FASTA file for the requested proteome.
 
-    def end_headers(self) -> None:
-        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
-        self.send_header("Pragma", "no-cache")
-        self.send_header("Expires", "0")
-        super().end_headers()
+    The proteome_id is looked up in the master index to find the local FASTA
+    path. The file is streamed in chunks so large proteomes (tens of thousands
+    of proteins) never have to be fully loaded into memory.
+    """
+    # Find the row for this proteome_id
+    rows = read_tsv(INDEX_PATH)
+    row  = next((r for r in rows if r["proteome_id"] == proteome_id), None)
 
-    def do_GET(self) -> None:
-        parsed = urlparse(self.path)
-        route = parsed.path
+    if row is None:
+        raise HTTPException(status_code=404, detail=f"Proteome '{proteome_id}' not found.")
 
-        if route == "/api/index":
-            self.send_json(dataset_payload())
-            return
+    local_path_str = row.get("local_fasta_path", "").strip()
+    if not local_path_str:
+        raise HTTPException(status_code=404, detail="No local FASTA file recorded for this proteome.")
 
-        if route == "/api/summary":
-            self.send_json(summary_payload())
-            return
+    fasta_path = BASE_DIR / local_path_str
+    if not fasta_path.exists():
+        raise HTTPException(status_code=404, detail="FASTA file not found on disk.")
 
-        if route.startswith("/files/"):
-            relative_path = unquote(route[len("/files/") :])
-            target = safe_join(BASE_DIR, relative_path)
-            if target is None or not target.exists() or not target.is_file():
-                self.send_error(HTTPStatus.NOT_FOUND, "File not found.")
-                return
-            self.send_local_file(target)
-            return
-
-        if route == "/":
-            self.path = "/index.html"
-
-        super().do_GET()
-
-    def send_json(self, payload: dict[str, object]) -> None:
-        body = json.dumps(payload, ensure_ascii=True).encode("utf-8")
-        self.send_response(HTTPStatus.OK)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
-
-    def send_local_file(self, path: Path) -> None:
-        content_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
-        body = path.read_bytes()
-        self.send_response(HTTPStatus.OK)
-        self.send_header("Content-Type", content_type)
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Serve a small local web app for the searchable extremophile resource."
+    filename = fasta_path.name
+    return StreamingResponse(
+        fasta_streamer(fasta_path),
+        media_type="application/octet-stream",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
-    parser.add_argument("--host", default="127.0.0.1", help="Host interface to bind.")
-    parser.add_argument("--port", type=int, default=8123, help="Port to serve on.")
-    return parser.parse_args()
 
 
-def main() -> None:
-    args = parse_args()
-    server = ThreadingHTTPServer((args.host, args.port), SearchableResourceHandler)
-    print(f"Serving searchable resource app at http://{args.host}:{args.port}")
-    server.serve_forever()
+# ── Static frontend (development only) ───────────────────────────────────────
+# In production Docker deployment, nginx serves the frontend directly.
+# This mount lets you run the full app locally with a single uvicorn command.
 
-
-if __name__ == "__main__":
-    main()
+if APP_DIR.exists():
+    app.mount("/", StaticFiles(directory=str(APP_DIR), html=True), name="frontend")
