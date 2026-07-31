@@ -20,14 +20,18 @@ Run locally
 from __future__ import annotations
 
 import csv
+import os
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterator
+from zipfile import ZIP_DEFLATED, ZipFile
 
-from fastapi import FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 
@@ -125,19 +129,71 @@ def download_fasta(proteome_id: str):
     if row is None:
         raise HTTPException(status_code=404, detail=f"Proteome '{proteome_id}' not found.")
 
-    local_path_str = row.get("local_fasta_path", "").strip()
+    # Column may be named local_fasta_path (singular) or local_fasta_paths (plural,
+    # pipe-separated). Try both; take the first pipe-split segment.
+    local_path_str = (row.get("local_fasta_path") or row.get("local_fasta_paths") or "").strip()
+    local_path_str = local_path_str.split("|")[0].strip()
+
     if not local_path_str:
         raise HTTPException(status_code=404, detail="No local FASTA file recorded for this proteome.")
 
     fasta_path = BASE_DIR / local_path_str
     if not fasta_path.exists():
-        raise HTTPException(status_code=404, detail="FASTA file not found on disk.")
+        raise HTTPException(
+            status_code=404,
+            detail=f"FASTA file not found on disk: {local_path_str}",
+        )
 
-    filename = fasta_path.name
-    return StreamingResponse(
-        fasta_streamer(fasta_path),
+    return FileResponse(
+        path=str(fasta_path),
         media_type="application/octet-stream",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        filename=fasta_path.name,
+    )
+
+
+class BulkDownloadRequest(BaseModel):
+    ids: list[str]
+
+
+@app.post("/api/download-bulk")
+async def download_bulk(request: BulkDownloadRequest, background_tasks: BackgroundTasks):
+    """
+    Zip and stream FASTA files for a list of proteome IDs.
+    Skips any IDs whose file is not found on disk without raising an error.
+    """
+    rows = read_tsv(INDEX_PATH)
+    row_map = {r["proteome_id"]: r for r in rows if r.get("proteome_id")}
+
+    files_to_zip: list[Path] = []
+    for pid in request.ids:
+        row = row_map.get(pid)
+        if not row:
+            continue
+        local_path_str = (row.get("local_fasta_path") or row.get("local_fasta_paths") or "").strip()
+        local_path_str = local_path_str.split("|")[0].strip()
+        if not local_path_str:
+            continue
+        fasta_path = BASE_DIR / local_path_str
+        if fasta_path.exists():
+            files_to_zip.append(fasta_path)
+
+    if not files_to_zip:
+        raise HTTPException(status_code=404, detail="No FASTA files found for the requested IDs.")
+
+    # Write zip to a temp file so we can stream it without buffering everything in RAM
+    tmp_fd, tmp_path = tempfile.mkstemp(suffix=".zip")
+    os.close(tmp_fd)
+
+    with ZipFile(tmp_path, "w", ZIP_DEFLATED) as zf:
+        for path in files_to_zip:
+            zf.write(path, path.name)
+
+    background_tasks.add_task(os.unlink, tmp_path)
+
+    return FileResponse(
+        path=tmp_path,
+        media_type="application/zip",
+        filename="extremophile_fastas.zip",
     )
 
 

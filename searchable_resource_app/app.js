@@ -7,6 +7,7 @@ const state = {
 
 const filterIds = [
   "search",
+  "domain-filter",
   "prokaryote-family",
   "prokaryote-class",
   "eukaryote-phenotype",
@@ -273,6 +274,18 @@ function populateSelect(id, values, formatter = (value) => value) {
   });
 }
 
+function updateFilterVisibility() {
+  const domain = controlValue("domain-filter");
+  document.querySelectorAll(".prokaryote-field").forEach((el) => {
+    el.style.display = domain === "prokaryote" ? "" : "none";
+    if (domain !== "prokaryote") el.querySelector("select").value = "";
+  });
+  document.querySelectorAll(".eukaryote-field").forEach((el) => {
+    el.style.display = domain === "eukaryote" ? "" : "none";
+    if (domain !== "eukaryote") el.querySelector("select").value = "";
+  });
+}
+
 function applyFilters() {
   const query = controlValue("search").toLowerCase();
   const prokaryoteFamily = controlValue("prokaryote-family");
@@ -290,7 +303,11 @@ function applyFilters() {
   const maxPhRaw = controlValue("max-ph");
   const maxPh = maxPhRaw ? Number(maxPhRaw) : null;
 
+  const domainFilter = controlValue("domain-filter");
+
   state.filteredRows = state.rows.filter((row) => {
+    if (domainFilter === "prokaryote" && isEukaryote(row)) return false;
+    if (domainFilter === "eukaryote" && !isEukaryote(row)) return false;
     if (prokaryoteFamily) {
       if (isEukaryote(row)) return false;
       if (!containsMultiValue(row.phenotype_focus, prokaryoteFamily)) return false;
@@ -412,11 +429,11 @@ function renderSummary() {
   const container = document.getElementById("summary-table");
   const classContainer = document.getElementById("class-summary-table");
   const rows = state.summaryRows
+    .filter((row) => row.proteome_status === "downloaded")
     .map((row) => {
       return `
         <tr>
           <td>${escapeHtml(row.dataset_branch)}</td>
-          <td>${escapeHtml(row.proteome_status)}</td>
           <td>${escapeHtml(row.row_count)}</td>
           <td>${formatInteger(row.protein_count_sum)}</td>
         </tr>
@@ -425,12 +442,11 @@ function renderSummary() {
     .join("");
 
   container.innerHTML = `
+    <p class="table-section-label">Curation branches</p>
     <table class="summary-table">
-      <caption>Curation branches</caption>
       <thead>
         <tr>
           <th>Curation Branch</th>
-          <th>Proteome Status</th>
           <th>Rows</th>
           <th>Protein Count Sum</th>
         </tr>
@@ -469,8 +485,8 @@ function renderSummary() {
     .join("");
 
   classContainer.innerHTML = `
+    <p class="table-section-label">Phenotype classes in current view</p>
     <table class="summary-table">
-      <caption>Phenotype classes in current view</caption>
       <thead>
         <tr>
           <th>Phenotype Class</th>
@@ -494,12 +510,18 @@ function statusClass(status) {
 function renderResults() {
   const body = document.getElementById("results-body");
   const resultsTitle = document.getElementById("results-title");
-  resultsTitle.textContent = `${state.filteredRows.length} matching entr${state.filteredRows.length === 1 ? "y" : "ies"}`;
+  const downloadAllBtn = document.getElementById("download-all");
+  const n = state.filteredRows.length;
+  resultsTitle.textContent = `${n} matching entr${n === 1 ? "y" : "ies"}`;
+  if (downloadAllBtn) {
+    downloadAllBtn.textContent = n ? `Download All FASTAs (${n})` : "Download All FASTAs";
+    downloadAllBtn.disabled = n === 0;
+  }
 
   if (!state.filteredRows.length) {
     body.innerHTML = `
       <tr>
-        <td colspan="8">
+        <td colspan="7">
           <div class="empty-state">No rows match the current filters.</div>
         </td>
       </tr>
@@ -518,10 +540,9 @@ function renderResults() {
           </td>
           <td>${escapeHtml(joinedDisplay(row.dataset_branch))}</td>
           <td>${escapeHtml(phenotypeLabel(row))}</td>
-          <td><span class="status-pill ${statusClass(row.proteome_status)}">${escapeHtml(row.proteome_status)}</span></td>
           <td>${formatInteger(row.protein_count)}</td>
-          <td>${formatDecimal(row.ogt_celsius, " C")}</td>
-          <td>${formatDecimal(row.nacl_optimum_M, " M")}</td>
+          <td style="white-space:nowrap">${formatDecimal(row.ogt_celsius, " C")}</td>
+          <td style="white-space:nowrap">${formatDecimal(row.nacl_optimum_M, " M")}</td>
           <td>${formatDecimal(row.ph_optimum)}</td>
         </tr>
       `;
@@ -562,21 +583,11 @@ function renderDetail() {
       `<a class="detail-link" href="${escapeHtml(value)}" target="_blank" rel="noreferrer">Open evidence source${index ? ` ${index + 1}` : ""}</a>`
     );
   });
-  if (selectedRow.local_fasta_path) {
+  if (selectedRow.proteome_id) {
     links.push(
-      `<a class="detail-link" href="${escapeHtml(relativeFileHref(selectedRow.local_fasta_path))}" target="_blank">Open canonical local FASTA</a>`
+      `<a class="detail-link" href="/api/download/${encodeURIComponent(selectedRow.proteome_id)}">Download FASTA</a>`
     );
   }
-  splitMultiValue(selectedRow.merged_fasta_file).forEach((value, index) => {
-    links.push(
-      `<a class="detail-link" href="${escapeHtml(relativeFileHref(value))}" target="_blank">Open merged FASTA${index ? ` ${index + 1}` : ""}</a>`
-    );
-  });
-  splitMultiValue(selectedRow.manifest_file).forEach((value, index) => {
-    links.push(
-      `<a class="detail-link" href="${escapeHtml(relativeFileHref(value))}" target="_blank">Open manifest TSV${index ? ` ${index + 1}` : ""}</a>`
-    );
-  });
 
   container.className = "detail-card";
   container.innerHTML = `
@@ -591,7 +602,6 @@ function renderDetail() {
       ${detailItem("Collection Match", escapeHtml(joinedDisplay(selectedRow.collection_match)))}
       ${detailItem("Collection Source", escapeHtml(joinedDisplay(selectedRow.collection_source)))}
       ${detailItem("Strain Aliases", escapeHtml(joinedDisplay(selectedRow.strain_aliases)))}
-      ${detailItem("Proteome Status", `<span class="status-pill ${statusClass(selectedRow.proteome_status)}">${escapeHtml(selectedRow.proteome_status)}</span>`)}
       ${detailItem("Protein Count", escapeHtml(formatInteger(selectedRow.protein_count)))}
       ${detailItem("Sequence Source", escapeHtml(`${selectedRow.sequence_source_db || "—"} ${selectedRow.sequence_source_accession || ""}`.trim()))}
       ${detailItem("Sequence Level", escapeHtml(selectedRow.sequence_level || "—"))}
@@ -609,7 +619,6 @@ function renderDetail() {
 function render() {
   applyFilters();
   renderMetrics();
-  renderSummary();
   renderResults();
   renderDetail();
 }
@@ -623,6 +632,43 @@ function resetFilters() {
     element.value = "";
   });
   render();
+}
+
+async function downloadAllFastas() {
+  const ids = state.filteredRows.map((row) => row.proteome_id).filter(Boolean);
+  if (!ids.length) return;
+
+  const btn = document.getElementById("download-all");
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Building zip…";
+
+  try {
+    const response = await fetch("/api/download-bulk", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ids }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.json().then((d) => d.detail).catch(() => response.statusText);
+      alert(`Download failed: ${detail}`);
+      return;
+    }
+
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "extremophile_fastas.zip";
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert(`Download error: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
 }
 
 function exportResults() {
@@ -646,21 +692,22 @@ function attachEvents() {
     document.getElementById(id).addEventListener("input", render);
     document.getElementById(id).addEventListener("change", render);
   });
-  document.getElementById("reset-filters").addEventListener("click", resetFilters);
+  document.getElementById("domain-filter").addEventListener("change", updateFilterVisibility);
+  document.getElementById("download-all").addEventListener("click", downloadAllFastas);
+  document.getElementById("reset-filters").addEventListener("click", () => {
+    resetFilters();
+    updateFilterVisibility();
+  });
   document.getElementById("export-results").addEventListener("click", exportResults);
 }
 
 async function init() {
   try {
-    const [indexPayload, summaryPayload] = await Promise.all([
-      fetchJson("/api/index"),
-      fetchJson("/api/summary"),
-    ]);
+    const indexPayload = await fetchJson("/api/index");
 
     // Only show organisms that are actually accessible (have a downloaded FASTA).
     // Missing and not_started entries are excluded from the table entirely.
     state.rows = indexPayload.rows.filter((row) => row.proteome_status === "downloaded");
-    state.summaryRows = summaryPayload.rows;
     state.filteredRows = state.rows.slice();
     state.selectedKey = state.rows[0] ? rowKey(state.rows[0]) : null;
 
@@ -687,6 +734,7 @@ async function init() {
     );
 
     attachEvents();
+    updateFilterVisibility();
     render();
   } catch (error) {
     document.getElementById("results-body").innerHTML = `

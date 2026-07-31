@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Extremophile Searchable Resource</title>
-    <link rel="stylesheet" href="/styles.css?v=20260629-1" />
+    <link rel="stylesheet" href="/styles.css?v=20260729-1" />
   </head>
   <body>
     <div class="page-shell">
       <header class="hero">
-        <p class="eyebrow">Curated Local Resource</p>
         <h1>Extremophile Proteome Index</h1>
         <p class="hero-copy">
-          A small local interface for browsing the curated organism-level
-          extremophile dataset, filtering by phenotype and retrieval status, and
-          exporting subsets for downstream work.
+          Browse the curated extremophile proteome index by phenotype class,
+          optimal growth conditions, and sequence retrieval status. Filter across
+          prokaryotic and eukaryotic curation branches and export subsets as TSV
+          for downstream analysis.
         </p>
         <div class="hero-meta">
           <div class="hero-chip">
@@ -48,6 +48,15 @@
             </label>
 
             <label class="field">
+              <span>Domain</span>
+              <select id="domain-filter">
+                <option value="">All organisms</option>
+                <option value="prokaryote">Prokaryotes only</option>
+                <option value="eukaryote">Eukaryotes only</option>
+              </select>
+            </label>
+
+            <label class="field prokaryote-field" style="display:none">
               <span>Prokaryote Phenotype Family</span>
               <small class="field-help">
                 Broad phenotype family for prokaryotes (thermophile, halophile, etc.).
@@ -57,14 +66,14 @@
               </select>
             </label>
 
-            <label class="field">
+            <label class="field prokaryote-field" style="display:none">
               <span>Prokaryote Phenotype Class</span>
               <select id="prokaryote-class">
                 <option value="">All prokaryote classes</option>
               </select>
             </label>
 
-            <label class="field">
+            <label class="field eukaryote-field" style="display:none">
               <span>Eukaryote Phenotype</span>
               <small class="field-help">
                 Phenotype class for eukaryotic algae entries.
@@ -113,17 +122,6 @@
 
         <section class="metrics-grid" id="metrics-grid" aria-live="polite"></section>
 
-        <section class="panel summary-panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-kicker">Coverage</p>
-              <h2>Curation Branch Summary</h2>
-            </div>
-          </div>
-          <div id="summary-table"></div>
-          <div id="class-summary-table"></div>
-        </section>
-
         <section class="results-layout">
           <section class="panel results-panel">
             <div class="panel-heading">
@@ -131,6 +129,7 @@
                 <p class="panel-kicker">Results</p>
                 <h2 id="results-title">Matching entries</h2>
               </div>
+              <button id="download-all" class="button button-secondary" type="button" disabled>Download All FASTAs</button>
             </div>
             <div class="table-wrap">
               <table>
@@ -139,7 +138,6 @@
                     <th>Taxon</th>
                     <th>Curation Branch</th>
                     <th>Phenotype</th>
-                    <th>Status</th>
                     <th>Protein Count</th>
                     <th>OGT</th>
                     <th>NaCl</th>
@@ -174,6 +172,6 @@
       </article>
     </template>
 
-    <script src="/app.js?v=20260714-2" defer></script>
+    <script src="/app.js?v=20260729-9" defer></script>
   </body>
 </html>
