@@ -6,7 +6,6 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     volumes:
-      - ./searchable_resource:/app/searchable_resource:ro
       - ./acidophile_raw_protein_fastas:/app/acidophile_raw_protein_fastas:ro
       - ./acidotolerant_raw_protein_fastas:/app/acidotolerant_raw_protein_fastas:ro
       - ./moderate_acidophile_raw_protein_fastas:/app/moderate_acidophile_raw_protein_fastas:ro
