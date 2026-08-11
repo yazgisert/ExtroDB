@@ -1,26 +1,51 @@
 version: "3.9"
 
 services:
+
+  # ── Setup: downloads FASTAs from Zenodo on first run ─────────────────────
+  setup:
+    image: alpine:3.19
+    environment:
+      # Replace with the actual Zenodo direct-download URL after uploading.
+      # Format: https://zenodo.org/records/<record_id>/files/extremophile_fastas.tar.gz
+      ZENODO_URL: "https://zenodo.org/records/21864329/files/extremophile_fastas.tar.gz"
+    volumes:
+      - fasta_data:/data
+    command: >
+      sh -c "
+        if [ -f /data/.setup_complete ]; then
+          echo 'FASTAs already present — skipping download.';
+          exit 0;
+        fi;
+        apk add --no-cache wget tar;
+        echo 'Downloading FASTA archive from Zenodo...';
+        wget -q --show-progress -O /tmp/fastas.tar.gz \"$$ZENODO_URL\" &&
+        echo 'Extracting...' &&
+        tar -xzf /tmp/fastas.tar.gz -C /data &&
+        rm /tmp/fastas.tar.gz &&
+        touch /data/.setup_complete &&
+        echo 'Done.';
+      "
+
+  # ── Backend ───────────────────────────────────────────────────────────────
   backend:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    environment:
+      FASTA_DIR: /app/fasta_data
     volumes:
-      - ./acidophile_raw_protein_fastas:/app/acidophile_raw_protein_fastas:ro
-      - ./acidotolerant_raw_protein_fastas:/app/acidotolerant_raw_protein_fastas:ro
-      - ./moderate_acidophile_raw_protein_fastas:/app/moderate_acidophile_raw_protein_fastas:ro
-      - ./alkaliphile_raw_protein_fastas:/app/alkaliphile_raw_protein_fastas:ro
-      - ./halophile_raw_protein_fastas:/app/halophile_raw_protein_fastas:ro
-      - ./halophile_raw_protein_fastas_round2:/app/halophile_raw_protein_fastas_round2:ro
-      - ./psychrophile_raw_protein_fastas:/app/psychrophile_raw_protein_fastas:ro
-      - ./thermophile_raw_protein_fastas:/app/thermophile_raw_protein_fastas:ro
-      - ./algae_raw_protein_fastas:/app/algae_raw_protein_fastas:ro
+      - fasta_data:/app/fasta_data:ro
       - ./searchable_resource_app:/app/searchable_resource_app:ro
     expose:
       - "8000"
+    depends_on:
+      setup:
+        condition: service_completed_successfully
     networks:
       - app-net
 
+  # ── Frontend ──────────────────────────────────────────────────────────────
   frontend:
     build:
       context: .
@@ -31,6 +56,9 @@ services:
       - backend
     networks:
       - app-net
+
+volumes:
+  fasta_data:
 
 networks:
   app-net:

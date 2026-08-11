@@ -40,6 +40,11 @@ APP_DIR      = BASE_DIR / "searchable_resource_app"
 INDEX_PATH   = BASE_DIR / "searchable_resource" / "extremophile_master_index.tsv"
 SUMMARY_PATH = BASE_DIR / "searchable_resource" / "extremophile_master_summary.tsv"
 
+# FASTA_DIR is where the *_raw_protein_fastas/ folders live.
+# Defaults to BASE_DIR (local dev with host-mounted folders).
+# In the Docker Zenodo setup, set FASTA_DIR=/app/fasta_data via environment.
+FASTA_DIR = Path(os.environ.get("FASTA_DIR", str(BASE_DIR)))
+
 # ── App ───────────────────────────────────────────────────────────────────────
 
 app = FastAPI(
@@ -137,7 +142,7 @@ def download_fasta(proteome_id: str):
     if not local_path_str:
         raise HTTPException(status_code=404, detail="No local FASTA file recorded for this proteome.")
 
-    fasta_path = BASE_DIR / local_path_str
+    fasta_path = FASTA_DIR / local_path_str
     if not fasta_path.exists():
         raise HTTPException(
             status_code=404,
@@ -173,7 +178,7 @@ async def download_bulk(request: BulkDownloadRequest, background_tasks: Backgrou
         local_path_str = local_path_str.split("|")[0].strip()
         if not local_path_str:
             continue
-        fasta_path = BASE_DIR / local_path_str
+        fasta_path = FASTA_DIR / local_path_str
         if fasta_path.exists():
             files_to_zip.append(fasta_path)
 

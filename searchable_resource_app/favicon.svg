@@ -1,0 +1,6 @@
+<svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="26,4 45,14.9 45,37.1 26,48 7,37.1 7,14.9"
+           fill="#0f172a" stroke="#1d4ed8" stroke-width="2" stroke-linejoin="round"/>
+  <text x="26" y="34" font-family="Helvetica Neue,Arial,sans-serif"
+        font-size="20" font-weight="700" fill="white" text-anchor="middle">E</text>
+</svg>

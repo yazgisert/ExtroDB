@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Extremophile Searchable Resource</title>
     <link rel="stylesheet" href="/styles.css?v=20260729-1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
     <div class="page-shell">
       <header class="hero">
-        <h1>Extremophile Proteome Index</h1>
+        <svg viewBox="0 0 210 52" xmlns="http://www.w3.org/2000/svg" width="315" height="78" aria-label="ExtroDB">
+          <polygon points="26,5 44,15.4 44,36.6 26,47 8,36.6 8,15.4"
+                   fill="white" stroke="#1d4ed8" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="26" y="33" font-family="Helvetica Neue,Arial,sans-serif"
+                font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">E</text>
+          <text x="56" y="36" font-family="Helvetica Neue,Arial,sans-serif" font-size="27">
+            <tspan font-weight="300" fill="#f9fafb">Extro</tspan><tspan font-weight="700" fill="#1d4ed8">DB</tspan>
+          </text>
+        </svg>
         <p class="hero-copy">
           Browse the curated extremophile proteome index by phenotype class,
           optimal growth conditions, and sequence retrieval status. Filter across
@@ -44,7 +53,7 @@
           <div class="filters-grid">
             <label class="field">
               <span>Search</span>
-              <input id="search" type="search" placeholder="Taxon, strain, accession, notes..." />
+              <input id="search" type="search" placeholder="Search taxa strains…" />
             </label>
 
             <label class="field">
@@ -129,7 +138,7 @@
                 <p class="panel-kicker">Results</p>
                 <h2 id="results-title">Matching entries</h2>
               </div>
-              <button id="download-all" class="button button-secondary" type="button" disabled>Download All FASTAs</button>
+              <button id="download-all" class="button" type="button" disabled>Download All FASTAs</button>
             </div>
             <div class="table-wrap">
               <table>
@@ -172,6 +181,6 @@
       </article>
     </template>
 
-    <script src="/app.js?v=20260729-9" defer></script>
+    <script src="/app.js?v=20260729-10" defer></script>
   </body>
 </html>

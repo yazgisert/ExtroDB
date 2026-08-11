@@ -381,12 +381,7 @@ function renderMetrics() {
     {
       label: "Visible Taxa",
       value: formatInteger(state.filteredRows.length),
-      note: "Rows currently matching your filters",
-    },
-    {
-      label: "Downloaded Proteomes",
-      value: formatInteger(downloaded.length),
-      note: "Rows with local FASTA-backed proteomes",
+      note: "Matching your filters — all with downloaded proteomes",
     },
     {
       label: "Proteins in View",
@@ -585,7 +580,7 @@ function renderDetail() {
   });
   if (selectedRow.proteome_id) {
     links.push(
-      `<a class="detail-link" href="/api/download/${encodeURIComponent(selectedRow.proteome_id)}">Download FASTA</a>`
+      `<a class="button" style="text-decoration:none" href="/api/download/${encodeURIComponent(selectedRow.proteome_id)}">Download FASTA</a>`
     );
   }
 
