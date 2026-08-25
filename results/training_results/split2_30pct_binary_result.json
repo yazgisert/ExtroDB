@@ -1,0 +1,80 @@
+{
+  "split": "split2_30pct",
+  "task": "binary_thermophile_vs_nonthermophile",
+  "n_train": 43294,
+  "n_val": 6182,
+  "n_test": 12374,
+  "classes": [
+    "non_thermophile",
+    "thermophile"
+  ],
+  "config": {
+    "model": "FNN",
+    "architecture": "Linear(1024->32) -> Dropout(0.25) -> ReLU -> Linear(32->2)",
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "epsilon": 0.001,
+    "batch_size": 128,
+    "max_epochs": 200,
+    "patience": 10,
+    "seed": 42
+  },
+  "test_metrics": {
+    "accuracy": 0.9498949410053338,
+    "balanced-accuracy": 0.7669954678980095,
+    "macro-precision": 0.8734214377617993,
+    "macro-recall": 0.7669954678980095,
+    "macro-f1_score": 0.8093777098629694,
+    "f1_thermophile": 0.6457142857142857,
+    "f1_non_thermophile": 0.9730411340116532,
+    "matthews-corr-coeff": 0.6315119365407404,
+    "spearmans-corr-coeff": 0.6315119365407404
+  },
+  "test_metrics_bootstrap": {
+    "accuracy": {
+      "mean": 0.950511825871451,
+      "lower": 0.9473593825763698,
+      "upper": 0.9531719734928075
+    },
+    "balanced-accuracy": {
+      "mean": 0.7684545909541697,
+      "lower": 0.7543037904219931,
+      "upper": 0.7806839290661532
+    },
+    "macro-precision": {
+      "mean": 0.8742776423582719,
+      "lower": 0.862631690450739,
+      "upper": 0.8900250365390513
+    },
+    "macro-recall": {
+      "mean": 0.7684545909541697,
+      "lower": 0.7543037904219931,
+      "upper": 0.7806839290661532
+    },
+    "macro-f1_score": {
+      "mean": 0.8106403970756036,
+      "lower": 0.7994078618650118,
+      "upper": 0.8216579915128284
+    },
+    "f1_thermophile": {
+      "mean": 0.6478965057448078,
+      "lower": 0.6271357743579762,
+      "upper": 0.6688188517437897
+    },
+    "f1_non_thermophile": {
+      "mean": 0.9733842884063996,
+      "lower": 0.9716799493720474,
+      "upper": 0.9748228350250653
+    },
+    "matthews-corr-coeff": {
+      "mean": 0.633897570884644,
+      "lower": 0.6127410260275089,
+      "upper": 0.6560788338107312
+    },
+    "spearmans-corr-coeff": {
+      "mean": 0.633897570884644,
+      "lower": 0.6127410260275088,
+      "upper": 0.6560788338107313
+    }
+  }
+}

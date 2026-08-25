@@ -460,3 +460,71 @@ tbody tr.is-selected {
     width: 100%;
   }
 }
+
+/* ── Dataset Statistics Section ─────────────────────────────────────────── */
+
+.stats-section {
+  margin-top: 48px;
+  padding-bottom: 64px;
+}
+
+.stats-header {
+  margin-bottom: 28px;
+}
+
+.stats-header h2 {
+  margin: 4px 0 8px;
+  font-size: 1.5rem;
+}
+
+.stats-description {
+  color: #64748b;
+  font-size: 0.925rem;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.stats-plots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.stats-plot {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0;
+}
+
+.stats-plot--wide {
+  grid-column: 1 / -1;
+}
+
+.stats-plot img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.stats-plot figcaption {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.stats-plot figcaption strong {
+  color: #1e293b;
+}
+
+@media (max-width: 720px) {
+  .stats-plots {
+    grid-template-columns: 1fr;
+  }
+  .stats-plot--wide {
+    grid-column: 1;
+  }
+}

@@ -181,6 +181,47 @@
       </article>
     </template>
 
+    <!-- ── Dataset Statistics ─────────────────────────────────────────────── -->
+    <section class="stats-section layout">
+      <div class="stats-header">
+        <p class="panel-kicker">Dataset Statistics</p>
+        <h2>Master Index Overview</h2>
+        <p class="stats-description">
+          Distribution of organisms, proteome sizes, and optimal growth conditions
+          across the five extremophile classes — before any balancing or splitting.
+        </p>
+      </div>
+      <div class="stats-plots">
+        <figure class="stats-plot">
+          <img src="/plots/master_organism_counts.png?v=20260825"
+               alt="Organism counts per class and domain scope" loading="lazy" />
+          <figcaption>
+            <strong>Organism counts per class.</strong>
+            247 total organisms; thermophiles (77) and halophiles (69) are most represented.
+            38 organisms carry multiple class labels. 92.3% are prokaryotes.
+          </figcaption>
+        </figure>
+        <figure class="stats-plot">
+          <img src="/plots/master_protein_counts.png?v=20260825"
+               alt="Proteome size distribution per class" loading="lazy" />
+          <figcaption>
+            <strong>Proteome sizes per class.</strong>
+            Thermophiles have the smallest proteomes (median ~2,500 proteins), consistent
+            with genome streamlining under heat stress.
+          </figcaption>
+        </figure>
+        <figure class="stats-plot stats-plot--wide">
+          <img src="/plots/master_env_params.png?v=20260825"
+               alt="Environmental parameter distributions per class" loading="lazy" />
+          <figcaption>
+            <strong>Environmental parameters per class.</strong>
+            Optimal growth temperature, pH, and NaCl concentration confirm that class
+            labels correspond to biologically distinct niches.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
     <script src="/app.js?v=20260729-10" defer></script>
   </body>
 </html>

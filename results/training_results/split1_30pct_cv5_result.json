@@ -1,0 +1,233 @@
+{
+  "experiment": "split1_30pct_cv5",
+  "split": "split1_30pct",
+  "k_folds": 5,
+  "n_proteins": 142829,
+  "n_organisms": 192,
+  "classes": [
+    "acidophile",
+    "alkaliphile",
+    "halophile",
+    "psychrophile",
+    "thermophile"
+  ],
+  "config": {
+    "model": "FNN",
+    "architecture": "Linear(1024->32) -> Dropout(0.25) -> ReLU -> Linear(32->n_classes)",
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "epsilon": 0.001,
+    "batch_size": 128,
+    "max_epochs": 200,
+    "patience": 10,
+    "seed": 42,
+    "val_organism_fraction": 0.15
+  },
+  "cv_metrics_aggregated": {
+    "accuracy": {
+      "mean": 0.6589009582610974,
+      "std": 0.024063528983812667,
+      "per_fold": [
+        0.6359,
+        0.6274,
+        0.6812,
+        0.6616,
+        0.6884
+      ]
+    },
+    "balanced-accuracy": {
+      "mean": 0.6655774301804696,
+      "std": 0.028404663320730904,
+      "per_fold": [
+        0.6568,
+        0.661,
+        0.6228,
+        0.6773,
+        0.71
+      ]
+    },
+    "macro-precision": {
+      "mean": 0.6557625794770414,
+      "std": 0.024755904984324485,
+      "per_fold": [
+        0.6442,
+        0.6409,
+        0.624,
+        0.6843,
+        0.6855
+      ]
+    },
+    "macro-recall": {
+      "mean": 0.6655774301804696,
+      "std": 0.028404663320730904,
+      "per_fold": [
+        0.6568,
+        0.661,
+        0.6228,
+        0.6773,
+        0.71
+      ]
+    },
+    "macro-f1_score": {
+      "mean": 0.639411935551297,
+      "std": 0.027257208628715696,
+      "per_fold": [
+        0.6328,
+        0.6264,
+        0.5992,
+        0.6624,
+        0.6762
+      ]
+    },
+    "matthews-corr-coeff": {
+      "mean": 0.5802549882309694,
+      "std": 0.024449719609670212,
+      "per_fold": [
+        0.5569,
+        0.547,
+        0.6001,
+        0.5871,
+        0.6102
+      ]
+    },
+    "spearmans-corr-coeff": {
+      "mean": 0.6756795454437718,
+      "std": 0.035048682025891564,
+      "per_fold": [
+        0.7139,
+        0.6136,
+        0.7032,
+        0.6794,
+        0.6682
+      ]
+    }
+  },
+  "cv_per_class_aggregated": {
+    "acidophile": {
+      "precision": {
+        "mean": 0.6677261601565407,
+        "std": 0.06364673448512478
+      },
+      "recall": {
+        "mean": 0.7567406304581398,
+        "std": 0.046282832213243814
+      },
+      "f1_score": {
+        "mean": 0.7081009438628063,
+        "std": 0.04741747646240884
+      }
+    },
+    "alkaliphile": {
+      "precision": {
+        "mean": 0.4860659037431689,
+        "std": 0.21476585514253335
+      },
+      "recall": {
+        "mean": 0.5154456643498999,
+        "std": 0.16064132625315808
+      },
+      "f1_score": {
+        "mean": 0.47261192431402976,
+        "std": 0.1840826800201759
+      }
+    },
+    "halophile": {
+      "precision": {
+        "mean": 0.6646217102263684,
+        "std": 0.09407522623535826
+      },
+      "recall": {
+        "mean": 0.4524420605929723,
+        "std": 0.06424916294624546
+      },
+      "f1_score": {
+        "mean": 0.5301926745469429,
+        "std": 0.029784299602967076
+      }
+    },
+    "psychrophile": {
+      "precision": {
+        "mean": 0.6259293986220855,
+        "std": 0.17542810690566701
+      },
+      "recall": {
+        "mean": 0.7438012304075374,
+        "std": 0.1580572394177395
+      },
+      "f1_score": {
+        "mean": 0.641454209985939,
+        "std": 0.04441532247778645
+      }
+    },
+    "thermophile": {
+      "precision": {
+        "mean": 0.8344697246370438,
+        "std": 0.05122851591766627
+      },
+      "recall": {
+        "mean": 0.8594575650937987,
+        "std": 0.04956501689243649
+      },
+      "f1_score": {
+        "mean": 0.8446999250467668,
+        "std": 0.03004525761448313
+      }
+    }
+  },
+  "pooled_metrics": {
+    "accuracy": 0.6589068046405142,
+    "balanced-accuracy": 0.6588612862652449,
+    "macro-precision": 0.660040818421783,
+    "macro-recall": 0.6588612862652449,
+    "macro-f1_score": 0.6542510492393786,
+    "matthews-corr-coeff": 0.5756553985492926,
+    "spearmans-corr-coeff": 0.6727875630510946
+  },
+  "per_fold_metrics": [
+    {
+      "accuracy": 0.6359337233334501,
+      "balanced-accuracy": 0.6568264456734573,
+      "macro-precision": 0.6441945542869275,
+      "macro-recall": 0.6568264456734573,
+      "macro-f1_score": 0.6328111700265314,
+      "matthews-corr-coeff": 0.5569293652624256,
+      "spearmans-corr-coeff": 0.7139106395653659
+    },
+    {
+      "accuracy": 0.6274008131221085,
+      "balanced-accuracy": 0.660996190849357,
+      "macro-precision": 0.6408592111394636,
+      "macro-recall": 0.660996190849357,
+      "macro-f1_score": 0.6263745102365885,
+      "matthews-corr-coeff": 0.5469676866743544,
+      "spearmans-corr-coeff": 0.6136081960275227
+    },
+    {
+      "accuracy": 0.6811786939175474,
+      "balanced-accuracy": 0.6228121581385458,
+      "macro-precision": 0.6239741372690082,
+      "macro-recall": 0.6228121581385458,
+      "macro-f1_score": 0.5992162219302736,
+      "matthews-corr-coeff": 0.6000598686830679,
+      "spearmans-corr-coeff": 0.7032072467577054
+    },
+    {
+      "accuracy": 0.6615583327515185,
+      "balanced-accuracy": 0.6772826167989263,
+      "macro-precision": 0.6842861660123919,
+      "macro-recall": 0.6772826167989263,
+      "macro-f1_score": 0.6624191449571055,
+      "matthews-corr-coeff": 0.5871012105374109,
+      "spearmans-corr-coeff": 0.6794486921979124
+    },
+    {
+      "accuracy": 0.6884332281808623,
+      "balanced-accuracy": 0.7099697394420617,
+      "macro-precision": 0.6854988286774162,
+      "macro-recall": 0.7099697394420617,
+      "macro-f1_score": 0.6762386306059863,
+      "matthews-corr-coeff": 0.6102168099975884,
+      "spearmans-corr-coeff": 0.6682229526703528
+    }
+  ]
+}
