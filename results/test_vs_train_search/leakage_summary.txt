@@ -1,0 +1,14 @@
+Test proteins vs. training proteins (MMseqs2), highest identity per test protein
+
+extremophile: 17,050 / 28,576 (59.7%) with a hit >= 30% identity
+     30-50 %   11,986
+     50-70 %    3,911
+     70-90 %      843
+     90-100%      310
+    no hit     8,842
+non_extremophile: 17,235 / 17,557 (98.2%) with a hit >= 30% identity
+     30-50 %    1,625
+     50-70 %    3,936
+     70-90 %    5,354
+     90-100%    6,320
+    no hit       239

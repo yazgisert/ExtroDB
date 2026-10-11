@@ -1,0 +1,7 @@
+# The project folder is ~12 GB (embeddings, FASTAs, results); the website only needs these parts
+*
+!backend/
+!frontend/
+!scripts/indexing/searchable_resource_webapp.py
+!searchable_resource/
+!searchable_resource_app/

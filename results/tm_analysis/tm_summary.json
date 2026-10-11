@@ -1,0 +1,39 @@
+{
+  "non_extremophile": {
+    "n_queried": 500,
+    "n_with_tm": 50,
+    "tm_fraction": 0.1
+  },
+  "extremophile_classes": {
+    "acidophile": {
+      "n_sampled": 500,
+      "n_mapped_to_uniprot": 200,
+      "n_with_tm": 32,
+      "tm_fraction_of_mapped": 0.16
+    },
+    "alkaliphile": {
+      "n_sampled": 500,
+      "n_mapped_to_uniprot": 145,
+      "n_with_tm": 37,
+      "tm_fraction_of_mapped": 0.25517241379310346
+    },
+    "halophile": {
+      "n_sampled": 500,
+      "n_mapped_to_uniprot": 236,
+      "n_with_tm": 62,
+      "tm_fraction_of_mapped": 0.2627118644067797
+    },
+    "psychrophile": {
+      "n_sampled": 500,
+      "n_mapped_to_uniprot": 164,
+      "n_with_tm": 32,
+      "tm_fraction_of_mapped": 0.1951219512195122
+    },
+    "thermophile": {
+      "n_sampled": 500,
+      "n_mapped_to_uniprot": 276,
+      "n_with_tm": 68,
+      "tm_fraction_of_mapped": 0.2463768115942029
+    }
+  }
+}

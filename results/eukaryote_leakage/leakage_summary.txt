@@ -1,0 +1,13 @@
+Eukaryote Leakage Check Summary
+================================
+Identity threshold:       30%
+Reference:                prokaryote train + val (rep_split1)
+Total eukaryote proteins: 185,680
+Flagged (too similar):    47,755 (25.72%)
+Clean after filtering:    137,925
+
+Breakdown by class:
+  acidophile            3,881 / 14,161  (27.41%)
+  halophile            10,962 / 42,248  (25.95%)
+  psychrophile         23,363 / 102,197  (22.86%)
+  thermophile|acidophile  9,549 / 27,074  (35.27%)

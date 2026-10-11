@@ -1,0 +1,146 @@
+{
+  "experiment": "thermo_eukaryote_eval",
+  "model_source": "Koblitz et al. 2025 (bacdive-AI, thermophile_data.p)",
+  "feature_type": "Pfam_presence_absence",
+  "evalue_threshold": 1e-20,
+  "n_proteomes": 13,
+  "n_thermophile": 4,
+  "n_non_thermophile": 9,
+  "n_pfam_categories": 1633,
+  "n_pfam_hmms_matched": 1629,
+  "note": "THERMO is a prokaryote-trained thermophile classifier. This evaluation tests cross-domain transfer to eukaryote algae. Classification is at proteome level (one prediction per species). Thermophile label uses thermophilic_alga / high_temperature_alga / thermoacidophilic_alga columns \u2014 not the prokaryote thermophile column.",
+  "thermophile_recall": 0.0,
+  "non_thermophile_specificity": 1.0,
+  "per_proteome": [
+    {
+      "proteome_id": "GCA_002335675.1",
+      "species": "Chlamydomonas eustigma",
+      "broad_class": "acidophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.15254502442002443,
+      "n_pfam_hits": 557,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_016618255.1",
+      "species": "Chlamydomonas sp. UWO 241",
+      "broad_class": "psychrophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.14721414206708325,
+      "n_pfam_hits": 487,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCF_000258705.1",
+      "species": "Coccomyxa subellipsoidea",
+      "broad_class": "psychrophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.12701531519328127,
+      "n_pfam_hits": 537,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_026184775.1",
+      "species": "Cyanidium caldarium",
+      "broad_class": "thermophile",
+      "true_label": 1,
+      "predicted": 0,
+      "proba_thermophile": 0.20705683205683204,
+      "n_pfam_hits": 422,
+      "correct": false
+    },
+    {
+      "proteome_id": "GCA_002284615.2",
+      "species": "Dunaliella salina",
+      "broad_class": "halophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.1732916574166574,
+      "n_pfam_hits": 475,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_001750085.1",
+      "species": "Fragilariopsis cylindrus",
+      "broad_class": "psychrophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.10542546583850931,
+      "n_pfam_hits": 528,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_025991245.1",
+      "species": "Galdieria partita",
+      "broad_class": "thermophile",
+      "true_label": 1,
+      "predicted": 0,
+      "proba_thermophile": 0.17618034717260728,
+      "n_pfam_hits": 525,
+      "correct": false
+    },
+    {
+      "proteome_id": "GCF_000341285.1",
+      "species": "Galdieria sulphuraria",
+      "broad_class": "thermophile",
+      "true_label": 1,
+      "predicted": 0,
+      "proba_thermophile": 0.20118034717260724,
+      "n_pfam_hits": 499,
+      "correct": false
+    },
+    {
+      "proteome_id": "GCA_026122205.1",
+      "species": "Galdieria yellowstonensis",
+      "broad_class": "thermophile",
+      "true_label": 1,
+      "predicted": 0,
+      "proba_thermophile": 0.17051030924593213,
+      "n_pfam_hits": 495,
+      "correct": false
+    },
+    {
+      "proteome_id": "GCF_000240725.1",
+      "species": "Nannochloropsis gaditana",
+      "broad_class": "halophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.16395998810229553,
+      "n_pfam_hits": 175,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_037830525.2",
+      "species": "Nannochloropsis oceanica",
+      "broad_class": "halophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.16551434676434673,
+      "n_pfam_hits": 542,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_004565275.1",
+      "species": "Nannochloropsis salina",
+      "broad_class": "halophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.13216477966477969,
+      "n_pfam_hits": 506,
+      "correct": true
+    },
+    {
+      "proteome_id": "GCA_905237085.1",
+      "species": "Polarella glacialis",
+      "broad_class": "psychrophile",
+      "true_label": 0,
+      "predicted": 0,
+      "proba_thermophile": 0.14156834056877585,
+      "n_pfam_hits": 542,
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "task": "binarized_5class_on_filtered_eukaryote_algae",
+  "model": "ProtT5 FNN 5-class (split1_30pct), binarized by max-probability threshold",
+  "binarization_threshold": 0.5,
+  "filtering": "Removed proteins >= 30% identity to prokaryote train+val (blacklist: 47,755 proteins)",
+  "n_algae_proteins": 133689,
+  "overall_recall": 0.5971545901308261,
+  "by_class": {
+    "acidophile": {
+      "n_proteins": 10079,
+      "recall": 0.5650362139101102,
+      "recall_ci_lower": 0.5559058438337137,
+      "recall_ci_upper": 0.5740673677944241
+    },
+    "halophile": {
+      "n_proteins": 30559,
+      "recall": 0.49399522235675253,
+      "recall_ci_lower": 0.4884976602637521,
+      "recall_ci_upper": 0.5000858994077032
+    },
+    "psychrophile": {
+      "n_proteins": 76109,
+      "recall": 0.6615511963105546,
+      "recall_ci_lower": 0.658292054816119,
+      "recall_ci_upper": 0.6649157786858322
+    },
+    "thermophile": {
+      "n_proteins": 16942,
+      "recall": 0.5130445047810176,
+      "recall_ci_lower": 0.5054878408688467,
+      "recall_ci_upper": 0.5205406681619643
+    }
+  },
+  "overall_recall_ci_lower": 0.5946411073461542,
+  "overall_recall_ci_upper": 0.5999237035208581
+}

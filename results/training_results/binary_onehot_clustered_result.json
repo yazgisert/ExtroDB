@@ -1,0 +1,56 @@
+{
+  "task": "binary_extremophile_vs_nonextremophile",
+  "embedder": "onehot",
+  "split": "dataset_splits/clustered_binary/binary_split.tsv (13,031 non-extremophile cluster representatives + as many extremophiles, equal per class)",
+  "n_features": 20,
+  "n_train": 18242,
+  "n_val": 2606,
+  "n_test": 5214,
+  "test_metrics": {
+    "accuracy": {
+      "value": 0.6173762945914845,
+      "ci_lower": 0.6043344840813195,
+      "ci_upper": 0.6315736478711161
+    },
+    "balanced_accuracy": {
+      "value": 0.6173762945914845,
+      "ci_lower": 0.6041662814989044,
+      "ci_upper": 0.6312931086852825
+    },
+    "precision": {
+      "value": 0.6340929009640666,
+      "ci_lower": 0.6137351999026842,
+      "ci_upper": 0.6552677003992827
+    },
+    "recall": {
+      "value": 0.5550441120061373,
+      "ci_lower": 0.5350189904040245,
+      "ci_upper": 0.5744397361346996
+    },
+    "specificity": {
+      "value": 0.6797084771768316,
+      "ci_lower": 0.6617348961477321,
+      "ci_upper": 0.6980724830360296
+    },
+    "f1_extremophile": {
+      "value": 0.5919410922479035,
+      "ci_lower": 0.5753187400831788,
+      "ci_upper": 0.6082442245564319
+    },
+    "f1_non_extremophile": {
+      "value": 0.6398266835168803,
+      "ci_lower": 0.6253426443224731,
+      "ci_upper": 0.6554295459982435
+    },
+    "macro_f1": {
+      "value": 0.6158838878823919,
+      "ci_lower": 0.6027198796982739,
+      "ci_upper": 0.629796759335928
+    },
+    "mcc": {
+      "value": 0.23659829961772294,
+      "ci_lower": 0.20995933018311153,
+      "ci_upper": 0.2643644372063569
+    }
+  }
+}

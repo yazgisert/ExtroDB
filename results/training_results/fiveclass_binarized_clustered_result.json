@@ -1,0 +1,45 @@
+{
+  "task": "fiveclass_binarized_on_prokaryote_test_set",
+  "model": "ProtT5 FNN 5-class (split1_30pct, extremophiles only), binarized by max-probability threshold",
+  "binarization_threshold": 0.5,
+  "n_test": 5214,
+  "test_set": "clustered binary test set (same as the binary and 6-class models)",
+  "binarized_fiveclass": {
+    "accuracy": {
+      "value": 0.5368239355581128,
+      "ci_lower": 0.5243479094744917,
+      "ci_upper": 0.5506329113924051
+    },
+    "balanced_accuracy": {
+      "value": 0.5368239355581128,
+      "ci_lower": 0.5247091193413148,
+      "ci_upper": 0.5487630191602436
+    },
+    "precision": {
+      "value": 0.5249739854318418,
+      "ci_lower": 0.5110635150122792,
+      "ci_upper": 0.5416257414921827
+    },
+    "recall": {
+      "value": 0.7740698120444955,
+      "ci_lower": 0.7581119902617164,
+      "ci_upper": 0.7894341039641138
+    },
+    "specificity": {
+      "value": 0.29957805907172996,
+      "ci_lower": 0.28164595697835926,
+      "ci_upper": 0.31661937980512395
+    },
+    "f1": {
+      "value": 0.6256394357463959,
+      "ci_lower": 0.6133098279843052,
+      "ci_upper": 0.6396214103652403
+    },
+    "mcc": {
+      "value": 0.08366604804515601,
+      "ci_lower": 0.05630530967587411,
+      "ci_upper": 0.11072264769429944
+    }
+  },
+  "auroc_max_prob": 0.6241847029235414
+}

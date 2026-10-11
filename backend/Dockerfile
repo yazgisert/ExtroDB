@@ -9,7 +9,7 @@ COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy only the backend application code
-COPY searchable_resource_webapp.py .
+COPY scripts/indexing/searchable_resource_webapp.py .
 COPY searchable_resource/ searchable_resource/
 
 # Expose the port uvicorn will listen on

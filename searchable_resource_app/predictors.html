@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExtroDB Predictor Models</title>
+    <link rel="stylesheet" href="/styles.css?v=20261009-1" />
+    <link rel="stylesheet" href="/nav.css?v=20261009-1" />
+    <link rel="stylesheet" href="/predictors.css?v=20261011-1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <svg viewBox="0 0 210 52" xmlns="http://www.w3.org/2000/svg" width="315" height="78" aria-label="ExtroDB">
+          <polygon points="26,5 44,15.4 44,36.6 26,47 8,36.6 8,15.4"
+                   fill="white" stroke="#1d4ed8" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="26" y="33" font-family="Helvetica Neue,Arial,sans-serif"
+                font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">E</text>
+          <text x="56" y="36" font-family="Helvetica Neue,Arial,sans-serif" font-size="27">
+            <tspan font-weight="300" fill="#f9fafb">Extro</tspan><tspan font-weight="700" fill="#1d4ed8">DB</tspan>
+          </text>
+        </svg>
+        <nav class="site-nav" aria-label="Sections">
+          <a href="/">Proteome Index</a>
+          <a href="/predictors.html" aria-current="page">Predictor Models</a>
+        </nav>
+        <p class="hero-copy">
+          Extremophile predictors trained on protein language model embeddings of the curated
+          proteomes. Download the exact input sequences of every model and compare their
+          performance on held-out prokaryotes and on eukaryotic algae.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-chip">
+            <span class="hero-chip-label">Embedders</span>
+            <strong>ProtT5 · ESM2 650M · ESM2 8M · One-hot</strong>
+          </div>
+          <div class="hero-chip">
+            <span class="hero-chip-label">Classifier</span>
+            <strong>FNN (embedding → 32 → classes)</strong>
+          </div>
+          <div class="hero-chip">
+            <span class="hero-chip-label">Sequence data</span>
+            <strong id="zenodo-status">Zenodo</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="metrics-grid" id="predictor-metrics" aria-live="polite"></section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Models &amp; data</p>
+              <h2>Input FASTAs per model</h2>
+            </div>
+          </div>
+          <p class="section-note">
+            Every model was trained and evaluated with all four embedders on exactly these sequences.
+            Headers contain the label: <code>&gt;protein_id label=halophile proteome=GCF_…</code>.
+            Extremophile proteins are MMseqs2 cluster representatives; non-extremophiles are
+            clustered at 30% identity as well, so no test protein has a close relative in training.
+          </p>
+          <div id="model-cards" class="model-cards"></div>
+        </section>
+
+        <section class="stats-section">
+          <div class="stats-header">
+            <p class="panel-kicker">Results</p>
+            <h2>Predictor performance</h2>
+            <p class="stats-description">
+              Test-set results with 95% bootstrap confidence intervals (shown on hover).
+              Algae results are recall only, because the eukaryote set contains extremophiles only.
+            </p>
+          </div>
+          <div class="stats-plots">
+            <figure class="stats-plot">
+              <canvas id="chart-fiveclass"></canvas>
+              <figcaption>
+                <strong>Multi-class prediction (macro-F1).</strong>
+                Which extremophile class a protein belongs to, per split and embedder.
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <canvas id="chart-binary"></canvas>
+              <figcaption>
+                <strong>Extremophile vs. non-extremophile.</strong>
+                Binary model on the clustered prokaryote test set.
+                <span id="binary-bias-note"></span>
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <canvas id="chart-algae"></canvas>
+              <figcaption>
+                <strong>Transfer to eukaryotic algae (recall).</strong>
+                Binary models applied to leakage-filtered algae proteins.
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <canvas id="chart-detection"></canvas>
+              <figcaption>
+                <strong>Detection needs non-extremophiles in training.</strong>
+                5-class (binarized), 6-class (binarized) and binary model on the same test set (ProtT5).
+              </figcaption>
+            </figure>
+            <figure class="stats-plot stats-plot--wide">
+              <canvas id="chart-homology"></canvas>
+              <figcaption>
+                <strong>Beyond sequence homology.</strong>
+                Accuracy of homology-based inference (label of the best MMseqs2 hit in training) vs. ProtT5,
+                and ProtT5 on test proteins without any homolog in training.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="/predictors.js?v=20261011-1" defer></script>
+  </body>
+</html>

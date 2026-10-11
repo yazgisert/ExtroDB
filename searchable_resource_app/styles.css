@@ -509,6 +509,22 @@ tbody tr.is-selected {
   display: block;
 }
 
+.stats-plot canvas {
+  width: 100% !important;
+  max-height: 280px;
+}
+
+.stats-plots--thirds {
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 24px;
+}
+
+@media (max-width: 720px) {
+  .stats-plots--thirds {
+    grid-template-columns: 1fr;
+  }
+}
+
 .stats-plot figcaption {
   margin-top: 12px;
   font-size: 0.875rem;

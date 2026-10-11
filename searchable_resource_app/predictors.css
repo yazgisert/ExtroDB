@@ -1,0 +1,79 @@
+/* Styles only used by predictors.html; everything else comes from styles.css */
+
+.section-note {
+  max-width: 90ch;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.section-note code {
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.model-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.model-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  background: #fafbfc;
+}
+
+.model-card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.model-card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.model-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.model-card td,
+.model-card th {
+  padding: 6px 8px;
+}
+
+.model-card .button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.model-card .button[aria-disabled="true"] {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Four summary cards: one row, or 2 + 2 in narrow windows (never 3 + 1) */
+#predictor-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  #predictor-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  #predictor-metrics {
+    grid-template-columns: 1fr;
+  }
+}

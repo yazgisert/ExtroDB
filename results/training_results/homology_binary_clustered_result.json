@@ -1,0 +1,91 @@
+{
+  "task": "homology-based inference vs. ProtT5 on the clustered binary test set",
+  "method": "label of the best MMseqs2 hit (bit score) among all train + val proteins; no hit counts as wrong",
+  "n_test": 5214,
+  "n_with_hit": 3075,
+  "homology": {
+    "accuracy": {
+      "value": 0.3680475642500959,
+      "ci_lower": 0.35500575373993093,
+      "ci_upper": 0.3812859608745685
+    },
+    "balanced_accuracy": {
+      "value": 0.3680475642500959,
+      "ci_lower": 0.35571064074063535,
+      "ci_upper": 0.38016509120241093
+    },
+    "precision": {
+      "value": 0.31057268722466963,
+      "ci_lower": 0.2899651279666037,
+      "ci_upper": 0.33023961749254954
+    },
+    "recall": {
+      "value": 0.21634062140391255,
+      "ci_lower": 0.20115196456086287,
+      "ci_upper": 0.23227139942502084
+    },
+    "specificity": {
+      "value": 0.5197545070962792,
+      "ci_lower": 0.49744019264626765,
+      "ci_upper": 0.539028378974218
+    },
+    "f1": {
+      "value": 0.25503052226995254,
+      "ci_lower": 0.23864744477687394,
+      "ci_upper": 0.27185612571677303
+    },
+    "mcc": {
+      "value": -0.2769611340956439,
+      "ci_lower": -0.30247243868782875,
+      "ci_upper": -0.25087688357811677
+    }
+  },
+  "prott5": {
+    "accuracy": {
+      "value": 0.7911392405063291,
+      "ci_lower": 0.7803941311852705,
+      "ci_upper": 0.8013041810510165
+    },
+    "balanced_accuracy": {
+      "value": 0.7911392405063291,
+      "ci_lower": 0.7802316259602221,
+      "ci_upper": 0.8012308989163097
+    },
+    "precision": {
+      "value": 0.7786343612334802,
+      "ci_lower": 0.7632405520873027,
+      "ci_upper": 0.7931293505599675
+    },
+    "recall": {
+      "value": 0.8135788262370541,
+      "ci_lower": 0.7991749952780112,
+      "ci_upper": 0.8275661935577427
+    },
+    "specificity": {
+      "value": 0.7686996547756041,
+      "ci_lower": 0.7525289866665862,
+      "ci_upper": 0.7835680442971736
+    },
+    "f1": {
+      "value": 0.7957231288688801,
+      "ci_lower": 0.7838814490863723,
+      "ci_upper": 0.8063590799938615
+    },
+    "mcc": {
+      "value": 0.5828657635125248,
+      "ci_lower": 0.5611468648893293,
+      "ci_upper": 0.6028132944819922
+    }
+  },
+  "subsets": {
+    "with_hit": {
+      "n": 3075,
+      "homology_accuracy": 0.6240650406504065,
+      "prott5_accuracy": 0.7990243902439025
+    },
+    "without_hit": {
+      "n": 2139,
+      "prott5_accuracy": 0.7798036465638148
+    }
+  }
+}

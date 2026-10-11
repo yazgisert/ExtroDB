@@ -5,6 +5,195 @@ const state = {
   selectedKey: null,
 };
 
+// ── Stats charts ──────────────────────────────────────────────────────────────
+const STAT_CLASSES = ["thermophile", "halophile", "acidophile", "psychrophile", "alkaliphile"];
+const STAT_COLORS  = {
+  thermophile:  "#E05C5C",
+  halophile:    "#5C8AE0",
+  acidophile:   "#E0A85C",
+  psychrophile: "#5CE0A8",
+  alkaliphile:  "#A85CE0",
+};
+const STAT_CHARTS = {};
+
+function jitter(index, range = 0.32) {
+  // Deterministic, index-based jitter so chart doesn't jump on re-render
+  const t = Math.sin(index * 127.1 + 43.7) * 43758.5453;
+  return (t - Math.floor(t)) * range - range / 2;
+}
+
+function classLabel(cls) {
+  return cls.charAt(0).toUpperCase() + cls.slice(1);
+}
+
+function makeOrReplaceChart(canvasId, config) {
+  if (STAT_CHARTS[canvasId]) {
+    STAT_CHARTS[canvasId].destroy();
+  }
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === "undefined") return;
+  STAT_CHARTS[canvasId] = new Chart(canvas, config);
+}
+
+function renderOrganismCounts(rows) {
+  const counts = Object.fromEntries(STAT_CLASSES.map(c => [c, 0]));
+  rows.forEach(row => {
+    splitMultiValue(row.phenotype_focus).forEach(cls => {
+      if (cls in counts) counts[cls]++;
+    });
+  });
+
+  makeOrReplaceChart("stats-chart-organisms", {
+    type: "bar",
+    data: {
+      labels: STAT_CLASSES.map(classLabel),
+      datasets: [{
+        data: STAT_CLASSES.map(c => counts[c]),
+        backgroundColor: STAT_CLASSES.map(c => STAT_COLORS[c] + "cc"),
+        borderColor:     STAT_CLASSES.map(c => STAT_COLORS[c]),
+        borderWidth: 1,
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `${ctx.parsed.y} organisms` } },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: "Organisms" },
+          grid: { color: "#f0f4f8" },
+          ticks: { precision: 0 },
+        },
+        x: { grid: { display: false } },
+      },
+    },
+  });
+}
+
+function renderProteinCounts(rows) {
+  const datasets = STAT_CLASSES.map((cls, ci) => {
+    const classRows = rows.filter(r =>
+      splitMultiValue(r.phenotype_focus).includes(cls) && r.protein_count
+    );
+    return {
+      label: classLabel(cls),
+      data: classRows.map((r, i) => ({
+        x: ci + jitter(i),
+        y: Number(r.protein_count),
+        name: r.taxon_name,
+      })),
+      backgroundColor: STAT_COLORS[cls] + "99",
+      pointRadius: 5,
+      pointHoverRadius: 7,
+    };
+  });
+
+  makeOrReplaceChart("stats-chart-proteins", {
+    type: "scatter",
+    data: { datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.raw.name}: ${ctx.parsed.y.toLocaleString()} proteins`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: "linear",
+          min: -0.6,
+          max: STAT_CLASSES.length - 0.4,
+          ticks: {
+            stepSize: 1,
+            callback: v => {
+              const i = Math.round(v);
+              return (i >= 0 && i < STAT_CLASSES.length) ? classLabel(STAT_CLASSES[i]) : "";
+            },
+          },
+          grid: { display: false },
+        },
+        y: {
+          type: "logarithmic",
+          title: { display: true, text: "Protein count (log scale)" },
+          grid: { color: "#f0f4f8" },
+        },
+      },
+    },
+  });
+}
+
+function renderEnvParam(rows, canvasId, field, yLabel) {
+  const datasets = STAT_CLASSES.map((cls, ci) => {
+    const classRows = rows.filter(r =>
+      splitMultiValue(r.phenotype_focus).includes(cls) &&
+      r[field] !== "" && r[field] != null
+    );
+    return {
+      label: classLabel(cls),
+      data: classRows.map((r, i) => ({
+        x: ci + jitter(i),
+        y: Number(r[field]),
+        name: r.taxon_name,
+      })),
+      backgroundColor: STAT_COLORS[cls] + "99",
+      pointRadius: 4,
+      pointHoverRadius: 6,
+    };
+  });
+
+  makeOrReplaceChart(canvasId, {
+    type: "scatter",
+    data: { datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.raw.name}: ${ctx.parsed.y}`,
+          },
+        },
+      },
+      scales: {
+        x: {
+          type: "linear",
+          min: -0.6,
+          max: STAT_CLASSES.length - 0.4,
+          ticks: {
+            stepSize: 1,
+            callback: v => {
+              const i = Math.round(v);
+              return (i >= 0 && i < STAT_CLASSES.length) ? classLabel(STAT_CLASSES[i]) : "";
+            },
+          },
+          grid: { display: false },
+        },
+        y: {
+          title: { display: true, text: yLabel },
+          grid: { color: "#f0f4f8" },
+        },
+      },
+    },
+  });
+}
+
+function renderStats(rows) {
+  if (typeof Chart === "undefined") return;
+  renderOrganismCounts(rows);
+  renderProteinCounts(rows);
+  renderEnvParam(rows, "stats-chart-ogt",  "ogt_celsius",    "OGT (°C)");
+  renderEnvParam(rows, "stats-chart-nacl", "nacl_optimum_M", "NaCl Optimum (M)");
+  renderEnvParam(rows, "stats-chart-ph",   "ph_optimum",     "pH Optimum");
+}
+
 const filterIds = [
   "search",
   "domain-filter",
@@ -616,6 +805,7 @@ function render() {
   renderMetrics();
   renderResults();
   renderDetail();
+  renderStats(state.filteredRows);
 }
 
 function resetFilters() {

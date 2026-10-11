@@ -1,0 +1,121 @@
+{
+  "task": "sixclass_extremophile_binarized",
+  "model": "ProtT5 FNN 6-class (clustered split, all classes equal size), binarized by P(non_extremophile) threshold",
+  "classes": [
+    "acidophile",
+    "alkaliphile",
+    "halophile",
+    "psychrophile",
+    "thermophile",
+    "non_extremophile"
+  ],
+  "binarization_threshold": 0.5,
+  "n_train": 54726,
+  "n_val": 7818,
+  "n_test": 5214,
+  "test_set": "identical to the clustered binary test set",
+  "sixclass_metrics": {
+    "accuracy": {
+      "value": 0.622554660529344,
+      "ci_lower": 0.6087456846950517,
+      "ci_upper": 0.6357882623705409
+    },
+    "balanced_accuracy": {
+      "value": 0.6616955461130826,
+      "ci_lower": 0.6468218805156668,
+      "ci_upper": 0.6759289110771766
+    },
+    "macro_f1": {
+      "value": 0.5932840345887098,
+      "ci_lower": 0.5790689673066454,
+      "ci_upper": 0.6073154538757879
+    },
+    "mcc": {
+      "value": 0.531079696973633,
+      "ci_lower": 0.5147683727724036,
+      "ci_upper": 0.5461797706885391
+    }
+  },
+  "sixclass_per_class_recall": {
+    "acidophile": 0.7394636015325671,
+    "alkaliphile": 0.5747126436781609,
+    "halophile": 0.4817658349328215,
+    "psychrophile": 0.7178502879078695,
+    "thermophile": 0.8925143953934741,
+    "non_extremophile": 0.5638665132336018
+  },
+  "binarized_sixclass": {
+    "accuracy": {
+      "value": 0.7153816647487533,
+      "ci_lower": 0.7027234369006521,
+      "ci_upper": 0.7270809359416954
+    },
+    "balanced_accuracy": {
+      "value": 0.7153816647487533,
+      "ci_lower": 0.705466404238561,
+      "ci_upper": 0.7243368931124958
+    },
+    "precision": {
+      "value": 0.6414001510954419,
+      "ci_lower": 0.6263317041277637,
+      "ci_upper": 0.6552522811661139
+    },
+    "recall": {
+      "value": 0.9769850402761795,
+      "ci_lower": 0.9710027287637479,
+      "ci_upper": 0.9827545291838581
+    },
+    "specificity": {
+      "value": 0.4537782892213272,
+      "ci_lower": 0.43527772535327564,
+      "ci_upper": 0.47243642418223863
+    },
+    "f1": {
+      "value": 0.7743995135299483,
+      "ci_lower": 0.762934982854904,
+      "ci_upper": 0.7844208570069556
+    },
+    "mcc": {
+      "value": 0.5054686771266889,
+      "ci_lower": 0.4875948642981484,
+      "ci_upper": 0.5230767770092231
+    }
+  },
+  "dedicated_binary": {
+    "accuracy": {
+      "value": 0.7911392405063291,
+      "ci_lower": 0.7790467970847718,
+      "ci_upper": 0.801500767165324
+    },
+    "balanced_accuracy": {
+      "value": 0.7911392405063291,
+      "ci_lower": 0.778831715776343,
+      "ci_upper": 0.8016565357017448
+    },
+    "precision": {
+      "value": 0.7786343612334802,
+      "ci_lower": 0.7626485490276765,
+      "ci_upper": 0.7929086098679952
+    },
+    "recall": {
+      "value": 0.8135788262370541,
+      "ci_lower": 0.7975500730319157,
+      "ci_upper": 0.8284098815547777
+    },
+    "specificity": {
+      "value": 0.7686996547756041,
+      "ci_lower": 0.7515987190535239,
+      "ci_upper": 0.784089911220403
+    },
+    "f1": {
+      "value": 0.7957231288688801,
+      "ci_lower": 0.7827579466996271,
+      "ci_upper": 0.8075805114425143
+    },
+    "mcc": {
+      "value": 0.5828657635125248,
+      "ci_lower": 0.5583047141631481,
+      "ci_upper": 0.6039122246758527
+    }
+  }
+}

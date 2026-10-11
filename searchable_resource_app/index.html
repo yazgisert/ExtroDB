@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Extremophile Searchable Resource</title>
     <link rel="stylesheet" href="/styles.css?v=20260729-1" />
+    <link rel="stylesheet" href="/nav.css?v=20261009-1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -19,6 +20,10 @@
             <tspan font-weight="300" fill="#f9fafb">Extro</tspan><tspan font-weight="700" fill="#1d4ed8">DB</tspan>
           </text>
         </svg>
+        <nav class="site-nav" aria-label="Sections">
+          <a href="/" aria-current="page">Proteome Index</a>
+          <a href="/predictors.html">Predictor Models</a>
+        </nav>
         <p class="hero-copy">
           Browse the curated extremophile proteome index by phenotype class,
           optimal growth conditions, and sequence retrieval status. Filter across
@@ -188,40 +193,51 @@
         <h2>Master Index Overview</h2>
         <p class="stats-description">
           Distribution of organisms, proteome sizes, and optimal growth conditions
-          across the five extremophile classes — before any balancing or splitting.
+          across the five extremophile classes. Charts reflect your current filter selection.
         </p>
       </div>
       <div class="stats-plots">
         <figure class="stats-plot">
-          <img src="/plots/master_organism_counts.png?v=20260825"
-               alt="Organism counts per class and domain scope" loading="lazy" />
+          <canvas id="stats-chart-organisms"></canvas>
           <figcaption>
             <strong>Organism counts per class.</strong>
-            247 total organisms; thermophiles (77) and halophiles (69) are most represented.
-            38 organisms carry multiple class labels. 92.3% are prokaryotes.
+            Number of organisms in the current filter selection, grouped by phenotype class.
           </figcaption>
         </figure>
         <figure class="stats-plot">
-          <img src="/plots/master_protein_counts.png?v=20260825"
-               alt="Proteome size distribution per class" loading="lazy" />
+          <canvas id="stats-chart-proteins"></canvas>
           <figcaption>
-            <strong>Proteome sizes per class.</strong>
-            Thermophiles have the smallest proteomes (median ~2,500 proteins), consistent
-            with genome streamlining under heat stress.
+            <strong>Proteome sizes per class (log scale).</strong>
+            Each dot is one organism. Hover for the taxon name and exact count.
           </figcaption>
         </figure>
-        <figure class="stats-plot stats-plot--wide">
-          <img src="/plots/master_env_params.png?v=20260825"
-               alt="Environmental parameter distributions per class" loading="lazy" />
+      </div>
+      <div class="stats-plots stats-plots--thirds">
+        <figure class="stats-plot">
+          <canvas id="stats-chart-ogt"></canvas>
           <figcaption>
-            <strong>Environmental parameters per class.</strong>
-            Optimal growth temperature, pH, and NaCl concentration confirm that class
-            labels correspond to biologically distinct niches.
+            <strong>Optimal growth temperature (°C).</strong>
+            Each dot is one organism.
+          </figcaption>
+        </figure>
+        <figure class="stats-plot">
+          <canvas id="stats-chart-nacl"></canvas>
+          <figcaption>
+            <strong>NaCl optimum (M).</strong>
+            Each dot is one organism.
+          </figcaption>
+        </figure>
+        <figure class="stats-plot">
+          <canvas id="stats-chart-ph"></canvas>
+          <figcaption>
+            <strong>pH optimum.</strong>
+            Each dot is one organism.
           </figcaption>
         </figure>
       </div>
     </section>
 
-    <script src="/app.js?v=20260729-10" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="/app.js?v=20260831-1" defer></script>
   </body>
 </html>

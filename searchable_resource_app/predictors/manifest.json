@@ -1,0 +1,312 @@
+{
+  "fiveclass_split1_30pct": {
+    "description": "5 broad classes, 30% identity clustering",
+    "splits": {
+      "train": {
+        "file": "fiveclass_split1_30pct_train.fasta.gz",
+        "n_proteins": 100024,
+        "labels": {
+          "acidophile": 20005,
+          "alkaliphile": 20005,
+          "halophile": 20004,
+          "psychrophile": 20005,
+          "thermophile": 20005
+        },
+        "size_mb": 16.58
+      },
+      "val": {
+        "file": "fiveclass_split1_30pct_val.fasta.gz",
+        "n_proteins": 14289,
+        "labels": {
+          "acidophile": 2857,
+          "alkaliphile": 2858,
+          "halophile": 2858,
+          "psychrophile": 2858,
+          "thermophile": 2858
+        },
+        "size_mb": 2.4
+      },
+      "test": {
+        "file": "fiveclass_split1_30pct_test.fasta.gz",
+        "n_proteins": 28576,
+        "labels": {
+          "acidophile": 5716,
+          "alkaliphile": 5715,
+          "halophile": 5715,
+          "psychrophile": 5715,
+          "thermophile": 5715
+        },
+        "size_mb": 4.76
+      }
+    }
+  },
+  "fiveclass_split1_20pct": {
+    "description": "5 broad classes, 20% identity clustering",
+    "splits": {
+      "train": {
+        "file": "fiveclass_split1_20pct_train.fasta.gz",
+        "n_proteins": 68607,
+        "labels": {
+          "acidophile": 13722,
+          "alkaliphile": 13722,
+          "halophile": 13721,
+          "psychrophile": 13721,
+          "thermophile": 13721
+        },
+        "size_mb": 10.82
+      },
+      "val": {
+        "file": "fiveclass_split1_20pct_val.fasta.gz",
+        "n_proteins": 9801,
+        "labels": {
+          "acidophile": 1960,
+          "alkaliphile": 1960,
+          "halophile": 1961,
+          "psychrophile": 1960,
+          "thermophile": 1960
+        },
+        "size_mb": 1.6
+      },
+      "test": {
+        "file": "fiveclass_split1_20pct_test.fasta.gz",
+        "n_proteins": 19603,
+        "labels": {
+          "acidophile": 3921,
+          "alkaliphile": 3921,
+          "halophile": 3920,
+          "psychrophile": 3920,
+          "thermophile": 3921
+        },
+        "size_mb": 3.13
+      }
+    }
+  },
+  "twelveclass_split2_30pct": {
+    "description": "12 subtypes, 30% identity clustering",
+    "splits": {
+      "train": {
+        "file": "twelveclass_split2_30pct_train.fasta.gz",
+        "n_proteins": 43344,
+        "labels": {
+          "acidophile": 3612,
+          "acidotolerant": 3612,
+          "alkaliphile": 3612,
+          "alkalitolerant": 3612,
+          "extreme_alkaliphile": 3612,
+          "extreme_halophile": 3612,
+          "hyperthermophile": 3612,
+          "moderate_acidophile": 3612,
+          "moderate_halophile": 3612,
+          "psychrophile": 3612,
+          "slight_halophile": 3612,
+          "thermophile": 3612
+        },
+        "size_mb": 7.05
+      },
+      "val": {
+        "file": "twelveclass_split2_30pct_val.fasta.gz",
+        "n_proteins": 6192,
+        "labels": {
+          "acidophile": 516,
+          "acidotolerant": 516,
+          "alkaliphile": 516,
+          "alkalitolerant": 516,
+          "extreme_alkaliphile": 516,
+          "extreme_halophile": 516,
+          "hyperthermophile": 516,
+          "moderate_acidophile": 516,
+          "moderate_halophile": 516,
+          "psychrophile": 516,
+          "slight_halophile": 516,
+          "thermophile": 516
+        },
+        "size_mb": 1.04
+      },
+      "test": {
+        "file": "twelveclass_split2_30pct_test.fasta.gz",
+        "n_proteins": 12384,
+        "labels": {
+          "acidophile": 1032,
+          "acidotolerant": 1032,
+          "alkaliphile": 1032,
+          "alkalitolerant": 1032,
+          "extreme_alkaliphile": 1032,
+          "extreme_halophile": 1032,
+          "hyperthermophile": 1032,
+          "moderate_acidophile": 1032,
+          "moderate_halophile": 1032,
+          "psychrophile": 1032,
+          "slight_halophile": 1032,
+          "thermophile": 1032
+        },
+        "size_mb": 2.06
+      }
+    }
+  },
+  "twelveclass_split2_20pct": {
+    "description": "12 subtypes, 20% identity clustering",
+    "splits": {
+      "train": {
+        "file": "twelveclass_split2_20pct_train.fasta.gz",
+        "n_proteins": 28596,
+        "labels": {
+          "acidophile": 2383,
+          "acidotolerant": 2383,
+          "alkaliphile": 2383,
+          "alkalitolerant": 2383,
+          "extreme_alkaliphile": 2383,
+          "extreme_halophile": 2383,
+          "hyperthermophile": 2383,
+          "moderate_acidophile": 2383,
+          "moderate_halophile": 2383,
+          "psychrophile": 2383,
+          "slight_halophile": 2383,
+          "thermophile": 2383
+        },
+        "size_mb": 4.45
+      },
+      "val": {
+        "file": "twelveclass_split2_20pct_val.fasta.gz",
+        "n_proteins": 4081,
+        "labels": {
+          "acidophile": 340,
+          "acidotolerant": 340,
+          "alkaliphile": 340,
+          "alkalitolerant": 341,
+          "extreme_alkaliphile": 340,
+          "extreme_halophile": 340,
+          "hyperthermophile": 340,
+          "moderate_acidophile": 340,
+          "moderate_halophile": 340,
+          "psychrophile": 340,
+          "slight_halophile": 340,
+          "thermophile": 340
+        },
+        "size_mb": 0.64
+      },
+      "test": {
+        "file": "twelveclass_split2_20pct_test.fasta.gz",
+        "n_proteins": 8172,
+        "labels": {
+          "acidophile": 681,
+          "acidotolerant": 681,
+          "alkaliphile": 681,
+          "alkalitolerant": 681,
+          "extreme_alkaliphile": 681,
+          "extreme_halophile": 681,
+          "hyperthermophile": 681,
+          "moderate_acidophile": 681,
+          "moderate_halophile": 681,
+          "psychrophile": 681,
+          "slight_halophile": 681,
+          "thermophile": 681
+        },
+        "size_mb": 1.28
+      }
+    }
+  },
+  "binary_clustered": {
+    "description": "extremophile vs. non-extremophile; 13,031 non-extremophile cluster representatives (30%) + as many extremophiles, equal per class",
+    "splits": {
+      "train": {
+        "file": "binary_clustered_train.fasta.gz",
+        "n_proteins": 18242,
+        "labels": {
+          "acidophile": 1825,
+          "alkaliphile": 1824,
+          "halophile": 1824,
+          "non_extremophile": 9121,
+          "psychrophile": 1824,
+          "thermophile": 1824
+        },
+        "size_mb": 3.34
+      },
+      "val": {
+        "file": "binary_clustered_val.fasta.gz",
+        "n_proteins": 2606,
+        "labels": {
+          "acidophile": 261,
+          "alkaliphile": 261,
+          "halophile": 261,
+          "non_extremophile": 1303,
+          "psychrophile": 260,
+          "thermophile": 260
+        },
+        "size_mb": 0.46
+      },
+      "test": {
+        "file": "binary_clustered_test.fasta.gz",
+        "n_proteins": 5214,
+        "labels": {
+          "acidophile": 522,
+          "alkaliphile": 522,
+          "halophile": 521,
+          "non_extremophile": 2607,
+          "psychrophile": 521,
+          "thermophile": 521
+        },
+        "size_mb": 0.95
+      }
+    }
+  },
+  "sixclass_clustered": {
+    "description": "5 extremophile classes + non-extremophile, all classes equal size; test set identical to binary_clustered",
+    "splits": {
+      "train": {
+        "file": "sixclass_clustered_train.fasta.gz",
+        "n_proteins": 54726,
+        "labels": {
+          "acidophile": 9121,
+          "alkaliphile": 9121,
+          "halophile": 9121,
+          "non_extremophile": 9121,
+          "psychrophile": 9121,
+          "thermophile": 9121
+        },
+        "size_mb": 9.39
+      },
+      "val": {
+        "file": "sixclass_clustered_val.fasta.gz",
+        "n_proteins": 7818,
+        "labels": {
+          "acidophile": 1303,
+          "alkaliphile": 1303,
+          "halophile": 1303,
+          "non_extremophile": 1303,
+          "psychrophile": 1303,
+          "thermophile": 1303
+        },
+        "size_mb": 1.35
+      },
+      "test": {
+        "file": "sixclass_clustered_test.fasta.gz",
+        "n_proteins": 5214,
+        "labels": {
+          "acidophile": 522,
+          "alkaliphile": 522,
+          "halophile": 521,
+          "non_extremophile": 2607,
+          "psychrophile": 521,
+          "thermophile": 521
+        },
+        "size_mb": 0.95
+      }
+    }
+  },
+  "algae_filtered": {
+    "description": "eukaryotic algae, test only; proteins with >= 30% identity to prokaryote train + val removed",
+    "splits": {
+      "test": {
+        "file": "algae_filtered_test.fasta.gz",
+        "n_proteins": 133689,
+        "labels": {
+          "acidophile": 10079,
+          "halophile": 30559,
+          "psychrophile": 76109,
+          "thermophile": 16942
+        },
+        "size_mb": 32.76
+      }
+    }
+  }
+}

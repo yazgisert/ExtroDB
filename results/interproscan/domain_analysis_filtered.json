@@ -1,0 +1,406 @@
+{
+  "prokaryote": {
+    "acidophile": {
+      "n_proteins": 289,
+      "n_unique_domains": 318,
+      "top_enriched": [
+        {
+          "pfam": "PF14559",
+          "description": "Tetratricopeptide repeat",
+          "frequency": 0.0138,
+          "log2_enrichment": 0.746,
+          "count": 4
+        },
+        {
+          "pfam": "PF13231",
+          "description": "Dolichyl-phosphate-mannose-protein mannosyltransferase",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.67,
+          "count": 3
+        },
+        {
+          "pfam": "PF08241",
+          "description": "Methyltransferase domain",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.67,
+          "count": 3
+        },
+        {
+          "pfam": "PF00069",
+          "description": "Protein kinase domain",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.67,
+          "count": 3
+        },
+        {
+          "pfam": "PF00149",
+          "description": "Calcineurin-like phosphoesterase",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.593,
+          "count": 3
+        },
+        {
+          "pfam": "PF13360",
+          "description": "Outer membrane protein assembly factor BamB",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.593,
+          "count": 3
+        },
+        {
+          "pfam": "PF00892",
+          "description": "EamA-like transporter family",
+          "frequency": 0.0104,
+          "log2_enrichment": 0.593,
+          "count": 3
+        },
+        {
+          "pfam": "PF05532",
+          "description": "CsbD-like",
+          "frequency": 0.0069,
+          "log2_enrichment": 0.569,
+          "count": 2
+        },
+        {
+          "pfam": "PF07584",
+          "description": "Aerotolerance regulator N-terminal",
+          "frequency": 0.0069,
+          "log2_enrichment": 0.569,
+          "count": 2
+        },
+        {
+          "pfam": "PF02754",
+          "description": "Cysteine-rich domain",
+          "frequency": 0.0069,
+          "log2_enrichment": 0.569,
+          "count": 2
+        }
+      ]
+    },
+    "alkaliphile": {
+      "n_proteins": 294,
+      "n_unique_domains": 317,
+      "top_enriched": [
+        {
+          "pfam": "PF00005",
+          "description": "ABC transporter",
+          "frequency": 0.0204,
+          "log2_enrichment": 1.027,
+          "count": 6
+        },
+        {
+          "pfam": "PF13302",
+          "description": "Acetyltransferase (GNAT) domain",
+          "frequency": 0.0136,
+          "log2_enrichment": 0.804,
+          "count": 4
+        },
+        {
+          "pfam": "PF00563",
+          "description": "EAL domain",
+          "frequency": 0.0136,
+          "log2_enrichment": 0.662,
+          "count": 4
+        },
+        {
+          "pfam": "PF04909",
+          "description": "Amidohydrolase",
+          "frequency": 0.0102,
+          "log2_enrichment": 0.657,
+          "count": 3
+        },
+        {
+          "pfam": "PF00293",
+          "description": "NUDIX domain",
+          "frequency": 0.0102,
+          "log2_enrichment": 0.657,
+          "count": 3
+        },
+        {
+          "pfam": "PF25928",
+          "description": "Family of unknown function (DUF7973)",
+          "frequency": 0.0068,
+          "log2_enrichment": 0.559,
+          "count": 2
+        },
+        {
+          "pfam": "PF01590",
+          "description": "GAF domain",
+          "frequency": 0.0068,
+          "log2_enrichment": 0.559,
+          "count": 2
+        },
+        {
+          "pfam": "PF03547",
+          "description": "Membrane transport protein",
+          "frequency": 0.0068,
+          "log2_enrichment": 0.559,
+          "count": 2
+        },
+        {
+          "pfam": "PF00877",
+          "description": "NlpC/P60 family",
+          "frequency": 0.0068,
+          "log2_enrichment": 0.559,
+          "count": 2
+        },
+        {
+          "pfam": "PF13378",
+          "description": "Enolase C-terminal domain-like",
+          "frequency": 0.0068,
+          "log2_enrichment": 0.559,
+          "count": 2
+        }
+      ]
+    },
+    "halophile": {
+      "n_proteins": 286,
+      "n_unique_domains": 310,
+      "top_enriched": [
+        {
+          "pfam": "PF24035",
+          "description": "Domain of unknown function (DUF7344)",
+          "frequency": 0.0105,
+          "log2_enrichment": 0.759,
+          "count": 3
+        },
+        {
+          "pfam": "PF01814",
+          "description": "Hemerythrin HHE cation binding domain",
+          "frequency": 0.0105,
+          "log2_enrichment": 0.759,
+          "count": 3
+        },
+        {
+          "pfam": "PF00903",
+          "description": "Glyoxalase/Bleomycin resistance protein/Dioxygenase superfamily",
+          "frequency": 0.014,
+          "log2_enrichment": 0.754,
+          "count": 4
+        },
+        {
+          "pfam": "PF01476",
+          "description": "LysM domain",
+          "frequency": 0.0105,
+          "log2_enrichment": 0.6,
+          "count": 3
+        },
+        {
+          "pfam": "PF00196",
+          "description": "Bacterial regulatory proteins, luxR family",
+          "frequency": 0.0105,
+          "log2_enrichment": 0.6,
+          "count": 3
+        },
+        {
+          "pfam": "PF00350",
+          "description": "Dynamin family",
+          "frequency": 0.007,
+          "log2_enrichment": 0.575,
+          "count": 2
+        },
+        {
+          "pfam": "PF25920",
+          "description": "Family of unknown function (DUF7966)",
+          "frequency": 0.007,
+          "log2_enrichment": 0.575,
+          "count": 2
+        },
+        {
+          "pfam": "PF15915",
+          "description": "GAF and HTH_10 associated domain",
+          "frequency": 0.007,
+          "log2_enrichment": 0.575,
+          "count": 2
+        },
+        {
+          "pfam": "PF04967",
+          "description": "HTH DNA binding domain",
+          "frequency": 0.007,
+          "log2_enrichment": 0.575,
+          "count": 2
+        },
+        {
+          "pfam": "PF08461",
+          "description": "Ribonuclease R winged-helix domain",
+          "frequency": 0.007,
+          "log2_enrichment": 0.575,
+          "count": 2
+        }
+      ]
+    },
+    "psychrophile": {
+      "n_proteins": 281,
+      "n_unique_domains": 317,
+      "top_enriched": [
+        {
+          "pfam": "PF00990",
+          "description": "Diguanylate cyclase, GGDEF domain",
+          "frequency": 0.0249,
+          "log2_enrichment": 0.921,
+          "count": 7
+        },
+        {
+          "pfam": "PF00383",
+          "description": "Cytidine and deoxycytidylate deaminase zinc-binding region",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF13439",
+          "description": "Glycosyltransferase Family 4",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF20434",
+          "description": "BD-FAE",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF00497",
+          "description": "Bacterial extracellular solute-binding proteins, family 3",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF00027",
+          "description": "Cyclic nucleotide-binding domain",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF01041",
+          "description": "DegT/DnrJ/EryC1/StrS aminotransferase family",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF01593",
+          "description": "Flavin containing amine oxidoreductase",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF20040",
+          "description": "Family of unknown function (DUF6442)",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        },
+        {
+          "pfam": "PF13617",
+          "description": "YnbE-like lipoprotein",
+          "frequency": 0.0071,
+          "log2_enrichment": 0.586,
+          "count": 2
+        }
+      ]
+    },
+    "thermophile": {
+      "n_proteins": 272,
+      "n_unique_domains": 314,
+      "top_enriched": [
+        {
+          "pfam": "PF00581",
+          "description": "Rhodanese-like domain",
+          "frequency": 0.0147,
+          "log2_enrichment": 0.797,
+          "count": 4
+        },
+        {
+          "pfam": "PF05168",
+          "description": "HEPN domain",
+          "frequency": 0.011,
+          "log2_enrichment": 0.796,
+          "count": 3
+        },
+        {
+          "pfam": "PF13304",
+          "description": "AAA domain, putative AbiEii toxin, Type IV TA system",
+          "frequency": 0.011,
+          "log2_enrichment": 0.796,
+          "count": 3
+        },
+        {
+          "pfam": "PF14947",
+          "description": "Winged helix-turn-helix",
+          "frequency": 0.011,
+          "log2_enrichment": 0.796,
+          "count": 3
+        },
+        {
+          "pfam": "PF01966",
+          "description": "HD domain",
+          "frequency": 0.011,
+          "log2_enrichment": 0.715,
+          "count": 3
+        },
+        {
+          "pfam": "PF00565",
+          "description": "Staphylococcal nuclease homologue",
+          "frequency": 0.0074,
+          "log2_enrichment": 0.605,
+          "count": 2
+        },
+        {
+          "pfam": "PF02568",
+          "description": "Thiamine biosynthesis protein (ThiI)",
+          "frequency": 0.0074,
+          "log2_enrichment": 0.605,
+          "count": 2
+        },
+        {
+          "pfam": "PF00374",
+          "description": "Nickel-dependent hydrogenase",
+          "frequency": 0.0074,
+          "log2_enrichment": 0.605,
+          "count": 2
+        },
+        {
+          "pfam": "PF22230",
+          "description": "CRISPR system endoribonuclease Csx1, CARF domain",
+          "frequency": 0.0074,
+          "log2_enrichment": 0.605,
+          "count": 2
+        },
+        {
+          "pfam": "PF06580",
+          "description": "Histidine kinase",
+          "frequency": 0.0074,
+          "log2_enrichment": 0.519,
+          "count": 2
+        }
+      ]
+    }
+  },
+  "eukaryote": {
+    "acidophile": {
+      "n_proteins": 189,
+      "n_unique_domains": 247
+    },
+    "alkaliphile": {
+      "n_proteins": 0,
+      "n_unique_domains": 0
+    },
+    "halophile": {
+      "n_proteins": 158,
+      "n_unique_domains": 178
+    },
+    "psychrophile": {
+      "n_proteins": 162,
+      "n_unique_domains": 163
+    },
+    "thermophile": {
+      "n_proteins": 204,
+      "n_unique_domains": 240
+    }
+  }
+}
