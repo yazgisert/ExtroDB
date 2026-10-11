@@ -33,8 +33,8 @@ docker compose down            # stop
 
 `--build` is only needed after changes to the website or backend code; otherwise `docker compose up` is enough.
 The proteome FASTAs come from Zenodo ([record 21864329](https://zenodo.org/records/21864329)).
-The predictor input FASTAs are linked on the Predictor Models page; their Zenodo record ID is set
-in `searchable_resource_app/predictors.js` (`ZENODO_RECORD_ID`).
+The predictor input FASTAs are on Zenodo ([doi:10.5281/zenodo.23298950](https://doi.org/10.5281/zenodo.23298950))
+and linked on the Predictor Models page (record ID in `searchable_resource_app/predictors.js`, `ZENODO_RECORD_ID`).
 
 ## Pipeline
 
@@ -56,7 +56,7 @@ All scripts are run from the repository root.
 | Data | Where |
 |---|---|
 | Proteome FASTAs | Zenodo [record 21864329](https://zenodo.org/records/21864329) |
-| Predictor input FASTAs (train / val / test per model) | Zenodo (see the Predictor Models page) |
+| Predictor input FASTAs (train / val / test per model) | Zenodo [doi:10.5281/zenodo.23298950](https://doi.org/10.5281/zenodo.23298950) |
 | Embeddings (`.h5`) | regenerate with `scripts/embeddings/` |
 | Non-extremophile sequences | UniProt Swiss-Prot; the exact sample is listed in `curation/source_tables/nonextremophile_uniprot_sample.tsv` |
 | `Pfam-A.hmm` | [Pfam / InterPro](https://www.ebi.ac.uk/interpro/download/pfam/) (for the THERMO comparison) |

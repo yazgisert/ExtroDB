@@ -1,6 +1,6 @@
 // Set this to the Zenodo record ID once the predictor FASTAs are uploaded.
 // A new Zenodo version gets a new ID, so this is the only line to change.
-const ZENODO_RECORD_ID = null;
+const ZENODO_RECORD_ID = "23298950";
 
 const EMBEDDER_COLORS = {
   "One-hot":   "#A8A8A8",

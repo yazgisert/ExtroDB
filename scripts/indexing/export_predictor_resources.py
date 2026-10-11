@@ -209,6 +209,10 @@ Notes
   trained without them.
 - `algae_filtered_test` contains only proteins without >= 30% identity to any
   prokaryote training or validation protein.
+- Non-extremophiles are reviewed bacterial Swiss-Prot proteins (taxonomy 2) only, while
+  50 of the 192 extremophile organisms are archaea. Archaeal proteins are therefore
+  always extremophiles in the binary and 6-class files; see the thesis for the
+  bacteria-only evaluation.
 """
 
 
