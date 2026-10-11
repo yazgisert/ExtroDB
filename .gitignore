@@ -13,9 +13,9 @@
 *_raw_protein_fastas/
 *_raw_protein_fastas_round2/
 *_merged/
-embeddings/
-nonextremophile_data/
-predictor_resources/
+/embeddings/
+/nonextremophile_data/
+/predictor_resources/
 
 # ── External tools and databases (download instructions in README.md) ─────────
 bacdive-AI/
