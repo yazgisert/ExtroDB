@@ -5,6 +5,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 os.makedirs("results/plots", exist_ok=True)
 
 SPLIT_KEYS = ['split1_30pct', 'split1_20pct', 'split2_30pct', 'split2_20pct']
@@ -13,8 +15,8 @@ for s in SPLIT_KEYS:
     with open(f'results/training_results/{s}_result.json') as f:
         results[s] = json.load(f)
 
-NAVY='#0D1B2A'; BLUE='#1B4F72'; TEAL='#1A9485'
-OFFWHT='#F5F7FA'; LGRAY='#DDE3EC'; BGRAY='#EEF1F6'; DGRAY='#5A6A7A'
+NAVY='#0D1B2A'; BLUE=MAIN; TEAL=SECONDARY
+OFFWHT='#FFFFFF'; LGRAY='#DDE3EC'; BGRAY='#EEF1F6'; DGRAY='#5A6A7A'
 
 def style_ax_v(ax):
     ax.set_facecolor(OFFWHT)

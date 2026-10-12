@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
+from style import CLASS_COLORS, MAIN
+
 BASE_DIR      = Path(__file__).resolve().parents[2]
 HOMOLOGY_JSON = BASE_DIR / "results" / "homology_inference" / "homology_inference_result.json"
 ML_JSON       = BASE_DIR / "results" / "training_results" / "binary_eukaryote_eval_clustered_result.json"
@@ -16,11 +18,11 @@ OUT_DIR       = BASE_DIR / "results" / "plots"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 CLASS_COLORS = {
-    "thermophile":  "#E05C5C",
-    "psychrophile": "#5C8AE0",
-    "halophile":    "#E0A040",
-    "acidophile":   "#6ABF69",
-    "overall":      "#333333",
+    "thermophile":  CLASS_COLORS["thermophile"],
+    "psychrophile": CLASS_COLORS["psychrophile"],
+    "halophile":    CLASS_COLORS["halophile"],
+    "acidophile":   CLASS_COLORS["acidophile"],
+    "overall":      MAIN,
 }
 
 CLASS_ORDER = ["thermophile", "psychrophile", "halophile", "acidophile", "overall"]

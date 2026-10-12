@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
+from style import CLASS_COLORS, MAIN, NON_EXTREMOPHILE, SECONDARY
+
 RESULT_FILE = Path("results/training_results/thermo_bacdive_result.json")
 OUT_DIR     = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -22,8 +24,8 @@ plt.rcParams.update({
     "figure.dpi":   150,
 })
 
-THERMO_COLOR    = "#E05C5C"   # red-ish for thermophile
-NONTHERMO_COLOR = "#5C8AE0"   # blue for non-thermophile
+THERMO_COLOR    = CLASS_COLORS["thermophile"]
+NONTHERMO_COLOR = NON_EXTREMOPHILE
 CORRECT_COLOR   = "#4CAF50"
 WRONG_COLOR     = "#E05C5C"
 
@@ -118,8 +120,8 @@ def plot_overlap_analysis():
     w   = 0.32
     fig, ax = plt.subplots(figsize=(7, 4.5))
 
-    bars1 = ax.bar(x - w/2, acc, width=w, label="Accuracy",  color="#5C8AE0", edgecolor="white")
-    bars2 = ax.bar(x + w/2, mf1, width=w, label="Macro-F1",  color="#E0A85C", edgecolor="white")
+    bars1 = ax.bar(x - w/2, acc, width=w, label="Accuracy",  color=MAIN, edgecolor="white")
+    bars2 = ax.bar(x + w/2, mf1, width=w, label="Macro-F1",  color=SECONDARY, edgecolor="white")
 
     for bar in list(bars1) + list(bars2):
         h = bar.get_height()

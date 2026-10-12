@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import BASELINE, CLASS_COLORS, NON_EXTREMOPHILE, RAMP
+
 OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -37,11 +39,11 @@ THERMO_METRICS = {
 }
 
 COLORS = {
-    "split1_20pct": "#5C8AE0",
-    "split2_20pct": "#A8C4F0",
-    "split1_30pct": "#E0A85C",
-    "split2_30pct": "#F0D4A8",
-    "THERMO":       "#E05C5C",
+    "split1_20pct": RAMP[1],
+    "split2_20pct": RAMP[0],
+    "split1_30pct": RAMP[3],
+    "split2_30pct": RAMP[2],
+    "THERMO":       BASELINE,
 }
 
 LABELS = {
@@ -130,9 +132,9 @@ def plot_f1_breakdown():
     nonthermo_errs = [_split_yerr(m, "f1_non_thermophile") for m in models]
     acc_errs       = [_split_yerr(m, "accuracy")           for m in models]
 
-    b1 = ax.bar(x - w, f1_thermo,    w, label="F1 — Thermophile",     color="#E05C5C", edgecolor="white")
-    b2 = ax.bar(x,     f1_nonthermo, w, label="F1 — Non-Thermophile", color="#5C8AE0", edgecolor="white")
-    b3 = ax.bar(x + w, accuracies,   w, label="Accuracy",              color="#888888", edgecolor="white")
+    b1 = ax.bar(x - w, f1_thermo,    w, label="F1 — Thermophile",     color=CLASS_COLORS["thermophile"], edgecolor="white")
+    b2 = ax.bar(x,     f1_nonthermo, w, label="F1 — Non-Thermophile", color=NON_EXTREMOPHILE, edgecolor="white")
+    b3 = ax.bar(x + w, accuracies,   w, label="Accuracy",              color=BASELINE, edgecolor="white")
 
     for i, (bar1, bar2, bar3, e1, e2, e3) in enumerate(
             zip(b1, b2, b3, thermo_errs, nonthermo_errs, acc_errs)):

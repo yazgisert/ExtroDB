@@ -9,12 +9,14 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 RESULT = Path("results/training_results/binary_domain_bias_result.json")
 OUT    = Path("results/plots/binary_domain_bias_clustered.png")
 
-ALL_COLOR      = "#1B4F72"
-BACTERIA_COLOR = "#7FB3D5"
-ARCHAEA_COLOR  = "#C0392B"
+ALL_COLOR      = MAIN
+BACTERIA_COLOR = SECONDARY
+ARCHAEA_COLOR  = MAIN
 EMBEDDERS = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "One-hot"}
 CLASSES   = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
 

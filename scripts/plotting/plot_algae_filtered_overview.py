@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score, matthews_corrcoef
 
+from style import CLASS_COLORS, MAIN, SECONDARY
+
 RESULTS = Path("results/training_results")
 OUT_DIR = Path("results/plots")
 
@@ -22,13 +24,13 @@ BINARY_JSON     = RESULTS / "binary_eukaryote_eval_clustered_result.json"
 SEED = 42
 N_BOOTSTRAP = 1000
 CLASS_COLORS = {
-    "halophile":    "#E0A040",
-    "psychrophile": "#5C8AE0",
-    "acidophile":   "#6ABF69",
-    "thermophile":  "#E05C5C",
+    "halophile":    CLASS_COLORS["halophile"],
+    "psychrophile": CLASS_COLORS["psychrophile"],
+    "acidophile":   CLASS_COLORS["acidophile"],
+    "thermophile":  CLASS_COLORS["thermophile"],
 }
-PROKARYOTE_COLOR = "#1B4F72"
-ALGAE_COLOR      = "#E07840"
+PROKARYOTE_COLOR = MAIN
+ALGAE_COLOR      = SECONDARY
 
 plt.rcParams.update({
     "font.family":       "sans-serif",

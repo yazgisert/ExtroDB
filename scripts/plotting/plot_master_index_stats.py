@@ -9,17 +9,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import CLASS_COLORS, MAIN, SECONDARY, apply
+
 MASTER_INDEX = Path("searchable_resource/extremophile_master_index.tsv")
 OUT_DIR      = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-plt.rcParams.update({
-    "font.family":       "sans-serif",
-    "font.size":         12,
-    "axes.spines.top":   False,
-    "axes.spines.right": False,
-    "figure.dpi":        150,
-})
+apply()
 
 with open(MASTER_INDEX) as f:
     rows = list(csv.DictReader(f, delimiter="\t"))
@@ -51,7 +47,7 @@ CLASS_MAP = {
 }
 
 CLASSES = ["thermophile", "psychrophile", "halophile", "acidophile", "alkaliphile"]
-COLORS  = ["#E05C5C", "#7EC8A0", "#5C8AE0", "#E0A85C", "#9B59B6"]
+COLORS  = [CLASS_COLORS[c] for c in CLASSES]
 COLOR_MAP = dict(zip(CLASSES, COLORS))
 
 
@@ -97,7 +93,7 @@ def plot_organism_counts():
         [domain_counts["prokaryote"], domain_counts["eukaryote"]],
         labels=[f"Prokaryote\n({domain_counts['prokaryote']})",
                 f"Eukaryote\n({domain_counts['eukaryote']})"],
-        colors=["#5C8AE0", "#E0A85C"],
+        colors=[MAIN, SECONDARY],
         autopct="%1.1f%%", startangle=90,
         textprops={"fontsize": 11},
         wedgeprops={"edgecolor": "white"}

@@ -9,6 +9,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, RAMP, SECONDARY
+
 OUT_DIR        = Path("results/plots")
 SIXCLASS_JSON  = Path("results/training_results/sixclass_clustered_result.json")
 FIVECLASS_JSON = Path("results/training_results/fiveclass_binarized_clustered_result.json")
@@ -48,9 +50,9 @@ def main():
         fiveclass = json.load(f)
 
     models = [
-        ("Binarized 5-class (max prob ≥ 0.5)",          fiveclass["binarized_fiveclass"], "#C9C9C9", "#555"),
-        ("Binarized 6-class (P(non-extremophile) < 0.5)", sixclass["binarized_sixclass"],  "#9DB9DC", "#555"),
-        ("Dedicated binary classifier",                 sixclass["dedicated_binary"],     "#3B6EA8", "#222"),
+        ("Binarized 5-class (max prob ≥ 0.5)",          fiveclass["binarized_fiveclass"], RAMP[0], "#555"),
+        ("Binarized 6-class (P(non-extremophile) < 0.5)", sixclass["binarized_sixclass"],  SECONDARY, "#555"),
+        ("Dedicated binary classifier",                 sixclass["dedicated_binary"],     MAIN, "#222"),
     ]
 
     x     = np.arange(len(METRICS))

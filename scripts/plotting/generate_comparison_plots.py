@@ -7,6 +7,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import EMBEDDER_COLORS
+
 os.makedirs("results/plots", exist_ok=True)
 
 
@@ -25,11 +27,7 @@ onehot  = load('_onehot')
 
 
 NAVY   = '#0D1B2A'
-BLUE   = '#1B4F72'   # ProtT5
-GREEN  = '#1A7A4A'   # ESM-2 650M
-LGREEN = '#7FC29B'   # ESM-2 8M
-AMBER  = '#C07A15'   # One-hot
-OFFWHT = '#F5F7FA'
+OFFWHT = '#FFFFFF'
 LGRAY  = '#DDE3EC'
 BGRAY  = '#EEF1F6'
 DGRAY  = '#5A6A7A'
@@ -65,7 +63,8 @@ def ci_err(r, metric, kind='overall'):
 err_kw  = dict(fmt='none', elinewidth=1.5, capsize=4, capthick=1.5, ecolor=DGRAY, zorder=5)
 herr_kw = dict(fmt='none', elinewidth=1.4, capsize=4, capthick=1.4, ecolor=DGRAY, zorder=5)
 
-MODELS = [('ProtT5', prot, BLUE), ('ESM-2 650M', esm2, GREEN), ('ESM-2 8M', esm2_8m, LGREEN), ('One-hot', onehot, AMBER)]
+MODELS = [('ProtT5', prot, EMBEDDER_COLORS['prott5']), ('ESM-2 650M', esm2, EMBEDDER_COLORS['esm2_650m']),
+          ('ESM-2 8M', esm2_8m, EMBEDDER_COLORS['esm2_8m']), ('One-hot', onehot, EMBEDDER_COLORS['onehot'])]
 W = 0.19
 OFFSETS = [(i - 1.5) * (W + 0.02) for i in range(len(MODELS))]
 
@@ -77,13 +76,13 @@ def grouped_bars(ax, x, values, errors, decimals, fontsize, horizontal=False, ro
             ax.barh(pos, vals, W, label=label, color=color, zorder=3, linewidth=0)
             ax.errorbar(vals, pos, xerr=err, **herr_kw)
             for p, v, e in zip(pos, vals, err[1]):
-                ax.text(v + e + 0.012, p, f'{v:.{decimals}f}', va='center', fontsize=fontsize, color=color, fontweight='bold')
+                ax.text(v + e + 0.012, p, f'{v:.{decimals}f}', va='center', fontsize=fontsize, color=DGRAY, fontweight='bold')
         else:
             pos = x + off
             ax.bar(pos, vals, W, label=label, color=color, zorder=3, linewidth=0)
             ax.errorbar(pos, vals, yerr=err, **err_kw)
             for p, v, e in zip(pos, vals, err[1]):
-                ax.text(p, v + e + 0.014, f'{v:.{decimals}f}', ha='center', va='bottom', fontsize=fontsize, color=color, fontweight='bold',
+                ax.text(p, v + e + 0.014, f'{v:.{decimals}f}', ha='center', va='bottom', fontsize=fontsize, color=DGRAY, fontweight='bold',
                         rotation=90 if rotate else 0)
 
 

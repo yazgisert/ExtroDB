@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, NON_EXTREMOPHILE, SECONDARY
+
 OUT_DIR = Path("results/plots")
 RESULT  = Path("results/training_results/binary_prott5_clustered_result.json")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -28,12 +30,12 @@ def main():
     metrics = d["test_metrics"]
 
     items = [
-        ("Accuracy",             "accuracy",           "#555555"),
-        ("Balanced Accuracy",    "balanced_accuracy",  "#555555"),
-        ("Macro F1",             "macro_f1",           "#555555"),
-        ("F1 — Extremophile",    "f1_extremophile",    "#E05C5C"),
-        ("F1 — Non-extremophile","f1_non_extremophile","#5C8AE0"),
-        ("MCC",                  "mcc",                "#6ABF69"),
+        ("Accuracy",             "accuracy",           SECONDARY),
+        ("Balanced Accuracy",    "balanced_accuracy",  SECONDARY),
+        ("Macro F1",             "macro_f1",           SECONDARY),
+        ("F1 — Extremophile",    "f1_extremophile",    MAIN),
+        ("F1 — Non-extremophile","f1_non_extremophile",NON_EXTREMOPHILE),
+        ("MCC",                  "mcc",                MAIN),
     ]
 
     labels = [it[0] for it in items]

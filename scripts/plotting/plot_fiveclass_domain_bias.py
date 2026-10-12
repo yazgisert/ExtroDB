@@ -9,11 +9,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 RESULT = Path("results/training_results/fiveclass_domain_bias_result.json")
 OUT    = Path("results/plots/fiveclass_domain_bias.png")
 
-ARCHAEA_COLOR  = "#C0392B"
-BACTERIA_COLOR = "#7FB3D5"
+ARCHAEA_COLOR  = MAIN
+BACTERIA_COLOR = SECONDARY
 CLASSES = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
 SUBTYPES = [
     ("extreme_halophile|archaea",  "Extreme\nhalophile\narchaea"),

@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 import math
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -13,6 +14,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "plotting"))
+from style import CLASS_COLORS as CLASS_COLORS_STYLE
 
 PROK_TSV  = Path("results/interproscan/prokaryote_results.tsv")
 EUK_TSV   = Path("results/interproscan/eukaryote_results.tsv")
@@ -24,11 +28,11 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 CLASS_NAMES = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
 
 CLASS_COLORS = {
-    "thermophile":  "#E05C5C",
-    "halophile":    "#5C8AE0",
-    "acidophile":   "#E0A85C",
-    "psychrophile": "#5CE0A8",
-    "alkaliphile":  "#A85CE0",
+    "thermophile":  CLASS_COLORS_STYLE["thermophile"],
+    "halophile":    CLASS_COLORS_STYLE["halophile"],
+    "acidophile":   CLASS_COLORS_STYLE["acidophile"],
+    "psychrophile": CLASS_COLORS_STYLE["psychrophile"],
+    "alkaliphile":  CLASS_COLORS_STYLE["alkaliphile"],
 }
 
 plt.rcParams.update({

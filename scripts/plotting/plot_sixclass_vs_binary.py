@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 OUT_DIR       = Path("results/plots")
 SIXCLASS_JSON = Path("results/training_results/sixclass_clustered_result.json")
 
@@ -23,8 +25,8 @@ METRICS = {
     "mcc":               "MCC",
 }
 
-BINARY_COLOR   = "#3B6EA8"
-SIXCLASS_COLOR = "#9DB9DC"
+BINARY_COLOR   = MAIN
+SIXCLASS_COLOR = SECONDARY
 
 plt.rcParams.update({
     "font.family":       "sans-serif",

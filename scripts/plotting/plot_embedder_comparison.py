@@ -8,15 +8,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import EMBEDDER_COLORS, apply
+
 RESULTS = Path("results/training_results")
 OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 EMBEDDERS = {
-    "onehot":    ("One-hot (20)",        "#A8A8A8"),
-    "esm2_8m":   ("ESM2 8M (320)",       "#F2B38A"),
-    "esm2_650m": ("ESM2 650M (1280)",    "#E07840"),
-    "prott5":    ("ProtT5 (1024)",       "#1B4F72"),
+    "onehot":    ("One-hot (20)",        EMBEDDER_COLORS["onehot"]),
+    "esm2_8m":   ("ESM2 8M (320)",       EMBEDDER_COLORS["esm2_8m"]),
+    "esm2_650m": ("ESM2 650M (1280)",    EMBEDDER_COLORS["esm2_650m"]),
+    "prott5":    ("ProtT5 (1024)",       EMBEDDER_COLORS["prott5"]),
 }
 PROKARYOTE_METRICS = {
     "accuracy":            "Accuracy",
@@ -29,13 +31,7 @@ PROKARYOTE_METRICS = {
 }
 ALGAE_GROUPS = ["overall", "acidophile", "halophile", "psychrophile", "thermophile"]
 
-plt.rcParams.update({
-    "font.family":       "sans-serif",
-    "font.size":         12,
-    "axes.spines.top":   False,
-    "axes.spines.right": False,
-    "figure.dpi":        150,
-})
+apply()
 
 
 def grouped_bars(ax, groups, series):

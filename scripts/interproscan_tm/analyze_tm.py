@@ -1,6 +1,7 @@
 # Plot of the transmembrane protein fraction per class, from tm_summary.json.
 
 import json
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -8,17 +9,20 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "plotting"))
+from style import CLASS_COLORS as CLASS_COLORS_STYLE, NON_EXTREMOPHILE
+
 SUMMARY_JSON = Path("results/tm_analysis/tm_summary.json")
 OUT_DIR      = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 CLASS_COLORS = {
-    "non_extremophile": "#64748b",
-    "acidophile":        "#E0A85C",
-    "alkaliphile":       "#A85CE0",
-    "halophile":         "#5C8AE0",
-    "psychrophile":      "#5CE0A8",
-    "thermophile":       "#E05C5C",
+    "non_extremophile": NON_EXTREMOPHILE,
+    "acidophile":        CLASS_COLORS_STYLE["acidophile"],
+    "alkaliphile":       CLASS_COLORS_STYLE["alkaliphile"],
+    "halophile":         CLASS_COLORS_STYLE["halophile"],
+    "psychrophile":      CLASS_COLORS_STYLE["psychrophile"],
+    "thermophile":       CLASS_COLORS_STYLE["thermophile"],
 }
 
 CLASS_LABELS = {
@@ -82,9 +86,9 @@ def main():
             ha="center", va="bottom", fontsize=10, fontweight="bold",
         )
 
-    ax.axhline(baseline, color="#64748b", linewidth=1.2, linestyle="--", alpha=0.6)
+    ax.axhline(baseline, color=NON_EXTREMOPHILE, linewidth=1.2, linestyle="--", alpha=0.6)
     ax.text(len(groups) - 0.52, baseline + 0.7,
-            "non-extrem. baseline", fontsize=8, color="#64748b",
+            "non-extrem. baseline", fontsize=8, color=NON_EXTREMOPHILE,
             va="bottom", ha="right")
 
     combined_labels = [f"{lbl}\nn={n:,}" for lbl, n in zip(labels, ns)]

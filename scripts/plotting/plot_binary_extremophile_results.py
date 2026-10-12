@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import BASELINE, EMBEDDER_COLORS, MAIN, NON_EXTREMOPHILE
+
 OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -18,14 +20,14 @@ RESULT_FILES = {
 }
 
 EMBEDDER_COLORS = {
-    "One-Hot": "#A8A8A8",
-    "ProtT5":  "#1B4F72",
-    "ESM2":    "#E07840",
+    "One-Hot": EMBEDDER_COLORS["onehot"],
+    "ProtT5":  EMBEDDER_COLORS["prott5"],
+    "ESM2":    EMBEDDER_COLORS["esm2_650m"],
 }
 
 CLASS_COLORS = {
-    "extremophile":     "#E05C5C",
-    "non_extremophile": "#5C8AE0",
+    "extremophile":     MAIN,
+    "non_extremophile": NON_EXTREMOPHILE,
 }
 
 plt.rcParams.update({
@@ -101,7 +103,7 @@ def plot_single_f1(result, embedder_name):
     keys   = ["f1_extremophile", "f1_non_extremophile", "accuracy"]
     labels = ["Extremophile", "Non-Extremophile", "Accuracy"]
     vals, lo, hi = values_and_errors(result, keys)
-    colors = [CLASS_COLORS["extremophile"], CLASS_COLORS["non_extremophile"], "#888888"]
+    colors = [CLASS_COLORS["extremophile"], CLASS_COLORS["non_extremophile"], BASELINE]
     fig, ax = plt.subplots(figsize=(8, 5))
     bars = ax.bar(labels, vals,
                   color=colors, edgecolor="white", width=0.4,

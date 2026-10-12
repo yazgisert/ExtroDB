@@ -9,6 +9,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import CLASS_COLORS, MAIN, RAMP, SECONDARY
+
 OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -21,7 +23,7 @@ plt.rcParams.update({
 })
 
 CLASSES = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
-COLORS  = ["#E05C5C", "#E0A85C", "#5C8AE0", "#7EC8A0", "#9B59B6"]
+COLORS  = [CLASS_COLORS[c] for c in CLASSES]
 
 SPLITS = {
     "split1_20pct": {
@@ -92,8 +94,8 @@ def plot_class_distribution():
     x  = np.arange(len(classes))
     w  = 0.35
     fig, ax = plt.subplots(figsize=(9, 5))
-    b1 = ax.bar(x - w/2, prot_counts, w, label="Proteins",  color="#5C8AE0", edgecolor="white")
-    b2 = ax.bar(x + w/2, org_counts,  w, label="Organisms", color="#E0A85C", edgecolor="white")
+    b1 = ax.bar(x - w/2, prot_counts, w, label="Proteins",  color=MAIN, edgecolor="white")
+    b2 = ax.bar(x + w/2, org_counts,  w, label="Organisms", color=SECONDARY, edgecolor="white")
 
     for bar in list(b1) + list(b2):
         ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 200,
@@ -127,9 +129,9 @@ def plot_split_breakdown():
 
         x   = np.arange(len(CLASSES))
         w   = 0.25
-        ax.bar(x - w, split_data["train"], w, label="Train", color="#5C8AE0", edgecolor="white")
-        ax.bar(x,     split_data["val"],   w, label="Val",   color="#7EC8A0", edgecolor="white")
-        ax.bar(x + w, split_data["test"],  w, label="Test",  color="#E05C5C", edgecolor="white")
+        ax.bar(x - w, split_data["train"], w, label="Train", color=RAMP[3], edgecolor="white")
+        ax.bar(x,     split_data["val"],   w, label="Val",   color=RAMP[2], edgecolor="white")
+        ax.bar(x + w, split_data["test"],  w, label="Test",  color=RAMP[0], edgecolor="white")
 
         ax.set_xticks(x)
         ax.set_xticklabels([c.capitalize() for c in CLASSES], fontsize=9, rotation=15)

@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 os.makedirs("results/plots", exist_ok=True)
 
 
@@ -19,10 +21,10 @@ for s in splits:
 
 
 NAVY   = '#0D1B2A'
-BLUE   = '#1B4F72'
-TEAL   = '#1A9485'
+BLUE   = MAIN
+TEAL   = SECONDARY
 WHITE  = '#FFFFFF'
-OFFWHT = '#F5F7FA'
+OFFWHT = '#FFFFFF'
 LGRAY  = '#DDE3EC'
 DGRAY  = '#5A6A7A'
 MGRAY  = '#9AAABB'

@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 
+from style import CLASS_COLORS
+
 OUT_DIR  = Path("results/plots")
 RESULT   = Path("results/training_results/thermo_eukaryote_eval_result.json")
 
@@ -16,10 +18,10 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Palette consistent with the rest of the thesis plots
 CLASS_COLORS = {
-    "thermophile":  "#E05C5C",
-    "psychrophile": "#5C8AE0",
-    "halophile":    "#E0A040",
-    "acidophile":   "#6ABF69",
+    "thermophile":  CLASS_COLORS["thermophile"],
+    "psychrophile": CLASS_COLORS["psychrophile"],
+    "halophile":    CLASS_COLORS["halophile"],
+    "acidophile":   CLASS_COLORS["acidophile"],
 }
 
 plt.rcParams.update({

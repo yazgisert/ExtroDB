@@ -48,7 +48,7 @@ All scripts are run from the repository root.
 | 4. Embeddings | `scripts/embeddings/` | `compute_prott5_embeddings.py`, `compute_baseline_embeddings.py` (ESM2 650M / 8M), via the biocentral API |
 | 5. Training | `scripts/training/` | `train_local.py` (ProtT5 5/12-class), `train_esm2.py`, `train_onehot.py`, `train_cv.py`, `train_binary_embedder.py`, `train_sixclass_extremophile.py` |
 | 6. Evaluation | `scripts/evaluation/` | leakage checks (`check_eukaryote_leakage.py`, `search_test_vs_train.py`, `analyze_test_leakage.py`), algae transfer (`eval_eukaryote_embedders.py`, `eval_eukaryote_fiveclass_filtered.py`), homology-based inference (`eval_homology_*.py`), archaea checks (`eval_binary_by_domain.py`, `eval_fiveclass_by_domain.py`, `acidic_residue_check.py`), THERMO comparison (`run_thermo_*.py`) |
-| 7. Figures | `scripts/plotting/` | one script per figure group |
+| 7. Figures | `scripts/plotting/` | one script per figure group; shared colours (class colours, blue-grey model ramp) in `style.py` |
 | 8. Website data | `scripts/indexing/` | `export_predictor_resources.py` (predictor FASTAs for Zenodo + results summary for the website) |
 
 ## Data that is not in this repository

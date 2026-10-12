@@ -10,17 +10,19 @@ import matplotlib.patches as mpatches
 import numpy as np
 from scipy.stats import gaussian_kde
 
+from style import CLASS_COLORS, MAIN, NON_EXTREMOPHILE
+
 OUT_DIR = Path("results/plots")
 RESULT  = Path("results/training_results/nonextremophile_eval_result.json")
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 CLASS_COLORS = {
-    "thermophile":  "#E05C5C",
-    "psychrophile": "#5C8AE0",
-    "halophile":    "#E0A040",
-    "acidophile":   "#6ABF69",
-    "alkaliphile":  "#9B59B6",
+    "thermophile":  CLASS_COLORS["thermophile"],
+    "psychrophile": CLASS_COLORS["psychrophile"],
+    "halophile":    CLASS_COLORS["halophile"],
+    "acidophile":   CLASS_COLORS["acidophile"],
+    "alkaliphile":  CLASS_COLORS["alkaliphile"],
 }
 CLASS_ORDER = ["thermophile", "psychrophile", "halophile", "acidophile", "alkaliphile"]
 
@@ -55,16 +57,16 @@ def main():
     kde_nxt = gaussian_kde(nxt_probs, bw_method=0.15)
 
     ax_kde.fill_between(x_range, kde_ext(x_range), alpha=0.35,
-                         color="#E05C5C", label=f"Extremophile proteins  (mean={ext_mean:.2f})")
-    ax_kde.plot(x_range, kde_ext(x_range), color="#E05C5C", linewidth=1.8)
+                         color=MAIN, label=f"Extremophile proteins  (mean={ext_mean:.2f})")
+    ax_kde.plot(x_range, kde_ext(x_range), color=MAIN, linewidth=1.8)
 
     ax_kde.fill_between(x_range, kde_nxt(x_range), alpha=0.35,
-                         color="#5C8AE0", label=f"Non-extremophile proteins  (mean={nxt_mean:.2f})")
-    ax_kde.plot(x_range, kde_nxt(x_range), color="#5C8AE0", linewidth=1.8)
+                         color=NON_EXTREMOPHILE, label=f"Non-extremophile proteins  (mean={nxt_mean:.2f})")
+    ax_kde.plot(x_range, kde_nxt(x_range), color=NON_EXTREMOPHILE, linewidth=1.8)
 
-    ax_kde.axvline(ext_mean, color="#E05C5C", linewidth=1.2,
+    ax_kde.axvline(ext_mean, color=MAIN, linewidth=1.2,
                    linestyle="--", alpha=0.8)
-    ax_kde.axvline(nxt_mean, color="#5C8AE0", linewidth=1.2,
+    ax_kde.axvline(nxt_mean, color=NON_EXTREMOPHILE, linewidth=1.2,
                    linestyle="--", alpha=0.8)
 
     # Gap annotation

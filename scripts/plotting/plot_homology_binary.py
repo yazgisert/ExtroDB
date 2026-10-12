@@ -8,11 +8,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import BASELINE, EMBEDDER_COLORS
+
 RESULT = Path("results/training_results/homology_binary_clustered_result.json")
 OUT    = Path("results/plots/homology_binary_vs_prott5_clustered.png")
 
-HOMOLOGY_COLOR = "#A8A8A8"
-PROTT5_COLOR   = "#1B4F72"
+HOMOLOGY_COLOR = BASELINE
+PROTT5_COLOR   = EMBEDDER_COLORS["prott5"]
 METRICS = {"accuracy": "Accuracy", "balanced_accuracy": "Balanced\naccuracy", "precision": "Precision",
            "recall": "Recall", "specificity": "Specificity", "f1": "F1", "mcc": "MCC"}
 

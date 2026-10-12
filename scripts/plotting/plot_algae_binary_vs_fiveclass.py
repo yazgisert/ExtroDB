@@ -8,15 +8,17 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import CLASS_COLORS
+
 BINARY_JSON    = Path("results/training_results/binary_eukaryote_eval_clustered_result.json")
 FIVECLASS_JSON = Path("results/training_results/eukaryote_fiveclass_filtered_result.json")
 OUT            = Path("results/plots/algae_binary_vs_fiveclass_clustered.png")
 
 CLASS_COLORS = {
-    "thermophile":  "#E05C5C",
-    "psychrophile": "#5C8AE0",
-    "halophile":    "#E0A040",
-    "acidophile":   "#6ABF69",
+    "thermophile":  CLASS_COLORS["thermophile"],
+    "psychrophile": CLASS_COLORS["psychrophile"],
+    "halophile":    CLASS_COLORS["halophile"],
+    "acidophile":   CLASS_COLORS["acidophile"],
 }
 
 plt.rcParams.update({

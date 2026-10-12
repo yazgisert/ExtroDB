@@ -8,6 +8,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from style import MAIN, SECONDARY
+
 OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -31,8 +33,8 @@ ORIGINAL = {
 }
 
 CLASSES     = cv20["classes"]
-COLOR_20    = "#5C8AE0"
-COLOR_30    = "#E0A85C"
+COLOR_20    = SECONDARY
+COLOR_30    = MAIN
 COLOR_ORIG  = "#888888"
 
 
