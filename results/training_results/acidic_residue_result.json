@@ -1,0 +1,398 @@
+{
+  "groups": {
+    "acidophile | archaea": {
+      "n_organisms": 1,
+      "n_proteins": 139,
+      "acidic": {
+        "value": 0.1171875,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "basic": {
+        "value": 0.11814345991561181,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "net": {
+        "value": 0.0,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "pI": {
+        "value": 6.7539159774780275,
+        "ci_lower": null,
+        "ci_upper": null
+      }
+    },
+    "acidophile | bacteria": {
+      "n_organisms": 25,
+      "n_proteins": 5571,
+      "acidic": {
+        "value": 0.10679806754855621,
+        "ci_lower": 0.10409345490669272,
+        "ci_upper": 0.10962806855152338
+      },
+      "basic": {
+        "value": 0.10650561305012615,
+        "ci_lower": 0.10404130559564785,
+        "ci_upper": 0.1090307818894098
+      },
+      "net": {
+        "value": -0.00015891673045738533,
+        "ci_lower": -0.0023217203484548086,
+        "ci_upper": 0.002045121689837456
+      },
+      "pI": {
+        "value": 7.111508117675782,
+        "ci_lower": 6.83271415233612,
+        "ci_upper": 7.418594367408751
+      }
+    },
+    "algae acidophile | eukaryote": {
+      "n_organisms": 1,
+      "n_proteins": 10279,
+      "acidic": {
+        "value": 0.10629067245119306,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "basic": {
+        "value": 0.1010752688172043,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "net": {
+        "value": 0.005449591280653948,
+        "ci_lower": null,
+        "ci_upper": null
+      },
+      "pI": {
+        "value": 6.556229972839356,
+        "ci_lower": null,
+        "ci_upper": null
+      }
+    },
+    "algae halophile | eukaryote": {
+      "n_organisms": 4,
+      "n_proteins": 31274,
+      "acidic": {
+        "value": 0.1118141597190057,
+        "ci_lower": 0.09972426470588236,
+        "ci_upper": 0.12064468503937008
+      },
+      "basic": {
+        "value": 0.11009989272014242,
+        "ci_lower": 0.1020593924223461,
+        "ci_upper": 0.11524425136343996
+      },
+      "net": {
+        "value": 0.0024001855566547336,
+        "ci_lower": -0.001362397820163487,
+        "ci_upper": 0.006162768933472954
+      },
+      "pI": {
+        "value": 6.9690941810607905,
+        "ci_lower": 6.4670780181884755,
+        "ci_upper": 7.4711103439331055
+      }
+    },
+    "algae psychrophile | eukaryote": {
+      "n_organisms": 4,
+      "n_proteins": 78834,
+      "acidic": {
+        "value": 0.11050219019339602,
+        "ci_lower": 0.10143040711565826,
+        "ci_upper": 0.12118761096863287
+      },
+      "basic": {
+        "value": 0.10390104011449974,
+        "ci_lower": 0.09808253704360295,
+        "ci_upper": 0.10829571486714344
+      },
+      "net": {
+        "value": 0.006658810968942367,
+        "ci_lower": 0.0037475831543628095,
+        "ci_upper": 0.01207636207636207
+      },
+      "pI": {
+        "value": 6.415965557098389,
+        "ci_lower": 6.0635211944580085,
+        "ci_upper": 6.608919715881348
+      }
+    },
+    "algae thermophile | eukaryote": {
+      "n_organisms": 4,
+      "n_proteins": 17521,
+      "acidic": {
+        "value": 0.11907320799153114,
+        "ci_lower": 0.11525961945762699,
+        "ci_upper": 0.12132366429596682
+      },
+      "basic": {
+        "value": 0.11882161597391543,
+        "ci_lower": 0.11795373085695667,
+        "ci_upper": 0.12031080603046791
+      },
+      "net": {
+        "value": -2.4953813661901178e-05,
+        "ci_lower": -0.0033585842023567403,
+        "ci_upper": 0.0025407659478057266
+      },
+      "pI": {
+        "value": 7.1062816143035885,
+        "ci_lower": 6.723663425445557,
+        "ci_upper": 7.782884693145752
+      }
+    },
+    "alkaliphile | bacteria": {
+      "n_organisms": 30,
+      "n_proteins": 5708,
+      "acidic": {
+        "value": 0.12926343376553398,
+        "ci_lower": 0.12572552009356752,
+        "ci_upper": 0.1327730890426738
+      },
+      "basic": {
+        "value": 0.10210918354885669,
+        "ci_lower": 0.09877777388159406,
+        "ci_upper": 0.10556363178026469
+      },
+      "net": {
+        "value": 0.017496096160517272,
+        "ci_lower": 0.01405491481548338,
+        "ci_upper": 0.021230068064022976
+      },
+      "pI": {
+        "value": 5.849753545125326,
+        "ci_lower": 5.714810774485271,
+        "ci_upper": 5.99471719535192
+      }
+    },
+    "halophile | extreme_halophile | archaea": {
+      "n_organisms": 16,
+      "n_proteins": 1544,
+      "acidic": {
+        "value": 0.1644350603744265,
+        "ci_lower": 0.1600182592159635,
+        "ci_upper": 0.16899099675231857
+      },
+      "basic": {
+        "value": 0.0824236354425074,
+        "ci_lower": 0.0782309567402398,
+        "ci_upper": 0.08622477954671313
+      },
+      "net": {
+        "value": 0.07429205703268808,
+        "ci_lower": 0.0696466605303207,
+        "ci_upper": 0.07854575939759774
+      },
+      "pI": {
+        "value": 4.551623618602753,
+        "ci_lower": 4.516157599091529,
+        "ci_upper": 4.588249153494834
+      }
+    },
+    "halophile | moderate_halophile | archaea": {
+      "n_organisms": 3,
+      "n_proteins": 286,
+      "acidic": {
+        "value": 0.16249530573611962,
+        "ci_lower": 0.15,
+        "ci_upper": 0.17246476064982574
+      },
+      "basic": {
+        "value": 0.09363270370928804,
+        "ci_lower": 0.09162303664921466,
+        "ci_upper": 0.09473684210526316
+      },
+      "net": {
+        "value": 0.06679026224592023,
+        "ci_lower": 0.05339805825242719,
+        "ci_upper": 0.07507730364873222
+      },
+      "pI": {
+        "value": 4.741152636210123,
+        "ci_lower": 4.593465995788574,
+        "ci_upper": 4.8672594070434565
+      }
+    },
+    "halophile | moderate_halophile | bacteria": {
+      "n_organisms": 13,
+      "n_proteins": 932,
+      "acidic": {
+        "value": 0.12938901804151293,
+        "ci_lower": 0.12476098359153766,
+        "ci_upper": 0.134400742130432
+      },
+      "basic": {
+        "value": 0.1050639282613305,
+        "ci_lower": 0.10053093998756706,
+        "ci_upper": 0.10913349065368955
+      },
+      "net": {
+        "value": 0.01851629278534846,
+        "ci_lower": 0.015006372017537167,
+        "ci_upper": 0.022366172436725385
+      },
+      "pI": {
+        "value": 5.862932029137244,
+        "ci_lower": 5.733810514670152,
+        "ci_upper": 5.974301033020019
+      }
+    },
+    "halophile | slight_halophile | bacteria": {
+      "n_organisms": 14,
+      "n_proteins": 2943,
+      "acidic": {
+        "value": 0.12382094873250417,
+        "ci_lower": 0.11889820349072394,
+        "ci_upper": 0.12933973788151396
+      },
+      "basic": {
+        "value": 0.11009432164704039,
+        "ci_lower": 0.10614633761824516,
+        "ci_upper": 0.11463223063396623
+      },
+      "net": {
+        "value": 0.007590432996196688,
+        "ci_lower": 0.002995621383093044,
+        "ci_upper": 0.011723467320683807
+      },
+      "pI": {
+        "value": 6.40695138658796,
+        "ci_lower": 6.046118060180119,
+        "ci_upper": 6.912881262983595
+      }
+    },
+    "non-extremophile | Swiss-Prot bacteria": {
+      "n_organisms": 798,
+      "n_proteins": 2562,
+      "acidic": {
+        "value": 0.12101063893520732,
+        "ci_lower": 0.11875776696376845,
+        "ci_upper": 0.12327613464604663
+      },
+      "basic": {
+        "value": 0.11220284069728466,
+        "ci_lower": 0.1099620277500089,
+        "ci_upper": 0.11445641687288537
+      },
+      "net": {
+        "value": 0.008184315731004577,
+        "ci_lower": 0.005425225447414779,
+        "ci_upper": 0.010859527597924115
+      },
+      "pI": {
+        "value": 6.747817689613591,
+        "ci_lower": 6.625865367301424,
+        "ci_upper": 6.861464280562292
+      }
+    },
+    "psychrophile | bacteria": {
+      "n_organisms": 40,
+      "n_proteins": 5708,
+      "acidic": {
+        "value": 0.11472617691733342,
+        "ci_lower": 0.11212789427416403,
+        "ci_upper": 0.11718853056478765
+      },
+      "basic": {
+        "value": 0.10594105643654542,
+        "ci_lower": 0.10275420541225168,
+        "ci_upper": 0.10926037467917911
+      },
+      "net": {
+        "value": 0.004956028909029598,
+        "ci_lower": 0.002064633840567562,
+        "ci_upper": 0.007634304046227734
+      },
+      "pI": {
+        "value": 6.638538789749146,
+        "ci_lower": 6.396817633390426,
+        "ci_upper": 6.92736611878872
+      }
+    },
+    "thermophile | archaea": {
+      "n_organisms": 30,
+      "n_proteins": 3306,
+      "acidic": {
+        "value": 0.11708521753241054,
+        "ci_lower": 0.11248551905750181,
+        "ci_upper": 0.12224485609950196
+      },
+      "basic": {
+        "value": 0.1248643100311802,
+        "ci_lower": 0.12182125043601641,
+        "ci_upper": 0.12794309223035977
+      },
+      "net": {
+        "value": -0.007155434366807139,
+        "ci_lower": -0.01006085186322016,
+        "ci_upper": -0.0039188284373008146
+      },
+      "pI": {
+        "value": 7.912078704833985,
+        "ci_lower": 7.600116663455964,
+        "ci_upper": 8.192025972048443
+      }
+    },
+    "thermophile | bacteria": {
+      "n_organisms": 20,
+      "n_proteins": 2406,
+      "acidic": {
+        "value": 0.12758657580580063,
+        "ci_lower": 0.12410821948615673,
+        "ci_upper": 0.1309180542229603
+      },
+      "basic": {
+        "value": 0.13071728654718048,
+        "ci_lower": 0.1254857767002464,
+        "ci_upper": 0.13617704485388255
+      },
+      "net": {
+        "value": -0.005952495547837923,
+        "ci_lower": -0.010129544535985049,
+        "ci_upper": -0.0020978126321907556
+      },
+      "pI": {
+        "value": 7.58931992530823,
+        "ci_lower": 7.148060611724853,
+        "ci_upper": 8.008933017253876
+      }
+    }
+  },
+  "algae_halophile_species": {
+    "Dunaliella salina": {
+      "acidic": 0.09375,
+      "pI": 7.646515464782715
+    },
+    "Nannochloropsis gaditana": {
+      "acidic": 0.1125,
+      "pI": 7.295705223083496
+    },
+    "Nannochloropsis oceanica": {
+      "acidic": 0.11764705882352941,
+      "pI": 6.474893379211425
+    },
+    "Nannochloropsis salina": {
+      "acidic": 0.12335958005249344,
+      "pI": 6.459262657165527
+    }
+  },
+  "bacterial_halophiles_by_prediction": {
+    "predicted halophile": {
+      "acidic": 0.12186379928315412,
+      "basic": 0.10638297872340426,
+      "net": 0.01200000000000001,
+      "pI": 6.092310142517088,
+      "n_proteins": 1481
+    },
+    "predicted other class": {
+      "acidic": 0.1261698591795679,
+      "basic": 0.1111111111111111,
+      "net": 0.009578860445912468,
+      "pI": 6.162506294250488,
+      "n_proteins": 2394
+    }
+  }
+}
