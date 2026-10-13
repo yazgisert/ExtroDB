@@ -6,7 +6,7 @@
     <title>ExtroDB Predictor Models</title>
     <link rel="stylesheet" href="/styles.css?v=20261009-1" />
     <link rel="stylesheet" href="/nav.css?v=20261009-1" />
-    <link rel="stylesheet" href="/predictors.css?v=20261011-1" />
+    <link rel="stylesheet" href="/predictors.css?v=20261013-1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -33,11 +33,11 @@
         <div class="hero-meta">
           <div class="hero-chip">
             <span class="hero-chip-label">Embedders</span>
-            <strong>ProtT5 · ESM2 650M · ESM2 8M · One-hot</strong>
+            <strong>ProtT5 · ESM2 650M · ESM2 8M · Amino acid composition</strong>
           </div>
           <div class="hero-chip">
             <span class="hero-chip-label">Classifier</span>
-            <strong>FNN (embedding → 32 → classes)</strong>
+            <strong>Feedforward network, one hidden layer (32)</strong>
           </div>
           <div class="hero-chip">
             <span class="hero-chip-label">Sequence data</span>
@@ -47,8 +47,6 @@
       </header>
 
       <main class="layout">
-        <section class="metrics-grid" id="predictor-metrics" aria-live="polite"></section>
-
         <section class="panel">
           <div class="panel-heading">
             <div>
@@ -78,38 +76,41 @@
             <figure class="stats-plot">
               <canvas id="chart-fiveclass"></canvas>
               <figcaption>
-                <strong>Multi-class prediction (macro-F1).</strong>
-                Which extremophile class a protein belongs to, per split and embedder.
+                <strong>ProtT5 is the best embedder on every split.</strong>
+                Macro-F1 of the 5-class (broad classes) and 12-class (subtypes) models at 30% and 20% clustering.
+                Larger language models score higher, and all of them clearly beat amino acid composition.
               </figcaption>
             </figure>
             <figure class="stats-plot">
               <canvas id="chart-binary"></canvas>
               <figcaption>
-                <strong>Extremophile vs. non-extremophile.</strong>
-                Binary model on the clustered prokaryote test set.
+                <strong>ProtT5 separates extremophiles from non-extremophiles best.</strong>
+                Binary models on the clustered prokaryote test set (5,214 proteins).
                 <span id="binary-bias-note"></span>
               </figcaption>
             </figure>
             <figure class="stats-plot">
               <canvas id="chart-algae"></canvas>
               <figcaption>
-                <strong>Transfer to eukaryotic algae (recall).</strong>
-                Binary models applied to leakage-filtered algae proteins.
+                <strong>Part of the signal transfers to eukaryotic algae.</strong>
+                Share of the 133,689 leakage-filtered algae proteins that the binary models classify as extremophile.
+                ProtT5 recognizes the most (62.5%); for ProtT5, thermophilic algae are the hardest class.
               </figcaption>
             </figure>
             <figure class="stats-plot">
               <canvas id="chart-detection"></canvas>
               <figcaption>
                 <strong>Detection needs non-extremophiles in training.</strong>
-                5-class (binarized), 6-class (binarized) and binary model on the same test set (ProtT5).
+                ProtT5 models on the same binary test set: the 5-class and 6-class models binarized, and the
+                dedicated binary model.
               </figcaption>
             </figure>
             <figure class="stats-plot stats-plot--wide">
               <canvas id="chart-homology"></canvas>
               <figcaption>
-                <strong>Beyond sequence homology.</strong>
-                Accuracy of homology-based inference (label of the best MMseqs2 hit in training) vs. ProtT5,
-                and ProtT5 on test proteins without any homolog in training.
+                <strong>ProtT5 does not depend on similar training sequences.</strong>
+                Accuracy of homology-based inference (label of the best MMseqs2 hit in training) and ProtT5,
+                on all test proteins and on the proteins without any homolog in training.
               </figcaption>
             </figure>
           </div>
@@ -118,6 +119,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script src="/predictors.js?v=20261011-2" defer></script>
+    <script src="/predictors.js?v=20261013-5" defer></script>
   </body>
 </html>

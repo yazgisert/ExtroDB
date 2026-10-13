@@ -30,7 +30,7 @@ ALGAE_H5      = "embeddings/eukaryote_algae.h5"
 ALGAE_LABELS  = "embeddings/eukaryote_algae_labels.tsv"
 BLACKLIST     = "results/eukaryote_leakage/flagged_protein_ids.txt"
 MASTER_INDEX  = "searchable_resource/extremophile_master_index.tsv"
-EMBEDDERS     = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "One-hot"}
+EMBEDDERS     = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "Amino acid composition"}
 ALGAE_CLASSES = ["acidophile", "halophile", "psychrophile", "thermophile"]
 
 

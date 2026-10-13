@@ -1,5 +1,5 @@
 # Archaea bias plot from binary_domain_bias_result.json: MCC on all test proteins vs. bacteria only per embedder,
-# and ProtT5 extremophile recall per class for archaeal vs. bacterial proteins.
+# and ProtT5 accuracy per class for archaeal vs. bacterial proteins (equal to recall, since all are extremophiles).
 
 import json
 from pathlib import Path
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     right.set_xticks(x)
     right.set_xticklabels([c.capitalize() for c in CLASSES], fontsize=10)
     right.set_ylim(0, 1.18)
-    right.set_ylabel("Extremophile recall")
-    right.set_title("ProtT5: recall per class and domain", fontsize=11)
+    right.set_ylabel("Accuracy (all proteins are extremophiles)")
+    right.set_title("ProtT5: accuracy per class and domain", fontsize=11)
     right.legend(fontsize=9, frameon=False, loc="upper left", ncol=2)
 
     fig.tight_layout()

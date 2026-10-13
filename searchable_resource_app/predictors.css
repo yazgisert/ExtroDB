@@ -77,3 +77,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+.hero-chip strong a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(249, 250, 251, 0.4);
+  text-underline-offset: 3px;
+}
+
+.hero-chip strong a:hover {
+  text-decoration-color: currentColor;
+}

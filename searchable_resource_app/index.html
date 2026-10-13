@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Extremophile Searchable Resource</title>
-    <link rel="stylesheet" href="/styles.css?v=20260729-1" />
+    <link rel="stylesheet" href="/styles.css?v=20261013-3" />
     <link rel="stylesheet" href="/nav.css?v=20261009-1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
@@ -25,18 +25,17 @@
           <a href="/predictors.html">Predictor Models</a>
         </nav>
         <p class="hero-copy">
-          Browse the curated extremophile proteome index by phenotype class,
-          optimal growth conditions, and sequence retrieval status. Filter across
-          prokaryotic and eukaryotic curation branches and export subsets as TSV
-          for downstream analysis.
+          Curated proteomes of extremophile prokaryotes and eukaryotic algae, with their
+          phenotype class and optimal growth conditions. Filter the index, check the evidence
+          for each organism, and download the protein FASTA files or export the selection as TSV.
         </p>
         <div class="hero-meta">
           <div class="hero-chip">
-            <span class="hero-chip-label">Layer</span>
-            <strong>Organism-level proteome index</strong>
+            <span class="hero-chip-label">Content</span>
+            <strong>One proteome per organism</strong>
           </div>
           <div class="hero-chip">
-            <span class="hero-chip-label">Index Updated</span>
+            <span class="hero-chip-label">Last updated</span>
             <strong id="updated-at">Loading...</strong>
           </div>
         </div>
@@ -136,6 +135,58 @@
 
         <section class="metrics-grid" id="metrics-grid" aria-live="polite"></section>
 
+        <!-- ── Dataset Statistics ─────────────────────────────────────────────── -->
+        <section class="stats-section" id="stats-section">
+          <div class="stats-header">
+            <p class="panel-kicker">Dataset Statistics</p>
+            <h2>Overview of the Selection</h2>
+            <p class="stats-description">
+              Class composition, proteome sizes and growth optima of the organisms that match the filters.
+              Organisms with more than one phenotype are counted in each of their classes, and plots without
+              data for the selection are hidden.
+            </p>
+          </div>
+          <div class="stats-plots">
+            <figure class="stats-plot">
+              <div class="stats-chart"><canvas id="stats-chart-organisms"></canvas></div>
+              <figcaption>
+                <strong>Organisms per class.</strong>
+                Number of matching organisms in each phenotype class.
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <div class="stats-chart"><canvas id="stats-chart-proteins"></canvas></div>
+              <figcaption>
+                <strong>Proteome size.</strong>
+                Proteins per organism on a log scale. Hover over a dot for the organism name.
+              </figcaption>
+            </figure>
+          </div>
+          <div class="stats-plots stats-plots--thirds">
+            <figure class="stats-plot">
+              <div class="stats-chart"><canvas id="stats-chart-ogt"></canvas></div>
+              <figcaption>
+                <strong>Optimal growth temperature.</strong>
+                One dot per organism with a reported value.
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <div class="stats-chart"><canvas id="stats-chart-nacl"></canvas></div>
+              <figcaption>
+                <strong>Optimal NaCl concentration.</strong>
+                One dot per organism with a reported value.
+              </figcaption>
+            </figure>
+            <figure class="stats-plot">
+              <div class="stats-chart"><canvas id="stats-chart-ph"></canvas></div>
+              <figcaption>
+                <strong>Optimal pH.</strong>
+                One dot per organism with a reported value.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section class="results-layout">
           <section class="panel results-panel">
             <div class="panel-heading">
@@ -150,7 +201,6 @@
                 <thead>
                   <tr>
                     <th>Taxon</th>
-                    <th>Curation Branch</th>
                     <th>Phenotype</th>
                     <th>Protein Count</th>
                     <th>OGT</th>
@@ -171,7 +221,7 @@
               </div>
             </div>
             <div id="detail-card" class="detail-empty">
-              Select a row to inspect evidence, sequence source, notes, and local file links.
+              Select a row to see the evidence, sequence source and notes for an organism.
             </div>
           </aside>
         </section>
@@ -186,58 +236,8 @@
       </article>
     </template>
 
-    <!-- ── Dataset Statistics ─────────────────────────────────────────────── -->
-    <section class="stats-section layout">
-      <div class="stats-header">
-        <p class="panel-kicker">Dataset Statistics</p>
-        <h2>Master Index Overview</h2>
-        <p class="stats-description">
-          Distribution of organisms, proteome sizes, and optimal growth conditions
-          across the five extremophile classes. Charts reflect your current filter selection.
-        </p>
-      </div>
-      <div class="stats-plots">
-        <figure class="stats-plot">
-          <canvas id="stats-chart-organisms"></canvas>
-          <figcaption>
-            <strong>Organism counts per class.</strong>
-            Number of organisms in the current filter selection, grouped by phenotype class.
-          </figcaption>
-        </figure>
-        <figure class="stats-plot">
-          <canvas id="stats-chart-proteins"></canvas>
-          <figcaption>
-            <strong>Proteome sizes per class (log scale).</strong>
-            Each dot is one organism. Hover for the taxon name and exact count.
-          </figcaption>
-        </figure>
-      </div>
-      <div class="stats-plots stats-plots--thirds">
-        <figure class="stats-plot">
-          <canvas id="stats-chart-ogt"></canvas>
-          <figcaption>
-            <strong>Optimal growth temperature (°C).</strong>
-            Each dot is one organism.
-          </figcaption>
-        </figure>
-        <figure class="stats-plot">
-          <canvas id="stats-chart-nacl"></canvas>
-          <figcaption>
-            <strong>NaCl optimum (M).</strong>
-            Each dot is one organism.
-          </figcaption>
-        </figure>
-        <figure class="stats-plot">
-          <canvas id="stats-chart-ph"></canvas>
-          <figcaption>
-            <strong>pH optimum.</strong>
-            Each dot is one organism.
-          </figcaption>
-        </figure>
-      </div>
-    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script src="/app.js?v=20260831-1" defer></script>
+    <script src="/app.js?v=20261013-6" defer></script>
   </body>
 </html>

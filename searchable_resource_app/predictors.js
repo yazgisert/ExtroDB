@@ -1,14 +1,14 @@
-// Set this to the Zenodo record ID once the predictor FASTAs are uploaded.
-// A new Zenodo version gets a new ID, so this is the only line to change.
+// Zenodo record of the predictor FASTAs. A new Zenodo version gets a new ID, so this is the only line to change.
 const ZENODO_RECORD_ID = "23298950";
 
+// Colors match the thesis figures (scripts/plotting/style.py)
 const EMBEDDER_COLORS = {
-  "One-hot":   "#A8A8A8",
-  "ESM2 8M":   "#F2B38A",
-  "ESM2 650M": "#E07840",
-  "ProtT5":    "#1B4F72",
+  "Amino acid composition": "#AEBBCB",
+  "ESM2 8M":                "#8095AE",
+  "ESM2 650M":              "#55708F",
+  "ProtT5":                 "#2E4A6B",
 };
-const EMBEDDER_ORDER = ["One-hot", "ESM2 8M", "ESM2 650M", "ProtT5"];
+const EMBEDDER_ORDER = ["Amino acid composition", "ESM2 8M", "ESM2 650M", "ProtT5"];
 
 const MODEL_NAMES = {
   fiveclass_split1_30pct:   "5-class · split 1 · 30%",
@@ -28,30 +28,10 @@ function zenodoUrl(file) {
 }
 
 async function loadJson(path) {
-  const response = await fetch(path);
+  // no-cache: the browser revalidates, so updated result files are never mixed with newer page code
+  const response = await fetch(path, { cache: "no-cache" });
   if (!response.ok) throw new Error(`Failed to load ${path}: ${response.status}`);
   return response.json();
-}
-
-// ── Top metric cards ─────────────────────────────────────────────────────────
-function renderMetrics(summary) {
-  const binary = summary.binary_clustered.ProtT5;
-  const bacteriaOnly = summary.binary_bacteria_only.ProtT5;
-  const algae = summary.algae.ProtT5;
-  const homology = summary.homology.binary_clustered;
-  const cards = [
-    ["Binary MCC (ProtT5)", fmt(binary.mcc.value), `accuracy ${fmt(binary.accuracy.value)} on clustered prokaryote test set; ${fmt(bacteriaOnly.mcc.value)} on bacteria only`],
-    ["5-class macro-F1", fmt(summary.fiveclass.fiveclass_split1_30pct.ProtT5.macro_f1.value), "ProtT5, split 1, 30% clustering"],
-    ["Algae recall", `${(algae.overall * 100).toFixed(1)}%`, "binary ProtT5 model on 133,689 algae proteins"],
-    ["Without any homolog", fmt(homology.prott5_accuracy_without_hit), `ProtT5 accuracy where homology finds nothing (homology overall ${fmt(homology.homology_accuracy)})`],
-  ];
-  const grid = document.getElementById("predictor-metrics");
-  grid.innerHTML = cards.map(([label, value, note]) => `
-    <article class="metric-card">
-      <p class="metric-label">${label}</p>
-      <strong class="metric-value">${value}</strong>
-      <p class="metric-note">${note}</p>
-    </article>`).join("");
 }
 
 // ── Model cards with downloads ───────────────────────────────────────────────
@@ -80,8 +60,10 @@ function renderModelCards(manifest) {
     </article>`;
   });
   document.getElementById("model-cards").innerHTML = cards.join("");
-  document.getElementById("zenodo-status").textContent =
-    ZENODO_RECORD_ID ? `Zenodo record ${ZENODO_RECORD_ID}` : "Zenodo (upload pending)";
+  const doi = `10.5281/zenodo.${ZENODO_RECORD_ID}`;
+  document.getElementById("zenodo-status").innerHTML = ZENODO_RECORD_ID
+    ? `<a href="https://doi.org/${doi}" target="_blank" rel="noopener">doi:${doi}</a>`
+    : "Zenodo (upload pending)";
 }
 
 // ── Charts ───────────────────────────────────────────────────────────────────
@@ -158,7 +140,7 @@ function renderCharts(summary) {
 
   const detection = summary.sixclass_clustered;
   const detectionModels = Object.keys(detection);
-  const detectionColors = ["#C9C9C9", "#9DB9DC", "#3B6EA8"];
+  const detectionColors = ["#AEBBCB", "#8095AE", "#2E4A6B"];
   barChart("chart-detection", ["Accuracy", "Specificity", "Recall", "MCC"],
     detectionModels.map((name, i) => ({
       label: name,
@@ -173,9 +155,9 @@ function renderCharts(summary) {
   const hom = summary.homology;
   const tasks = ["fiveclass_split1_30pct", "binary_clustered"];
   barChart("chart-homology", ["5-class test set", "Binary test set"], [
-    { label: "Homology-based inference", backgroundColor: "#A8A8A8", data: tasks.map((t) => hom[t].homology_accuracy) },
-    { label: "ProtT5 (all proteins)", backgroundColor: "#1B4F72", data: tasks.map((t) => hom[t].prott5_accuracy) },
-    { label: "ProtT5 (proteins without homolog)", backgroundColor: "#5C8AE0", data: tasks.map((t) => hom[t].prott5_accuracy_without_hit) },
+    { label: "Homology-based inference", backgroundColor: "#BDBDBD", data: tasks.map((t) => hom[t].homology_accuracy) },
+    { label: "ProtT5 (all proteins)", backgroundColor: "#2E4A6B", data: tasks.map((t) => hom[t].prott5_accuracy) },
+    { label: "ProtT5 (proteins without homolog)", backgroundColor: "#55708F", data: tasks.map((t) => hom[t].prott5_accuracy_without_hit) },
   ], { yLabel: "Accuracy" });
 }
 
@@ -185,7 +167,6 @@ async function init() {
       loadJson("/predictors/manifest.json"),
       loadJson("/predictors/results_summary.json"),
     ]);
-    renderMetrics(summary);
     renderModelCards(manifest);
     renderCharts(summary);
   } catch (error) {

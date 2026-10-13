@@ -7,11 +7,12 @@ const state = {
 
 // ── Stats charts ──────────────────────────────────────────────────────────────
 const STAT_CLASSES = ["thermophile", "halophile", "acidophile", "psychrophile", "alkaliphile"];
+// Class colors match the thesis figures (scripts/plotting/style.py)
 const STAT_COLORS  = {
   thermophile:  "#E05C5C",
-  halophile:    "#5C8AE0",
-  acidophile:   "#E0A85C",
-  psychrophile: "#5CE0A8",
+  halophile:    "#E0A040",
+  acidophile:   "#6ABF69",
+  psychrophile: "#5C8AE0",
   alkaliphile:  "#A85CE0",
 };
 const STAT_CHARTS = {};
@@ -26,13 +27,22 @@ function classLabel(cls) {
   return cls.charAt(0).toUpperCase() + cls.slice(1);
 }
 
-function makeOrReplaceChart(canvasId, config) {
+function makeOrReplaceChart(canvasId, config, hasData = true) {
   if (STAT_CHARTS[canvasId]) {
     STAT_CHARTS[canvasId].destroy();
+    delete STAT_CHARTS[canvasId];
   }
   const canvas = document.getElementById(canvasId);
   if (!canvas || typeof Chart === "undefined") return;
+  // A chart without any data point for the current selection is hidden instead of drawn empty
+  const figure = canvas.closest("figure");
+  if (figure) figure.hidden = !hasData;
+  if (!hasData) return;
   STAT_CHARTS[canvasId] = new Chart(canvas, config);
+}
+
+function hasPoints(datasets) {
+  return datasets.some(dataset => dataset.data.length > 0);
 }
 
 function renderOrganismCounts(rows) {
@@ -43,6 +53,7 @@ function renderOrganismCounts(rows) {
     });
   });
 
+  const total = STAT_CLASSES.reduce((sum, c) => sum + counts[c], 0);
   makeOrReplaceChart("stats-chart-organisms", {
     type: "bar",
     data: {
@@ -57,6 +68,7 @@ function renderOrganismCounts(rows) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
         tooltip: { callbacks: { label: ctx => `${ctx.parsed.y} organisms` } },
@@ -71,7 +83,7 @@ function renderOrganismCounts(rows) {
         x: { grid: { display: false } },
       },
     },
-  });
+  }, total > 0);
 }
 
 function renderProteinCounts(rows) {
@@ -97,6 +109,7 @@ function renderProteinCounts(rows) {
     data: { datasets },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
         tooltip: {
@@ -121,12 +134,12 @@ function renderProteinCounts(rows) {
         },
         y: {
           type: "logarithmic",
-          title: { display: true, text: "Protein count (log scale)" },
+          title: { display: true, text: "Proteins (log scale)" },
           grid: { color: "#f0f4f8" },
         },
       },
     },
-  });
+  }, hasPoints(datasets));
 }
 
 function renderEnvParam(rows, canvasId, field, yLabel) {
@@ -153,6 +166,7 @@ function renderEnvParam(rows, canvasId, field, yLabel) {
     data: { datasets },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
         title: { display: false },
@@ -169,6 +183,9 @@ function renderEnvParam(rows, canvasId, field, yLabel) {
           max: STAT_CLASSES.length - 0.4,
           ticks: {
             stepSize: 1,
+            autoSkip: false,
+            maxRotation: 45,
+            minRotation: 45,
             callback: v => {
               const i = Math.round(v);
               return (i >= 0 && i < STAT_CLASSES.length) ? classLabel(STAT_CLASSES[i]) : "";
@@ -182,16 +199,18 @@ function renderEnvParam(rows, canvasId, field, yLabel) {
         },
       },
     },
-  });
+  }, hasPoints(datasets));
 }
 
 function renderStats(rows) {
   if (typeof Chart === "undefined") return;
   renderOrganismCounts(rows);
   renderProteinCounts(rows);
-  renderEnvParam(rows, "stats-chart-ogt",  "ogt_celsius",    "OGT (°C)");
-  renderEnvParam(rows, "stats-chart-nacl", "nacl_optimum_M", "NaCl Optimum (M)");
-  renderEnvParam(rows, "stats-chart-ph",   "ph_optimum",     "pH Optimum");
+  renderEnvParam(rows, "stats-chart-ogt",  "ogt_celsius",    "Temperature (°C)");
+  renderEnvParam(rows, "stats-chart-nacl", "nacl_optimum_M", "NaCl (M)");
+  renderEnvParam(rows, "stats-chart-ph",   "ph_optimum",     "pH");
+  const section = document.getElementById("stats-section");
+  if (section) section.hidden = !section.querySelector("figure.stats-plot:not([hidden])");
 }
 
 const filterIds = [
@@ -308,19 +327,6 @@ function containsMultiValue(value, expected) {
 function joinedDisplay(value) {
   const values = splitMultiValue(value);
   return values.length ? values.join(", ") : "—";
-}
-
-function canonicalBranchesForFamily(family) {
-  return CANONICAL_BRANCHES_BY_FAMILY[family] || [];
-}
-
-function rowBelongsToCanonicalFamilyBranch(row, family) {
-  const canonicalBranches = canonicalBranchesForFamily(family);
-  if (!canonicalBranches.length) {
-    return false;
-  }
-  const rowBranches = splitMultiValue(row.dataset_branch);
-  return canonicalBranches.some((branch) => rowBranches.includes(branch));
 }
 
 function phenotypeLabelValues(row) {
@@ -559,43 +565,19 @@ function applyFilters() {
 function renderMetrics() {
   const container = document.getElementById("metrics-grid");
   const template = document.getElementById("metric-card-template");
-  const phenotypeFamily = controlValue("prokaryote-family");
   const downloaded = state.filteredRows.filter((row) => row.proteome_status === "downloaded");
   const proteinSum = downloaded.reduce((sum, row) => sum + Number(row.protein_count || 0), 0);
-  const branchCount = new Set(state.filteredRows.flatMap((row) => splitMultiValue(row.dataset_branch))).size;
-  const phenotypeCount = new Set(state.filteredRows.flatMap((row) => splitMultiValue(row.phenotype_focus))).size;
-  const phenotypeClassCount = new Set(state.filteredRows.flatMap((row) => phenotypeClassValue(row))).size;
 
   const metrics = [
     {
-      label: "Visible Taxa",
+      label: "Organisms",
       value: formatInteger(state.filteredRows.length),
-      note: "Matching your filters — all with downloaded proteomes",
+      note: "Matching the current filters, each with a downloaded proteome",
     },
     {
-      label: "Proteins in View",
+      label: "Proteins",
       value: formatInteger(proteinSum),
-      note: "Summed protein count across downloaded rows",
-    },
-    {
-      label: phenotypeFamily
-        ? `${phenotypeFocusLabel(phenotypeFamily)} Family Branch Proteins`
-        : "Family Branch Proteins",
-      value: phenotypeFamily
-        ? formatInteger(
-            downloaded
-              .filter((row) => rowBelongsToCanonicalFamilyBranch(row, phenotypeFamily))
-              .reduce((sum, row) => sum + Number(row.protein_count || 0), 0)
-          )
-        : "—",
-      note: phenotypeFamily
-        ? "Within current filters, restricted to curation branches that belong to the selected phenotype family."
-        : "Select a phenotype family to compare overlap against its linked curation branches.",
-    },
-    {
-      label: "Curation Branch Coverage",
-      value: formatInteger(branchCount),
-      note: `${phenotypeCount} phenotype famil${phenotypeCount === 1 ? "y" : "ies"}, ${phenotypeClassCount} class label(s) represented`,
+      note: "Total number of proteins in these proteomes",
     },
   ];
 
@@ -607,88 +589,6 @@ function renderMetrics() {
     node.querySelector(".metric-note").textContent = metric.note;
     container.append(node);
   });
-}
-
-function renderSummary() {
-  const container = document.getElementById("summary-table");
-  const classContainer = document.getElementById("class-summary-table");
-  const rows = state.summaryRows
-    .filter((row) => row.proteome_status === "downloaded")
-    .map((row) => {
-      return `
-        <tr>
-          <td>${escapeHtml(row.dataset_branch)}</td>
-          <td>${escapeHtml(row.row_count)}</td>
-          <td>${formatInteger(row.protein_count_sum)}</td>
-        </tr>
-      `;
-    })
-    .join("");
-
-  container.innerHTML = `
-    <p class="table-section-label">Curation branches</p>
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Curation Branch</th>
-          <th>Rows</th>
-          <th>Protein Count Sum</th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>
-  `;
-
-  const grouped = new Map();
-  state.filteredRows.forEach((row) => {
-    phenotypeClassValue(row).forEach((label) => {
-      if (!grouped.has(label)) {
-        grouped.set(label, { rows: 0, downloaded: 0, proteins: 0 });
-      }
-      const bucket = grouped.get(label);
-      bucket.rows += 1;
-      if (row.proteome_status === "downloaded") {
-        bucket.downloaded += 1;
-        bucket.proteins += Number(row.protein_count || 0);
-      }
-    });
-  });
-
-  const classRows = [...grouped.entries()]
-    .sort((a, b) => a[0].localeCompare(b[0]))
-    .map(([label, values]) => {
-      return `
-        <tr>
-          <td>${escapeHtml(label)}</td>
-          <td>${formatInteger(values.rows)}</td>
-          <td>${formatInteger(values.downloaded)}</td>
-          <td>${formatInteger(values.proteins)}</td>
-        </tr>
-      `;
-    })
-    .join("");
-
-  classContainer.innerHTML = `
-    <p class="table-section-label">Phenotype classes in current view</p>
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>Phenotype Class</th>
-          <th>Rows</th>
-          <th>Downloaded Proteomes</th>
-          <th>Protein Count Sum</th>
-        </tr>
-      </thead>
-      <tbody>${classRows}</tbody>
-    </table>
-  `;
-}
-
-function statusClass(status) {
-  if (status === "downloaded") {
-    return "status-download";
-  }
-  return "status-missing";
 }
 
 function renderResults() {
@@ -705,7 +605,7 @@ function renderResults() {
   if (!state.filteredRows.length) {
     body.innerHTML = `
       <tr>
-        <td colspan="7">
+        <td colspan="6">
           <div class="empty-state">No rows match the current filters.</div>
         </td>
       </tr>
@@ -722,7 +622,6 @@ function renderResults() {
             <strong>${escapeHtml(row.taxon_name)}</strong><br />
             <span>${escapeHtml(row.strain || "—")}</span>
           </td>
-          <td>${escapeHtml(joinedDisplay(row.dataset_branch))}</td>
           <td>${escapeHtml(phenotypeLabel(row))}</td>
           <td>${formatInteger(row.protein_count)}</td>
           <td style="white-space:nowrap">${formatDecimal(row.ogt_celsius, " C")}</td>
@@ -757,7 +656,7 @@ function renderDetail() {
 
   if (!selectedRow) {
     container.className = "detail-empty";
-    container.textContent = "Select a row to inspect evidence, sequence source, notes, and local file links.";
+    container.textContent = "Select a row to see the evidence, sequence source and notes for an organism.";
     return;
   }
 
@@ -776,15 +675,11 @@ function renderDetail() {
   container.className = "detail-card";
   container.innerHTML = `
     <h3 class="detail-title">${escapeHtml(selectedRow.taxon_name)}</h3>
-    <p class="detail-subtitle">${escapeHtml(selectedRow.strain || "No strain recorded")} • Curation branch: ${escapeHtml(joinedDisplay(selectedRow.dataset_branch))}</p>
+    <p class="detail-subtitle">${escapeHtml(selectedRow.strain || "No strain recorded")}</p>
     <div class="detail-grid">
       ${detailItem("Phenotype", escapeHtml(phenotypeLabel(selectedRow)))}
       ${detailItem("Proteome ID", escapeHtml(selectedRow.proteome_id || "—"))}
-      ${detailItem("Domain Scope", escapeHtml(joinedDisplay(selectedRow.domain_scope)))}
-      ${detailItem("Curation Branches", escapeHtml(joinedDisplay(selectedRow.dataset_branch)))}
-      ${detailItem("Identity Level", escapeHtml(joinedDisplay(selectedRow.identity_level)))}
-      ${detailItem("Collection Match", escapeHtml(joinedDisplay(selectedRow.collection_match)))}
-      ${detailItem("Collection Source", escapeHtml(joinedDisplay(selectedRow.collection_source)))}
+      ${detailItem("Domain", escapeHtml(joinedDisplay(selectedRow.domain_scope)))}
       ${detailItem("Strain Aliases", escapeHtml(joinedDisplay(selectedRow.strain_aliases)))}
       ${detailItem("Protein Count", escapeHtml(formatInteger(selectedRow.protein_count)))}
       ${detailItem("Sequence Source", escapeHtml(`${selectedRow.sequence_source_db || "—"} ${selectedRow.sequence_source_accession || ""}`.trim()))}
@@ -793,7 +688,6 @@ function renderDetail() {
       ${detailItem("NaCl Optimum", escapeHtml(formatDecimal(selectedRow.nacl_optimum_M, " M")))}
       ${detailItem("pH Optimum", escapeHtml(formatDecimal(selectedRow.ph_optimum)))}
       ${detailItem("Retrieval Notes", escapeHtml(selectedRow.retrieval_notes || "—"))}
-      ${detailItem("All Local FASTA Paths", escapeHtml(joinedDisplay(selectedRow.local_fasta_paths)))}
       ${detailItem("Notes", escapeHtml(selectedRow.notes || "—"))}
     </div>
     <div class="detail-links">${links.join("") || '<span class="empty-state">No direct links available for this row.</span>'}</div>

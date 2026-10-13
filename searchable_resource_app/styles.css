@@ -464,8 +464,8 @@ tbody tr.is-selected {
 /* ── Dataset Statistics Section ─────────────────────────────────────────── */
 
 .stats-section {
-  margin-top: 48px;
-  padding-bottom: 64px;
+  margin-top: 16px;
+  padding-bottom: 16px;
 }
 
 .stats-header {
@@ -543,4 +543,15 @@ tbody tr.is-selected {
   .stats-plot--wide {
     grid-column: 1;
   }
+}
+
+.stats-plot[hidden],
+.stats-section[hidden] {
+  display: none;
+}
+
+/* Proteome Index: fixed plot height, so the charts stay compact at any width */
+.stats-chart {
+  position: relative;
+  height: 210px;
 }

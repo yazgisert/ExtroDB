@@ -55,7 +55,7 @@
         },
         "n_test": 28576
       },
-      "One-hot": {
+      "Amino acid composition": {
         "accuracy": {
           "value": 0.5233062709966405,
           "ci_lower": 0.5193763997760358,
@@ -129,7 +129,7 @@
         },
         "n_test": 19603
       },
-      "One-hot": {
+      "Amino acid composition": {
         "accuracy": {
           "value": 0.5092077743202571,
           "ci_lower": 0.5041817578941998,
@@ -203,7 +203,7 @@
         },
         "n_test": 12384
       },
-      "One-hot": {
+      "Amino acid composition": {
         "accuracy": {
           "value": 0.32679263565891475,
           "ci_lower": 0.32209302325581396,
@@ -277,7 +277,7 @@
         },
         "n_test": 8172
       },
-      "One-hot": {
+      "Amino acid composition": {
         "accuracy": {
           "value": 0.3244003915810083,
           "ci_lower": 0.31490761135584927,
@@ -379,7 +379,7 @@
         "ci_upper": 0.3961683554422184
       }
     },
-    "One-hot": {
+    "Amino acid composition": {
       "accuracy": {
         "value": 0.6173762945914845,
         "ci_lower": 0.6043344840813195,
@@ -474,7 +474,7 @@
         "ci_upper": 0.3475049390655626
       }
     },
-    "One-hot": {
+    "Amino acid composition": {
       "accuracy": {
         "value": 0.5946515055801221,
         "ci_lower": 0.579695725415877,
@@ -587,7 +587,7 @@
       "psychrophile": 0.4314864207912336,
       "thermophile": 0.42350371856923624
     },
-    "One-hot": {
+    "Amino acid composition": {
       "overall": 0.38174419735355936,
       "acidophile": 0.271455501537851,
       "halophile": 0.4135933767466213,

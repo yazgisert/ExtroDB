@@ -64,7 +64,7 @@ if __name__ == "__main__":
     right.set_xticklabels(labels, fontsize=10)
     right.set_ylim(0, 1.05)
     right.set_ylabel("Accuracy")
-    right.set_title("Split by homology to training", fontsize=11)
+    right.set_title("Test proteins with vs. without a homolog in training", fontsize=11)
 
     handles, names = left.get_legend_handles_labels()
     fig.legend(handles, names, loc="lower center", ncol=2, frameon=False, fontsize=10, bbox_to_anchor=(0.5, -0.06))
