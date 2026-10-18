@@ -22,6 +22,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 
 SEED = 42
+N_BOOTSTRAP = 1000  # was 30 before 2026-10-18; the models are unchanged
 random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
@@ -164,7 +165,7 @@ def compute_metrics(y_true, y_pred):
     }
 
 
-def bootstrap_metrics(y_true, y_pred, n_iter=30, confidence=0.05):
+def bootstrap_metrics(y_true, y_pred, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     samples = defaultdict(list)
     n       = len(y_true)
@@ -203,7 +204,7 @@ def per_class_metrics(y_true, y_pred, class_names):
     return results
 
 
-def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=30, confidence=0.05):
+def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     n       = len(y_true)
     samples = {name: {'accuracy': [], 'precision': [], 'recall': [], 'f1_score': []}
@@ -305,7 +306,9 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--embedder", choices=["esm2_650m", "esm2_8m"], default="esm2_650m")
-    suffix = {"esm2_650m": "_esm2", "esm2_8m": "_esm2_8m"}[parser.parse_args().embedder]
+    parser.add_argument("--results-dir", default="results/training_results")
+    args = parser.parse_args()
+    suffix = {"esm2_650m": "_esm2", "esm2_8m": "_esm2_8m"}[args.embedder]
 
     runs = [
         ("split1_30pct",
@@ -334,4 +337,4 @@ if __name__ == "__main__":
     ]
 
     for split_name, h5_path, faa_train, faa_val, faa_test in runs:
-        run_training(split_name, h5_path, faa_train, faa_val, faa_test, suffix)
+        run_training(split_name, h5_path, faa_train, faa_val, faa_test, suffix, args.results_dir)

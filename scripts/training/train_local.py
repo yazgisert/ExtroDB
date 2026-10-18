@@ -1,6 +1,7 @@
 # Trains the ProtT5 FNN classifiers (5-class and 12-class splits) on pre-computed embeddings.
 # Replicates biotrainer v1.3.0: FNN 1024 -> 32 -> n_classes, Adam, early stopping on validation loss.
 
+import argparse
 import json
 import os
 import random
@@ -21,6 +22,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 
 SEED = 42
+N_BOOTSTRAP = 1000  # was 30 before 2026-10-18; the models are unchanged
 random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
@@ -163,7 +165,7 @@ def compute_metrics(y_true, y_pred):
     }
 
 
-def bootstrap_metrics(y_true, y_pred, n_iter=30, confidence=0.05):
+def bootstrap_metrics(y_true, y_pred, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     samples = defaultdict(list)
     n       = len(y_true)
@@ -202,7 +204,7 @@ def per_class_metrics(y_true, y_pred, class_names):
     return results
 
 
-def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=30, confidence=0.05):
+def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     n       = len(y_true)
     samples = {name: {'accuracy': [], 'precision': [], 'recall': [], 'f1_score': []}
@@ -302,6 +304,10 @@ def run_training(split_name, h5_path, faa_train, faa_val, faa_test,
 
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--results-dir", default="results/training_results")
+    results_dir = parser.parse_args().results_dir
+
     runs = [
         ("split1_30pct",
          "embeddings/split1_30pct.h5",
@@ -329,4 +335,4 @@ if __name__ == "__main__":
     ]
 
     for split_name, h5_path, faa_train, faa_val, faa_test in runs:
-        run_training(split_name, h5_path, faa_train, faa_val, faa_test)
+        run_training(split_name, h5_path, faa_train, faa_val, faa_test, results_dir)

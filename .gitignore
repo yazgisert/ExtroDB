@@ -108,3 +108,6 @@ build/
 
 # biotrainer runs: large and regenerable with scripts/biotrainer/prepare_biotrainer_runs.py; configs and outputs are on Zenodo
 /biotrainer_runs/
+
+# Temporary rerun of the 5/12-class models (1000 bootstrap iterations), compared and copied by compare_bootstrap_rerun.py
+/results/training_results_rerun/
