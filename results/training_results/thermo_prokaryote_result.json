@@ -1,0 +1,67 @@
+{
+  "n_proteomes": 225,
+  "n_thermophile": 71,
+  "confusion": {
+    "TP": 67,
+    "FN": 4,
+    "FP": 1,
+    "TN": 153
+  },
+  "metrics": {
+    "accuracy": {
+      "value": 0.9777777777777777,
+      "ci_lower": 0.9555555555555556,
+      "ci_upper": 0.9955555555555555
+    },
+    "macro_f1": {
+      "value": 0.9739758032802055,
+      "ci_lower": 0.9481558398684885,
+      "ci_upper": 0.9946169956489921
+    },
+    "f1_thermophile": {
+      "value": 0.9640287769784173,
+      "ci_lower": 0.9279884057971015,
+      "ci_upper": 0.9923692819835849
+    },
+    "f1_non_thermophile": {
+      "value": 0.9839228295819936,
+      "ci_lower": 0.967948717948718,
+      "ci_upper": 0.9967431980856604
+    },
+    "mcc": {
+      "value": 0.9484248375943466,
+      "ci_lower": 0.8987778987541313,
+      "ci_upper": 0.9892915807694634
+    },
+    "recall": {
+      "value": 0.9436619718309859,
+      "ci_lower": 0.8830977845683727,
+      "ci_upper": 0.9871794871794872
+    },
+    "specificity": {
+      "value": 0.9935064935064936,
+      "ci_lower": 0.9761684303350969,
+      "ci_upper": 1.0
+    }
+  },
+  "training_overlap": {
+    "in_thermo_training": {
+      "n": 105,
+      "n_thermophile": 41,
+      "accuracy": 0.9809523809523809,
+      "mcc": 0.959984756097561
+    },
+    "not_in_thermo_training": {
+      "n": 64,
+      "n_thermophile": 26,
+      "accuracy": 0.96875,
+      "mcc": 0.936441710371274
+    },
+    "no_bacdive_id": {
+      "n": 56,
+      "n_thermophile": 4,
+      "accuracy": 0.9821428571428571,
+      "mcc": 0.8578164469184382
+    }
+  }
+}

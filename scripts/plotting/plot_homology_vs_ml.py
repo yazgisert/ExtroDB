@@ -63,13 +63,14 @@ CLASS_LABELS = {
     "overall":      "Overall",
 }
 
-THRESHOLD_LABELS = ["1e−1", "1e−3", "1e−5", "1e−10", "1e−20", "1e−50", "1e−100"]
+THRESHOLD_LABELS = ["1e−3", "1e−5", "1e−10", "1e−20", "1e−50", "1e−100"]
 
 
 def main():
     homology, ml = load_data()
 
-    thresholds = [float(t) for t in homology["thresholds"]]
+    # The search itself used the MMseqs2 default E-value cutoff of 1e-3, so 0.1 adds no hits and is left out
+    thresholds = [float(t) for t in homology["thresholds"] if float(t) <= 1e-3]
     results    = homology["results"]
     ml_recalls = get_ml_recalls(ml)
 
@@ -92,7 +93,7 @@ def main():
 
     bars_h = ax_bar.bar(x - width / 2, hom_vals, width,
                         color=colors, alpha=0.45, edgecolor="white",
-                        label=f"Homology (e ≤ {best_thr})")
+                        label=f"Homology (E ≤ {best_thr:g})")
     bars_m = ax_bar.bar(x + width / 2, ml_vals, width,
                         color=colors, alpha=1.0, edgecolor="white",
                         label="ProtT5 FNN")
@@ -141,7 +142,7 @@ def main():
 
     # Shared legend below both panels
     bar_handles = [
-        mpatches.Patch(color="#888888", alpha=0.45, label=f"Homology (e ≤ 0.1)"),
+        mpatches.Patch(color="#888888", alpha=0.45, label="Homology (E ≤ 0.001)"),
         mpatches.Patch(color="#888888", alpha=1.00, label="ProtT5 FNN"),
     ]
     class_handles = [

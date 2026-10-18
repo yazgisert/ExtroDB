@@ -1,6 +1,7 @@
-# THERMO results on our proteomes: confusion matrix, probability distribution, training-set overlap and
+# THERMO results on the prokaryotic proteomes: confusion matrix, probability distribution, training-set overlap and
 # misclassified organisms.
 
+import csv
 import json
 from pathlib import Path
 
@@ -12,7 +13,9 @@ import numpy as np
 
 from style import CLASS_COLORS, MAIN, NON_EXTREMOPHILE, SECONDARY
 
-RESULT_FILE = Path("results/training_results/thermo_bacdive_result.json")
+RESULT_FILE  = Path("results/training_results/thermo_bacdive_result.json")
+SUMMARY_FILE = Path("results/training_results/thermo_prokaryote_result.json")
+MASTER_INDEX = Path("searchable_resource/extremophile_master_index.tsv")
 OUT_DIR     = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -32,18 +35,19 @@ WRONG_COLOR     = "#E05C5C"
 with open(RESULT_FILE) as f:
     data = json.load(f)
 
-preds   = data["per_proteome_predictions"]
+domain  = {r["proteome_id"]: r["domain_scope"] for r in csv.DictReader(open(MASTER_INDEX), delimiter="\t")}
+preds   = [p for p in data["per_proteome_predictions"] if domain.get(p["proteome_id"]) == "prokaryote"]
+summary = json.load(open(SUMMARY_FILE))
 y_true  = np.array([p["true_label"]           for p in preds])
 y_pred  = np.array([p["predicted"]            for p in preds])
 y_proba = np.array([p["proba_thermophile"]    for p in preds])
 
-# Known overlap groups (from BacDive ID intersection computed separately)
-# In THERMO training set: n=105, acc=0.981, macro_f1=0.980
-# True held-out:          n=133, acc=0.977, macro_f1=0.967
+overlap = summary["training_overlap"]
 OVERLAP_STATS = {
-    "In Training\n(n=105)":  {"accuracy": 0.981, "macro_f1": 0.980},
-    "Held-Out\n(n=133)":     {"accuracy": 0.977, "macro_f1": 0.967},
-    "All 238\nProteomes":    {"accuracy": 0.979, "macro_f1": 0.975},
+    f"In THERMO training\n(n={overlap['in_thermo_training']['n']})":         overlap["in_thermo_training"],
+    f"Not in training\n(n={overlap['not_in_thermo_training']['n']})":       overlap["not_in_thermo_training"],
+    f"All prokaryotes\n(n={summary['n_proteomes']})": {"accuracy": summary["metrics"]["accuracy"]["value"],
+                                                         "mcc": summary["metrics"]["mcc"]["value"]},
 }
 
 
@@ -76,7 +80,7 @@ def plot_confusion_matrix():
             ax.text(j, i, labels[i][j], ha="center", va="center",
                     fontsize=14, fontweight="bold", color=color)
 
-    ax.set_title("THERMO Model — Confusion Matrix\n(All 238 Proteomes)", fontsize=13, pad=18)
+    ax.set_title(f"THERMO Model — Confusion Matrix\n({len(preds)} Prokaryotic Proteomes)", fontsize=13, pad=18)
     plt.colorbar(im, ax=ax, shrink=0.8)
     plt.tight_layout()
     out = OUT_DIR / "thermo_confusion_matrix.png"
@@ -114,29 +118,29 @@ def plot_probability_distribution():
 def plot_overlap_analysis():
     groups  = list(OVERLAP_STATS.keys())
     acc     = [OVERLAP_STATS[g]["accuracy"]  for g in groups]
-    mf1     = [OVERLAP_STATS[g]["macro_f1"]  for g in groups]
+    mcc     = [OVERLAP_STATS[g]["mcc"]       for g in groups]
 
     x   = np.arange(len(groups))
     w   = 0.32
     fig, ax = plt.subplots(figsize=(7, 4.5))
 
     bars1 = ax.bar(x - w/2, acc, width=w, label="Accuracy",  color=MAIN, edgecolor="white")
-    bars2 = ax.bar(x + w/2, mf1, width=w, label="Macro-F1",  color=SECONDARY, edgecolor="white")
+    bars2 = ax.bar(x + w/2, mcc, width=w, label="MCC",       color=SECONDARY, edgecolor="white")
 
     for bar in list(bars1) + list(bars2):
         h = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, h + 0.003,
                 f"{h:.3f}", ha="center", va="bottom", fontsize=10)
 
-    ax.set_ylim(0.90, 1.01)
+    ax.set_ylim(0.85, 1.01)
     ax.set_xticks(x)
     ax.set_xticklabels(groups, fontsize=11)
     ax.set_ylabel("Score")
-    ax.set_title("THERMO Performance: Training Overlap vs. True Held-Out", fontsize=13)
+    ax.set_title("THERMO: Organisms in Its Training Set vs. Not", fontsize=13)
     ax.legend(frameon=False)
 
     ax.text(0.97, 0.97,
-            "No data leakage:\nperformance is similar\nacross both groups",
+            "Similar results with and\nwithout training overlap",
             transform=ax.transAxes,
             ha="right", va="top",
             fontsize=9.5, color="grey",

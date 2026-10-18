@@ -69,7 +69,8 @@ def parse_faa_labels(filepath):
                 parts      = line[1:].split("||")
                 protein_id = parts[1].split()[0].strip()
                 label      = parts[2].strip().lower()
-                labels[protein_id] = 1 if label == "thermophile" else 0
+                # Split 2 separates thermophiles and hyperthermophiles; both count as thermophile here
+                labels[protein_id] = 1 if label in ("thermophile", "hyperthermophile") else 0
     return labels
 
 

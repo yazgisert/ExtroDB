@@ -41,6 +41,9 @@ def load_index(index_path: Path, fasta_base: Path):
     with open(index_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f, delimiter="\t")
         for row in reader:
+            # The algae are evaluated separately with their own thermophile labels (run_thermo_eukaryote_eval.py)
+            if row.get("domain_scope") != "prokaryote":
+                continue
             # Use the first available FASTA path
             fasta_rel = row.get("local_fasta_path", "").strip()
             if not fasta_rel:

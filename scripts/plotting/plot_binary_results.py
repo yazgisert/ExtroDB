@@ -1,4 +1,5 @@
-# Binary thermophile classifier (four ProtT5 splits) vs. THERMO: metric comparison and F1 per class.
+# Binary thermophile classifier (ProtT5, Split 1 at 30% and 20%) vs. THERMO on the prokaryotic proteomes: metric
+# comparison and F1 per class. ProtT5 is evaluated per protein, THERMO per proteome.
 
 import json
 from pathlib import Path
@@ -21,37 +22,33 @@ plt.rcParams.update({
     "figure.dpi":        150,
 })
 
-SPLITS = ["split1_20pct", "split2_20pct", "split1_30pct", "split2_30pct"]
+SPLITS = ["split1_30pct", "split1_20pct"]
 results = {}
 for split in SPLITS:
     with open(f"results/training_results/{split}_binary_result.json") as f:
         results[split] = json.load(f)
 
-# THERMO reference (from thermo_bacdive_result.json)
-with open("results/training_results/thermo_bacdive_result.json") as f:
-    thermo = json.load(f)
+with open("results/training_results/thermo_prokaryote_result.json") as f:
+    thermo = json.load(f)["metrics"]
 
 THERMO_METRICS = {
-    "accuracy":           thermo["test_metrics"]["accuracy"],
-    "macro-f1_score":     thermo["test_metrics"]["macro-f1_score"],
-    "f1_thermophile":     thermo["test_metrics"]["f1_score"],      # thermophile F1
-    "matthews-corr-coeff": thermo["test_metrics"]["matthews-corr-coeff"],
+    "accuracy":            thermo["accuracy"]["value"],
+    "macro-f1_score":      thermo["macro_f1"]["value"],
+    "f1_thermophile":      thermo["f1_thermophile"]["value"],
+    "f1_non_thermophile":  thermo["f1_non_thermophile"]["value"],
+    "matthews-corr-coeff": thermo["mcc"]["value"],
 }
 
 COLORS = {
-    "split1_20pct": RAMP[1],
-    "split2_20pct": RAMP[0],
     "split1_30pct": RAMP[3],
-    "split2_30pct": RAMP[2],
+    "split1_20pct": RAMP[1],
     "THERMO":       BASELINE,
 }
 
 LABELS = {
-    "split1_20pct": "ProtT5 split1 20%",
-    "split2_20pct": "ProtT5 split2 20%",
-    "split1_30pct": "ProtT5 split1 30%",
-    "split2_30pct": "ProtT5 split2 30%",
-    "THERMO":       "THERMO (Pfam RF)",
+    "split1_30pct": "ProtT5, 30% (per protein)",
+    "split1_20pct": "ProtT5, 20% (per protein)",
+    "THERMO":       "THERMO (per proteome)",
 }
 
 
@@ -62,10 +59,10 @@ def plot_metric_comparison():
 
     models = SPLITS + ["THERMO"]
     x      = np.arange(len(metrics))
-    w      = 0.15
+    w      = 0.24
     offsets = np.linspace(-(len(models)-1)/2 * w, (len(models)-1)/2 * w, len(models))
 
-    fig, ax = plt.subplots(figsize=(13, 5.5))
+    fig, ax = plt.subplots(figsize=(11, 5.5))
 
     for model, offset in zip(models, offsets):
         if model == "THERMO":
@@ -87,7 +84,7 @@ def plot_metric_comparison():
     ax.set_ylabel("Score")
     ax.set_title("Binary Thermophile Classifier — ProtT5 vs. THERMO", fontsize=13)
     ax.legend(frameon=False, fontsize=9, loc="upper left",
-              bbox_to_anchor=(0.0, 1.0), ncol=5)
+              bbox_to_anchor=(0.0, 1.0), ncol=3)
     ax.axhline(1.0, color="grey", linewidth=0.5, linestyle="--", alpha=0.5)
 
     plt.tight_layout()
@@ -107,9 +104,7 @@ def plot_f1_breakdown():
     for model in models:
         if model == "THERMO":
             f1_thermo.append(THERMO_METRICS["f1_thermophile"])
-            # THERMO non-thermo F1 derived from confusion matrix
-            # TP=67 FN=4 FP=1 TN=166 → F1_nonthermo = 2*166/(2*166+4+1)
-            f1_nonthermo.append(round(2*166/(2*166+4+1), 4))
+            f1_nonthermo.append(THERMO_METRICS["f1_non_thermophile"])
             accuracies.append(THERMO_METRICS["accuracy"])
         else:
             m = results[model]["test_metrics"]
@@ -119,7 +114,7 @@ def plot_f1_breakdown():
 
     x  = np.arange(len(models))
     w  = 0.22
-    fig, ax = plt.subplots(figsize=(12, 5.5))
+    fig, ax = plt.subplots(figsize=(9, 5.5))
 
     def _split_yerr(model, key):
         if model == "THERMO":

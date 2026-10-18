@@ -105,3 +105,6 @@ build/
 
 # Local Claude Code preview config
 .claude/
+
+# biotrainer runs: large and regenerable with scripts/biotrainer/prepare_biotrainer_runs.py; configs and outputs are on Zenodo
+/biotrainer_runs/
