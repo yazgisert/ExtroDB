@@ -12,6 +12,7 @@ import h5py
 OUT_DIR    = Path("predictor_resources")
 WEB_DIR    = Path("searchable_resource_app/predictors")
 ZENODO_DIR = OUT_DIR / "zenodo"
+BIOTRAINER_DIR = OUT_DIR / "biotrainer"  # zips from scripts/biotrainer/package_biotrainer_runs.py (Zenodo version 2)
 RESULTS    = Path("results/training_results")
 
 FIVECLASS_SPLITS = {
@@ -132,6 +133,15 @@ def algae_file():
     }}
 
 
+def add_biotrainer_files(manifest):
+    # One biotrainer zip per predictor; the algae test set as a biotrainer FASTA, renamed on Zenodo
+    for name, model in manifest.items():
+        source = BIOTRAINER_DIR / ("algae_filtered_test.fasta.gz" if name == "algae_filtered" else f"{name}.zip")
+        if source.exists():
+            published = "algae_filtered_test_biotrainer.fasta.gz" if name == "algae_filtered" else source.name
+            model["biotrainer"] = {"file": published, "size_mb": round(source.stat().st_size / 1e6, 2)}
+
+
 def metric(m, key):
     if "value" in m[key]:
         return {"value": m[key]["value"], "ci_lower": m[key]["ci_lower"], "ci_upper": m[key]["ci_upper"]}
@@ -225,6 +235,7 @@ if __name__ == "__main__":
 
     print("Writing FASTAs ...")
     manifest = {**fiveclass_files(), **clustered_files(extremophile_records), **algae_file()}
+    add_biotrainer_files(manifest)
 
     rows = []
     for name, model in manifest.items():

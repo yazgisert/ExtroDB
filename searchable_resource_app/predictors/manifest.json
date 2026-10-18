@@ -38,6 +38,10 @@
         },
         "size_mb": 4.76
       }
+    },
+    "biotrainer": {
+      "file": "fiveclass_split1_30pct.zip",
+      "size_mb": 23.94
     }
   },
   "fiveclass_split1_20pct": {
@@ -79,6 +83,10 @@
         },
         "size_mb": 3.13
       }
+    },
+    "biotrainer": {
+      "file": "fiveclass_split1_20pct.zip",
+      "size_mb": 15.79
     }
   },
   "twelveclass_split2_30pct": {
@@ -141,6 +149,10 @@
         },
         "size_mb": 2.06
       }
+    },
+    "biotrainer": {
+      "file": "twelveclass_split2_30pct.zip",
+      "size_mb": 10.5
     }
   },
   "twelveclass_split2_20pct": {
@@ -203,6 +215,10 @@
         },
         "size_mb": 1.28
       }
+    },
+    "biotrainer": {
+      "file": "twelveclass_split2_20pct.zip",
+      "size_mb": 6.79
     }
   },
   "binary_clustered": {
@@ -247,6 +263,10 @@
         },
         "size_mb": 0.95
       }
+    },
+    "biotrainer": {
+      "file": "binary_clustered.zip",
+      "size_mb": 5.05
     }
   },
   "sixclass_clustered": {
@@ -291,6 +311,10 @@
         },
         "size_mb": 0.95
       }
+    },
+    "biotrainer": {
+      "file": "sixclass_clustered.zip",
+      "size_mb": 11.86
     }
   },
   "algae_filtered": {
@@ -307,6 +331,10 @@
         },
         "size_mb": 32.76
       }
+    },
+    "biotrainer": {
+      "file": "algae_filtered_test_biotrainer.fasta.gz",
+      "size_mb": 32.58
     }
   }
 }

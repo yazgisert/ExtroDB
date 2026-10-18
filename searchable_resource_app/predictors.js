@@ -1,5 +1,6 @@
-// Zenodo record of the predictor FASTAs. A new Zenodo version gets a new ID, so this is the only line to change.
-const ZENODO_RECORD_ID = "23298950";
+// Zenodo record of the predictor files (version 2 adds the biotrainer zips). A new Zenodo version gets a new ID,
+// so this is the only line to change.
+const ZENODO_RECORD_ID = "23452508";
 
 // Colors match the thesis figures (scripts/plotting/style.py)
 const EMBEDDER_COLORS = {
@@ -10,14 +11,15 @@ const EMBEDDER_COLORS = {
 };
 const EMBEDDER_ORDER = ["Amino acid composition", "ESM2 8M", "ESM2 650M", "ProtT5"];
 
+// Download headings within a predictor section
 const MODEL_NAMES = {
-  fiveclass_split1_30pct:   "5-class · split 1 · 30%",
-  fiveclass_split1_20pct:   "5-class · split 1 · 20%",
-  twelveclass_split2_30pct: "12-class · split 2 · 30%",
-  twelveclass_split2_20pct: "12-class · split 2 · 20%",
-  binary_clustered:         "Binary · extremophile vs. non-extremophile",
-  sixclass_clustered:       "6-class · 5 classes + non-extremophile",
-  algae_filtered:           "Eukaryotic algae · test only",
+  fiveclass_split1_30pct:   "30% identity clustering",
+  fiveclass_split1_20pct:   "20% identity clustering",
+  twelveclass_split2_30pct: "30% identity clustering",
+  twelveclass_split2_20pct: "20% identity clustering",
+  binary_clustered:         "30% identity clustering",
+  sixclass_clustered:       "30% identity clustering",
+  algae_filtered:           "Leakage-filtered algae proteins",
 };
 
 const fmt = (v, digits = 3) => (v === null || v === undefined ? "–" : Number(v).toFixed(digits));
@@ -34,32 +36,46 @@ async function loadJson(path) {
   return response.json();
 }
 
-// ── Model cards with downloads ───────────────────────────────────────────────
-function renderModelCards(manifest) {
-  const cards = Object.entries(manifest).map(([name, model]) => {
-    const rows = Object.entries(model.splits).map(([split, info]) => {
-      const url = zenodoUrl(info.file);
-      const button = url
-        ? `<a class="button" href="${url}">FASTA</a>`
-        : `<span class="button" aria-disabled="true" title="Available after the Zenodo upload">FASTA</span>`;
-      const labels = Object.entries(info.labels).map(([l, n]) => `${l.replace("_", " ")} ${count(n)}`).join(" · ");
-      return `<tr>
-        <td><strong>${split}</strong></td>
-        <td>${count(info.n_proteins)}</td>
-        <td title="${labels}">${info.size_mb} MB</td>
-        <td>${button}</td>
-      </tr>`;
+// ── Downloads per predictor ──────────────────────────────────────────────────
+function downloadButton(file, label) {
+  const url = zenodoUrl(file);
+  return url
+    ? `<a class="button" href="${url}">${label}</a>`
+    : `<span class="button" aria-disabled="true" title="Available after the Zenodo upload">${label}</span>`;
+}
+
+function renderDownloads(manifest) {
+  document.querySelectorAll(".downloads[data-models]").forEach((container) => {
+    container.innerHTML = container.dataset.models.split(" ").map((name) => {
+      const model = manifest[name];
+      if (!model) return "";
+      const rows = Object.entries(model.splits).map(([split, info]) => {
+        const labels = Object.entries(info.labels).map(([l, n]) => `${l.replace("_", " ")} ${count(n)}`).join(" · ");
+        return `<tr>
+          <td><strong>${split}</strong></td>
+          <td>${count(info.n_proteins)}</td>
+          <td title="${labels}">${info.size_mb} MB</td>
+          <td>${downloadButton(info.file, "FASTA")}</td>
+        </tr>`;
+      }).join("");
+      const bt = model.biotrainer;
+      const btRow = bt
+        ? `<tr class="biotrainer-row">
+            <td><strong>biotrainer</strong></td>
+            <td>${name === "algae_filtered" ? "FASTA" : "zip"}</td>
+            <td>${bt.size_mb} MB</td>
+            <td>${downloadButton(bt.file, name === "algae_filtered" ? "FASTA" : "Zip")}</td>
+          </tr>`
+        : "";
+      return `<article class="model-card">
+        <h3>${MODEL_NAMES[name] || name}</h3>
+        <table>
+          <thead><tr><th>Split</th><th>Proteins</th><th>Size</th><th></th></tr></thead>
+          <tbody>${rows}${btRow}</tbody>
+        </table>
+      </article>`;
     }).join("");
-    return `<article class="model-card">
-      <h3>${MODEL_NAMES[name] || name}</h3>
-      <p>${model.description}</p>
-      <table>
-        <thead><tr><th>Split</th><th>Proteins</th><th>Size</th><th></th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-    </article>`;
   });
-  document.getElementById("model-cards").innerHTML = cards.join("");
   const doi = `10.5281/zenodo.${ZENODO_RECORD_ID}`;
   document.getElementById("zenodo-status").innerHTML = ZENODO_RECORD_ID
     ? `<a href="https://doi.org/${doi}" target="_blank" rel="noopener">doi:${doi}</a>`
@@ -87,6 +103,7 @@ function barChart(id, labels, datasets, { yLabel, ciLookup, min = 0 } = {}) {
     data: { labels, datasets },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 11 } } },
         tooltip: ciLookup ? ciTooltip(ciLookup) : {},
@@ -100,17 +117,19 @@ function barChart(id, labels, datasets, { yLabel, ciLookup, min = 0 } = {}) {
 }
 
 function renderCharts(summary) {
-  const fiveSplits = Object.keys(summary.fiveclass);
-  barChart("chart-fiveclass", fiveSplits.map((s) => MODEL_NAMES[s].replace(" · ", " ")),
+  // 5-class and 12-class results share one block in the summary; one chart each, by clustering threshold
+  const multiclassChart = (id, splits) => barChart(id, ["30% identity", "20% identity"],
     EMBEDDER_ORDER.map((e) => ({
       label: e,
       backgroundColor: EMBEDDER_COLORS[e],
-      data: fiveSplits.map((s) => summary.fiveclass[s][e].macro_f1.value),
+      data: splits.map((s) => summary.fiveclass[s][e].macro_f1.value),
     })),
     { yLabel: "Macro-F1", ciLookup: (ctx) => {
-      const m = summary.fiveclass[fiveSplits[ctx.dataIndex]][ctx.dataset.label].macro_f1;
+      const m = summary.fiveclass[splits[ctx.dataIndex]][ctx.dataset.label].macro_f1;
       return [m.ci_lower, m.ci_upper];
     } });
+  multiclassChart("chart-fiveclass", ["fiveclass_split1_30pct", "fiveclass_split1_20pct"]);
+  multiclassChart("chart-twelveclass", ["twelveclass_split2_30pct", "twelveclass_split2_20pct"]);
 
   const binaryMetrics = ["accuracy", "specificity", "recall", "mcc"];
   barChart("chart-binary", ["Accuracy", "Specificity", "Recall", "MCC"],
@@ -167,10 +186,10 @@ async function init() {
       loadJson("/predictors/manifest.json"),
       loadJson("/predictors/results_summary.json"),
     ]);
-    renderModelCards(manifest);
+    renderDownloads(manifest);
     renderCharts(summary);
   } catch (error) {
-    document.getElementById("model-cards").textContent = `Could not load predictor data: ${error.message}`;
+    document.querySelector(".section-note").textContent = `Could not load predictor data: ${error.message}`;
   }
 }
 

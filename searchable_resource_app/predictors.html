@@ -6,7 +6,7 @@
     <title>ExtroDB Predictor Models</title>
     <link rel="stylesheet" href="/styles.css?v=20261009-1" />
     <link rel="stylesheet" href="/nav.css?v=20261009-1" />
-    <link rel="stylesheet" href="/predictors.css?v=20261013-1" />
+    <link rel="stylesheet" href="/predictors.css?v=20261018-1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -27,8 +27,8 @@
         </nav>
         <p class="hero-copy">
           Extremophile predictors trained on protein language model embeddings of the curated
-          proteomes. Download the exact input sequences of every model and compare their
-          performance on held-out prokaryotes and on eukaryotic algae.
+          proteomes. Download the input sequences and biotrainer files of every model and compare
+          their performance on held-out prokaryotes and on eukaryotic algae.
         </p>
         <div class="hero-meta">
           <div class="hero-chip">
@@ -48,77 +48,119 @@
 
       <main class="layout">
         <section class="panel">
-          <div class="panel-heading">
-            <div>
-              <p class="panel-kicker">Models &amp; data</p>
-              <h2>Input FASTAs per model</h2>
-            </div>
-          </div>
+          <p class="panel-kicker">Models &amp; data</p>
+          <h2>How to use the files</h2>
           <p class="section-note">
-            Every model was trained and evaluated with all four embedders on exactly these sequences.
-            Headers contain the label: <code>&gt;protein_id label=halophile proteome=GCF_…</code>.
-            Extremophile proteins are MMseqs2 cluster representatives; non-extremophiles are
-            clustered at 30% identity as well, so no test protein has a close relative in training.
+            Every model was trained and evaluated with all four embedders. For each model you can download
+            the input FASTAs per split (header with the label: <code>&gt;protein_id label=halophile proteome=GCF_…</code>)
+            and a zip for retraining with <a href="https://github.com/biocentral/biotrainer" target="_blank" rel="noopener">biotrainer</a>.
+            The zip holds the input FASTA in biotrainer format, one config per embedder and the output of our run
+            (test metrics, training log, model checkpoint). Embeddings are not included; biotrainer computes them from the config.
+            Extremophile proteins are MMseqs2 cluster representatives; non-extremophiles are clustered at 30% identity
+            as well, so no test protein has a close relative in training. Test results come with 95% bootstrap
+            confidence intervals (shown on hover).
           </p>
-          <div id="model-cards" class="model-cards"></div>
         </section>
 
-        <section class="stats-section">
-          <div class="stats-header">
-            <p class="panel-kicker">Results</p>
-            <h2>Predictor performance</h2>
-            <p class="stats-description">
-              Test-set results with 95% bootstrap confidence intervals (shown on hover).
-              Algae results are recall only, because the eukaryote set contains extremophiles only.
-            </p>
-          </div>
-          <div class="stats-plots">
+        <section class="panel predictor">
+          <p class="panel-kicker">Predictor</p>
+          <h2>5-class model</h2>
+          <p class="section-note">Assigns an extremophile protein to one of five broad classes: thermophile, psychrophile, halophile, acidophile or alkaliphile.</p>
+          <div class="predictor-body">
             <figure class="stats-plot">
-              <canvas id="chart-fiveclass"></canvas>
+              <div class="predictor-chart"><canvas id="chart-fiveclass"></canvas></div>
               <figcaption>
-                <strong>ProtT5 is the best embedder on every split.</strong>
-                Macro-F1 of the 5-class (broad classes) and 12-class (subtypes) models at 30% and 20% clustering.
-                Larger language models score higher, and all of them clearly beat amino acid composition.
+                <strong>ProtT5 is the best embedder at both clustering thresholds.</strong>
+                Macro-F1 on the test set. Larger language models score higher, and all of them clearly beat amino acid composition.
               </figcaption>
             </figure>
+            <div class="downloads" data-models="fiveclass_split1_30pct fiveclass_split1_20pct"></div>
+          </div>
+        </section>
+
+        <section class="panel predictor">
+          <p class="panel-kicker">Predictor</p>
+          <h2>12-class model</h2>
+          <p class="section-note">Assigns an extremophile protein to one of twelve subtypes, for example moderate or extreme halophile (prokaryotes only).</p>
+          <div class="predictor-body">
             <figure class="stats-plot">
-              <canvas id="chart-binary"></canvas>
+              <div class="predictor-chart"><canvas id="chart-twelveclass"></canvas></div>
+              <figcaption>
+                <strong>The embedder ranking holds for the subtypes.</strong>
+                Macro-F1 on the test set; chance level is 0.083.
+              </figcaption>
+            </figure>
+            <div class="downloads" data-models="twelveclass_split2_30pct twelveclass_split2_20pct"></div>
+          </div>
+        </section>
+
+        <section class="panel predictor">
+          <p class="panel-kicker">Predictor</p>
+          <h2>Binary model</h2>
+          <p class="section-note">Separates extremophile from non-extremophile proteins.</p>
+          <div class="predictor-body">
+            <figure class="stats-plot">
+              <div class="predictor-chart"><canvas id="chart-binary"></canvas></div>
               <figcaption>
                 <strong>ProtT5 separates extremophiles from non-extremophiles best.</strong>
                 Binary models on the clustered prokaryote test set (5,214 proteins).
                 <span id="binary-bias-note"></span>
               </figcaption>
             </figure>
+            <div class="downloads" data-models="binary_clustered"></div>
+          </div>
+        </section>
+
+        <section class="panel predictor">
+          <p class="panel-kicker">Predictor</p>
+          <h2>6-class model</h2>
+          <p class="section-note">Five extremophile classes plus non-extremophile in one model (ProtT5 only). Its test set is the binary test set.</p>
+          <div class="predictor-body">
             <figure class="stats-plot">
-              <canvas id="chart-algae"></canvas>
-              <figcaption>
-                <strong>Part of the signal transfers to eukaryotic algae.</strong>
-                Share of the 133,689 leakage-filtered algae proteins that the binary models classify as extremophile.
-                ProtT5 recognizes the most (62.5%); for ProtT5, thermophilic algae are the hardest class.
-              </figcaption>
-            </figure>
-            <figure class="stats-plot">
-              <canvas id="chart-detection"></canvas>
+              <div class="predictor-chart"><canvas id="chart-detection"></canvas></div>
               <figcaption>
                 <strong>Detection needs non-extremophiles in training.</strong>
-                ProtT5 models on the same binary test set: the 5-class and 6-class models binarized, and the
+                ProtT5 models on the binary test set: the 5-class and 6-class models binarized, and the
                 dedicated binary model.
               </figcaption>
             </figure>
-            <figure class="stats-plot stats-plot--wide">
-              <canvas id="chart-homology"></canvas>
+            <div class="downloads" data-models="sixclass_clustered"></div>
+          </div>
+        </section>
+
+        <section class="panel predictor">
+          <p class="panel-kicker">Test set</p>
+          <h2>Eukaryotic algae</h2>
+          <p class="section-note">Proteomes of extremophilic algae, used only for testing the binary models. Proteins with at least 30% identity to a prokaryote training or validation protein were removed.</p>
+          <div class="predictor-body">
+            <figure class="stats-plot">
+              <div class="predictor-chart"><canvas id="chart-algae"></canvas></div>
               <figcaption>
-                <strong>ProtT5 does not depend on similar training sequences.</strong>
-                Accuracy of homology-based inference (label of the best MMseqs2 hit in training) and ProtT5,
-                on all test proteins and on the proteins without any homolog in training.
+                <strong>Part of the signal transfers to eukaryotic algae.</strong>
+                Share of the 133,689 algae proteins that the binary models classify as extremophile.
+                ProtT5 recognizes the most (62.5%); for ProtT5, thermophilic algae are the hardest class.
               </figcaption>
             </figure>
+            <div class="downloads" data-models="algae_filtered"></div>
           </div>
+        </section>
+
+        <section class="panel predictor">
+          <p class="panel-kicker">Comparison</p>
+          <h2>Homology-based inference</h2>
+          <figure class="stats-plot">
+            <div class="predictor-chart"><canvas id="chart-homology"></canvas></div>
+            <figcaption>
+              <strong>ProtT5 does not depend on similar training sequences.</strong>
+              Accuracy of homology-based inference (label of the best MMseqs2 hit in training) and ProtT5,
+              on all test proteins and on the test proteins without a homolog in training.
+            </figcaption>
+          </figure>
         </section>
       </main>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script src="/predictors.js?v=20261013-5" defer></script>
+    <script src="/predictors.js?v=20261018-1" defer></script>
   </body>
 </html>

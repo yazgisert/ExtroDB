@@ -13,11 +13,40 @@
   color: var(--ink);
 }
 
-.model-cards {
+/* One section per predictor: chart on the left, downloads on the right */
+.predictor .section-note {
+  margin-bottom: 16px;
+}
+
+.predictor-body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.predictor-chart {
+  position: relative;
+  height: 240px;
+}
+
+.downloads {
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .predictor-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.biotrainer-row td {
+  border-top: 1px solid var(--border);
+}
+
+.section-note a {
+  color: inherit;
 }
 
 .model-card {
@@ -27,15 +56,8 @@
 }
 
 .model-card h3 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: 1rem;
-}
-
-.model-card p {
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-size: 0.85rem;
-  line-height: 1.5;
 }
 
 .model-card table {
@@ -59,23 +81,6 @@
 .model-card .button[aria-disabled="true"] {
   background: #9ca3af;
   cursor: not-allowed;
-}
-
-/* Four summary cards: one row, or 2 + 2 in narrow windows (never 3 + 1) */
-#predictor-metrics {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-@media (max-width: 900px) {
-  #predictor-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  #predictor-metrics {
-    grid-template-columns: 1fr;
-  }
 }
 
 .hero-chip strong a {
