@@ -17,7 +17,7 @@ OUT    = Path("results/plots/binary_domain_bias_clustered.png")
 ALL_COLOR      = MAIN
 BACTERIA_COLOR = SECONDARY
 ARCHAEA_COLOR  = MAIN
-EMBEDDERS = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "One-hot"}
+EMBEDDERS = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "Composition"}
 CLASSES   = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
 
 plt.rcParams.update({

@@ -14,13 +14,13 @@ OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 RESULT_FILES = {
-    "One-Hot":  Path("results/training_results/binary_onehot_clustered_result.json"),
+    "Composition":  Path("results/training_results/binary_onehot_clustered_result.json"),
     "ProtT5":   Path("results/training_results/binary_prott5_clustered_result.json"),
     "ESM2":     Path("results/training_results/binary_esm2_650m_clustered_result.json"),
 }
 
 EMBEDDER_COLORS = {
-    "One-Hot": EMBEDDER_COLORS["onehot"],
+    "Composition": EMBEDDER_COLORS["onehot"],
     "ProtT5":  EMBEDDER_COLORS["prott5"],
     "ESM2":    EMBEDDER_COLORS["esm2_650m"],
 }
@@ -90,7 +90,8 @@ def plot_single_metrics(result, embedder_name):
             transform=ax.transAxes, ha="right", va="top", fontsize=9, color="#888")
 
     plt.tight_layout()
-    slug = embedder_name.lower().replace("-", "").replace(" ", "_")
+    # File names keep "onehot" so they match the result files
+    slug = "onehot" if embedder_name == "Composition" else embedder_name.lower().replace("-", "").replace(" ", "_")
     fname = f"binary_extremophile_metrics_{slug}_clustered.png"
     out = OUT_DIR / fname
     plt.savefig(out, bbox_inches="tight")
@@ -117,7 +118,7 @@ def plot_single_f1(result, embedder_name):
     ax.set_title(f"Binary Classifier — F1 per Class & Accuracy ({embedder_name})", fontsize=13)
     ax.axhline(1.0, color="grey", linewidth=0.5, linestyle="--", alpha=0.5)
     plt.tight_layout()
-    slug  = embedder_name.lower().replace("-", "").replace(" ", "_")
+    slug  = "onehot" if embedder_name == "Composition" else embedder_name.lower().replace("-", "").replace(" ", "_")
     fname = f"binary_extremophile_f1_{slug}_clustered.png"
     out = OUT_DIR / fname
     plt.savefig(out, bbox_inches="tight")

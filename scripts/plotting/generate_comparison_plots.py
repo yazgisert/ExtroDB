@@ -64,7 +64,7 @@ err_kw  = dict(fmt='none', elinewidth=1.5, capsize=4, capthick=1.5, ecolor=DGRAY
 herr_kw = dict(fmt='none', elinewidth=1.4, capsize=4, capthick=1.4, ecolor=DGRAY, zorder=5)
 
 MODELS = [('ProtT5', prot, EMBEDDER_COLORS['prott5']), ('ESM-2 650M', esm2, EMBEDDER_COLORS['esm2_650m']),
-          ('ESM-2 8M', esm2_8m, EMBEDDER_COLORS['esm2_8m']), ('One-hot', onehot, EMBEDDER_COLORS['onehot'])]
+          ('ESM-2 8M', esm2_8m, EMBEDDER_COLORS['esm2_8m']), ('Composition', onehot, EMBEDDER_COLORS['onehot'])]
 W = 0.19
 OFFSETS = [(i - 1.5) * (W + 0.02) for i in range(len(MODELS))]
 
@@ -118,7 +118,7 @@ for ax, metric, ylabel in [(ax1, 'accuracy', 'Accuracy'),
 handles, labels = ax1.get_legend_handles_labels()
 fig.legend(handles, labels, loc='lower center', ncol=4, fontsize=10, frameon=False,
            labelcolor=DGRAY, handlelength=1.4, bbox_to_anchor=(0.5, -0.04))
-fig.suptitle('ProtT5 vs ESM-2 650M vs ESM-2 8M vs One-hot — Overview Comparison',
+fig.suptitle('ProtT5 vs ESM-2 650M vs ESM-2 8M vs Composition — Overview Comparison',
              fontsize=15, fontweight='bold', color=NAVY, x=0.025, ha='left', y=0.97)
 fig.subplots_adjust(top=0.88, bottom=0.13, left=0.06, right=0.98, wspace=0.28)
 fig.savefig('results/plots/overview_comparison.png', dpi=150, bbox_inches='tight',
@@ -148,7 +148,7 @@ ax.set_ylim(0, 1.08); ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
 ax.yaxis.set_tick_params(labelcolor=DGRAY, labelsize=10)
 ax.set_ylabel('F1 Score', fontsize=11, color=DGRAY, labelpad=12)
 ax.legend(fontsize=10, frameon=False, loc='upper left', labelcolor=DGRAY, handlelength=1.4)
-fig.suptitle('5-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs One-hot (30% threshold)',
+fig.suptitle('5-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs Composition (30% threshold)',
              fontsize=14, fontweight='bold', color=NAVY, x=0.025, ha='left', y=0.97)
 fig.subplots_adjust(top=0.90, bottom=0.10, left=0.09, right=0.97)
 fig.savefig('results/plots/split1_comparison.png', dpi=150, bbox_inches='tight',
@@ -178,7 +178,7 @@ ax.set_xlim(0, 1.18); ax.set_xticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
 ax.xaxis.set_tick_params(labelcolor=DGRAY, labelsize=10)
 ax.set_xlabel('F1 Score', fontsize=11, color=DGRAY, labelpad=10)
 ax.legend(fontsize=10, frameon=False, loc='lower right', labelcolor=DGRAY, handlelength=1.4)
-fig.suptitle('12-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs One-hot (30% threshold)',
+fig.suptitle('12-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs Composition (30% threshold)',
              fontsize=14, fontweight='bold', color=NAVY, x=0.025, ha='left', y=0.995)
 fig.subplots_adjust(top=0.96, bottom=0.07, left=0.20, right=0.97)
 fig.savefig('results/plots/split2_comparison.png', dpi=150, bbox_inches='tight',
@@ -203,7 +203,7 @@ ax.set_ylim(0, 1.10); ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
 ax.yaxis.set_tick_params(labelcolor=DGRAY, labelsize=10)
 ax.set_ylabel('F1 Score', fontsize=11, color=DGRAY, labelpad=12)
 ax.legend(fontsize=10, frameon=False, loc='upper left', labelcolor=DGRAY, handlelength=1.4)
-fig.suptitle('12-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs One-hot (30% threshold)',
+fig.suptitle('12-Class Per-class F1 — ProtT5 vs ESM-2 650M vs ESM-2 8M vs Composition (30% threshold)',
              fontsize=14, fontweight='bold', color=NAVY, x=0.025, ha='left', y=0.97)
 fig.subplots_adjust(top=0.90, bottom=0.15, left=0.06, right=0.98)
 fig.savefig('results/plots/split2_comparison_vertical.png', dpi=150, bbox_inches='tight',

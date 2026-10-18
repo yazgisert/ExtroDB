@@ -84,7 +84,7 @@ if __name__ == "__main__":
     fig, ax = plt.subplots(figsize=(11, 4.5))
     x = np.arange(len(SUBTYPES))
     for offset, res, color, label in [(-0.2, r, EMBEDDER_COLORS["prott5"], "ProtT5"),
-                                      (0.2, onehot, EMBEDDER_COLORS["onehot"], "Amino acid composition")]:
+                                      (0.2, onehot, EMBEDDER_COLORS["onehot"], "Composition")]:
         values = [res["accuracy_by_subtype_and_domain"][key]["accuracy"] for key, _ in SUBTYPES]
         ax.bar(x + offset, values, 0.38, color=color, edgecolor="white", label=label)
         for xi, v in zip(x, values):

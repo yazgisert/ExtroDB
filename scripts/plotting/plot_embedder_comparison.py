@@ -15,7 +15,7 @@ OUT_DIR = Path("results/plots")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 EMBEDDERS = {
-    "onehot":    ("One-hot (20)",        EMBEDDER_COLORS["onehot"]),
+    "onehot":    ("Composition (20)",    EMBEDDER_COLORS["onehot"]),
     "esm2_8m":   ("ESM2 8M (320)",       EMBEDDER_COLORS["esm2_8m"]),
     "esm2_650m": ("ESM2 650M (1280)",    EMBEDDER_COLORS["esm2_650m"]),
     "prott5":    ("ProtT5 (1024)",       EMBEDDER_COLORS["prott5"]),
