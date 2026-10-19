@@ -83,30 +83,72 @@ function renderDownloads(manifest) {
 }
 
 // ── Charts ───────────────────────────────────────────────────────────────────
-function ciTooltip(ciLookup) {
-  return {
-    callbacks: {
-      label: (ctx) => {
-        const ci = ciLookup(ctx);
-        const base = `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}`;
-        return ci && ci[0] !== null ? `${base}  (95% CI ${fmt(ci[0])}–${fmt(ci[1])})` : base;
-      },
+// Each dataset carries its 95% bootstrap CIs in `ci` ([lower, upper] per bar); they are drawn as error bars
+// and listed in the tooltip.
+const errorBars = {
+  id: "errorBars",
+  afterDatasetsDraw(chart) {
+    const { ctx, scales: { y } } = chart;
+    ctx.save();
+    ctx.strokeStyle = "#334155";
+    ctx.lineWidth = 1.2;
+    chart.data.datasets.forEach((dataset, i) => {
+      const meta = chart.getDatasetMeta(i);
+      if (meta.hidden || !dataset.ci) return;
+      meta.data.forEach((bar, j) => {
+        const ci = dataset.ci[j];
+        if (!ci || ci[0] === null || ci[1] === null) return;
+        const top = y.getPixelForValue(ci[1]);
+        const bottom = y.getPixelForValue(ci[0]);
+        const cap = Math.min(4, bar.width / 4);
+        ctx.beginPath();
+        ctx.moveTo(bar.x, top);
+        ctx.lineTo(bar.x, bottom);
+        ctx.moveTo(bar.x - cap, top);
+        ctx.lineTo(bar.x + cap, top);
+        ctx.moveTo(bar.x - cap, bottom);
+        ctx.lineTo(bar.x + cap, bottom);
+        ctx.stroke();
+      });
+    });
+    ctx.restore();
+  },
+};
+
+const ciTooltip = {
+  callbacks: {
+    label: (ctx) => {
+      const base = `${ctx.dataset.label}: ${fmt(ctx.parsed.y)}`;
+      const ci = ctx.dataset.ci && ctx.dataset.ci[ctx.dataIndex];
+      return ci && ci[0] !== null ? `${base}  (95% CI ${fmt(ci[0])}–${fmt(ci[1])})` : base;
     },
+  },
+};
+
+// One bar series from metric entries of the form {value, ci_lower, ci_upper}
+function series(label, color, entries) {
+  return {
+    label,
+    backgroundColor: color,
+    data: entries.map((m) => m.value),
+    ci: entries.map((m) => [m.ci_lower, m.ci_upper]),
   };
 }
 
-function barChart(id, labels, datasets, { yLabel, ciLookup, min = 0 } = {}) {
+function barChart(id, labels, datasets, { yLabel, min = 0 } = {}) {
   const canvas = document.getElementById(id);
   if (!canvas || typeof Chart === "undefined") return;
   new Chart(canvas, {
     type: "bar",
     data: { labels, datasets },
+    plugins: [errorBars],
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      animation: false,  // error bars are drawn at their final position, so the bars must not grow in
       plugins: {
         legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 11 } } },
-        tooltip: ciLookup ? ciTooltip(ciLookup) : {},
+        tooltip: ciTooltip,
       },
       scales: {
         y: { min, max: 1, title: { display: !!yLabel, text: yLabel } },
@@ -119,29 +161,15 @@ function barChart(id, labels, datasets, { yLabel, ciLookup, min = 0 } = {}) {
 function renderCharts(summary) {
   // 5-class and 12-class results share one block in the summary; one chart each, by clustering threshold
   const multiclassChart = (id, splits) => barChart(id, ["30% identity", "20% identity"],
-    EMBEDDER_ORDER.map((e) => ({
-      label: e,
-      backgroundColor: EMBEDDER_COLORS[e],
-      data: splits.map((s) => summary.fiveclass[s][e].macro_f1.value),
-    })),
-    { yLabel: "Macro-F1", ciLookup: (ctx) => {
-      const m = summary.fiveclass[splits[ctx.dataIndex]][ctx.dataset.label].macro_f1;
-      return [m.ci_lower, m.ci_upper];
-    } });
+    EMBEDDER_ORDER.map((e) => series(e, EMBEDDER_COLORS[e], splits.map((s) => summary.fiveclass[s][e].macro_f1))),
+    { yLabel: "Macro-F1" });
   multiclassChart("chart-fiveclass", ["fiveclass_split1_30pct", "fiveclass_split1_20pct"]);
   multiclassChart("chart-twelveclass", ["twelveclass_split2_30pct", "twelveclass_split2_20pct"]);
 
   const binaryMetrics = ["accuracy", "specificity", "recall", "mcc"];
   barChart("chart-binary", ["Accuracy", "Specificity", "Recall", "MCC"],
-    EMBEDDER_ORDER.map((e) => ({
-      label: e,
-      backgroundColor: EMBEDDER_COLORS[e],
-      data: binaryMetrics.map((m) => summary.binary_clustered[e][m].value),
-    })),
-    { yLabel: "Score", ciLookup: (ctx) => {
-      const m = summary.binary_clustered[ctx.dataset.label][binaryMetrics[ctx.dataIndex]];
-      return [m.ci_lower, m.ci_upper];
-    } });
+    EMBEDDER_ORDER.map((e) => series(e, EMBEDDER_COLORS[e], binaryMetrics.map((m) => summary.binary_clustered[e][m]))),
+    { yLabel: "Score" });
 
   const bias = summary.binary_bacteria_only.ProtT5.mcc.value;
   document.getElementById("binary-bias-note").textContent =
@@ -150,33 +178,22 @@ function renderCharts(summary) {
 
   const algaeGroups = ["overall", "acidophile", "halophile", "psychrophile", "thermophile"];
   barChart("chart-algae", algaeGroups.map((g) => g[0].toUpperCase() + g.slice(1)),
-    EMBEDDER_ORDER.map((e) => ({
-      label: e,
-      backgroundColor: EMBEDDER_COLORS[e],
-      data: algaeGroups.map((g) => summary.algae[e][g]),
-    })),
+    EMBEDDER_ORDER.map((e) => series(e, EMBEDDER_COLORS[e], algaeGroups.map((g) => summary.algae[e][g]))),
     { yLabel: "Recall" });
 
   const detection = summary.sixclass_clustered;
-  const detectionModels = Object.keys(detection);
   const detectionColors = ["#AEBBCB", "#8095AE", "#2E4A6B"];
   barChart("chart-detection", ["Accuracy", "Specificity", "Recall", "MCC"],
-    detectionModels.map((name, i) => ({
-      label: name,
-      backgroundColor: detectionColors[i],
-      data: binaryMetrics.map((m) => detection[name][m].value),
-    })),
-    { yLabel: "Score", ciLookup: (ctx) => {
-      const m = detection[ctx.dataset.label][binaryMetrics[ctx.dataIndex]];
-      return [m.ci_lower, m.ci_upper];
-    } });
+    Object.keys(detection).map((name, i) =>
+      series(name, detectionColors[i], binaryMetrics.map((m) => detection[name][m]))),
+    { yLabel: "Score" });
 
   const hom = summary.homology;
   const tasks = ["fiveclass_split1_30pct", "binary_clustered"];
   barChart("chart-homology", ["5-class test set", "Binary test set"], [
-    { label: "Homology-based inference", backgroundColor: "#BDBDBD", data: tasks.map((t) => hom[t].homology_accuracy) },
-    { label: "ProtT5 (all proteins)", backgroundColor: "#2E4A6B", data: tasks.map((t) => hom[t].prott5_accuracy) },
-    { label: "ProtT5 (proteins without homolog)", backgroundColor: "#55708F", data: tasks.map((t) => hom[t].prott5_accuracy_without_hit) },
+    series("Homology-based inference", "#BDBDBD", tasks.map((t) => hom[t].homology_accuracy)),
+    series("ProtT5 (all proteins)", "#2E4A6B", tasks.map((t) => hom[t].prott5_accuracy)),
+    series("ProtT5 (proteins without homolog)", "#55708F", tasks.map((t) => hom[t].prott5_accuracy_without_hit)),
   ], { yLabel: "Accuracy" });
 }
 

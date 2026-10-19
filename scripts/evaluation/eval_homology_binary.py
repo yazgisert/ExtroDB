@@ -64,6 +64,12 @@ def with_ci(y_true, y_pred):
             for k, v in point.items()}
 
 
+def accuracy_ci(correct):
+    # 95% bootstrap CI of the share of correct predictions in a subset
+    rng  = np.random.default_rng(SEED)
+    boot = [correct[rng.choice(len(correct), len(correct), replace=True)].mean() for _ in range(N_BOOTSTRAP)]
+    return [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]
+
 if __name__ == "__main__":
     label, which = {}, {}
     with open(f"{SEARCH_DIR}/labels.tsv") as f:
@@ -103,10 +109,13 @@ if __name__ == "__main__":
         "prott5":     with_ci(y_true, y_prott5),
         "subsets": {
             "with_hit":    {"n": int(has_hit.sum()),
-                            "homology_accuracy": float((y_hbi[has_hit] == y_true[has_hit]).mean()),
-                            "prott5_accuracy":   float((y_prott5[has_hit] == y_true[has_hit]).mean())},
+                            "homology_accuracy":    float((y_hbi[has_hit] == y_true[has_hit]).mean()),
+                            "homology_accuracy_ci": accuracy_ci(y_hbi[has_hit] == y_true[has_hit]),
+                            "prott5_accuracy":      float((y_prott5[has_hit] == y_true[has_hit]).mean()),
+                            "prott5_accuracy_ci":   accuracy_ci(y_prott5[has_hit] == y_true[has_hit])},
             "without_hit": {"n": int((~has_hit).sum()),
-                            "prott5_accuracy":   float((y_prott5[~has_hit] == y_true[~has_hit]).mean())},
+                            "prott5_accuracy":      float((y_prott5[~has_hit] == y_true[~has_hit]).mean()),
+                            "prott5_accuracy_ci":   accuracy_ci(y_prott5[~has_hit] == y_true[~has_hit])},
         },
     }
 

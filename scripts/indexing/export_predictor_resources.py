@@ -184,19 +184,23 @@ def results_summary():
     algae = json.load(open(RESULTS / "eukaryote_embedder_clustered_result.json"))["results"]
     for key, label in EMBEDDERS.items():
         r = algae[key]
-        summary["algae"][label] = {"overall": r["overall"]["recall"],
-                                   **{c: r["by_class"][c]["recall"] for c in ALGAE_CLASSES}}
+        groups = {"overall": r["overall"], **{c: r["by_class"][c] for c in ALGAE_CLASSES}}
+        summary["algae"][label] = {g: {"value": v["recall"], "ci_lower": v["ci_lower"], "ci_upper": v["ci_upper"]}
+                                   for g, v in groups.items()}
 
-    hom5 = json.load(open(RESULTS / "homology_fiveclass_result.json"))
-    hom2 = json.load(open(RESULTS / "homology_binary_clustered_result.json"))
-    summary["homology"] = {
-        "fiveclass_split1_30pct": {"homology_accuracy": hom5["homology"]["accuracy"]["value"],
-                                   "prott5_accuracy": hom5["prott5"]["accuracy"]["value"],
-                                   "prott5_accuracy_without_hit": hom5["subsets"]["without_hit"]["prott5_accuracy"]},
-        "binary_clustered": {"homology_accuracy": hom2["homology"]["accuracy"]["value"],
-                             "prott5_accuracy": hom2["prott5"]["accuracy"]["value"],
-                             "prott5_accuracy_without_hit": hom2["subsets"]["without_hit"]["prott5_accuracy"]},
-    }
+    def subset(entry, key):
+        ci = entry.get(f"{key}_ci", [None, None])
+        return {"value": entry[key], "ci_lower": ci[0], "ci_upper": ci[1]}
+
+    summary["homology"] = {}
+    for name, file in (("fiveclass_split1_30pct", "homology_fiveclass_result.json"),
+                       ("binary_clustered", "homology_binary_clustered_result.json")):
+        h = json.load(open(RESULTS / file))
+        summary["homology"][name] = {
+            "homology_accuracy":           metric(h["homology"], "accuracy"),
+            "prott5_accuracy":             metric(h["prott5"], "accuracy"),
+            "prott5_accuracy_without_hit": subset(h["subsets"]["without_hit"], "prott5_accuracy"),
+        }
     return summary
 
 

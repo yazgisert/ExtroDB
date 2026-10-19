@@ -57,8 +57,8 @@
             The zip holds the input FASTA in biotrainer format, one config per embedder and the output of our run
             (test metrics, training log, model checkpoint). Embeddings are not included; biotrainer computes them from the config.
             Extremophile proteins are MMseqs2 cluster representatives; non-extremophiles are clustered at 30% identity
-            as well, so no test protein has a close relative in training. Test results come with 95% bootstrap
-            confidence intervals (shown on hover).
+            as well, so no test protein has a close relative in training. Error bars show 95% bootstrap
+            confidence intervals; hover over a bar for the exact values.
           </p>
         </section>
 
@@ -161,6 +161,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <script src="/predictors.js?v=20261018-1" defer></script>
+    <script src="/predictors.js?v=20261019-2" defer></script>
   </body>
 </html>
