@@ -1,0 +1,15 @@
+\begin{tabular}{lcc}
+\hline
+ & \textbf{Initial random split} & \textbf{Clustered split} \\
+\hline
+\multicolumn{3}{l}{\textit{Leaked test proteins}} \\
+Non-extremophiles & 16{,}435 of 17{,}557 (93.6\%) & 101 of 2{,}607 (3.9\%) \\
+Extremophiles & 1{,}575 of 28{,}576 (5.5\%) & 12 of 2{,}607 (0.5\%) \\
+\hline
+\multicolumn{3}{l}{\textit{MCC of the binary classifier}} \\
+ProtT5 & 0.882 {\scriptsize[0.878, 0.887]} & 0.583 {\scriptsize[0.561, 0.605]} \\
+ESM2 650M & 0.860 {\scriptsize[0.856, 0.865]} & 0.548 {\scriptsize[0.525, 0.569]} \\
+ESM2 8M & 0.723 {\scriptsize[0.717, 0.730]} & 0.373 {\scriptsize[0.348, 0.396]} \\
+Composition & 0.494 {\scriptsize[0.486, 0.501]} & 0.237 {\scriptsize[0.210, 0.264]} \\
+\hline
+\end{tabular}

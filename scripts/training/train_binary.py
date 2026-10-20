@@ -1,5 +1,6 @@
 # Binary thermophile (1) vs. non-thermophile (0) classifier on ProtT5 embeddings, same FNN as train_local.py.
 
+import argparse
 import json
 import os
 import random
@@ -19,6 +20,7 @@ from sklearn.metrics import (
 from torch.utils.data import DataLoader, TensorDataset
 
 SEED = 42
+N_BOOTSTRAP = 1000  # was 30 before 2026-10-20; the models are unchanged
 random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
@@ -170,7 +172,7 @@ def compute_metrics(y_true, y_pred):
     }
 
 
-def bootstrap_metrics(y_true, y_pred, n_iter=30, confidence=0.05):
+def bootstrap_metrics(y_true, y_pred, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     samples = defaultdict(list)
     n       = len(y_true)
@@ -243,5 +245,8 @@ def run_training(split_name, h5_path, faa_train, faa_val, faa_test,
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--results-dir", default="results/training_results")
+    results_dir = parser.parse_args().results_dir
     for args in SPLITS:
-        run_training(*args)
+        run_training(*args, results_dir)
