@@ -1,4 +1,4 @@
-# Hierarchical 12-class prediction: a 5-class model (split1) picks the extremophile group, then a
+# Hierarchical 12-class prediction: a 5-class model (split1, without the split2 test proteins) picks the extremophile group, then a
 # sub-classifier per group (split2) picks the subtype; psychrophiles have no subtypes. Also reports the
 # oracle accuracy, i.e. the result with perfect group routing.
 
@@ -22,6 +22,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 
 SEED = 42
+N_BOOTSTRAP = 1000
 random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
@@ -78,9 +79,11 @@ def parse_faa_labels(filepath):
     return labels
 
 
-def load_split1(h5_path, faa_train, faa_val, faa_test):
-    train_lbl = parse_faa_labels(faa_train)
-    val_lbl   = parse_faa_labels(faa_val)
+def load_split1(h5_path, faa_train, faa_val, faa_test, exclude=frozenset()):
+    # Split 1 and Split 2 were partitioned independently, so proteins of the Split 2 test set are removed from the
+    # Split 1 training and validation data; otherwise Level 1 would be tested on proteins it was trained on
+    train_lbl = {k: v for k, v in parse_faa_labels(faa_train).items() if k not in exclude}
+    val_lbl   = {k: v for k, v in parse_faa_labels(faa_val).items() if k not in exclude}
     test_lbl  = parse_faa_labels(faa_test)
     coarse2idx = {c: i for i, c in enumerate(COARSE_CLASSES)}
 
@@ -208,7 +211,7 @@ def compute_metrics(y_true, y_pred):
     }
 
 
-def bootstrap_metrics(y_true, y_pred, n_iter=30, confidence=0.05):
+def bootstrap_metrics(y_true, y_pred, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng = np.random.default_rng(SEED)
     samples = defaultdict(list)
     for _ in range(n_iter):
@@ -238,7 +241,7 @@ def per_class_metrics(y_true, y_pred, class_names):
     return out
 
 
-def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=30, confidence=0.05):
+def bootstrap_per_class_metrics(y_true, y_pred, class_names, n_iter=N_BOOTSTRAP, confidence=0.05):
     rng     = np.random.default_rng(SEED)
     samples = {name: {'accuracy': [], 'precision': [], 'recall': [], 'f1_score': []}
                for name in class_names}
@@ -271,11 +274,13 @@ if __name__ == "__main__":
     # Level 1: coarse classifier
     print("\nLevel 1: coarse classifier (split1_30pct, 5 classes)")
 
+    split2_test_ids = set(parse_faa_labels("dataset_splits/rep_split2_test.faa"))
     (X1_tr, y1_tr, X1_va, y1_va, X1_te, y1_te), coarse2idx = load_split1(
         "embeddings/split1_30pct.h5",
         "dataset_splits/rep_split1_train.faa",
         "dataset_splits/rep_split1_val.faa",
         "dataset_splits/rep_split1_test.faa",
+        exclude=split2_test_ids,
     )
     print(f"  train={len(X1_tr)}  val={len(X1_va)}  test={len(X1_te)}")
     print("  Training ...")
@@ -371,7 +376,8 @@ if __name__ == "__main__":
         'split':      'split2_30pct',
         'embedder':   'ProtT5',
         'level1': {
-            'training_split': 'split1_30pct',
+            'training_split': 'split1_30pct without the split2 test proteins',
+            'n_train': int(len(X1_tr)),
             'classes':        COARSE_CLASSES,
             'test_accuracy':  l1_acc,
         },
