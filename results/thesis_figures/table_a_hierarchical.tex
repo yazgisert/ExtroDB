@@ -1,0 +1,17 @@
+\begin{tabular}{lccc}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Macro-F1} & \textbf{MCC} \\
+\hline
+Flat twelve-class & 0.550 {\scriptsize[0.541, 0.558]} & 0.536 {\scriptsize[0.528, 0.544]} & 0.511 {\scriptsize[0.502, 0.521]} \\
+Hierarchical & 0.545 {\scriptsize[0.536, 0.553]} & 0.530 {\scriptsize[0.521, 0.538]} & 0.506 {\scriptsize[0.497, 0.516]} \\
+Hierarchical, oracle routing & 0.749 & 0.746 & 0.727 \\
+\hline
+\multicolumn{4}{l}{\textit{Second step: subtypes within a class}} \\
+\textbf{Class} & \textbf{Subtypes} & \textbf{Accuracy} & \textbf{Macro-F1} \\
+\hline
+Thermophile & 2 & 0.855 & 0.855 \\
+Halophile & 3 & 0.764 & 0.758 \\
+Acidophile & 3 & 0.682 & 0.681 \\
+Alkaliphile & 3 & 0.647 & 0.642 \\
+\hline
+\end{tabular}

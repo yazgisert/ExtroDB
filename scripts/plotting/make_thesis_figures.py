@@ -480,6 +480,274 @@ def fig_thermo():
     ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3, fontsize=7)
     save(fig, "fig_r9_thermo")
 
+
+# ── R4: transfer to algae ───────────────────────────────────────────────────────────────────────────────────────────
+ALGAE_CLASSES = ["thermophile", "psychrophile", "halophile", "acidophile"]
+ALGAE_HOMOLOGY = Path("results/homology_inference/homology_inference_result.json")
+
+
+def fig_algae_recall():
+    # Share of the leakage-filtered algae proteins that the binary models classify as extremophile, overall and per class
+    res = json.load(open(RESULTS / "eukaryote_embedder_clustered_result.json"))["results"]
+    groups = ["overall"] + ALGAE_CLASSES
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.6))
+    x, w = np.arange(len(groups)), 0.2
+    for i, (key, name) in enumerate(EMBEDDERS):
+        r = res[key]
+        entries = [r["overall"]] + [r["by_class"][c] for c in ALGAE_CLASSES]
+        vals = [e["recall"] for e in entries]
+        xs = x + (i - 1.5) * w
+        ax.bar(xs, vals, w, color=style.EMBEDDER_COLORS[key], label=name)
+        error_bars(ax, xs, vals, [e["ci_lower"] for e in entries], [e["ci_upper"] for e in entries])
+    n = [res["prott5"]["overall"]["n_proteins"]] + [res["prott5"]["by_class"][c]["n_proteins"] for c in ALGAE_CLASSES]
+    ax.set_xticks(x, [f"{g.capitalize()}\n{k:,}" for g, k in zip(["All algae"] + [label(c) for c in ALGAE_CLASSES], n)])
+    ax.set_ylabel("Recall")
+    ax.set_ylim(0, 1)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    save(fig, "fig_r10_algae_recall")
+
+
+def fig_algae_homology():
+    # A: recall of homology-based inference (any hit to a prokaryotic extremophile protein at E <= 1e-3) vs. ProtT5.
+    # B: homology recall at stricter E-value thresholds
+    hom = json.load(open(ALGAE_HOMOLOGY))
+    pt5 = json.load(open(RESULTS / "eukaryote_embedder_clustered_result.json"))["results"]["prott5"]
+    groups = ["overall"] + ALGAE_CLASSES
+    names = ["All algae"] + [label(c) for c in ALGAE_CLASSES]
+    fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(FULL_WIDTH, 2.7), gridspec_kw={"width_ratios": [1.3, 1]})
+
+    x, w = np.arange(len(groups)), 0.38
+    hom_vals = [hom["results"]["0.001"][g]["recall"] for g in groups]
+    pt5_entries = [pt5["overall"]] + [pt5["by_class"][c] for c in ALGAE_CLASSES]
+    ax_a.bar(x - w / 2, hom_vals, w, color=style.BASELINE, label="Homology (E ≤ 0.001)")
+    ax_a.bar(x + w / 2, [e["recall"] for e in pt5_entries], w, color=style.MAIN, label="ProtT5")
+    error_bars(ax_a, x + w / 2, [e["recall"] for e in pt5_entries], [e["ci_lower"] for e in pt5_entries],
+               [e["ci_upper"] for e in pt5_entries])
+    ax_a.set_xticks(x, names, rotation=30, ha="right")
+    ax_a.set_ylabel("Recall")
+    ax_a.set_ylim(0, 1)
+    ax_a.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2)
+    ax_a.text(-0.2, 1.1, "A", transform=ax_a.transAxes, fontweight="bold", fontsize=10)
+
+    thresholds = [t for t in hom["thresholds"] if float(t) <= 1e-3]
+    xt = np.arange(len(thresholds))
+    for g, name in zip(groups, names):
+        vals = [hom["results"][t][g]["recall"] for t in thresholds]
+        color = style.MAIN if g == "overall" else style.CLASS_COLORS[g]
+        ax_b.plot(xt, vals, marker="o", markersize=3, linewidth=1.8 if g == "overall" else 1.0, color=color, label=name)
+    ax_b.set_xticks(xt, [f"$10^{{{int(np.log10(float(t)))}}}$" for t in thresholds])
+    ax_b.set_xlabel("E-value threshold")
+    ax_b.set_ylabel("Homology recall")
+    ax_b.set_ylim(0, 0.25)
+    ax_b.legend(loc="upper right", fontsize=7)
+    ax_b.text(-0.25, 1.1, "B", transform=ax_b.transAxes, fontweight="bold", fontsize=10)
+    fig.tight_layout(w_pad=2)
+    save(fig, "fig_r11_algae_homology")
+
+
+def fig_algae_confusion():
+    # Five-class ProtT5 model on the filtered algae: share of each true class assigned to each predicted class
+    r = json.load(open(RESULTS / "eukaryote_fiveclass_filtered_result.json"))
+    classes = r["classes"]
+    cm = np.array(r["eukaryote_eval"]["confusion_matrix"], dtype=float)
+    rows = [classes.index(c) for c in ALGAE_CLASSES]
+    cols = [classes.index(c) for c in CLASSES]
+    m = cm[np.ix_(rows, cols)]
+    m = m / m.sum(axis=1, keepdims=True)
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH * 0.62, 2.4))
+    cmap = matplotlib.colors.LinearSegmentedColormap.from_list("ramp", ["#ffffff"] + style.RAMP)
+    ax.imshow(m, cmap=cmap, vmin=0, vmax=0.6, aspect="auto")
+    for i in range(m.shape[0]):
+        for j in range(m.shape[1]):
+            ax.text(j, i, f"{m[i, j]:.2f}", ha="center", va="center", fontsize=7.5,
+                    color="white" if m[i, j] > 0.35 else "#1e293b",
+                    fontweight="bold" if CLASSES[j] == ALGAE_CLASSES[i] else "normal")
+    ax.set_xticks(range(len(CLASSES)), [label(c) for c in CLASSES], rotation=30, ha="right")
+    ax.set_yticks(range(len(ALGAE_CLASSES)), [label(c) for c in ALGAE_CLASSES])
+    ax.set_xlabel("Predicted class")
+    ax.set_ylabel("True class")
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    save(fig, "fig_r12_algae_confusion")
+
+
+# ── Appendix ────────────────────────────────────────────────────────────────────────────────────────────────────────
+def write_table(name, lines):
+    path = OUT_DIR / f"{name}.tex"
+    path.write_text("\n".join(lines) + "\n")
+    print(f"  {path}")
+
+
+def table_biotrainer():
+    # Our implementation vs. biotrainer 2.1.1: accuracy, macro-F1 and MCC per task and representation
+    rows = defaultdict(dict)
+    with open("results/biotrainer/biotrainer_comparison.tsv") as f:
+        next(f)
+        for line in f:
+            predictor, embedder, metric, previous, biotrainer = line.rstrip("\n").split("\t")[:5]
+            rows[(predictor, embedder)][metric] = (previous, biotrainer)
+    tasks = [("fiveclass_split1_30pct", "Five-class, 30\\%"), ("fiveclass_split1_20pct", "Five-class, 20\\%"),
+             ("twelveclass_split2_30pct", "Twelve-class, 30\\%"), ("twelveclass_split2_20pct", "Twelve-class, 20\\%"),
+             ("binary_clustered", "Binary"), ("sixclass_clustered", "Six-class")]
+    names = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "composition": "Composition"}
+    lines = [r"\begin{tabular}{llcccccc}", r"\hline",
+             r" & & \multicolumn{2}{c}{\textbf{Accuracy}} & \multicolumn{2}{c}{\textbf{Macro-F1}} & \multicolumn{2}{c}{\textbf{MCC}} \\",
+             r"\textbf{Task} & \textbf{Representation} & ours & biotrainer & ours & biotrainer & ours & biotrainer \\", r"\hline"]
+    for key, task in tasks:
+        first = True
+        for emb in ("prott5", "esm2_650m", "esm2_8m", "composition"):
+            if (key, emb) not in rows:
+                continue
+            r = rows[(key, emb)]
+            cells = " & ".join(f"{r[m][0]} & {r[m][1]}" for m in ("accuracy", "macro_f1", "mcc"))
+            lines.append(f"{task if first else ''} & {names[emb]} & {cells}" + r" \\")
+            first = False
+        lines.append(r"\hline")
+    lines.append(r"\end{tabular}")
+    write_table("table_a_biotrainer", lines)
+
+
+def table_hierarchical():
+    # Flat vs. hierarchical twelve-class model, oracle routing, and the second-step classifiers per class
+    flat = multiclass_result("split2_30pct", "prott5")
+    h = json.load(open(RESULTS / "split2_30pct_hierarchical_result.json"))
+    metrics = [("accuracy", "Accuracy"), ("macro-f1_score", "Macro-F1"), ("matthews-corr-coeff", "MCC")]
+    lines = [r"\begin{tabular}{lccc}", r"\hline",
+             r"\textbf{Model} & " + " & ".join(rf"\textbf{{{n}}}" for _, n in metrics) + r" \\", r"\hline",
+             "Flat twelve-class & " + " & ".join(fmt_ci(flat["test_metrics"][m], flat["test_metrics_bootstrap"][m]) for m, _ in metrics) + r" \\",
+             "Hierarchical & " + " & ".join(fmt_ci(h["test_metrics"][m], h["test_metrics_bootstrap"][m]) for m, _ in metrics) + r" \\",
+             "Hierarchical, oracle routing & " + " & ".join(f"{h['oracle_metrics'][m]:.3f}" for m, _ in metrics) + r" \\",
+             r"\hline", r"\multicolumn{4}{l}{\textit{Second step: subtypes within a class}} \\",
+             r"\textbf{Class} & \textbf{Subtypes} & \textbf{Accuracy} & \textbf{Macro-F1} \\", r"\hline"]
+    for cls in ("thermophile", "halophile", "acidophile", "alkaliphile"):
+        g = h["level2_sub_classifiers"][cls]
+        lines.append(f"{label(cls)} & {len(g['classes'])} & {g['accuracy']:.3f} & {g['macro_f1']:.3f}" + r" \\")
+    lines += [r"\hline", r"\end{tabular}"]
+    write_table("table_a_hierarchical", lines)
+
+
+def table_thermo_overlap():
+    t = json.load(open(RESULTS / "thermo_prokaryote_result.json"))
+    o, m = t["training_overlap"], t["metrics"]
+    groups = [("in_thermo_training", "In THERMO's training set"), ("not_in_thermo_training", "Not in the training set"),
+              ("no_bacdive_id", "No BacDive identifier")]
+    lines = [r"\begin{tabular}{lrrcc}", r"\hline",
+             r"\textbf{Organisms} & \textbf{Proteomes} & \textbf{Thermophiles} & \textbf{Accuracy} & \textbf{MCC} \\", r"\hline"]
+    for key, name in groups:
+        g = o[key]
+        lines.append(f"{name} & {g['n']} & {g['n_thermophile']} & {g['accuracy']:.3f} & {g['mcc']:.3f}" + r" \\")
+    lines += [r"\hline",
+              f"All prokaryotes & {t['n_proteomes']} & {t['n_thermophile']} & {fmt_ci(m['accuracy']['value'], {'lower': m['accuracy']['ci_lower'], 'upper': m['accuracy']['ci_upper']})} & "
+              f"{fmt_ci(m['mcc']['value'], {'lower': m['mcc']['ci_lower'], 'upper': m['mcc']['ci_upper']})}" + r" \\",
+              r"\hline", r"\end{tabular}"]
+    write_table("table_a_thermo_overlap", lines)
+
+
+SUBTYPES = [("thermophile", "Thermophile"), ("hyperthermophile", "Hyperthermophile"), ("psychrophile", "Psychrophile"),
+            ("slight_halophile", "Slight halophile"), ("moderate_halophile", "Moderate halophile"),
+            ("extreme_halophile", "Extreme halophile"), ("acidotolerant", "Acidotolerant"),
+            ("moderate_acidophile", "Moderate acidophile"), ("acidophile", "Acidophile"),
+            ("alkalitolerant", "Alkalitolerant"), ("alkaliphile", "Alkaliphile"), ("extreme_alkaliphile", "Extreme alkaliphile")]
+
+
+def fig_twelveclass_per_subtype():
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.8))
+    x, w = np.arange(len(SUBTYPES)), 0.2
+    for i, (key, name) in enumerate(EMBEDDERS):
+        r = multiclass_result("split2_30pct", key)
+        vals = [r["per_class_metrics"][s]["f1_score"] for s, _ in SUBTYPES]
+        ci = [r["per_class_metrics_bootstrap"][s]["f1_score"] for s, _ in SUBTYPES]
+        xs = x + (i - 1.5) * w
+        ax.bar(xs, vals, w, color=style.EMBEDDER_COLORS[key], label=name)
+        error_bars(ax, xs, vals, [c["lower"] for c in ci], [c["upper"] for c in ci])
+    for boundary in (1.5, 2.5, 5.5, 8.5):
+        ax.axvline(boundary, color="#94a3b8", linewidth=0.6, linestyle="--")
+    ax.set_xticks(x, [n for _, n in SUBTYPES], rotation=40, ha="right", fontsize=7.5)
+    ax.set_ylabel("F1 score")
+    ax.set_ylim(0, 1)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    save(fig, "fig_a_twelveclass_per_subtype")
+
+
+def fig_crossval_per_class():
+    # Per-class F1 of the five-class ProtT5 model: per-protein split vs. organism-grouped CV (mean and SD)
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.6))
+    x, w = np.arange(len(CLASSES)), 0.26
+    split = multiclass_result("split1_30pct", "prott5")
+    vals = [split["per_class_metrics"][c]["f1_score"] for c in CLASSES]
+    ci = [split["per_class_metrics_bootstrap"][c]["f1_score"] for c in CLASSES]
+    ax.bar(x - w, vals, w, color=style.MAIN, label="Per-protein split, 30% (95% CI)")
+    error_bars(ax, x - w, vals, [c["lower"] for c in ci], [c["upper"] for c in ci])
+    for offset, pct, color in ((0, "30pct", style.SECONDARY), (w, "20pct", style.RAMP[0])):
+        cv = json.load(open(RESULTS / f"split1_{pct}_cv5_result.json"))["cv_per_class_aggregated"]
+        means = [cv[c]["f1_score"]["mean"] for c in CLASSES]
+        sds = [cv[c]["f1_score"]["std"] for c in CLASSES]
+        ax.bar(x + offset, means, w, color=color, label=f"Unseen organisms, {pct[:2]}% (mean ± SD)")
+        ax.errorbar(x + offset, means, yerr=sds, fmt="none", ecolor="#334155", elinewidth=0.8, capsize=2)
+    ax.set_xticks(x, [label(c) for c in CLASSES])
+    ax.set_ylabel("F1 score")
+    ax.set_ylim(0, 1)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3, fontsize=7)
+    save(fig, "fig_a_crossval_per_class")
+
+
+def fig_algae_species():
+    # Recall of the binary ProtT5 model per algal species, coloured by class
+    sp = json.load(open(RESULTS / "eukaryote_embedder_clustered_result.json"))["results"]["prott5"]["by_species"]
+    order = {c: i for i, c in enumerate(ALGAE_CLASSES)}
+    items = sorted(sp.values(), key=lambda v: (order[v["broad_class"]], -v["recall"]))
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.8))
+    x = np.arange(len(items))
+    ax.bar(x, [v["recall"] for v in items], 0.7, color=[style.CLASS_COLORS[v["broad_class"]] for v in items])
+    for xi, v in zip(x, items):
+        ax.text(xi, v["recall"] + 0.015, f"{v['recall']:.2f}", ha="center", fontsize=6.5)
+    ax.set_xticks(x, [v["species"].replace("Chlamydomonas sp. ", "Chlamydomonas sp.\n") for v in items],
+                  rotation=40, ha="right", fontsize=7, fontstyle="italic")
+    ax.set_ylabel("Recall")
+    ax.set_ylim(0, 1)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=style.CLASS_COLORS[c]) for c in ALGAE_CLASSES]
+    ax.legend(handles, [label(c) for c in ALGAE_CLASSES], loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    save(fig, "fig_a_algae_species")
+
+
+def fig_pfam_heatmap():
+    # Top 20 Pfam domains by enrichment over the mean frequency of the five classes (same procedure as
+    # scripts/interproscan_tm/analyze_interproscan.py); cells show the number of proteins with the domain
+    import math
+    pid2dom, desc, prot_cls = defaultdict(set), {}, {}
+    with open("results/interproscan/prokaryote_results.tsv") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            pid = row["Sequence_ID"]
+            prot_cls[pid] = pid.split("||")[-1]
+            if row["Analysis"] == "Pfam":
+                pid2dom[pid].add(row["Signature_Accession"])
+                desc[row["Signature_Accession"]] = row["Signature_Description"]
+    n, cnt = Counter(), defaultdict(Counter)
+    for pid, cls in prot_cls.items():
+        n[cls] += 1
+        for d in pid2dom.get(pid, ()):
+            cnt[cls][d] += 1
+    eps = 0.005
+    freq = lambda d, c: cnt[c][d] / n[c]
+    mean = lambda d: sum(freq(d, c) for c in CLASSES) / len(CLASSES)
+    enr = lambda d, c: math.log2((freq(d, c) + eps) / (mean(d) + eps))
+    domains = {d for c in CLASSES for d in cnt[c]}
+    top = sorted((d for d in domains if max(enr(d, c) for c in CLASSES) > 0.3),
+                 key=lambda d: max(enr(d, c) for c in CLASSES), reverse=True)[:20]
+    m = np.array([[enr(d, c) for c in CLASSES] for d in top])
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 5.2))
+    vmax = np.abs(m).max()
+    im = ax.imshow(m, cmap="RdBu_r", vmin=-vmax, vmax=vmax, aspect="auto")
+    for i, d in enumerate(top):
+        for j, c in enumerate(CLASSES):
+            ax.text(j, i, str(cnt[c][d]), ha="center", va="center", fontsize=6.5,
+                    color="white" if abs(m[i, j]) > 0.7 * vmax else "#1e293b")
+    ax.set_xticks(range(len(CLASSES)), [label(c) for c in CLASSES], rotation=30, ha="right")
+    ax.set_yticks(range(len(top)), [f"{d}  {desc[d][:42]}" for d in top], fontsize=6.5)
+    cbar = fig.colorbar(im, ax=ax, shrink=0.5)
+    cbar.set_label("log$_2$ enrichment", fontsize=8)
+    save(fig, "fig_a_pfam_heatmap")
+
 FIGURES = {
     "r1": fig_dataset_organisms,
     "r2": fig_dataset_optima,
@@ -494,6 +762,16 @@ FIGURES = {
     "r7": fig_binary,
     "r8": fig_binarization,
     "r9": fig_thermo,
+    "r10": fig_algae_recall,
+    "r11": fig_algae_homology,
+    "r12": fig_algae_confusion,
+    "table_a_biotrainer": table_biotrainer,
+    "table_a_hierarchical": table_hierarchical,
+    "table_a_thermo_overlap": table_thermo_overlap,
+    "a_twelveclass": fig_twelveclass_per_subtype,
+    "a_crossval": fig_crossval_per_class,
+    "a_algae_species": fig_algae_species,
+    "a_pfam": fig_pfam_heatmap,
 }
 
 
