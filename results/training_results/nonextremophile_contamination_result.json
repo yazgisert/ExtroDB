@@ -1,0 +1,91 @@
+{
+  "task": "non-extremophile proteins of the clustered binary split from thermophiles or psychrophiles",
+  "source": "curation/source_tables/200617_TEMPURA.csv",
+  "thresholds": {
+    "thermophile_min_ogt": 45.0,
+    "psychrophile_max_ogt": 15.0
+  },
+  "n_nonextremophile": 13031,
+  "n_with_tempura_species": 2030,
+  "n_flagged": 335,
+  "per_split": {
+    "train": {
+      "n": 9121,
+      "flagged": 246,
+      "thermophile": 231,
+      "psychrophile": 15
+    },
+    "val": {
+      "n": 1303,
+      "flagged": 39,
+      "thermophile": 38,
+      "psychrophile": 1
+    },
+    "test": {
+      "n": 2607,
+      "flagged": 50,
+      "thermophile": 46,
+      "psychrophile": 4
+    }
+  },
+  "top_species": [
+    {
+      "species": "Thermotoga maritima",
+      "n_proteins": 61,
+      "ogt": 80.0
+    },
+    {
+      "species": "Thermus thermophilus",
+      "n_proteins": 47,
+      "ogt": 68.5
+    },
+    {
+      "species": "Caldanaerobacter subterraneus",
+      "n_proteins": 22,
+      "ogt": 65.0
+    },
+    {
+      "species": "Thermotoga neapolitana",
+      "n_proteins": 13,
+      "ogt": 80.0
+    },
+    {
+      "species": "Desulfotalea psychrophila",
+      "n_proteins": 11,
+      "ogt": 10.0
+    },
+    {
+      "species": "Thermotoga petrophila",
+      "n_proteins": 9,
+      "ogt": 80.0
+    },
+    {
+      "species": "Symbiobacterium thermophilum",
+      "n_proteins": 9,
+      "ogt": 60.0
+    },
+    {
+      "species": "Moorella thermoacetica",
+      "n_proteins": 9,
+      "ogt": 57.0
+    },
+    {
+      "species": "Carboxydothermus hydrogenoformans",
+      "n_proteins": 8,
+      "ogt": 71.0
+    },
+    {
+      "species": "Chloroflexus aurantiacus",
+      "n_proteins": 8,
+      "ogt": 56.0
+    }
+  ],
+  "binary_prott5_test": {
+    "mcc_all": 0.5828657635125248,
+    "mcc_without_flagged": 0.5831609119410908,
+    "specificity_all": 0.7686996547756042,
+    "specificity_without_flagged": 0.7688697692608526,
+    "predicted_extremophile_flagged": 0.24,
+    "predicted_extremophile_other_non": 0.23113023073914743
+  }
+}
