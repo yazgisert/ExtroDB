@@ -1,0 +1,112 @@
+{
+  "per_protein": {
+    "split1_30pct": {
+      "threshold": 0.4476987447698745,
+      "n_train": 100024,
+      "n_test": 28576,
+      "n_test_thermophile": 5715,
+      "metrics": {
+        "accuracy": {
+          "value": 0.785904255319149,
+          "ci_lower": 0.7810741531354983,
+          "ci_upper": 0.7905593854983203
+        },
+        "f1_thermophile": {
+          "value": 0.5173556326917008,
+          "ci_lower": 0.5064808191637137,
+          "ci_upper": 0.5268915377106849
+        },
+        "mcc": {
+          "value": 0.3845646430182236,
+          "ci_lower": 0.3720225775960693,
+          "ci_upper": 0.3965384057758315
+        }
+      }
+    },
+    "split1_20pct": {
+      "threshold": 0.45098039215686275,
+      "n_train": 68607,
+      "n_test": 19603,
+      "n_test_thermophile": 3921,
+      "metrics": {
+        "accuracy": {
+          "value": 0.789419986736724,
+          "ci_lower": 0.7841644136101616,
+          "ci_upper": 0.7948273223486201
+        },
+        "f1_thermophile": {
+          "value": 0.5159474671669794,
+          "ci_lower": 0.5028314239195104,
+          "ci_upper": 0.5283569311156657
+        },
+        "mcc": {
+          "value": 0.38452921420516045,
+          "ci_lower": 0.36945000093393604,
+          "ci_upper": 0.39978502140902816
+        }
+      }
+    }
+  },
+  "per_proteome": {
+    "threshold": 0.4055496264674493,
+    "n_proteomes": 225,
+    "n_thermophile": 71,
+    "confusion": {
+      "TP": 70,
+      "FN": 1,
+      "FP": 55,
+      "TN": 99
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.7511111111111111,
+        "ci_lower": 0.6933333333333334,
+        "ci_upper": 0.8044444444444444
+      },
+      "f1_thermophile": {
+        "value": 0.7142857142857143,
+        "ci_lower": 0.6385478082542937,
+        "ci_upper": 0.7830780994227621
+      },
+      "mcc": {
+        "value": 0.5880688307487391,
+        "ci_lower": 0.5101347486848841,
+        "ci_upper": 0.6638876787210863
+      }
+    },
+    "glutamate_fraction": {
+      "false positive acidophile": {
+        "n": 1,
+        "mean": 0.06435039469476377
+      },
+      "false positive alkaliphile": {
+        "n": 16,
+        "mean": 0.07820980521042878
+      },
+      "false positive halophile": {
+        "n": 38,
+        "mean": 0.07771524259588747
+      },
+      "thermophile": {
+        "n": 71,
+        "mean": 0.07540018294267613
+      },
+      "true negative acidophile": {
+        "n": 25,
+        "mean": 0.05446139189736419
+      },
+      "true negative alkaliphile": {
+        "n": 14,
+        "mean": 0.06498033187806986
+      },
+      "true negative halophile": {
+        "n": 20,
+        "mean": 0.06804198579279966
+      },
+      "true negative psychrophile": {
+        "n": 40,
+        "mean": 0.06055896653854551
+      }
+    }
+  }
+}
