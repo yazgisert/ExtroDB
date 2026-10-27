@@ -1,0 +1,176 @@
+{
+  "organisms": {
+    "GCA_007096385.1": {
+      "taxon": "Aliidiomarina halalkaliphila",
+      "nacl_optimum_M": 0.855
+    },
+    "GCF_039521845.1": {
+      "taxon": "Alkalibacterium iburiense",
+      "nacl_optimum_M": 1.369
+    },
+    "GCF_039522005.1": {
+      "taxon": "Alkalibacterium indicireducens",
+      "nacl_optimum_M": 1.027
+    },
+    "GCF_000621445.1": {
+      "taxon": "Alkalihalobacterium bogoriense",
+      "nacl_optimum_M": 0.992
+    },
+    "GCA_003574655.1": {
+      "taxon": "Cohaesibacter haloalkalitolerans",
+      "nacl_optimum_M": 0.599
+    },
+    "GCF_028610705.1": {
+      "taxon": "Halalkalibacter alkalisediminis",
+      "nacl_optimum_M": 0.855
+    },
+    "GCA_000334155.1": {
+      "taxon": "Halalkalibacterium ligniniphilum",
+      "nacl_optimum_M": 0.342
+    },
+    "GCA_000265075.1": {
+      "taxon": "Nitritalea halalkaliphila",
+      "nacl_optimum_M": 0.599
+    },
+    "GCF_002019735.1": {
+      "taxon": "Salipaludibacillus agaradhaerens",
+      "nacl_optimum_M": 0.428
+    },
+    "GCF_003814815.1": {
+      "taxon": "Salisediminibacterium halotolerans",
+      "nacl_optimum_M": 1.54
+    }
+  },
+  "fiveclass": {
+    "ProtT5": {
+      "all": {
+        "n_test": 28576,
+        "macro_f1": {
+          "value": 0.7258687712599784,
+          "ci_lower": 0.7207183425212452,
+          "ci_upper": 0.7307113998885431
+        },
+        "f1_alkaliphile": {
+          "value": 0.6398922286772754,
+          "ci_lower": 0.6305217296397168,
+          "ci_upper": 0.6495912088378534
+        }
+      },
+      "without these organisms": {
+        "n_test": 26878,
+        "macro_f1": {
+          "value": 0.7263956496163376,
+          "ci_lower": 0.7214112878695382,
+          "ci_upper": 0.7318714828902673
+        },
+        "f1_alkaliphile": {
+          "value": 0.6007896468523799,
+          "ci_lower": 0.5890672816197173,
+          "ci_upper": 0.6119674891578829
+        }
+      }
+    },
+    "Composition": {
+      "all": {
+        "n_test": 28576,
+        "macro_f1": {
+          "value": 0.5005967624072738,
+          "ci_lower": 0.4950387462048659,
+          "ci_upper": 0.5062235676230457
+        },
+        "f1_alkaliphile": {
+          "value": 0.2490282131661442,
+          "ci_lower": 0.23620438737292668,
+          "ci_upper": 0.2619815724172273
+        }
+      },
+      "without these organisms": {
+        "n_test": 26878,
+        "macro_f1": {
+          "value": 0.5031680520166464,
+          "ci_lower": 0.49741985853872445,
+          "ci_upper": 0.5089566011027097
+        },
+        "f1_alkaliphile": {
+          "value": 0.20149761742682096,
+          "ci_lower": 0.1870677401946335,
+          "ci_upper": 0.2140145686750052
+        }
+      }
+    }
+  },
+  "acidic_residues": {
+    "all alkaliphiles": {
+      "n_organisms": 30,
+      "n_proteins": 5708,
+      "acidic": {
+        "value": 0.12926343376553398,
+        "ci_lower": 0.12572974377581977,
+        "ci_upper": 0.13288501178955264
+      },
+      "basic": {
+        "value": 0.10210918354885669,
+        "ci_lower": 0.0985442489533783,
+        "ci_upper": 0.10554850296411124
+      },
+      "net": {
+        "value": 0.017496096160517272,
+        "ci_lower": 0.013967094932671752,
+        "ci_upper": 0.02154096841971374
+      },
+      "pI": {
+        "value": 5.849753545125326,
+        "ci_lower": 5.718794027169545,
+        "ci_upper": 5.989962400754293
+      }
+    },
+    "without these organisms": {
+      "n_organisms": 20,
+      "n_proteins": 4013,
+      "acidic": {
+        "value": 0.12785437167755304,
+        "ci_lower": 0.12324530041496976,
+        "ci_upper": 0.13239178165575102
+      },
+      "basic": {
+        "value": 0.10105843642310205,
+        "ci_lower": 0.09656546868843506,
+        "ci_upper": 0.10561921451223485
+      },
+      "net": {
+        "value": 0.018667660025368123,
+        "ci_lower": 0.01433405008986882,
+        "ci_upper": 0.023180500182176003
+      },
+      "pI": {
+        "value": 5.809340076446532,
+        "ci_lower": 5.641221323251724,
+        "ci_upper": 5.990346004724501
+      }
+    },
+    "these organisms only": {
+      "n_organisms": 10,
+      "n_proteins": 1695,
+      "acidic": {
+        "value": 0.13208155794149587,
+        "ci_lower": 0.1262229406454139,
+        "ci_upper": 0.13709554105166386
+      },
+      "basic": {
+        "value": 0.10421067780036593,
+        "ci_lower": 0.09954680605038295,
+        "ci_upper": 0.10836538418689534
+      },
+      "net": {
+        "value": 0.015152968430815561,
+        "ci_lower": 0.009135611986204571,
+        "ci_upper": 0.020984749765792204
+      },
+      "pI": {
+        "value": 5.93058048248291,
+        "ci_lower": 5.684311564922332,
+        "ci_upper": 6.178815744876861
+      }
+    }
+  }
+}
