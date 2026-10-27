@@ -453,27 +453,31 @@ def fig_binarization():
 
 
 def fig_thermo():
-    # Binary thermophile classifier (ProtT5, per protein, 30% and 20% clustering) vs. THERMO (per proteome)
+    # Binary thermophile classifier (ProtT5, per protein, 30% and 20% clustering) vs. THERMO (per proteome), each next
+    # to the IVYWREL baseline at the same level
     thermo = json.load(open(RESULTS / "thermo_prokaryote_result.json"))["metrics"]
-    metrics = [("accuracy", "macro-f1_score", "macro_f1", "Macro-F1"), ("f1_thermophile", "f1_thermophile", "f1_thermophile", "F1 (thermophile)"),
-               ("mcc", "matthews-corr-coeff", "mcc", "MCC")]
-    fig, ax = plt.subplots(figsize=(FULL_WIDTH * 0.75, 2.5))
-    labels = ["Accuracy"] + [m[3] for m in metrics]
-    x, w = np.arange(len(labels)), 0.26
-    models = [("split1_30pct", "ProtT5, 30% (per protein)", style.MAIN),
-              ("split1_20pct", "ProtT5, 20% (per protein)", style.SECONDARY)]
+    ivywrel = json.load(open(RESULTS / "ivywrel_baseline_result.json"))
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.6))
+    labels = ["Accuracy", "Macro-F1", "F1 (thermophile)", "MCC"]
     keys_own = ["accuracy", "macro-f1_score", "f1_thermophile", "matthews-corr-coeff"]
-    keys_thermo = ["accuracy", "macro_f1", "f1_thermophile", "mcc"]
-    for i, (split, name, color) in enumerate(models):
+    keys_ext = ["accuracy", "macro_f1", "f1_thermophile", "mcc"]
+    x, w = np.arange(len(labels)), 0.16
+    for i, (split, name, color) in enumerate([("split1_30pct", "ProtT5, 30% (per protein)", style.MAIN),
+                                              ("split1_20pct", "ProtT5, 20% (per protein)", style.SECONDARY)]):
         r = json.load(open(RESULTS / f"{split}_binary_result.json"))
         vals = [r["test_metrics"][k] for k in keys_own]
-        xs = x + (i - 1) * w
+        xs = x + (i - 2) * w
         ax.bar(xs, vals, w, color=color, label=name)
         error_bars(ax, xs, vals, [r["test_metrics_bootstrap"][k]["lower"] for k in keys_own],
                    [r["test_metrics_bootstrap"][k]["upper"] for k in keys_own])
-    vals = [thermo[k]["value"] for k in keys_thermo]
-    ax.bar(x + w, vals, w, color=style.BASELINE, label="THERMO (per proteome)")
-    error_bars(ax, x + w, vals, [thermo[k]["ci_lower"] for k in keys_thermo], [thermo[k]["ci_upper"] for k in keys_thermo])
+    others = [(ivywrel["per_protein"]["split1_30pct"]["metrics"], "IVYWREL, 30% (per protein)", style.RAMP[0]),
+              (thermo, "THERMO (per proteome)", style.BASELINE),
+              (ivywrel["per_proteome"]["metrics"], "IVYWREL (per proteome)", style.light(style.BASELINE))]
+    for i, (m, name, color) in enumerate(others):
+        vals = [m[k]["value"] for k in keys_ext]
+        xs = x + i * w
+        ax.bar(xs, vals, w, color=color, label=name)
+        error_bars(ax, xs, vals, [m[k]["ci_lower"] for k in keys_ext], [m[k]["ci_upper"] for k in keys_ext])
     ax.set_xticks(x, labels)
     ax.set_ylabel("Score")
     ax.set_ylim(0, 1.05)

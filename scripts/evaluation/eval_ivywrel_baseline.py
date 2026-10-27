@@ -69,6 +69,7 @@ def best_threshold(fractions, labels):
 def metrics(y_true, y_pred):
     return {
         "accuracy":       accuracy_score(y_true, y_pred),
+        "macro_f1":       f1_score(y_true, y_pred, average="macro"),
         "f1_thermophile": f1_score(y_true, y_pred),
         "mcc":            matthews_corrcoef(y_true, y_pred),
     }
