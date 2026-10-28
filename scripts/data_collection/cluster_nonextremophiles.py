@@ -1,6 +1,7 @@
 # Clusters the embedded non-extremophile proteins at 30% identity (MMseqs2 easy-cluster, default coverage 80%);
 # identical sequences are clustered once. The representatives are the input for make_clustered_binary_split.py.
 
+import argparse
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -10,12 +11,7 @@ import h5py
 
 NONEXTREM_H5  = "embeddings/nonextremophile.h5"
 NONEXTREM_FAA = "nonextremophile_data/nonextremophile_filtered.faa"
-
-OUT_DIR    = Path("nonextremophile_data/clustering_30pct")
-UNIQUE_FAA = OUT_DIR / "nonextremophile_unique.faa"
-ID_MAP     = OUT_DIR / "unique_to_all_ids.tsv"
-PREFIX     = OUT_DIR / "nonext_cluster"
-CLUSTERS   = OUT_DIR / "nonext_cluster_cluster.tsv"
+OUT_DIR       = "nonextremophile_data/clustering_30pct"
 
 MIN_SEQ_ID = 0.3
 NEEDED     = 99_964 + 14_289 + 28_576   # extremophile train + val + test in split1 30%
@@ -39,34 +35,44 @@ def read_faa(filepath):
 
 
 if __name__ == "__main__":
-    if CLUSTERS.exists():
-        sys.exit(f"{CLUSTERS} already exists. Delete {OUT_DIR} to cluster again.")
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--faa", default=NONEXTREM_FAA)
+    parser.add_argument("--out-dir", default=OUT_DIR)
+    args = parser.parse_args()
+    out_dir    = Path(args.out_dir)
+    unique_faa = out_dir / "nonextremophile_unique.faa"
+    id_map_tsv = out_dir / "unique_to_all_ids.tsv"
+    prefix     = out_dir / "nonext_cluster"
+    clusters   = out_dir / "nonext_cluster_cluster.tsv"
 
+    if clusters.exists():
+        sys.exit(f"{clusters} already exists. Delete {out_dir} to cluster again.")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    seqs = read_faa(args.faa)
     with h5py.File(NONEXTREM_H5, "r") as f:
-        embedded = list(f.keys())
-    seqs = read_faa(NONEXTREM_FAA)
+        embedded = [protein_id for protein_id in f.keys() if protein_id in seqs]
 
     # Identical sequences are clustered once; every ID sharing the sequence follows its representative
     ids_by_seq = defaultdict(list)
     for protein_id in embedded:
         ids_by_seq[seqs[protein_id]].append(protein_id)
 
-    with open(UNIQUE_FAA, "w") as faa, open(ID_MAP, "w") as id_map:
+    with open(unique_faa, "w") as faa, open(id_map_tsv, "w") as id_map:
         id_map.write("unique_id\tall_ids\n")
         for seq, ids in ids_by_seq.items():
             faa.write(f">{ids[0]}\n{seq}\n")
             id_map.write(f"{ids[0]}\t{','.join(ids)}\n")
     print(f"{len(embedded):,} embedded non-extremophile proteins, {len(ids_by_seq):,} unique sequences")
 
-    cmd = ["mmseqs", "easy-cluster", str(UNIQUE_FAA), str(PREFIX), str(OUT_DIR / "mmseqs_tmp"),
+    cmd = ["mmseqs", "easy-cluster", str(unique_faa), str(prefix), str(out_dir / "mmseqs_tmp"),
            "--min-seq-id", str(MIN_SEQ_ID), "--threads", "8"]
     print("\nRunning MMseqs2 clustering at 30% identity (default coverage 80%) ...")
     print("  " + " ".join(cmd))
     subprocess.run(cmd, check=True)
 
     cluster_of = {}
-    with open(CLUSTERS) as f:
+    with open(clusters) as f:
         for line in f:
             rep, member = line.rstrip("\n").split("\t")
             cluster_of[member] = rep
@@ -83,5 +89,5 @@ if __name__ == "__main__":
     ]
     summary = "\n".join(lines)
     print("\n" + summary)
-    (OUT_DIR / "cluster_summary.txt").write_text(summary + "\n")
-    print(f"\nSaved to {OUT_DIR}")
+    (out_dir / "cluster_summary.txt").write_text(summary + "\n")
+    print(f"\nSaved to {out_dir}")

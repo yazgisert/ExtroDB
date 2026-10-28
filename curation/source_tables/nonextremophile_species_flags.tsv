@@ -1,0 +1,1680 @@
+species	n_proteins	n_bacdive_strains	n_type_strains	temperature_optima	ph_optima	nacl_optima_M	tempura_ogt	flags
+Escherichia coli	9833	1975	1	37				
+Staphylococcus aureus	4286	506	0					
+Mycobacterium tuberculosis	2003	184	0					
+Bacillus cereus	1856	1072	0				37	
+Bacillus subtilis	1780	292	0				29	
+Streptococcus pyogenes	1688	153	0					
+Prochlorococcus marinus	1607	0	0					
+Streptococcus pneumoniae	1605	369	0					
+Yersinia pestis	1582	2	0					
+Haemophilus influenzae	1297	224	0					
+Salmonella paratyphi	1217	333	0					
+Pseudomonas aeruginosa	1164	623	0					
+Yersinia pseudotuberculosis	1162	39	0					
+Synechococcus sp.	1148	0	0					
+Clostridium botulinum	1066	15	0					
+Pseudomonas putida	1057	130	0					
+Shigella flexneri	1053	48	0					
+Buchnera aphidicola	1043	0	0					
+Helicobacter pylori	946	70	0					
+Francisella tularensis	925	14	0					
+Rhodopseudomonas palustris	919	7	0					
+Mycobacterium bovis	839	184	0					
+Salmonella typhimurium	834	333	0					
+Shewanella sp.	808	0	0					
+Vibrio cholerae	799	117	0					
+Listeria monocytogenes	796	270	0					
+Acinetobacter baumannii	790	156	0					
+Neisseria meningitidis	756	157	0					
+Shewanella baltica	752	6	0					
+Burkholderia pseudomallei	736	16	0					
+Campylobacter jejuni	721	292	0					
+Xylella fastidiosa	702	4	0					
+Staphylococcus epidermidis	692	119	0				33.5	
+Bacillus anthracis	681	1	0					
+Pseudomonas fluorescens	668	100	0					
+Burkholderia mallei	652	1	0				37	
+Shigella boydii	643	39	0					
+Legionella pneumophila	633	72	3					
+Vibrio vulnificus	633	28	0					
+Xanthomonas campestris	629	64	0					
+Cereibacter sphaeroides	617	10	0					
+Coxiella burnetii	601	1	0					
+Lactococcus lactis	582	53	0					
+Salmonella typhi	568	333	0					
+Pseudomonas syringae	563	82	0					
+Brucella abortus	549	10	0					
+Actinobacillus pleuropneumoniae	539	13	0					
+Clostridium perfringens	502	105	0				41	
+Streptococcus agalactiae	476	96	0					
+Xanthomonas oryzae	473	1	0					
+Synechocystis sp.	472	0	0					
+Chlamydia trachomatis	469	5	0					
+Bacillus thuringiensis	450	91	0					
+Aliivibrio fischeri	429	7	0					
+Caulobacter vibrioides	426	9	0					
+Streptococcus thermophilus	420	19	0					
+Brucella suis	408	10	0					
+Mycobacterium sp.	400	0	0					
+Mycobacterium leprae	397	0	0					
+Shigella sonnei	397	27	0					
+Brucella melitensis	396	10	0					
+Klebsiella pneumoniae	389	367	0					
+Rhizobium meliloti	382	13	0					
+Nitratidesulfovibrio vulgaris	380	12	0					
+Shigella dysenteriae	374	52	0					
+Salmonella choleraesuis	370	333	0					
+Yersinia enterocolitica	363	100	0					
+Streptomyces coelicolor	357	64	0					
+Leptospira interrogans	352	100	0					
+Corynebacterium glutamicum	345	24	0					
+Salmonella newport	342	0	0					
+Vibrio parahaemolyticus	341	55	0					
+Burkholderia orbicola	337	1	0					
+Aquifex aeolicus	330	0	0					
+Pasteurella multocida	330	124	0					
+Pectobacterium atrosepticum	327	7	0					
+Neisseria gonorrhoeae	325	94	0					
+Halalkalibacterium halodurans	317	22	0					
+Photorhabdus laumondii	316	4	0					
+Treponema pallidum	315	1	0					
+Burkholderia cenocepacia	314	61	0					
+Burkholderia ambifaria	313	3	0					
+Rhizobium etli	311	2	0					
+Streptococcus equi	311	30	0					
+Histophilus somni	310	21	0					
+Bifidobacterium longum	308	57	0					
+Salmonella heidelberg	306	0	0					
+Salmonella agona	305	0	0					
+Rickettsia bellii	305	0	0					
+Salmonella schwarzengrund	305	0	0					
+Thermus thermophilus	304	11	0				68.5	thermophile
+Salmonella enteritidis	303	333	0					
+Agrobacterium fabrum	297	1	0					
+Salmonella dublin	297	0	0					
+Klebsiella variicola	295	14	0					
+Shewanella oneidensis	294	2	0				30	
+Escherichia fergusonii	294	25	0					
+Bradyrhizobium sp.	292	0	0					
+Nostoc sp.	292	0	0					
+Salmonella gallinarum	290	0	0					
+Dehalococcoides mccartyi	288	1	0				27.5	
+Enterobacter sp.	287	0	0					
+Sinorhizobium fredii	285	5	0					
+Salmonella arizonae	283	16	0					
+Bradyrhizobium diazoefficiens	280	1	0					
+Bacteroides fragilis	278	30	0					
+Mycoplasmoides pneumoniae	278	3	0					
+Citrobacter koseri	276	34	0					
+Cronobacter sakazakii	272	25	0					
+Staphylococcus haemolyticus	269	52	0				35	
+Pectobacterium carotovorum	268	38	0					
+Mycolicibacterium smegmatis	267	35	0					
+Mesorhizobium japonicum	264	1	0				28	
+Stenotrophomonas maltophilia	262	173	0					
+Bacillus licheniformis	260	121	0					
+Ralstonia nicotianae	258	0	0					
+Borreliella burgdorferi	257	5	0					
+Listeria innocua	255	31	0					
+Serratia proteamaculans	254	6	0					
+Oceanobacillus iheyensis	247	1	0				30	
+Pseudomonas savastanoi	245	9	0					
+Photobacterium profundum	244	2	0				10	psychrophile
+Xanthomonas citri	243	4	0					
+Deinococcus radiodurans	242	10	0					
+Thermotoga maritima	242	1	0				80	thermophile
+Cupriavidus necator	238	40	0					
+Rickettsia prowazekii	238	1	0					
+Staphylococcus saprophyticus	236	65	0				31.5	
+Desulfitobacterium hafniense	234	6	0					
+Lactobacillus delbrueckii	233	57	6	40	4	0.68		acidophile,halophile
+Aeromonas hydrophila	232	77	0					
+Enterococcus faecalis	232	184	0					
+Synechococcus elongatus	229	2	0					
+Acinetobacter baylyi	227	4	0					
+Clostridium acetobutylicum	227	61	0					
+Bordetella bronchiseptica	227	59	0					
+Porphyromonas gingivalis	225	9	0					
+Lactiplantibacillus plantarum	225	88	0					
+Proteus mirabilis	223	53	0					
+Erwinia tasmaniensis	222	2	0					
+Anaeromyxobacter dehalogenans	220	9	0					
+Methylorubrum extorquens	219	29	0					
+Streptomyces avermitilis	219	21	0					
+Pseudomonas paraeruginosa	214	623	0					
+Pseudomonas entomophila	213	1	0				33.5	
+Mycoplasmoides genitalium	213	1	0					
+Chromobacterium violaceum	212	11	1					
+Bordetella parapertussis	212	46	0					
+Sodalis glossinidius	210	1	0					
+Shouchella clausii	210	12	0					
+Leptospira borgpetersenii	210	53	0					
+Haemophilus ducreyi	209	138	0					
+Limosilactobacillus reuteri	209	40	0					
+Anaeromyxobacter sp.	208	0	0					
+Burkholderia lata	207	3	0					
+Bordetella pertussis	206	199	0					
+Streptococcus suis	206	26	0					
+Aeromonas salmonicida	205	34	0					
+Caldanaerobacter subterraneus	204	6	0				65	thermophile
+Bacillus velezensis	204	4	1					
+Geobacillus kaustophilus	203	5	1	60	6.85		62.5	thermophile
+Rickettsia conorii	202	5	0					
+Chlorobium phaeobacteroides	202	1	0					
+Stutzerimonas stutzeri	201	80	0					
+Leptospira biflexa	200	6	0					
+Trichormus variabilis	200	1	0					
+Hahella chejuensis	199	1	0					
+Rhizobium leguminosarum	199	17	0					
+Shewanella frigidimarina	199	2	0					
+Thermosynechococcus vestitus	198	0	0					
+Vibrio campbellii	197	4	0					
+Ectopseudomonas mendocina	197	14	0					
+Tropheryma whipplei	196	0	0					
+Azotobacter vinelandii	196	18	0					
+Dechloromonas aromatica	196	0	0					
+Ureaplasma parvum	195	0	0					
+Clostridium kluyveri	195	6	0				35	
+Shewanella denitrificans	195	2	0				22.5	
+Streptococcus mutans	191	48	0					
+Mycolicibacterium paratuberculosis	190	0	0					
+Chlamydia pneumoniae	189	1	0					
+Chromohalobacter israelensis	189	3	0				30	
+Rickettsia felis	189	0	0					
+Cupriavidus pinatubonensis	186	1	0					
+Shewanella woodyi	185	1	0					
+Rickettsia rickettsii	185	1	0					
+Myxococcus xanthus	184	159	0				29	
+Shewanella putrefaciens	184	60	0					
+Gloeobacter violaceus	184	0	0					
+Aromatoleum aromaticum	183	2	0					
+Rhizobium johnstonii	183	1	0					
+Corynebacterium efficiens	182	3	0					
+Burkholderia thailandensis	182	2	0					
+Actinobacillus succinogenes	181	1	0					
+Xanthomonas euvesicatoria	181	3	0					
+Shewanella amazonensis	181	1	0				30	
+Bacillus mycoides	179	47	0					
+Geobacter sulfurreducens	178	2	0					
+Chloroflexus aurantiacus	177	4	0				56	thermophile
+Bacillus cytotoxicus	177	1	0				33.5	
+Methylococcus capsulatus	177	1	0					
+Idiomarina loihiensis	177	1	0					
+Mannheimia succiniciproducens	176	0	0					
+Pseudoalteromonas translucida	176	2	0				25	
+Bacillus pumilus	176	73	0					
+Rhodospirillum rubrum	175	9	0					
+Shewanella loihica	175	1	1	18	7	0.34		halophile
+Ehrlichia ruminantium	174	0	0					
+Chlorobaculum tepidum	174	1	0					
+Paraburkholderia xenovorans	174	3	0					
+Listeria welshimeri	173	13	0					
+Chlamydia muridarum	172	1	0					
+Geobacillus thermodenitrificans	172	16	0				57.5	thermophile
+Nitrosomonas europaea	172	1	0					
+Symbiobacterium thermophilum	171	1	0				60	thermophile
+Pseudoalteromonas atlantica	171	10	0				30	
+Wolbachia pipientis	171	0	0					
+Bacteroides thetaiotaomicron	170	12	0					
+Aliivibrio salmonicida	170	1	0				15	psychrophile
+Shewanella sediminis	169	1	1	10		0.34	10	halophile,psychrophile
+Marinobacter nauticus	168	13	0					
+Shewanella halifaxensis	167	1	1	10	7	0.34	10	halophile,psychrophile
+Streptomyces griseus	167	135	0					
+Psychromonas ingrahamii	167	2	2		7	1.11		halophile
+Brucella anthropi	167	67	0					
+Paracoccus denitrificans	167	4	0					
+Albidiferax ferrireducens	166	1	0					
+Edwardsiella ictaluri	166	1	0					
+Ruegeria pomeroyi	165	2	0					
+Rickettsia typhi	165	1	0					
+Thiobacillus denitrificans	164	4	0					
+Mesomycoplasma hyopneumoniae	163	0	0					
+Mycobacterium avium	163	49	0					
+Vibrio atlanticus	163	2	0					
+Acidithiobacillus ferrooxidans	163	14	0				32.5	
+Shewanella piezotolerans	163	1	1	17.5	7	0.6		halophile
+Wolbachia sp.	161	0	0					
+Shewanella pealeana	161	3	0				25	
+Brucella canis	160	10	0					
+Rhodopirellula baltica	159	8	0					
+Nocardia farcinica	158	69	0					
+Methylobacillus flagellatus	158	1	0				42	
+Parasynechococcus marenigrum	158	0	0					
+Streptococcus gordonii	156	54	0					
+Sinorhizobium medicae	156	2	0					
+Bordetella avium	156	5	0					
+Nitrosococcus oceani	156	1	0					
+Paraburkholderia phytofirmans	155	2	0					
+Alkalilimnicola ehrlichii	155	1	1	30	9.3		30	alkaliphile
+Rhodococcus jostii	154	1	0					
+Alcanivorax borkumensis	154	1	0				27.5	
+Clostridium beijerinckii	153	30	0				37	
+Corynebacterium diphtheriae	153	168	0					
+Cupriavidus metallidurans	153	19	0					
+Tolumonas auensis	152	1	0				22	
+Geobacillus sp.	152	0	0					
+Saccharophagus degradans	151	1	0				30	
+Azoarcus sp.	151	0	0					
+Picosynechococcus sp.	150	0	0					
+Mycobacterium ulcerans	149	1	0					
+Staphylococcus carnosus	149	15	0				35	
+Syntrophotalea carbinolica	148	1	0					
+Ralstonia pickettii	148	62	0					
+Roseobacter denitrificans	148	1	0					
+Paraburkholderia phymatum	148	2	0					
+Burkholderia vietnamiensis	148	49	0					
+Streptococcus sanguinis	147	70	0					
+Carboxydothermus hydrogenoformans	147	1	0				71	thermophile
+Moorella thermoacetica	147	9	0				57	thermophile
+Mycobacterium marinum	146	12	0					
+Acetivibrio thermocellus	146	7	0					
+Psychrobacter arcticus	145	1	1	22	8	1.24	22	alkaliphile,halophile
+Clostridium tetani	144	10	0					
+Thermoanaerobacter pseudethanolicus	144	1	1	65				thermophile
+Hydrogenovibrio crunogenus	144	5	0					
+Nitrosospira multiformis	144	1	0					
+Zymomonas mobilis	143	11	0					
+Geobacter metallireducens	142	1	0					
+Bartonella henselae	142	2	0					
+Nitrobacter winogradskyi	142	2	0					
+Paracidovorax citrulli	141	5	0					
+Nitrosomonas eutropha	141	1	0					
+Fusobacterium nucleatum	141	21	0					
+Marinomonas sp.	140	0	0					
+Acaryochloris marina	139	0	0				29	
+Mycolicibacterium vanbaalenii	139	4	0					
+Clostridioides difficile	139	83	0					
+Streptococcus uberis	139	11	0					
+Polaromonas naphthalenivorans	138	1	0				20	
+Ruegeria sp.	138	0	0					
+Bartonella quintana	137	3	0					
+Herminiimonas arsenicoxydans	137	1	0				25	
+Helicobacter hepaticus	137	4	0					
+Nitrobacter hamburgensis	137	1	0				29	
+Nostoc punctiforme	137	5	0					
+Latilactobacillus sakei	137	23	0					
+Psychrobacter cryohalolentis	137	1	0				22	
+Trichodesmium erythraeum	136	0	0					
+Methylibium petroleiphilum	136	1	0					
+Desulfotalea psychrophila	136	1	1	10	7.45	0.17	10	psychrophile
+Rhizobium rhizogenes	135	8	0					
+Burkholderia multivorans	135	61	0					
+Polaromonas sp.	134	0	0					
+Halorhodospira halophila	134	1	0					
+Anaplasma marginale	134	0	0					
+Microcystis aeruginosa	133	3	0					
+Ligilactobacillus salivarius	133	43	0					
+Alkaliphilus metalliredigens	132	0	0					
+Wigglesworthia glossinidia	132	0	0					
+Saccharopolyspora erythraea	132	7	0					
+Orientia tsutsugamushi	131	1	0					
+Sphingopyxis alaskensis	131	3	0				37	
+Rhodobacter capsulatus	131	8	0					
+Thermotoga petrophila	130	2	2	80	7	0.17	80	thermophile
+Lactobacillus acidophilus	130	36	0					
+Cupriavidus taiwanensis	129	1	0					
+Lacticaseibacillus paracasei	129	81	0					
+Novosphingobium aromaticivorans	128	3	0					
+Bordetella petrii	128	1	0					
+Blochmanniella floridana	127	0	0					
+Pelobacter propionicus	127	1	0				33	
+Wolinella succinogenes	127	1	0					
+Gluconobacter oxydans	126	27	0					
+Janthinobacterium sp.	126	0	0					
+Magnetococcus marinus	126	1	0					
+Syntrophobacter fumaroxidans	126	1	0					
+Paramagnetospirillum magneticum	125	0	0					
+Allorhizobium ampelinum	125	1	0					
+Cutibacterium acnes	125	109	0					
+Chelativorans sp.	125	0	0					
+Caulobacter sp.	125	0	0					
+Chlorobium chlorochromatii	125	0	0					
+Geotalea uraniireducens	125	1	0					
+Delftia acidovorans	124	47	0					
+Syntrophomonas wolfei	124	3	0					
+Acidovorax sp.	124	0	0					
+Chlamydia caviae	123	2	0					
+Bdellovibrio bacteriovorus	123	6	0					
+Parabacteroides distasonis	122	18	0					
+Lactobacillus johnsonii	122	15	0					
+Dichelobacter nodosus	121	2	0					
+Hyphomonas neptunium	121	1	0					
+Desulforamulus reducens	120	1	0					
+Syntrophus aciditrophicus	120	1	0				35	
+Clostridium novyi	120	5	0					
+Lacticaseibacillus casei	120	21	0					
+Leptothrix cholodnii	119	0	0				25	
+Thermoanaerobacter sp.	119	0	0					
+Bartonella tribocorum	118	1	0					
+Lysinibacillus sphaericus	118	589	0					
+Frankia casuarinae	118	1	0					
+Jannaschia sp.	118	0	0					
+Gloeothece citriformis	117	0	0					
+Brevibacillus brevis	117	46	0					
+Brucella ovis	117	10	0					
+Oleidesulfovibrio alaskensis	116	3	1	37	7	0.43		halophile
+Parvibaculum lavamentivorans	116	1	0					
+Rhodococcus erythropolis	116	76	0					
+Rippkaea orientalis	116	0	0					
+Blochmanniella pennsylvanica	115	0	0					
+Chlorobium luteolum	115	2	0					
+Deinococcus geothermalis	115	5	1	47	6.5;8		47	thermophile
+Pediococcus pentosaceus	115	41	0					
+Thermotoga sp.	115	0	0					
+Acidovorax ebreus	115	0	0					
+Leuconostoc mesenteroides	115	44	0					
+Verminephrobacter eiseniae	115	2	0					
+Mycolicibacterium gilvum	115	11	0					
+Thermobifida fusca	115	5	1	50				thermophile
+Glaesserella parasuis	114	6	0					
+Azorhizobium caulinodans	114	3	0					
+Bartonella bacilliformis	114	5	0					
+Sulfurimonas denitrificans	113	1	0					
+Cellvibrio japonicus	113	1	0					
+Caldicellulosiruptor saccharolyticus	112	1	0				70	thermophile
+Teredinibacter turnerae	112	6	1	32.5	8.5	0.3	32.5	alkaliphile,halophile
+Chlorobium phaeovibrioides	112	5	0					
+Lactobacillus helveticus	112	24	0					
+Treponema denticola	111	5	0					
+Phocaeicola vulgatus	111	13	0					
+Maricaulis maris	111	2	0				22.5	
+Acidiphilium cryptum	110	4	0				33.5	
+Campylobacter fetus	110	92	0					
+Variovorax paradoxus	110	22	0					
+Levilactobacillus brevis	110	37	0					
+Exiguobacterium sibiricum	110	3	0				36	
+Granulibacter bethesdensis	110	1	1	36	5.75			acidophile
+Citrifermentans bemidjiense	110	1	0					
+Psychrobacter sp.	110	0	0					
+Rhizorhabdus wittichii	110	1	0					
+Francisella philomiragia	110	4	0					
+Roseiflexus castenholzii	109	1	1	50	7.75		50	alkaliphile,thermophile
+Dinoroseobacter shibae	109	1	1	33	7.75	0.68		halophile
+Lachnoclostridium phytofermentans	108	1	1	37	8.25		37	alkaliphile
+Chlamydia felis	108	1	0					
+Laribacter hongkongensis	108	4	0					
+Helicobacter acinonychis	108	1	0					
+Aliarcobacter butzleri	107	24	0					
+Leifsonia xyli	107	3	0					
+Nitratiruptor sp.	107	0	0					
+Pelagibacter ubique	105	0	0					
+Pelodictyon phaeoclathratiforme	105	1	0					
+Salinibacter ruber	105	1	0					
+Xanthobacter autotrophicus	105	9	0					
+Cyanothece sp.	105	0	0					
+Chlorobaculum parvum	104	1	0					
+Flavobacterium psychrophilum	104	9	0				17.5	
+Exiguobacterium sp.	104	0	0					
+Solibacter usitatus	104	1	0					
+Methylobacterium sp.	104	0	0					
+Erythrobacter litoralis	103	1	0					
+Rubrobacter xylanophilus	103	1	1	60				thermophile
+Thioalkalivibrio sulfidiphilus	102	1	1	35	10	0.4		alkaliphile,halophile
+Pelotomaculum thermopropionicum	102	2	0				55	thermophile
+Polynucleobacter asymbioticus	102	4	0					
+Herpetosiphon aurantiacus	102	3	0					
+Rhodococcus opacus	102	31	3	28;30	7	0.64		halophile
+Campylobacter hominis	102	3	0					
+Ruthia magnifica	101	0	0					
+Protochlamydia amoebophila	100	1	0					
+Nocardioides sp.	100	0	0					
+Flavobacterium johnsoniae	100	5	0				27.5	
+Hamiltonella defensa	100	0	0					
+Mycobacteroides abscessus	99	32	0					
+Arthrobacter sp.	99	0	0					
+Borrelia garinii	99	1	0					
+Corynebacterium jeikeium	99	51	0					
+Chloroherpeton thalassium	99	1	0				25	
+Crocosphaera subtropica	98	0	0					
+Baumannia cicadellinicola	98	0	0					
+Roseiflexus sp.	98	0	0					
+Heliobacterium modesticaldum	98	1	0				52	thermophile
+Chlamydia abortus	97	2	0					
+Chlorobium limicola	97	3	0					
+Methylobacterium radiotolerans	96	7	0					
+Geobacter sp.	96	0	0					
+Methylorubrum populi	95	1	0					
+Geobacillus stearothermophilus	95	26	1	60				thermophile
+Rhodospirillum centenum	95	2	0					
+Campylobacter curvus	95	6	0					
+Geotalea daltonii	95	1	0					
+Thermotoga neapolitana	95	2	0				80	thermophile
+Oenococcus oeni	95	5	0				22	
+Sorangium cellulosum	94	1595	0				30	
+Rickettsia canadensis	93	1	0					
+Beijerinckia indica	93	5	0					
+Trichlorobacter lovleyi	93	1	0					
+Vesicomyosocius okutanii	93	0	0					
+Limosilactobacillus fermentum	93	67	0					
+Sulfurovum sp.	92	0	0					
+Campylobacter concisus	92	18	0					
+Mycoplasmoides gallisepticum	91	2	0					
+Cytophaga hutchinsonii	91	1	0					
+Methylocella silvestris	91	1	1	20	5.5		20	acidophile
+Methylobacterium nodulans	91	1	0					
+Prosthecochloris aestuarii	90	1	0					
+Desulforudis audaxviator	90	0	0					
+Salinispora tropica	89	1	0				21.5	
+Alteromonas mediterranea	89	9	0					
+Rickettsia akari	89	0	0					
+Koribacter versatilis	88	1	0					
+Phenylobacterium zucineum	88	1	0				37	
+Petrotoga mobilis	88	2	0				59	thermophile
+Lawsonia intracellularis	87	1	0					
+Macrococcoides caseolyticum	86	2	0					
+Sulfurihydrogenibium sp.	86	0	0					
+Acidothermus cellulolyticus	86	2	1	55	5.5		55	acidophile,thermophile
+Pseudothermotoga lettingae	85	1	0				65	thermophile
+Afipia carboxidovorans	85	1	0					
+Kineococcus radiotolerans	85	1	0					
+Thermodesulfovibrio yellowstonii	85	1	0					
+Paenarthrobacter aurescens	84	1	0					
+Mycoplasma capricolum	84	2	0					
+Clavibacter michiganensis	84	29	0					
+Rickettsia peacockii	84	0	0					
+Mycoplasma mycoides	83	4	0					
+Mycoplasmopsis pulmonis	83	1	0					
+Chloroflexus aggregans	83	2	0				55	thermophile
+Anoxybacillus flavithermus	83	8	0				62.5	thermophile
+Ehrlichia chaffeensis	82	1	0					
+Gluconacetobacter diazotrophicus	82	1	0					
+Ruminiclostridium cellulolyticum	82	1	0					
+Ehrlichia canis	82	0	0					
+Thermosipho melanesiensis	81	1	0				70	thermophile
+Malacoplasma penetrans	81	1	0					
+Salinispora arenicola	81	2	0				24	
+Leuconostoc citreum	81	15	0					
+Rickettsia africae	81	0	0					
+Frankia alni	80	1	0					
+Polynucleobacter necessarius	80	1	0					
+Desulfosudis oleivorans	79	1	0					
+Lactobacillus gasseri	79	120	0					
+Fervidobacterium nodosum	79	1	1	70	7		70	thermophile
+Campylobacter lari	79	20	0					
+Christiangramia forsetii	78	1	1	23.5	7.5	0.43		halophile
+Caldicellulosiruptor bescii	77	1	1	79			79	thermophile
+Bifidobacterium adolescentis	77	18	0					
+Thermosipho africanus	75	3	0				75	thermophile
+Rickettsia massiliae	75	1	0					
+Micrococcus luteus	74	174	0					
+Desulfovibrio desulfuricans	74	10	0					
+Halothermothrix orenii	73	1	0				60	thermophile
+Solidesulfovibrio magneticus	73	1	0					
+Maridesulfovibrio salexigens	73	1	0					
+Pseudarthrobacter chlorophenolicus	73	1	0				25	
+Borreliella afzelii	73	2	0					
+Desulfatibacillum aliphaticivorans	72	1	1	31.5	7.5	0.41		halophile
+Deinococcus deserti	72	2	0					
+Clavibacter sepedonicus	72	7	0					
+Parafrankia sp.	71	0	0					
+Dictyoglomus thermophilum	70	1	1	75.5	7		78	thermophile
+Persephonella marina	70	1	1	73	6	0.43	73	acidophile,halophile,thermophile
+Desulforapulum autotrophicum	69	1	0					
+Opitutus terrae	68	2	0					
+Bifidobacterium animalis	68	11	0					
+Mesoplasma florum	67	0	0					
+Hydrogenobaculum sp.	67	0	0					
+Dictyoglomus turgidum	66	1	1	72				thermophile
+Borrelia hermsii	66	2	0					
+Ureaplasma urealyticum	64	1	0				32.5	
+Finegoldia magna	64	20	0					
+Corynebacterium urealyticum	63	44	0					
+Brachyspira hyodysenteriae	63	6	0					
+Acidobacterium capsulatum	63	1	0					
+Acholeplasma laidlawii	62	6	0				37	
+Endomicrobium trichonymphae	62	0	0					
+Corynebacterium aurimucosum	61	13	0					
+Azobacteroides pseudotrichonymphae	61	0	0					
+Ehrlichia sennetsu	61	1	0					
+Serratia marcescens	60	107	0					
+Akkermansia muciniphila	60	3	0					
+Mycoplasma mobile	59	1	0				30	
+Kocuria rhizophila	59	14	0				28	
+Lachnospira eligens	59	2	0					
+Aster yellows	57	0	0					
+Renibacterium salmoninarum	57	1	0					
+Beutenbergia cavernae	56	3	0					
+Mycoplasmopsis synoviae	56	1	0					
+Onion yellows	56	0	0					
+Thermomicrobium roseum	56	1	0				72.5	thermophile
+Kosmotoga olearia	56	1	1	65	6.8	0.47	65	halophile,thermophile
+Agrobacterium tumefaciens	54	3	0					
+Borrelia turicatae	53	0	0					
+Methylacidiphilum infernorum	52	0	0					
+Anaplasma phagocytophilum	52	0	0					
+Corynebacterium kroppenstedtii	51	11	0					
+Borrelia recurrentis	47	0	0					
+Elusimicrobium minutum	47	1	0				30	
+Nautilia profundicola	46	1	1	40	7	0.51	40	halophile
+Agathobacter rectalis	45	3	0					
+Pseudomonas sp.	45	0	0					
+Gemmatimonas aurantiaca	43	1	0				30	
+Klebsiella aerogenes	43	28	0					
+Amoebophilus asiaticus	42	0	0					
+Borrelia duttonii	41	0	0					
+Coprothermobacter proteolyticus	40	2	0				63	thermophile
+Citrobacter freundii	39	89	0					
+Streptomyces lividans	38	1	0					
+Bacillus sp.	38	0	0					
+Dickeya dadantii	38	3	0					
+Priestia megaterium	36	67	0					
+Clostridium pasteurianum	35	4	0					
+Mycoplasmopsis agalactiae	34	1	0					
+Dickeya chrysanthemi	34	13	0					
+Klebsiella oxytoca	33	45	0					
+Phytoplasma mali	32	0	0					
+Metamycoplasma arthritidis	32	4	0					
+Enterobacter cloacae	31	64	0					
+Comamonas testosteroni	30	38	0					
+Azospirillum brasilense	30	11	0					
+Phytoplasma australiense	29	0	0					
+Mannheimia haemolytica	29	23	0					
+Aggregatibacter actinomycetemcomitans	28	81	0					
+Karelsulcia muelleri	24	0	0					
+Alkalihalophilus pseudofirmus	24	18	0					
+Formosa agariphila	23	1	1	22	7	0.77;1.28	22	halophile
+Burkholderia cepacia	23	110	0					
+Aquifex pyrophilus	22	1	0				85	thermophile
+Thermostichus vulcanus	21	0	0					
+Allochromatium vinosum	21	8	0					
+Microchaete diplosiphon	20	0	0					
+Pseudomonas sp	19	0	0					
+Spiroplasma citri	18	1	0					
+Enterococcus faecium	18	228	0					
+Acinetobacter calcoaceticus	17	18	0					
+Azotobacter chroococcum	17	15	0					
+Vibrio alginolyticus	17	75	0					
+Streptomyces sp.	16	0	0					
+Halomonas elongata	16	8	0				33.5	
+Bacillus amyloliquefaciens	16	22	0					
+Streptomyces fradiae	15	39	0					
+Streptomyces sp	15	0	0					
+Thermus aquaticus	15	1	0				70	thermophile
+Vibrio anguillarum	15	7	0					
+Thauera aromatica	15	5	0					
+Streptomyces clavuligerus	15	3	0					
+Citrobacter rodentium	15	3	0					
+Enterococcus hirae	14	25	0					
+Photorhabdus luminescens	14	6	0					
+Mastigocladus laminosus	14	0	0					
+Erwinia amylovora	14	7	0					
+Xenorhabdus nematophila	14	2	0					
+Spiroplasma kunkelii	14	1	0				31	
+Niallia circulans	14	26	0					
+Sinorhizobium sp	13	0	0					
+Paenarthrobacter nicotinovorans	13	2	0					
+Rubrivivax gelatinosus	13	4	0					
+Streptomyces antibioticus	13	13	0					
+Peptoclostridium acidaminophilum	13	1	0					
+Leptolyngbya boryana	13	0	0					
+Carsonella ruddii	13	0	0					
+Anabaena sp.	12	0	0					
+Proteus vulgaris	12	39	0					
+Bacillus caldolyticus	12	0	0					
+Streptococcus salivarius	12	68	0					
+Shewanella violacea	12	1	0					
+Streptomyces virginiae	12	7	0					
+Vibrio harveyi	12	10	0					
+Fructilactobacillus sanfranciscensis	12	24	0					
+Pantoea ananatis	12	7	0					
+Bacillus spizizenii	11	10	0					
+Prochlorothrix hollandica	11	1	0					
+Streptomyces lavendulae	11	43	0					
+Streptomyces venezuelae	11	11	0					
+Pseudomonas protegens	11	1	0					
+Streptosporangium roseum	11	4	0					
+Catenulispora acidiphila	11	1	1	25	6	0.26	25	acidophile,halophile
+Enterobacter agglomerans	11	37	0					
+Amycolatopsis orientalis	10	10	0					
+Magnetospirillum gryphiswaldense	10	1	0					
+Halothiobacillus neapolitanus	10	4	1	30	6.7	0.43	30	halophile
+Elizabethkingia meningoseptica	10	76	0					
+Streptococcus mitis	10	106	0					
+Neisseria lactamica	10	16	0					
+Unknown prokaryotic	10	0	0					
+Rhizobium tropici	10	1	0					
+Streptomyces glaucescens	10	13	0					
+Agrobacterium vitis	10	4	0					
+Streptomyces viridochromogenes	10	21	0					
+Rhizobium sp.	9	0	0					
+Streptomyces peucetius	9	11	0					
+Cronobacter turicensis	9	1	0					
+Streptomyces hygroscopicus	9	26	0					
+Kitasatospora aureofaciens	9	514	0					
+Acinetobacter sp.	9	0	0					
+Paracoccus versutus	9	2	0				32.5	
+Acetoanaerobium sticklandii	9	1	0				33.5	
+Sphingobium sp.	9	0	0					
+Staphylococcus xylosus	9	10	0				30	
+Paracoccus pantotrophus	9	14	0					
+Pseudescherichia vulneris	9	15	0					
+Streptomyces anulatus	9	18	0					
+Rhodococcus rhodochrous	8	33	0					
+Ruminococcus albus	8	2	0					
+Photobacterium leiognathi	8	2	0					
+Acetobacterium woodii	8	1	0					
+Pseudomonas chlororaphis	8	16	0					
+Paenibacillus sp.	8	0	0					
+Corynebacterium ammoniagenes	8	12	0				30	
+Heliobacterium mobile	8	1	0					
+Arthrobacter globiformis	8	64	0					
+Bacillus sp	8	0	0					
+Anabaena variabilis	8	1	0					
+Rhodococcus sp	8	0	0					
+Streptantibioticus cattleyicolor	8	0	0					
+Ectopseudomonas oleovorans	8	27	0					
+Musicola paradisiaca	8	1	0					
+Methylophilus methylotrophus	8	5	0					
+Mycolicibacterium fortuitum	8	14	0					
+Blastochloris viridis	8	2	0					
+Pectobacterium parmentieri	7	1	0					
+Herbaspirillum seropedicae	7	5	0					
+Streptomyces niveus	7	6	0					
+Alcaligenes sp	7	0	0					
+Desulfomicrobium norvegicum	7	1	0					
+Thermomonospora curvata	7	1	0				50	thermophile
+Eubacterium barkeri	7	1	0				37	
+Paenibacillus polymyxa	7	37	0					
+Streptomyces violaceoruber	7	24	0					
+Butyrivibrio fibrisolvens	7	1	0				37	
+Ralstonia solanacearum	7	33	0					
+Propionibacterium freudenreichii	7	8	0					
+Clostridium scindens	7	8	0					
+Lacticaseibacillus rhamnosus	7	179	0					
+Amycolatopsis methanolica	7	2	0					
+Komagataeibacter xylinus	7	9	0					
+Sporosarcina pasteurii	7	7	0					
+Streptomyces coeruleorubidus	7	2	0					
+Alcaligenes faecalis	7	62	0					
+Edwardsiella tarda	7	25	0					
+Metamycoplasma hominis	7	5	0					
+Sphingobium indicum	7	6	3	28	7	0.34		halophile
+Liberibacter asiaticus	6	0	0					
+Spirochaeta aurantia	6	1	0					
+Mesomycoplasma hyorhinis	6	3	0					
+Nakamurella multipartita	6	1	0				25	
+Rickettsia montanensis	6	1	0					
+Bacillus caldotenax	6	0	0					
+Rhodocyclus tenuis	6	1	0					
+Thiocapsa roseopersicina	6	2	0					
+Vibrio proteolyticus	6	1	0					
+Vibrio sp.	6	0	0					
+Clostridium sp.	6	0	0					
+Megalodesulfovibrio gigas	6	1	0					
+Mycolicibacterium goodii	6	2	0					
+Streptomyces rimosus	6	46	0					
+Agrobacterium radiobacter	6	63	0					
+Bilophila wadsworthia	6	7	0					
+Clostridium sporogenes	6	26	0				35	
+Aneurinibacillus thermoaerophilus	6	16	0					
+Propionigenium modestum	6	1	0					
+Alteromonas sp.	6	0	0					
+Streptomyces albus	6	55	0					
+Paraclostridium sordellii	6	10	0					
+Ruminococcus flavefaciens	6	3	0					
+Chlorobaculum thiosulfatiphilum	6	1	0					
+Proteus hauseri	6	3	0					
+Arthrobacter sp	6	0	0					
+Rhizobium fredii	5	5	0					
+Thermobispora bispora	5	2	1	45				thermophile
+Providencia stuartii	5	19	0					
+Pseudogemmobacter blasticus	5	1	0					
+Alicyclobacillus acidocaldarius	5	9	0				62.5	thermophile
+Streptococcus parasanguinis	5	30	0					
+Edwardsiella piscicida	5	1	0				29	
+Metapseudomonas furukawaii	5	1	0					
+Brevibacillus choshinensis	5	3	0					
+Rhodococcoides fascians	5	27	0					
+Streptococcus equinus	5	14	0					
+Mycobacterium kansasii	5	37	0					
+Streptomyces arenae	5	3	0					
+Rhodoblastus acidophilus	5	3	0					
+Burkholderia sp	5	0	0					
+Chlamydophila psittaci	5	3	0					
+Moritella marina	5	1	0					
+Hydrogenobacter thermophilus	5	1	1	72.5			72.5	thermophile
+Moraxella catarrhalis	5	38	0					
+Actinosynnema mirum	5	2	0					
+Clostridium butyricum	5	10	0				33.5	
+Alcaligenes xylosoxydans	5	74	0					
+Pediococcus acidilactici	5	30	0					
+Streptomyces ambofaciens	5	6	0					
+Anaerotignum propionicum	5	2	0					
+Amycolatopsis mediterranei	5	7	0					
+Pantoea vagans	5	1	0					
+Thermoanaerobacter brockii	5	4	0				57.5	thermophile
+Limnospira platensis	5	0	0					
+Aggregatibacter aphrophilus	5	129	0					
+Burkholderia sp.	5	0	0					
+Pantoea ananas	5	7	0					
+Vibrio mimicus	5	21	0					
+Thermoanaerobacterium saccharolyticum	5	2	0				60	thermophile
+Xenorhabdus bovienii	5	1	0					
+Neorhizobium galegae	5	3	0					
+Lysobacter enzymogenes	5	2	0					
+Sulfurihydrogenibium azorense	5	1	1	68	6	0.02	68	acidophile,thermophile
+Helicobacter felis	5	2	0					
+Methylosinus trichosporium	5	1	0					
+Prodigiosinella confusarubida	5	0	0					
+Halorhodospira halochloris	5	1	0					
+Chlamydia psittaci	5	3	0					
+Neomoorella thermoacetica	5	9	0					
+Corynebacterium melassecola	5	0	0					
+Acinetobacter guillouiae	5	13	0					
+Streptomyces kanamyceticus	4	5	0					
+Rickettsia sibirica	4	1	0					
+Acidimicrobium ferrooxidans	4	1	1	47.5	2		48	acidophile,thermophile
+Streptomyces collinus	4	5	0					
+Streptococcus dysgalactiae	4	62	0					
+Prosthecochloris vibrioformis	4	1	0					
+Streptomyces cacaoi	4	5	0					
+Photobacterium phosphoreum	4	4	0				22.5	
+Streptomyces filamentosus	4	2	0					
+Xylanimonas cellulosilytica	4	1	0					
+Tetragenococcus halophilus	4	33	0					
+Haliangium ochraceum	4	1	0				32	
+Thermoanaerobacterium thermosulfurigenes	4	2	0				60	thermophile
+Photobacterium damsela	4	10	0					
+Lactobacillus leichmannii	4	1	0					
+Neisseria flavescens	4	3	0					
+Streptomyces exfoliatus	4	4	0					
+Rhodococcus sp.	4	0	0					
+Gordonia bronchialis	4	14	0					
+Actinobacillus suis	4	11	0					
+Francisella novicida	4	1	0					
+Streptomyces cyaneus	4	4	0					
+Geodermatophilus obscurus	4	2	0					
+Acidaminococcus fermentans	4	2	0				33.5	
+Acetobacter pasteurianus	4	22	0					
+Parageobacillus thermoglucosidasius	4	5	1	50	8		60	thermophile
+Mycoplasmoides pirum	4	1	0					
+Eggerthella lenta	4	67	0					
+Marinomonas mediterranea	4	1	0					
+Paraclostridium bifermentans	4	15	0					
+Morganella morganii	4	34	0					
+Klebsiella michiganensis	4	7	0				35	
+Xanthobacter flavus	4	7	0					
+Treponema phagedenis	4	2	0					
+Micromonospora echinospora	4	6	0					
+Rhodothermus marinus	4	6	0				65	thermophile
+Brevibacillus parabrevis	4	10	0					
+Pseudomonas tolaasii	4	5	0					
+Rickettsia rhipicephali	4	0	0					
+Streptomyces bingchenggensis	4	0	0					
+Ralstonia sp	4	0	0					
+Comamonas sp	4	0	0					
+Lentzea aerocolonigenes	4	6	0					
+Bacteroides ovatus	4	11	0					
+Streptomyces globisporus	4	22	0					
+Cytobacillus firmus	4	11	0					
+Cupriavidus sp.	4	0	0					
+Brevundimonas diminuta	4	49	0					
+Ruminiclostridium josui	4	1	0					
+Neorickettsia risticii	4	1	0					
+Thermoanaerobacterium thermosaccharolyticum	4	5	0				58.5	thermophile
+Mediterraneibacter gnavus	4	49	0					
+Malonomonas rubra	4	2	0					
+Veillonella parvula	4	17	0					
+Streptomyces halstedii	4	18	0					
+Rickettsia parkeri	4	0	0					
+Castellaniella defragrans	4	4	0					
+Yersinia ruckeri	4	2	0					
+Solidesulfovibrio fructosivorans	4	1	0					
+Photorhabdus asymbiotica	4	1	0					
+Haemophilus parainfluenzae	4	79	0					
+Kribbella flavida	4	1	0					
+Pantoea stewartii	4	3	0					
+Paramagnetospirillum magnetotacticum	4	1	0					
+Streptomyces mobaraensis	4	2	0					
+Cellulomonas fimi	3	2	0					
+Alcaligenes sp.	3	0	0					
+Amycolatopsis lactamdurans	3	0	0					
+Salmonella pullorum	3	0	0					
+Salmonella muenchen	3	0	0					
+Streptomyces toyocaensis	3	0	0					
+Nonlabens ulvanivorans	3	6	0				25	
+Thermoactinomyces vulgaris	3	55	0					
+Sanguibacter keddieii	3	1	0					
+Clostridium symbiosum	3	11	0					
+Enterococcus casseliflavus	3	36	0					
+Liberibacter africanus	3	0	0					
+Paraburkholderia graminis	3	9	0					
+Thermoclostridium stercorarium	3	4	0					
+Haemophilus aegyptius	3	5	0					
+Citrobacter amalonaticus	3	15	0					
+Rothia mucilaginosa	3	67	0					
+Mycobacterium scrofulaceum	3	12	0				35	
+Hathewaya histolytica	3	6	0				37	
+Kangiella koreensis	3	1	1	33.5	7.5	0.43	33.5	halophile
+Mycoplasmopsis fermentans	3	3	0					
+Fibrobacter succinogenes	3	2	0					
+Bradyrhizobium sp	3	0	0					
+Roseibium aggregatum	3	3	0					
+Aquincola tertiaricarbonis	3	1	0				30	
+Mycobacterium intracellulare	3	30	3	37			34	
+Pseudanabaena tenuis	3	0	0					
+Capnocytophaga canimorsus	3	121	0					
+Nostoc commune	3	0	0					
+Sedimentibacter hydroxybenzoicus	3	1	0					
+Streptomyces violaceus	3	11	0					
+Myxococcus fulvus	3	524	0				28	
+Acinetobacter johnsonii	3	29	0					
+Mammaliicoccus sciuri	3	24	0					
+Brachybacterium faecium	3	1	0					
+Salmonella montevideo	3	0	0					
+Clostridium ljungdahlii	3	1	0				37	
+Nocardia uniformis	3	5	0					
+Helicobacter mustelae	3	2	0					
+Pantoea sp.	3	0	0					
+Devosia riboflavina	3	1	0					
+Anabaena cylindrica	3	0	0					
+Zobellia galactanivorans	3	1	0				35	
+Streptococcus oralis	3	69	0					
+Mycobacterium gordonae	3	31	0				35	
+Paenibacillus barcinonensis	3	1	1	25	7.7	0.43		alkaliphile,halophile
+Tomato big	3	0	0					
+Moorena producens	3	0	0					
+Microbacterium sp	3	0	0					
+Lentilactobacillus hilgardii	3	10	0					
+Aromatoleum evansii	3	2	0					
+Tremblaya princeps	3	0	0					
+Clostridium saccharobutylicum	3	1	0					
+Micromonospora sp.	3	0	0					
+Raoultella planticola	3	16	0					
+Mycolicibacterium hassiacum	3	2	0					
+Citrobacter braakii	3	19	0					
+Acidiphilium rubrum	3	0	0				27.5	
+Sphingomonas paucimobilis	3	41	0					
+Streptomyces nogalater	3	3	0					
+Streptomyces scabiei	3	33	0					
+Mycolicibacterium phlei	3	23	0					
+Streptomyces galbus	3	3	0					
+Nitrobacter vulgaris	3	1	0				29	
+Brevundimonas vesicularis	3	21	0					
+Salmonella thompson	3	0	0					
+Methylomonas sp	3	0	0					
+Thiomonas delicata	3	2	0				32.5	
+Actinoplanes missouriensis	3	6	0				28	
+Pseudoalteromonas sp.	3	0	0					
+Acinetobacter radioresistens	3	35	0					
+Proteus sp.	3	0	0					
+Enterobacter lignolyticus	3	0	0					
+Streptomyces achromogenes	3	3	0					
+Micromonospora griseorubida	3	0	0					
+Simkania negevensis	3	1	0					
+Ferrimonas balearica	3	1	0					
+Sphaerobacter thermophilus	3	1	1	55	8.5		55	thermophile
+Streptomyces viridosporus	3	3	0					
+Streptomyces ramocissimus	3	0	0					
+Clostridium cellulovorans	3	1	0				37	
+Bradyrhizobium elkanii	3	9	0					
+Magnetospirillum molischianum	3	1	0					
+Heyndrickxia coagulans	3	16	0					
+Pasteurella haemolytica-like	3	0	0					
+Neisseria mucosa	3	40	0					
+Actinoplanes sp.	3	0	0					
+Thermobaculum terrenum	3	0	0					
+Rahnella sp.	3	0	0					
+Gluconacetobacter polyoxogenes	3	0	0					
+Acetobacter aceti	3	8	0					
+Streptococcus downei	3	1	0					
+Aphanothece halophytica	3	0	0					
+Streptomyces carzinostaticus	3	0	0					
+Campylobacter coli	3	104	0					
+Fusobacterium mortiferum	3	3	0					
+Achromobacter lyticus	2	0	0					
+Hyphomicrobium methylovorum	2	1	0				28	
+Bacillus paralicheniformis	2	3	0				37	
+Streptomyces olivaceus	2	23	0					
+Calditerrivibrio nitroreducens	2	1	1	55	7.25	0.04	55	thermophile
+Loofah witches'-broom	2	0	0					
+Stackebrandtia nassauensis	2	1	1	26		1.11		halophile
+Saccharopolyspora spinosa	2	1	0					
+Treponema maltophilum	2	1	0					
+Desulfurispirillum indicum	2	1	1	28	7.4	0.4		halophile
+Alteromonas sp	2	0	0					
+Methylosulfonomonas methylovora	2	0	0					
+Metapseudomonas resinovorans	2	2	0					
+Flavobacterium sp.	2	0	0					
+Aneurinibacillus migulanus	2	4	0					
+Acidiphilium multivorum	2	4	0				31	
+Meiothermus ruber	2	1	0				62.5	thermophile
+Roseobacter litoralis	2	1	0					
+Paenibacillus larvae	2	47	0					
+Thiobacillus thioparus	2	4	0					
+Azorhizophilus paspali	2	6	0					
+Selenomonas ruminantium	2	3	0					
+Pseudomonas knackmussii	2	1	0					
+Xylanibacter ruminicola	2	1	0					
+Lentilactobacillus buchneri	2	9	0					
+Streptococcus macedonicus	2	7	0					
+Chondromyces crocatus	2	2	0				29	
+Pseudomonas marginalis	2	14	2	19.5		0.43	25.5	halophile
+Erwinia pyrifoliae	2	5	0					
+Corynebacterium pseudotuberculosis	2	14	0					
+Streptomyces griseoviridis	2	1	0					
+Paracoccus zeaxanthinifaciens	2	1	0					
+Rhodopseudomonas sp.	2	0	0					
+Paracoccus sp.	2	0	0					
+Variovorax sp.	2	0	0					
+Halomonas halodenitrificans	2	1	0				27.5	
+Erwinia billingiae	2	2	0				29	
+Kyrpidia tusciae	2	1	0				55	thermophile
+Aphanothece sacrum	2	0	0					
+Streptomyces sahachiroi	2	0	0					
+Thauera aminoaromatica	2	2	0				28	
+Corynebacterium sp.	2	0	0					
+Pseudomonas denitrificans	2	0	0					
+Clover yellow	2	0	0					
+Enterobacter hormaechei	2	21	0					
+Neisseria animalis	2	4	0					
+Segniliparus rotundus	2	2	0				33	
+Streptomyces ribosidificus	2	1	0					
+Conexibacter woesei	2	1	0					
+Streptomyces olivaceoviridis	2	2	0					
+Rickettsia slovaca	2	0	0					
+Megasphaera elsdenii	2	3	0					
+Sporosarcina globispora	2	7	0					
+Kuenenia stuttgartiensis	2	0	0					
+Staphylococcus warneri	2	70	0				35	
+Komagataeibacter europaeus	2	6	0					
+Acinetobacter sp	2	0	0					
+Yersinia intermedia	2	24	0					
+Xenorhabdus hominickii	2	1	0					
+Lysobacter sp.	2	0	0					
+Thermus sp.	2	0	0					
+Pseudomonas canavaninivorans	2	2	0					
+Rhodococcus globerulus	2	12	0					
+Paenibacillus amylolyticus	2	12	0				29	
+Gordonia sp.	2	0	0					
+Salmonella sp	2	0	0					
+Bacillus thermoproteolyticus	2	0	0					
+Xanthomonas vasicola	2	3	0					
+Pseudomonas taetrolens	2	3	0					
+Borreliella andersonii	2	0	0					
+Thermus caldophilus	2	0	0					
+Thermochromatium tepidum	2	1	0				49	thermophile
+Dietzia sp.	2	0	0					
+Streptomyces arginensis	2	0	0					
+Serratia plymuthica	2	14	0					
+Gallionella capsiferriformans	2	0	0					
+Raoultella ornithinolytica	2	10	0					
+Xanthomonas perforans	2	3	0					
+Mycolicibacterium neoaurum	2	8	0					
+Gamma-proteobacterium EBAC31A08	2	0	0					
+Mycolicibacterium thermoresistibile	2	3	0					
+Bifidobacterium dentium	2	8	0					
+Neisseria sicca	2	43	0					
+Amycolatopsis sp	2	0	0					
+Escherichia albertii	2	1	0					
+Sphingobium herbicidovorans	2	1	0					
+Legionella micdadei	2	3	0					
+Thermobifida alba	2	2	0				42.5	
+Streptomyces griseosporeus	2	3	0					
+Yersinia entomophaga	2	2	0					
+Streptomyces rubellomurinus	2	0	0					
+Brevibacterium linens	2	8	0					
+Vibrio furnissii	2	3	0					
+Mycobacterium shimoidei	2	2	0				41	
+Bradyrhizobium japonicum	2	13	0					
+Enterococcus gallinarum	2	53	0					
+Sinomonas cyclohexanicum	2	0	0					
+Fischerella ambigua	2	0	0					
+Salmonella infantis	2	0	0					
+Stigmatella aurantiaca	2	12	0				30	
+Collimonas sp.	2	0	0					
+Bacillus methanolicus	2	1	0				55	thermophile
+Alcaligenes hydrogenophilus	2	0	0					
+Acinetobacter venetianus	2	2	0					
+Planobispora rosea	2	1	0					
+Colwellia maris	2	1	0					
+Leptotrichia buccalis	2	31	0					
+Vibrio sp	2	0	0					
+Thioalkalivibrio sp.	2	0	0					
+Klebsiella sp	2	0	0					
+Salmonella anatum	2	0	0					
+Carnobacterium sp.	2	0	0					
+Salmonella abortus-equi	2	0	0					
+Methylovorus sp.	2	0	0					
+Kytococcus sedentarius	2	6	0					
+Eikenella corrodens	2	50	0					
+Pedosphaera parvula	2	0	0					
+Azospira oryzae	2	6	0					
+Capnocytophaga ochracea	2	14	0					
+Streptomyces pristinaespiralis	2	1	0					
+Desulfuromonadales bacterium	2	0	0					
+Winmispira thermophila	2	2	0					
+Leuconostoc lactis	2	37	0					
+Caldithrix abyssi	2	1	0				60	thermophile
+Porphyromonas endodontalis	2	1	0					
+Raoultella terrigena	2	13	0					
+Aminobacter aminovorans	2	10	0					
+Intrasporangium calvum	2	5	0					
+Azotobacter salinestris	2	1	0					
+Sphingobacterium multivorum	2	32	0					
+Aphanizomenon flos-aquae	2	0	0					
+Mycolicibacterium austroafricanum	2	4	0					
+Chryseobacterium sp.	2	0	0					
+Pseudoxanthomonas mexicana	2	4	1	33.5	8	0.34	33.5	alkaliphile,halophile
+Rickettsia australis	2	0	0					
+Ancylobacter novellus	2	1	0					
+Actinomyces naeslundii	2	81	0					
+Magnetospirillum fulvum	2	6	0					
+Ilyobacter polytropus	2	1	0				30	
+Marinobacter adhaerens	2	1	1	36	8	0.68	36	alkaliphile,halophile
+Carnobacterium maltaromaticum	2	20	0				30	
+Paucimonas lemoignei	2	2	0					
+Streptoalloteichus hindustanus	2	2	0				45	thermophile
+Jonesia denitrificans	2	1	0					
+Psychrobacter immobilis	2	31	0				22.5	
+Ketogulonicigenium vulgare	2	0	0					
+Fervidobacterium islandicum	2	1	0				65	thermophile
+Eubacterium cellulosolvens	2	1	0					
+Myroides profundi	2	2	0				32.5	
+Phytoplasma sp.	2	0	0					
+Salmonella bongori	2	2	0					
+Streptomyces galilaeus	2	10	0					
+Evansella cellulosilytica	2	1	1	37	9.5	1.28		alkaliphile,halophile
+Ferdinandcohnia aciditolerans	2	1	0					
+Prunus armeniaca	2	0	0					
+Streptomyces lincolnensis	2	2	0					
+Sphingobium chlorophenolicum	2	3	0					
+Yersinia aleksiciae	2	10	0					
+Bartonella grahamii	2	1	0					
+Aquipseudomonas alcaligenes	2	12	0					
+Tractidigestivibacter scatoligenes	2	1	0					
+Treponema porcinum	2	1	0					
+Capnocytophaga granulosa	2	8	0					
+Moritella sp.	2	0	0					
+Litchfieldella anticariensis	2	2	2	32.5	7.5	1.28		halophile
+Listeria seeligeri	2	16	0					
+Vibrio splendidus	2	16	1					
+Avibacterium volantium	2	7	0					
+Streptococcus iniae	2	11	0					
+Aetokthonos hydrillicola	2	0	0					
+Photorhabdus temperata	2	2	0					
+Ruminiclostridium hungatei	2	1	0					
+Desmonostoc sp.	2	0	0					
+Ilyobacter tartaricus	2	1	0					
+Nitrosococcus halophilus	2	1	0					
+Mycoplasma sp	2	0	0					
+Brucella neotomae	2	10	0					
+Acholeplasma sp	2	0	0					
+Streptomyces davaonensis	2	1	0					
+Kluyvera intermedia	2	6	0					
+Thiocystis violacea	2	2	0					
+Paenarthrobacter ureafaciens	2	2	0					
+Nocardiopsis dassonvillei	2	16	0					
+Enterococcus italicus	2	4	1	37	9.6	0.86		alkaliphile,halophile
+Spirosoma linguale	2	3	0					
+Clostridium scatologenes	2	1	0					
+Caldalkalibacillus thermarum	2	1	1	60	8.5	0.51	60	alkaliphile,halophile,thermophile
+Neisseria polysaccharea	2	2	0					
+Listeria grayi	2	8	0					
+Microbacterium testaceum	2	8	0					
+Anaplasma centrale	2	0	0					
+Streptomyces nodosus	2	1	0					
+Aeromonas caviae	2	41	0					
+Alkalihalobacillus alcalophilus	2	5	0					
+Pseudomonas straminea	2	3	0					
+Schinkia azotoformans	2	4	0					
+Tsukamurella paurometabola	2	9	0					
+Thermus oshimai	2	3	0					
+Rhodovulum sp.	2	0	0					
+Pseudoalteromonas piscicida	2	4	0				30	
+Kitasatospora setae	2	1	0					
+Listeria ivanovii	2	16	0					
+Streptomyces purpurascens	2	7	0					
+Alteromonas naphthalenivorans	2	1	0				27.5	
+Sporosarcina ureae	2	8	0					
+Planktothrix agardhii	2	0	0					
+Desmonostoc muscorum	2	1	0					
+Limnospira maxima	2	0	0					
+Ideonella dechloratans	2	1	0					
+Streptomyces chartreusis	2	10	0					
+Heliobacterium chlorum	1	1	0				38.5	
+Planococcus sp.	1	0	0					
+Anaerostipes caccae	1	2	0					
+Providencia rettgeri	1	23	0					
+Methylovorus glucosotrophus	1	2	0					
+Oceanobacter kriegii	1	2	0					
+Streptomyces olivochromogenes	1	3	0					
+Rickettsia amblyommatis	1	1	0					
+Desulfosporosinus orientis	1	2	0					
+Serratia ficaria	1	8	0					
+Corynebacterium nephridii	1	1	0					
+Streptomyces thioluteus	1	1	0					
+Desulfarculus baarsii	1	1	0					
+Mycolicibacterium pulveris	1	1	0					
+Mycolicibacterium fallax	1	1	0					
+Spirulina sp.	1	0	0					
+Spiroplasma monobiae	1	1	0					
+Scardovia inopinata	1	2	0					
+Desulfomicrobium baculatum	1	4	0					
+Niabella drilacis	1	1	0					
+Bacillus vallismortis	1	3	0				29	
+Frankia sp.	1	0	0					
+Streptococcus sp.	1	0	0					
+Loktanella atrilutea	1	1	1	27.5	7	0.68		halophile
+Flavobacterium lutescens	1	2	0					
+Caballeronia cordobensis	1	1	0					
+Riftia pachyptila	1	0	0					
+Citrobacter intermedius	1	0	0					
+Sphingobacterium faecium	1	1	0					
+Bergeriella denitrificans	1	2	0					
+Marinomonas posidonica	1	1	0					
+Latilactobacillus curvatus	1	22	0					
+Brevibacterium aurantiacum	1	3	0					
+Sinomonas sp.	1	0	0					
+Mycoplasmopsis arginini	1	2	0					
+Thauera selenatis	1	1	0					
+Streptomyces lasalocidi	1	2	0					
+Sinorhizobium terangae	1	2	0					
+Thermocrinis albus	1	2	0				85	thermophile
+Staphylococcus hyicus	1	10	0				32.5	
+Rhizobium sp	1	0	0					
+Streptomyces limosus	1	64	0					
+Microbacterium trichothecenolyticum	1	1	0					
+Dyadobacter fermentans	1	2	0					
+Lelliottia amnigena	1	11	0					
+Moritella profunda	1	1	0				2	psychrophile
+Corynebacterium amycolatum	1	69	0					
+Treponema medium	1	0	0					
+Gluconobacter japonicus	1	1	1	25	5.5			acidophile
+Hoeflea phototrophica	1	1	1	31	7	0.64	31	halophile
+Streptomyces fimbriatus	1	1	0					
+Streptobacillus moniliformis	1	19	0					
+Arcanobacterium haemolyticum	1	54	0					
+Chlorante-Aster yellows	1	0	0					
+Bifidobacterium breve	1	36	0					
+Hyphomicrobium sulfonivorans	1	1	0				30	
+Accumulibacter regalis	1	0	0					
+Saccharothrix syringae	1	1	0					
+Cellulosimicrobium cellulans	1	23	0					
+Erythrobacter longus	1	1	0					
+Shewanella hanedai	1	6	0				15	psychrophile
+Streptomyces avidinii	1	208	0					
+Thermanaerosceptrum fracticalcis	1	1	0					
+Lewinella persica	1	1	0				25	
+Limnospira fusiformis	1	0	0					
+Roseburia hominis	1	2	0					
+Halomonas sp	1	0	0					
+Nocardioides simplex	1	12	0					
+Bacillus thermotolerans	1	1	1	50	6.75	0.3		halophile,thermophile
+Abiotrophia defectiva	1	39	0					
+Neisseria pharyngis	1	0	0					
+Staphylococcus staphylolyticus	1	0	0					
+Denitromonas iodatirespirans	1	1	0					
+Maribacter sp.	1	0	0					
+Salmonella potsdam	1	0	0					
+Leadbetterella byssophila	1	1	0					
+Staphylococcus schleiferi	1	7	0					
+Alteromonas macleodii	1	14	0				33.5	
+Dickeya zeae	1	1	0					
+Eubacterium ramulus	1	3	0				37	
+Streptomyces jumonjinensis	1	0	0					
+Virgibacillus salexigens	1	3	2	37	7.5	0.51	37	halophile
+Hirschia baltica	1	1	0					
+Enterococcus sp	1	0	0					
+Thioalkalivibrio nitratireducens	1	1	0					
+Streptomyces griseoverticillatus	1	4	0					
+Streptomyces atratus	1	1	0					
+Streptomyces vinaceus	1	3	0					
+Streptomyces muensis	1	3	0				28	
+Leisingera caerulea	1	1	1	24	7.25	0.6	24	halophile
+Roseovarius nubinhibens	1	1	0				30	
+Leptotrichia shahii	1	1	0					
+Dehalobacter restrictus	1	1	0					
+Methylomonas sp.	1	0	0					
+Streptacidiphilus jiangxiensis	1	1	0					
+Flavobacterium frigidimaris	1	1	0				18	
+Photobacterium angustum	1	1	0					
+Pseudoalteromonas haloplanktis	1	5	0				30	
+Apple proliferation	1	0	0					
+Streptomyces turgidiscabies	1	8	0					
+Colwellia sp	1	0	0					
+Pseudonocardia dioxanivorans	1	1	1	28;30		0.43		halophile
+Rahnella aquatilis	1	21	0					
+Mesorhizobium plurifarium	1	1	0					
+Thiomonas intermedia	1	1	0				32.5	
+Lancefieldella parvula	1	5	0					
+Spiroplasma melliferum	1	1	0					
+Pseudomonas reinekei	1	1	0					
+Leptospira meyeri	1	9	0					
+Rhodoplanes tepidamans	1	1	0				40	
+Komagataeibacter sucrofermentans	1	1	0					
+Bifidobacterium bifidum	1	24	0					
+Thiothrix nivea	1	1	0				27.5	
+Butyribacterium methylotrophicum	1	1	0					
+Halothece sp.	1	0	0					
+Geobacillus genomosp.	1	0	0					
+Rhodothalassium salexigens	1	1	0				40	
+Leuconostoc gelidum	1	9	0					
+Bacillus atrophaeus	1	14	0				29	
+Yersinia bercovieri	1	6	0					
+Streptococcus cristatus	1	12	0					
+Paenibacillus alvei	1	48	0					
+Methyloversatilis universalis	1	5	0				33.5	
+Vogesella indigofera	1	1	0					
+Mesomycoplasma conjunctivae	1	1	0					
+Atlantibacter hermannii	1	28	0					
+Pasteuria penetrans	1	0	0					
+Acinetobacter lwoffii	1	51	1					
+Desulfococcus multivorans	1	1	0					
+Leifsonia aquatica	1	31	0				28	
+Streptomyces pseudogriseolus	1	2	0					
+Avibacterium gallinarum	1	25	0					
+Borrelia bissettiae	1	1	0					
+Burkholderia pyrrocinia	1	1	0					
+Piscinibacter sakaiensis	1	1	0					
+Sagittula stellata	1	1	0				30	
+Pseudoalteromonas ulvae	1	1	0					
+Leuconostoc gasicomitatum	1	3	0					
+Virgibacillus pantothenticus	1	8	0				37	
+Pseudomonas viridiflava	1	5	0					
+Virgibacillus halodenitrificans	1	1	0				38	
+Actinobacillus equuli	1	22	0					
+Allochromatium warmingii	1	2	0					
+Fervidobacterium gondwanense	1	1	0				66.5	thermophile
+Ectothiorhodospira mobilis	1	5	0					
+Thermus sp	1	0	0					
+Rhizobium viscosum	1	3	0					
+Bartonella clarridgeiae	1	2	0					
+Brevibacterium helvolum	1	0	0					
+Moraxella sp	1	0	0					
+Salmonella austin	1	0	0					
+Streptomyces azureus	1	1	0					
+Sphingomonas sp.	1	0	0					
+Neisseria elongata	1	49	0				35	
+Gallibacterium anatis	1	3	0					
+Pararhodospirillum photometricum	1	4	0					
+Pseudomonas cannabina	1	1	0					
+Photobacterium sp.	1	0	0					
+Pelodictyon luteolum	1	2	0					
+Enterococcus sp.	1	0	0					
+Bacillus altitudinis	1	3	0				33.5	
+Thalassovita gelatinovora	1	1	0					
+Slackia heliotrinireducens	1	1	0					
+Gottschalkia purinilytica	1	1	0					
+Gloeobacter kilaueensis	1	0	0					
+Salmonella enterica	1	422	0					
+Anaeroplasma abactoclasticum	1	1	0					
+Ureibacillus thermosphaericus	1	5	0				60	thermophile
+Bacillus mojavensis	1	13	0				29	
+Desulfofundulus thermocisternus	1	1	0					
+Staphylococcus cohnii	1	25	0					
+Malacoplasma iowae	1	1	0					
+Thiomicrospira cyclica	1	1	1		9.5			alkaliphile
+Serratia rubidaea	1	14	0					
+Streptomyces viridifaciens	1	0	0					
+Herbinix hemicellulosilytica	1	1	0				55	thermophile
+Mycolicibacterium mucogenicum	1	11	0					
+Psychrobacter lutiphocae	1	1	1	23.5		0.51		halophile
+Methylomonas aminofaciens	1	0	0					
+Cohnella laeviribosi	1	1	1	45	6.5	0.06	45	thermophile
+Photobacterium damselae	1	3	0					
+Peptoclostridium litorale	1	1	0					
+Clostridium haemolyticum	1	3	0				37	
+Halomonas eurihalina	1	1	0					
+Rhodococcus qingshengii	1	76	0					
+Clostridium longisporum	1	0	0					
+Terrabacter sp.	1	0	0					
+Mycetohabitans rhizoxinica	1	5	0					
+Streptococcus vestibularis	1	15	0					
+Aeromicrobium erythreum	1	1	0				35	
+Streptomyces lividus	1	0	0					
+Allokutzneria albata	1	2	0				37	
+Acinetobacter junii	1	14	0					
+Streptomyces bikiniensis	1	3	0					
+Thermoleophilum album	1	1	0				60	thermophile
+Streptomyces laurentii	1	1	0					
+Pseudomonas cedrina	1	2	0					
+Halanaerobium praevalens	1	1	0				37	
+Neisseria subflava	1	17	0					
+Acinetobacter genomosp.	1	0	0					
+Achromobacter aegrifaciens	1	8	0					
+Streptomyces cyanogenus	1	1	0					
+Methylococcus thermophilus	1	0	0					
+Blautia hydrogenotrophica	1	3	0					
+Rarobacter faecitabidus	1	6	0					
+Streptomyces somaliensis	1	11	0					
+Pseudomonas anguilliseptica	1	2	0					
+Paenibacillus lautus	1	7	0					
+Flavobacteriaceae sp.	1	0	0					
+Streptomyces paromomycinus	1	2	0					
+Hydrogenibacillus schlegelii	1	5	1	72.5	6.5	0.51		halophile,thermophile
+Taylorella equigenitalis	1	8	0					
+Streptococcus acidominimus	1	6	0					
+Rhodococcus hoagii	1	38	0					
+Lactiplantibacillus pentosus	1	16	0					
+Methylobacillus glycogenes	1	21	0					
+Halobacillus halophilus	1	27	0					
+Gimesia maris	1	3	0					
+Streptomyces rishiriensis	1	2	0					
+Moraxella sp.	1	0	0					
+Streptococcus criceti	1	4	0					
+Methylomonas methanica	1	2	0					
+Methylotuvimicrobium buryatense	1	0	0					
+Streptomyces argillaceus	1	1	0					
+Clostridium acidurici	1	6	0					
+Antarctic bacterium	1	0	0					
+Mycoplana ramosa	1	1	0					
+Vibrio natriegens	1	4	0					
+Moranella endobia	1	0	0					
+Myxococcales bacterium	1	0	0					
+Leuconostoc pseudomesenteroides	1	19	0					
+Streptomyces mycarofaciens	1	0	0					
+Streptomyces griseoluteus	1	1	0					
+Streptomyces carbophilus	1	0	0					
+Amphibacillus xylanus	1	3	0					
+Streptomyces diastatochromogenes	1	4	0					
+Afipia carboxydohydrogena	1	1	0					
+Sphingobium wenxiniae	1	2	2	28	7	0.43		halophile
+Acinetobacter pittii	1	45	0					
+Thermoactinomyces intermedius	1	1	0					
+Erwinia aphidicola	1	5	0					
+Pseudanabaena sp.	1	0	0					
+Bacillus ohbensis	1	0	0					
+Agromyces sp.	1	0	0					
+Alkalithermobacter thermoalcaliphilus	1	1	0					
+Microcystis sp.	1	0	0					
+Sphingomonas sp	1	0	0					
+Weissella koreensis	1	2	0					
+Serratia liquefaciens	1	15	0					
+Oleispira antarctica	1	1	0					
+Sulfurospirillum deleyianum	1	2	0					
+Paraburkholderia atlantica	1	1	0					
+Marichromatium gracile	1	5	0					
+Micromonospora echinofusca	1	1	0					
+Pseudomonas azotoformans	1	1	0					
+Prevotella intermedia	1	12	0					
+Afifella marina	1	2	0					
+Blattabacterium sp.	1	0	0					
+Hydrogenophilus thermoluteolus	1	2	0					
+Bacteroides stercoris	1	2	0					
+Thauera linaloolentis	1	1	0					
+Pseudobutyrivibrio xylanivorans	1	3	0					
+Thermosulfidibacter takaii	1	1	1	70	5.75	0.51	70	acidophile,halophile,thermophile
+Roseivirga ehrenbergii	1	2	1				24	
+Ectothiorhodospira shaposhnikovii	1	2	0					
+Nocardia globerula	1	12	0					
+Pantoea cypripedii	1	8	0					
+Stutzerimonas chloritidismutans	1	2	0					
+Planomonospora venezuelensis	1	1	0					
+Capnocytophaga gingivalis	1	5	0					
+Streptomyces antifibrinolyticus	1	0	0					
+Chlorogloeopsis fritschii	1	0	0					
+Microbacterium ammoniaphilum	1	0	0					
+Glutamicibacter nicotianae	1	4	0					
+Paenibacillus borealis	1	1	0				28	
+Microtetraspora glauca	1	2	0					
+Taylorella asinigenitalis	1	1	0					
+Rickettsia helvetica	1	0	0					
+Paenibacillus sp	1	0	0					
+Yersinia rohdei	1	4	0					
+Marichromatium purpuratum	1	2	0					
+Staphylococcus lugdunensis	1	45	0					
+Paenibacillus durus	1	1	0					
+Salmonella berta	1	0	0					
+Fervidobacterium pennivorans	1	1	0				80	thermophile
+Thermus filiformis	1	1	0				71.5	thermophile
+Saccharothrix mutabilis	1	3	0					
+Saccharomonospora viridis	1	13	0					
+Peptoniphilus asaccharolyticus	1	6	0					
+Pseudofrankia inefficax	1	1	0					
+Salmonella typhisuis	1	0	0					
+Rhizobium sullae	1	2	0					
+Pseudomonas fragi	1	117	0					
+Crassaminicella thermophila	1	1	0					
+Halobacteriovorax marinus	1	2	0					
+Streptomyces badius	1	3	0					
+Legionella bozemanae	1	6	0					
+Mycobacterium szulgai	1	5	0					
+Thauera butanivorans	1	1	0					
+Leptotrichia wadei	1	3	0					
+Streptomyces rugosporus	1	0	0					
+Tatumella citrea	1	1	0					
+Erysipelothrix rhusiopathiae	1	51	0					
+Agrobacterium sp.	1	0	0					
+Acinetobacter haemolyticus	1	23	0					
+Streptomyces wedmorensis	1	1	0					
+Paracoccus aminophilus	1	1	0					
+Lacrimispora saccharolytica	1	2	0					
+Cytobacillus dafuensis	1	1	0					
+Gottschalkia acidurici	1	6	0					
+Desulfitobacterium nosdiversum	1	0	0					
+Acidiphilium organovorum	1	1	0				27.5	
+Aeromonas jandaei	1	9	0					
+Pigeon pea	1	0	0					
+Streptosporangium sibiricum	1	0	0					
+Rhodothermus sp.	1	0	0					
+Rhodoferax fermentans	1	4	0					
+Leptolyngbya laminosa	1	0	0					
+Denitrovibrio acetiphilus	1	1	0				36	
+Sulfoacidibacillus thermotolerans	1	1	0					
+Mannheimia glucosida	1	6	0					
+Bacillus intermedius	1	0	0					
+Streptomyces orinoci	1	1	0					
+Peanut witches'-broom	1	0	0					
+Methylomicrobium album	1	1	0					
+Pedobacter heparinus	1	1	0					
+Nocardia asteroides	1	96	0					
+Collinsella aerofaciens	1	50	0					
+Acinetobacter oleivorans	1	1	0				30	
+Prochloron didemni	1	0	0					
+Kryptophanaron alfredi	1	0	0					
+Yersinia kristensenii	1	14	0					
+Aquimarina sp.	1	0	0					
+Streptococcus porcinus	1	20	0					
+Mycolicibacterium aurum	1	13	0					
+Nocardia brasiliensis	1	35	0					
+Elizabethkingia miricola	1	12	0					
+Neisseria perflava	1	22	0					
+Bacillus thermoamyloliquefaciens	1	0	0					
+Weissella hellenica	1	3	0					
+Actinoplanes teichomyceticus	1	1	0					
+Sphingosinicella microcystinivorans	1	1	0					
+Photorhabdus sp.	1	0	0					
+Streptomyces spectabilis	1	2	0					
+Ensifer adhaerens	1	4	0					
+Campylobacter upsaliensis	1	61	0					
+Trichodesmium thiebautii	1	0	0					
+Salmonella borreze	1	0	0					
+Afifella pfennigii	1	1	1	32.5	7.35	0.26		halophile
+Chitinophaga japonensis	1	1	0					
+Providencia sp	1	0	0					
+Vibrio antiquarius	1	0	0					
+Thermus scotoductus	1	3	0				65	thermophile
+Sporocytophaga myxococcoides	1	118	0					
+Ewingella americana	1	15	0					
+Kocuria sp.	1	0	0					
+Actinomycete sp.	1	0	0					
+Alkalicoccus urumqiensis	1	1	1	37	9	1.08		alkaliphile,halophile
+Halochromatium salexigens	1	1	0					
+Pseudodesulfovibrio mercurii	1	1	0					
+Porphyromonas cangingivalis	1	3	0					
+Salmonella abony	1	0	0					
+Streptomyces actuosus	1	0	0					
+Melioribacter roseus	1	1	1	53.5	7.5	0.1	55	thermophile
+Aeromonas sobria	1	30	0					
+Gillisia limnaea	1	1	0				20	
+Streptomyces cinnamoneus	1	8	0					
+Acinetobacter glutaminasificans	1	0	0					
+Uncultured marine	1	0	0					
+Halophilic eubacterium	1	0	0					
+Sebaldella termitidis	1	2	0					
+Mammaliicoccus lentus	1	7	0					
+Bacillus safensis	1	5	0				33.5	
+Francisella salina	1	1	0					
+Paenarthrobacter nitroguajacolicus	1	4	1	27.5;28	7	0.51		halophile
+Streptococcus gallolyticus	1	96	0					
+Gamma-proteobacterium Hot	1	0	0					
+Lysobacter antibioticus	1	2	0				29	
+Uncultured bacterium	1	0	0					
+Haploplasma axanthum	1	2	0					
+Glutamicibacter protophormiae	1	2	0					
+Sphingobium xenophagum	1	7	0					
+Amycolatopsis sp.	1	0	0					
+Sulfitobacter sp.	1	0	0					
+Yersinia mollaretii	1	4	0					
+Neisseria cinerea	1	7	0					
+Marinococcus halophilus	1	10	0					
+Achromobacter sp.	1	0	0					
+Streptomyces cyslabdanicus	1	1	0				24	
+Sphingomonas paeninsulae	1	1	0					
+Leuconostoc kimchii	1	1	0					
+Streptoalloteichus tenebrarius	1	1	0					
+Streptococcus anginosus	1	202	0					
+Arthrobacter ramosus	1	1	0					
+Acetohalobium arabaticum	1	1	0				39	
+Streptomyces noursei	1	6	0					
+Rhodobacteraceae bacterium	1	0	0					
+Methylobacterium organophilum	1	5	0					
+Methylotenera mobilis	1	1	0					
+Glaciecola sp.	1	0	0					
+Thermoanaerobacter thermohydrosulfuricus	1	10	0					
+Azospirillum lipoferum	1	2	0					
+Pseudoalteromonas carrageenovora	1	1	0				30	
+Streptococcus canis	1	14	0					
+Xenorhabdus budapestensis	1	1	0					
+Parascardovia denticolens	1	2	0					
+Phytoplasma vitis	1	0	0					
+Sphingobacterium spiritivorum	1	15	0					
+Streptomyces tokunonensis	1	0	0					
+Corynebacterium striatum	1	64	0					
+Peptococcus niger	1	1	0					
+Advenella mimigardefordensis	1	1	0					
+Streptomyces alboniger	1	1	0					
+Phocaeicola plebeius	1	6	0					
+Enterococcus mundtii	1	9	0					
+Streptococcus intermedius	1	2	0					
+Arthrobacter keyseri	1	0	0					
+Priestia aryabhattai	1	2	0					
+Helicobacter heilmannii	1	2	0					
+Rickettsia japonica	1	1	0					
+Comamonas terrigena	1	13	0					
+Chromobacterium sp.	1	0	0					
+Truepera radiovictrix	1	2	0					
+Ilumatobacter coccineus	1	1	0					
+Desulfonispora thiosulfatigenes	1	1	0					
+Mycobacterium gastri	1	4	0				37	
+Corynebacterium ulcerans	1	34	0					
+Shinella zoogloeoides	1	1	0					
+Phenylobacterium immobile	1	6	0					
+Novacetimonas hansenii	1	1	0					
+Spirulina sp	1	0	0					
+Mycobacteroides chelonae	1	17	0					
+Caloramator mitchellensis	1	1	1	55	7		55	thermophile
+Actinopolyspora halophila	1	1	0				37	
+Streptomyces rochei	1	14	0					
+Niastella koreensis	1	1	0					
+Asticcacaulis excentricus	1	1	0				27.5	
+Rhizobium loti	1	10	0					
+Staphylococcus intermedius	1	4	0				35	
+Pseudomonas deceptionensis	1	2	0					
+Streptomyces pratensis	1	1	0					
+Mesorhizobium sp.	1	0	0					
+Methylovulum psychrotolerans	1	1	0				22.5	
+Gluconobacter thailandicus	1	4	0					
+Corynebacterium resistens	1	1	0					
+Paenibacillus thiaminolyticus	1	7	0				28	
+Paenibacillus macquariensis	1	3	0				17.5	
+Salmonella oranienberg	1	0	0					
+Caldalkalibacillus mannanilyticus	1	1	1	37	9	0.34		alkaliphile,halophile
+Achromobacter xylosoxidans	1	83	0					
+Segniliparus rugosus	1	2	0					
+Marivirga tractuosa	1	2	0				30	
+Brochothrix thermosphacta	1	13	0				22.5	
+Ash yellows	1	0	0					
+Serratia odorifera	1	11	0					
+Succinatimonas hippei	1	1	0				37.5	
+Acidocella facilis	1	0	0					
+Nostoc ellipsosporum	1	0	0					
+Vibrio metschnikovii	1	19	0					
+Borreliella japonica	1	1	0					
+Streptomyces rubradiris	1	1	0					
+Bartonella schoenbuchensis	1	1	0					
+Staphylococcus sp	1	0	0					
+Magnetospira sp.	1	0	0					
+Clostridium tyrobutyricum	1	6	0				33.5	
+Dolichospermum flosaquae	1	0	0					
+Streptomyces longisporus	1	2	0					
+Corynebacterium flavescens	1	2	0					
+Cobetia marina	1	12	2	36.5	8	0.94		alkaliphile,halophile
+Micrococcus sp	1	0	0					
+Lactococcus garvieae	1	17	0					
+Bacillus acidopullulyticus	1	0	0					
+Sphingosinicella xenopeptidilytica	1	1	0				28.5	
+Mycobacterium simiae	1	2	0				37	
+Micromonospora viridifaciens	1	1	0					
+Solibacillus silvestris	1	9	0					
+Aphanizomenon baltica	1	0	0					
+Cellulomonas flavigena	1	1	0					
+Micromonospora rosea	1	0	0					
+Myxococcus sp.	1	0	0					
+Francisella cf.	1	0	0					
+Bacteriovorax stolpii	1	1	0					
+Shewanella massilia	1	0	0					
+Mycobacterium asiaticum	1	2	0					
+Siminovitchia terrae	1	1	0					
+Piscirickettsia salmonis	1	1	0					
+Wolbachia sp	1	0	0					
+Bartonella doshiae	1	1	0					
+Borrelia parkeri	1	0	0					
+Eisenibacter elegans	1	1	0					
+Staphylococcus sp.	1	0	0					
+Streptomyces violens	1	11	0					
+Thermosediminibacter oceani	1	1	0				64	thermophile
+Thermasporomyces composti	1	1	1	52.5	7		52.5	thermophile
+Burkholderia gladioli	1	31	0					
+Actinopolyspora mzabensis	1	2	1	30	7	3.25	30	halophile
+Peribacillus psychrosaccharolyticus	1	7	0					
+Streptomyces murinus	1	5	0					
+Dactylococcopsis salina	1	0	0					
+Pseudoalteromonas sp	1	0	0					
+Salmonella senftenberg	1	0	0					
+Mycobacterium paratuberculosis	1	10	0					
+Frateuria aurantia	1	1	0					
+Acinetobacter bereziniae	1	15	0					
+Streptomyces tendae	1	4	0					
+Cloacimonas acidaminovorans	1	0	0					
+Hafnia alvei	1	49	0					
+Salmonella budapest	1	0	0					
+Legionella jeonii	1	0	0					
+Neisseria flava	1	1	0					
+Shewanella colwelliana	1	3	1				25	
+Clostridium subterminale	1	3	0				37	
+Micromonospora olivasterospora	1	1	0					
+Lactococcus sp	1	0	0					
+Nitrosospira sp.	1	0	0					
+Aminobacterium colombiense	1	1	0					
+Delftia sp.	1	0	0					
+Salmonella derby	1	0	0					
+Lentilactobacillus kefiri	1	6	0					
+Streptomyces kasugaensis	1	2	0					
+Bibersteinia trehalosi	1	14	0					
+Novispirillum itersonii	1	3	0					
+Mycolicibacterium vaccae	1	16	0					
+Caulobacter segnis	1	2	0					
+Salmonella hadar	1	0	0					
+Sphingobium yanoikuyae	1	14	0					
+Methylotuvimicrobium alcaliphilum	1	1	1		9			alkaliphile
+Streptomyces akiyoshiensis	1	0	0					
+Aeromonas veronii	1	27	0					
+Eubacterium limosum	1	8	0				37	
+Sphingopyxis sp.	1	0	0					
+Pseudarthrobacter phenanthrenivorans	1	1	0					
+Tannerella forsythia	1	5	0					
+Caballeronia sordidicola	1	3	0					
+Lysobacter lactamgenus	1	0	0					
+Salmonella blockley	1	0	0					
+Staphylococcus capitis	1	45	0				35	
+Aneurinibacillus aneurinilyticus	1	4	0				37	
+Clostridium sardiniense	1	3	0					
+Bartonella vinsonii	1	3	0					
+Rhodovulum sulfidophilum	1	2	0					
+Salmonella muenster	1	0	0					
+Enterococcus thailandicus	1	3	0					
+Borreliella valaisiana	1	1	0					

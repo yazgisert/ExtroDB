@@ -3,6 +3,7 @@
 # split1_30pct splits. 6-class: every class as large as the non-extremophile class in train/val; the test set is
 # the binary one.
 
+import argparse
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -22,9 +23,7 @@ EXTREM_FAA = {
 CLASSES = ["acidophile", "alkaliphile", "halophile", "psychrophile", "thermophile"]
 SPLITS  = ["train", "val", "test"]
 
-OUT_DIR      = Path("dataset_splits/clustered_binary")
-BINARY_TSV   = OUT_DIR / "binary_split.tsv"
-SIXCLASS_TSV = OUT_DIR / "sixclass_split.tsv"
+OUT_DIR = "dataset_splits/clustered_binary"
 
 
 def extremophile_ids():
@@ -63,12 +62,20 @@ def write(path, rows):
 
 
 if __name__ == "__main__":
-    if BINARY_TSV.exists():
-        sys.exit(f"{BINARY_TSV} already exists. Delete {OUT_DIR} to build the split again.")
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--clusters", default=CLUSTERS)
+    parser.add_argument("--out-dir", default=OUT_DIR)
+    args = parser.parse_args()
+    out_dir      = Path(args.out_dir)
+    binary_tsv   = out_dir / "binary_split.tsv"
+    sixclass_tsv = out_dir / "sixclass_split.tsv"
+
+    if binary_tsv.exists():
+        sys.exit(f"{binary_tsv} already exists. Delete {out_dir} to build the split again.")
+    out_dir.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(SEED)
 
-    with open(CLUSTERS) as f:
+    with open(args.clusters) as f:
         reps = sorted({line.split("\t")[0] for line in f})
     rng.shuffle(reps)
     n_train, n_val = int(len(reps) * 0.7), int(len(reps) * 0.1)
@@ -81,7 +88,7 @@ if __name__ == "__main__":
         binary_ext[split] = sample_per_class(ext[split], len(nonext[split]), rng)
         binary_rows += [(i, split, "non_extremophile") for i in nonext[split]]
         binary_rows += [(i, split, label) for label, chosen in binary_ext[split].items() for i in chosen]
-    write(BINARY_TSV, binary_rows)
+    write(binary_tsv, binary_rows)
 
     # 6-class: every extremophile class as large as the non-extremophile class; same test set as the binary model
     sixclass_rows = [row for row in binary_rows if row[1] == "test"]
@@ -90,7 +97,7 @@ if __name__ == "__main__":
         for label in CLASSES:
             chosen = rng.choice(ext[split][label], len(nonext[split]), replace=False)
             sixclass_rows += [(i, split, label) for i in chosen]
-    write(SIXCLASS_TSV, sixclass_rows)
+    write(sixclass_tsv, sixclass_rows)
 
     for name, rows in (("Binary", binary_rows), ("6-class", sixclass_rows)):
         counts = Counter((split, label) for _, split, label in rows)
@@ -100,4 +107,4 @@ if __name__ == "__main__":
             print(f"  {label:<18}" + "".join(f"{counts[(s, label)]:>9,}" for s in SPLITS))
         print(f"  {'total':<18}" + "".join(f"{sum(v for (s, _), v in counts.items() if s == sp):>9,}" for sp in SPLITS))
 
-    print(f"\nSaved to {BINARY_TSV}\n         {SIXCLASS_TSV}")
+    print(f"\nSaved to {binary_tsv}\n         {sixclass_tsv}")

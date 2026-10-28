@@ -2,44 +2,44 @@
   "task": "fiveclass_binarized_on_prokaryote_test_set",
   "model": "ProtT5 FNN 5-class (split1_30pct, extremophiles only), binarized by max-probability threshold",
   "binarization_threshold": 0.5,
-  "n_test": 5214,
+  "n_test": 5126,
   "test_set": "clustered binary test set (same as the binary and 6-class models)",
   "binarized_fiveclass": {
     "accuracy": {
-      "value": 0.5368239355581128,
-      "ci_lower": 0.5243479094744917,
-      "ci_upper": 0.5506329113924051
+      "value": 0.5411626999609832,
+      "ci_lower": 0.5282774092859929,
+      "ci_upper": 0.5538431525555989
     },
     "balanced_accuracy": {
-      "value": 0.5368239355581128,
-      "ci_lower": 0.5247091193413148,
-      "ci_upper": 0.5487630191602436
+      "value": 0.5411626999609832,
+      "ci_lower": 0.5293897568961328,
+      "ci_upper": 0.5534147807253404
     },
     "precision": {
-      "value": 0.5249739854318418,
-      "ci_lower": 0.5110635150122792,
-      "ci_upper": 0.5416257414921827
+      "value": 0.5282010157711842,
+      "ci_lower": 0.5132950165339466,
+      "ci_upper": 0.5434209219839878
     },
     "recall": {
-      "value": 0.7740698120444955,
-      "ci_lower": 0.7581119902617164,
-      "ci_upper": 0.7894341039641138
+      "value": 0.7709715177526336,
+      "ci_lower": 0.754224786301991,
+      "ci_upper": 0.7876386177087341
     },
     "specificity": {
-      "value": 0.29957805907172996,
-      "ci_lower": 0.28164595697835926,
-      "ci_upper": 0.31661937980512395
+      "value": 0.3113538821693328,
+      "ci_lower": 0.2948591377593371,
+      "ci_upper": 0.32756419296094086
     },
     "f1": {
-      "value": 0.6256394357463959,
-      "ci_lower": 0.6133098279843052,
-      "ci_upper": 0.6396214103652403
+      "value": 0.6269035532994924,
+      "ci_lower": 0.6131545715071427,
+      "ci_upper": 0.6405118662334284
     },
     "mcc": {
-      "value": 0.08366604804515601,
-      "ci_lower": 0.05630530967587411,
-      "ci_upper": 0.11072264769429944
+      "value": 0.09269658067539248,
+      "ci_lower": 0.06602712082680634,
+      "ci_upper": 0.1203258349126492
     }
   },
-  "auroc_max_prob": 0.6241847029235414
+  "auroc_max_prob": 0.631582596903715
 }

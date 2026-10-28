@@ -6,39 +6,39 @@
     "onehot": {
       "overall": {
         "n_proteins": 133689,
-        "recall": 0.38174419735355936,
-        "ci_lower": 0.37932739417603545,
-        "ci_upper": 0.384347627703102,
-        "mean_prob": 0.4856012165546417
+        "recall": 0.453979010988189,
+        "ci_lower": 0.4514479500931266,
+        "ci_upper": 0.45650090882570743,
+        "mean_prob": 0.5040706992149353
       },
       "by_class": {
         "acidophile": {
           "n_proteins": 10079,
-          "recall": 0.271455501537851,
-          "ci_lower": 0.26292290901875187,
-          "ci_upper": 0.28068508780633,
-          "mean_prob": 0.4679402709007263
+          "recall": 0.36838972120250024,
+          "ci_lower": 0.35906339914674074,
+          "ci_upper": 0.3778202202599464,
+          "mean_prob": 0.4879522919654846
         },
         "halophile": {
           "n_proteins": 30559,
-          "recall": 0.4135933767466213,
-          "ci_lower": 0.40829133806734513,
-          "ci_upper": 0.4192561929382506,
-          "mean_prob": 0.4958280324935913
+          "recall": 0.48424359435845415,
+          "ci_lower": 0.47897346117346773,
+          "ci_upper": 0.4900045813017442,
+          "mean_prob": 0.5143355131149292
         },
         "psychrophile": {
           "n_proteins": 76109,
-          "recall": 0.35746100986742696,
-          "ci_lower": 0.35411022349525023,
-          "ci_upper": 0.36084004519833396,
-          "mean_prob": 0.47867918014526367
+          "recall": 0.4205021745128697,
+          "ci_lower": 0.4169267103759083,
+          "ci_upper": 0.4238680707932045,
+          "mean_prob": 0.49653708934783936
         },
         "thermophile": {
           "n_proteins": 16942,
-          "recall": 0.4989965765553063,
-          "ci_lower": 0.49120528863180263,
-          "ci_upper": 0.5063186164561445,
-          "mean_prob": 0.5087574124336243
+          "recall": 0.6006964939204344,
+          "ci_lower": 0.5935515287451304,
+          "ci_upper": 0.6083121827411168,
+          "mean_prob": 0.5289878845214844
         }
       },
       "by_species": {
@@ -46,141 +46,141 @@
           "species": "Fragilariopsis cylindrus",
           "broad_class": "psychrophile",
           "n_proteins": 14442,
-          "recall": 0.2624290264506301,
-          "mean_prob": 0.4602440297603607
+          "recall": 0.31145270738124914,
+          "mean_prob": 0.4771798551082611
         },
         "GCA_002284615.2": {
           "species": "Dunaliella salina",
           "broad_class": "halophile",
           "n_proteins": 14501,
-          "recall": 0.30135852699813803,
-          "mean_prob": 0.466755747795105
+          "recall": 0.37687056065098956,
+          "mean_prob": 0.48802047967910767
         },
         "GCA_002335675.1": {
           "species": "Chlamydomonas eustigma",
           "broad_class": "acidophile",
           "n_proteins": 10079,
-          "recall": 0.271455501537851,
-          "mean_prob": 0.4679402709007263
+          "recall": 0.36838972120250024,
+          "mean_prob": 0.4879522919654846
         },
         "GCA_004565275.1": {
           "species": "Nannochloropsis salina",
           "broad_class": "halophile",
           "n_proteins": 5963,
-          "recall": 0.5456984739225222,
-          "mean_prob": 0.5311728119850159
+          "recall": 0.6085862820727822,
+          "mean_prob": 0.5476236343383789
         },
         "GCA_016618255.1": {
           "species": "Chlamydomonas sp. UWO 241",
           "broad_class": "psychrophile",
           "n_proteins": 11975,
-          "recall": 0.4745720250521921,
-          "mean_prob": 0.5000569224357605
+          "recall": 0.4851774530271399,
+          "mean_prob": 0.5046207904815674
         },
         "GCA_025991245.1": {
           "species": "Galdieria partita",
           "broad_class": "thermophile",
           "n_proteins": 4826,
-          "recall": 0.4465395772896809,
-          "mean_prob": 0.49461838603019714
+          "recall": 0.5615416493990882,
+          "mean_prob": 0.5184817314147949
         },
         "GCA_026122205.1": {
           "species": "Galdieria yellowstonensis",
           "broad_class": "thermophile",
           "n_proteins": 4508,
-          "recall": 0.413265306122449,
-          "mean_prob": 0.4907865524291992
+          "recall": 0.5503549245785271,
+          "mean_prob": 0.5164477229118347
         },
         "GCA_026184775.1": {
           "species": "Cyanidium caldarium",
           "broad_class": "thermophile",
           "n_proteins": 3018,
-          "recall": 0.7992047713717694,
-          "mean_prob": 0.5760131478309631
+          "recall": 0.7905897945659377,
+          "mean_prob": 0.575253963470459
         },
         "GCA_037830525.2": {
           "species": "Nannochloropsis oceanica",
           "broad_class": "halophile",
           "n_proteins": 7779,
-          "recall": 0.49106568967733644,
-          "mean_prob": 0.5151627659797668
+          "recall": 0.5615117624373313,
+          "mean_prob": 0.5310162901878357
         },
         "GCA_905237085.1": {
           "species": "Polarella glacialis",
           "broad_class": "psychrophile",
           "n_proteins": 43230,
-          "recall": 0.3610455702058756,
-          "mean_prob": 0.4796787202358246
+          "recall": 0.4457089983807541,
+          "mean_prob": 0.5023205280303955
         },
         "GCF_000240725.1": {
           "species": "Nannochloropsis gaditana",
           "broad_class": "halophile",
           "n_proteins": 2316,
-          "recall": 0.5159758203799655,
-          "mean_prob": 0.5219122767448425
+          "recall": 0.5768566493955095,
+          "mean_prob": 0.5373658537864685
         },
         "GCF_000258705.1": {
           "species": "Coccomyxa subellipsoidea",
           "broad_class": "psychrophile",
           "n_proteins": 6462,
-          "recall": 0.3288455586505726,
-          "mean_prob": 0.47357746958732605
+          "recall": 0.375735066542866,
+          "mean_prob": 0.48612844944000244
         },
         "GCF_000341285.1": {
           "species": "Galdieria sulphuraria",
           "broad_class": "thermophile",
           "n_proteins": 4590,
-          "recall": 0.440958605664488,
-          "mean_prob": 0.49705153703689575
+          "recall": 0.5664488017429193,
+          "mean_prob": 0.5219295620918274
         }
       },
       "prokaryote_specificity": {
-        "value": 0.6797084771768316,
-        "ci_lower": 0.6617348961477321,
-        "ci_upper": 0.6980724830360296
+        "value": 0.6913772922356614,
+        "ci_lower": 0.6736772530081034,
+        "ci_upper": 0.7077450114083512
       },
       "prokaryote_accuracy": {
-        "value": 0.6173762945914845,
-        "ci_lower": 0.6043344840813195,
-        "ci_upper": 0.6315736478711161
+        "value": 0.629730784237222,
+        "ci_lower": 0.6158749512290285,
+        "ci_upper": 0.6420210690596957
       }
     },
     "esm2_8m": {
       "overall": {
         "n_proteins": 133689,
-        "recall": 0.44778553209314154,
-        "ci_lower": 0.4450399808510797,
-        "ci_upper": 0.45045609586428204,
-        "mean_prob": 0.49834176898002625
+        "recall": 0.28347882024699117,
+        "ci_lower": 0.28113719154156286,
+        "ci_upper": 0.28586551623544193,
+        "mean_prob": 0.4157165288925171
       },
       "by_class": {
         "acidophile": {
           "n_proteins": 10079,
-          "recall": 0.3839666633594603,
-          "ci_lower": 0.3743402123226511,
-          "ci_upper": 0.39349141779938485,
-          "mean_prob": 0.4792343080043793
+          "recall": 0.19148725071931738,
+          "ci_lower": 0.18453963686873698,
+          "ci_upper": 0.19912689750967358,
+          "mean_prob": 0.38780462741851807
         },
         "halophile": {
           "n_proteins": 30559,
-          "recall": 0.5228901469288917,
-          "ci_lower": 0.5175226610818416,
-          "ci_upper": 0.528586504794005,
-          "mean_prob": 0.5311769843101501
+          "recall": 0.3539382833207893,
+          "ci_lower": 0.3488980333126084,
+          "ci_upper": 0.3596002814228214,
+          "mean_prob": 0.44903984665870667
         },
         "psychrophile": {
           "n_proteins": 76109,
-          "recall": 0.4314864207912336,
-          "ci_lower": 0.42796515523788253,
-          "ci_upper": 0.4349557870948245,
-          "mean_prob": 0.49116984009742737
+          "recall": 0.26736654009381283,
+          "ci_lower": 0.26423714672377774,
+          "ci_upper": 0.2704151283028288,
+          "mean_prob": 0.4058535695075989
         },
         "thermophile": {
           "n_proteins": 16942,
-          "recall": 0.42350371856923624,
-          "ci_lower": 0.41683242828473616,
-          "ci_upper": 0.43047013339629325,
-          "mean_prob": 0.4827013313770294
+          "recall": 0.2834966355802149,
+          "ci_lower": 0.2767663203872034,
+          "ci_upper": 0.2901679258647149,
+          "mean_prob": 0.41652271151542664
         }
       },
       "by_species": {
@@ -188,141 +188,141 @@
           "species": "Fragilariopsis cylindrus",
           "broad_class": "psychrophile",
           "n_proteins": 14442,
-          "recall": 0.6387619443290403,
-          "mean_prob": 0.5697689652442932
+          "recall": 0.3877579282647833,
+          "mean_prob": 0.46903178095817566
         },
         "GCA_002284615.2": {
           "species": "Dunaliella salina",
           "broad_class": "halophile",
           "n_proteins": 14501,
-          "recall": 0.35349286256120266,
-          "mean_prob": 0.4640292823314667
+          "recall": 0.1940555823736294,
+          "mean_prob": 0.37402844429016113
         },
         "GCA_002335675.1": {
           "species": "Chlamydomonas eustigma",
           "broad_class": "acidophile",
           "n_proteins": 10079,
-          "recall": 0.3839666633594603,
-          "mean_prob": 0.4792343080043793
+          "recall": 0.19148725071931738,
+          "mean_prob": 0.38780462741851807
         },
         "GCA_004565275.1": {
           "species": "Nannochloropsis salina",
           "broad_class": "halophile",
           "n_proteins": 5963,
-          "recall": 0.639107831628375,
-          "mean_prob": 0.5770527124404907
+          "recall": 0.480965956733188,
+          "mean_prob": 0.5123178362846375
         },
         "GCA_016618255.1": {
           "species": "Chlamydomonas sp. UWO 241",
           "broad_class": "psychrophile",
           "n_proteins": 11975,
-          "recall": 0.42580375782881,
-          "mean_prob": 0.49321648478507996
+          "recall": 0.25319415448851773,
+          "mean_prob": 0.4034525752067566
         },
         "GCA_025991245.1": {
           "species": "Galdieria partita",
           "broad_class": "thermophile",
           "n_proteins": 4826,
-          "recall": 0.4266473269788645,
-          "mean_prob": 0.4846888482570648
+          "recall": 0.2619146290924161,
+          "mean_prob": 0.41093525290489197
         },
         "GCA_026122205.1": {
           "species": "Galdieria yellowstonensis",
           "broad_class": "thermophile",
           "n_proteins": 4508,
-          "recall": 0.41171251109139306,
-          "mean_prob": 0.4801340103149414
+          "recall": 0.2735137533274179,
+          "mean_prob": 0.40794187784194946
         },
         "GCA_026184775.1": {
           "species": "Cyanidium caldarium",
           "broad_class": "thermophile",
           "n_proteins": 3018,
-          "recall": 0.37839628893306826,
-          "mean_prob": 0.4650978446006775
+          "recall": 0.305168986083499,
+          "mean_prob": 0.422856867313385
         },
         "GCA_037830525.2": {
           "species": "Nannochloropsis oceanica",
           "broad_class": "halophile",
           "n_proteins": 7779,
-          "recall": 0.72824270471783,
-          "mean_prob": 0.61588454246521
+          "recall": 0.5268029309679907,
+          "mean_prob": 0.5284106135368347
         },
         "GCA_905237085.1": {
           "species": "Polarella glacialis",
           "broad_class": "psychrophile",
           "n_proteins": 43230,
-          "recall": 0.378764746703678,
-          "mean_prob": 0.4707528352737427
+          "recall": 0.2335415220911404,
+          "mean_prob": 0.38668757677078247
         },
         "GCF_000240725.1": {
           "species": "Nannochloropsis gaditana",
           "broad_class": "halophile",
           "n_proteins": 2316,
-          "recall": 0.594559585492228,
-          "mean_prob": 0.5489714741706848
+          "recall": 0.4473229706390328,
+          "mean_prob": 0.4891906678676605
         },
         "GCF_000258705.1": {
           "species": "Coccomyxa subellipsoidea",
           "broad_class": "psychrophile",
           "n_proteins": 6462,
-          "recall": 0.33147632311977715,
-          "mean_prob": 0.4483027756214142
+          "recall": 0.25085112968121326,
+          "mean_prob": 0.39732325077056885
         },
         "GCF_000341285.1": {
           "species": "Galdieria sulphuraria",
           "broad_class": "thermophile",
           "n_proteins": 4590,
-          "recall": 0.46143790849673205,
-          "mean_prob": 0.4947075843811035
+          "recall": 0.3017429193899782,
+          "mean_prob": 0.4266602098941803
         }
       },
       "prokaryote_specificity": {
-        "value": 0.6915995397008056,
-        "ci_lower": 0.673039085819248,
-        "ci_upper": 0.7088634024398461
+        "value": 0.7436597737026922,
+        "ci_lower": 0.7256465667856559,
+        "ci_upper": 0.7600007791195948
       },
       "prokaryote_accuracy": {
-        "value": 0.6864211737629459,
-        "ci_lower": 0.6737629459148446,
-        "ci_upper": 0.6979334484081319
+        "value": 0.6950838860710106,
+        "ci_lower": 0.6816230979321108,
+        "ci_upper": 0.7067889192352712
       }
     },
     "esm2_650m": {
       "overall": {
         "n_proteins": 133689,
-        "recall": 0.5068255428644092,
-        "ci_lower": 0.5041620851378947,
-        "ci_upper": 0.5093466926972302,
-        "mean_prob": 0.5094326138496399
+        "recall": 0.5099073222179835,
+        "ci_lower": 0.5074389067163342,
+        "ci_upper": 0.5124357650966047,
+        "mean_prob": 0.4987839162349701
       },
       "by_class": {
         "acidophile": {
           "n_proteins": 10079,
-          "recall": 0.48963190792737377,
-          "ci_lower": 0.4805040182557793,
-          "ci_upper": 0.4992558785593809,
-          "mean_prob": 0.5053756237030029
+          "recall": 0.46244667129675565,
+          "ci_lower": 0.45292191685683103,
+          "ci_upper": 0.4727651552733406,
+          "mean_prob": 0.4812445044517517
         },
         "halophile": {
           "n_proteins": 30559,
-          "recall": 0.5068228672404201,
-          "ci_lower": 0.5007027389639713,
-          "ci_upper": 0.5128448247652083,
-          "mean_prob": 0.5090065002441406
+          "recall": 0.548185477273471,
+          "ci_lower": 0.5422952321738277,
+          "ci_upper": 0.5540757223731143,
+          "mean_prob": 0.508821427822113
         },
         "psychrophile": {
           "n_proteins": 76109,
-          "recall": 0.5453494330499679,
-          "ci_lower": 0.5420640134543878,
-          "ci_upper": 0.548990263963526,
-          "mean_prob": 0.5283262729644775
+          "recall": 0.5562417059743263,
+          "ci_lower": 0.5525745969596237,
+          "ci_upper": 0.5598286667805384,
+          "mean_prob": 0.5244844555854797
         },
         "thermophile": {
           "n_proteins": 16942,
-          "recall": 0.34399716680439146,
-          "ci_lower": 0.3366780781489789,
-          "ci_upper": 0.3509650572541612,
-          "mean_prob": 0.4277381896972656
+          "recall": 0.26094912052886315,
+          "ci_lower": 0.25457295478692005,
+          "ci_upper": 0.2672662613622949,
+          "mean_prob": 0.37565794587135315
         }
       },
       "by_species": {
@@ -330,141 +330,141 @@
           "species": "Fragilariopsis cylindrus",
           "broad_class": "psychrophile",
           "n_proteins": 14442,
-          "recall": 0.5799058302174214,
-          "mean_prob": 0.5523836612701416
+          "recall": 0.5568480819831049,
+          "mean_prob": 0.5381936430931091
         },
         "GCA_002284615.2": {
           "species": "Dunaliella salina",
           "broad_class": "halophile",
           "n_proteins": 14501,
-          "recall": 0.4818978001517137,
-          "mean_prob": 0.49765992164611816
+          "recall": 0.5357561547479485,
+          "mean_prob": 0.5092452764511108
         },
         "GCA_002335675.1": {
           "species": "Chlamydomonas eustigma",
           "broad_class": "acidophile",
           "n_proteins": 10079,
-          "recall": 0.48963190792737377,
-          "mean_prob": 0.5053756237030029
+          "recall": 0.46244667129675565,
+          "mean_prob": 0.4812445044517517
         },
         "GCA_004565275.1": {
           "species": "Nannochloropsis salina",
           "broad_class": "halophile",
           "n_proteins": 5963,
-          "recall": 0.5096427972497065,
-          "mean_prob": 0.5119189620018005
+          "recall": 0.5279221868187154,
+          "mean_prob": 0.5006008148193359
         },
         "GCA_016618255.1": {
           "species": "Chlamydomonas sp. UWO 241",
           "broad_class": "psychrophile",
           "n_proteins": 11975,
-          "recall": 0.6176200417536535,
-          "mean_prob": 0.5590019226074219
+          "recall": 0.613945720250522,
+          "mean_prob": 0.548901379108429
         },
         "GCA_025991245.1": {
           "species": "Galdieria partita",
           "broad_class": "thermophile",
           "n_proteins": 4826,
-          "recall": 0.29361790302527974,
-          "mean_prob": 0.403322696685791
+          "recall": 0.21798590965602985,
+          "mean_prob": 0.3479231595993042
         },
         "GCA_026122205.1": {
           "species": "Galdieria yellowstonensis",
           "broad_class": "thermophile",
           "n_proteins": 4508,
-          "recall": 0.34072759538598046,
-          "mean_prob": 0.4238828420639038
+          "recall": 0.2593167701863354,
+          "mean_prob": 0.37418878078460693
         },
         "GCA_026184775.1": {
           "species": "Cyanidium caldarium",
           "broad_class": "thermophile",
           "n_proteins": 3018,
-          "recall": 0.4572564612326044,
-          "mean_prob": 0.48183223605155945
+          "recall": 0.34493041749502984,
+          "mean_prob": 0.4318787753582001
         },
         "GCA_037830525.2": {
           "species": "Nannochloropsis oceanica",
           "broad_class": "halophile",
           "n_proteins": 7779,
-          "recall": 0.556241162103098,
-          "mean_prob": 0.5292029976844788
+          "recall": 0.5969919012726571,
+          "mean_prob": 0.5188536643981934
         },
         "GCA_905237085.1": {
           "species": "Polarella glacialis",
           "broad_class": "psychrophile",
           "n_proteins": 43230,
-          "recall": 0.5367800138792506,
-          "mean_prob": 0.5237413644790649
+          "recall": 0.5661114966458478,
+          "mean_prob": 0.5278869867324829
         },
         "GCF_000240725.1": {
           "species": "Nannochloropsis gaditana",
           "broad_class": "halophile",
           "n_proteins": 2316,
-          "recall": 0.4896373056994819,
-          "mean_prob": 0.5047164559364319
+          "recall": 0.5142487046632125,
+          "mean_prob": 0.49363642930984497
         },
         "GCF_000258705.1": {
           "species": "Coccomyxa subellipsoidea",
           "broad_class": "psychrophile",
           "n_proteins": 6462,
-          "recall": 0.39151965335809347,
-          "mean_prob": 0.44838616251945496
+          "recall": 0.38192510058805323,
+          "mean_prob": 0.42583486437797546
         },
         "GCF_000341285.1": {
           "species": "Galdieria sulphuraria",
           "broad_class": "thermophile",
           "n_proteins": 4590,
-          "recall": 0.32570806100217864,
-          "mean_prob": 0.4216276705265045
+          "recall": 0.25250544662309365,
+          "mean_prob": 0.3692956268787384
         }
       },
       "prokaryote_specificity": {
-        "value": 0.7725354813962408,
-        "ci_lower": 0.755874147996894,
-        "ci_upper": 0.7884592735618181
+        "value": 0.795552087397581,
+        "ci_lower": 0.7804542047158238,
+        "ci_upper": 0.8101171040153717
       },
       "prokaryote_accuracy": {
-        "value": 0.7740698120444955,
-        "ci_lower": 0.7625623321825854,
-        "ci_upper": 0.7846183352512467
+        "value": 0.7711666016387047,
+        "ci_lower": 0.7602370269215762,
+        "ci_upper": 0.7818962153726102
       }
     },
     "prott5": {
       "overall": {
         "n_proteins": 133689,
-        "recall": 0.6251972862389575,
-        "ci_lower": 0.6226759494049623,
-        "ci_upper": 0.6278304497752245,
-        "mean_prob": 0.5761887431144714
+        "recall": 0.6223623484355482,
+        "ci_lower": 0.6197364779450815,
+        "ci_upper": 0.6249210855044169,
+        "mean_prob": 0.5760274529457092
       },
       "by_class": {
         "acidophile": {
           "n_proteins": 10079,
-          "recall": 0.6202996329000893,
-          "ci_lower": 0.6112709594205774,
-          "ci_upper": 0.6293332671892052,
-          "mean_prob": 0.5746256709098816
+          "recall": 0.5879551542811787,
+          "ci_lower": 0.5788247842047822,
+          "ci_upper": 0.5976808215100705,
+          "mean_prob": 0.5471611618995667
         },
         "halophile": {
           "n_proteins": 30559,
-          "recall": 0.6794397722438561,
-          "ci_lower": 0.6741999083739652,
-          "ci_upper": 0.684546287509408,
-          "mean_prob": 0.6151613593101501
+          "recall": 0.6561078569324913,
+          "ci_lower": 0.6507411891750384,
+          "ci_upper": 0.6615072482738309,
+          "mean_prob": 0.5930507779121399
         },
         "psychrophile": {
           "n_proteins": 76109,
-          "recall": 0.6580693479089201,
-          "ci_lower": 0.6547970673639123,
-          "ci_upper": 0.6613163357815764,
-          "mean_prob": 0.5955855846405029
+          "recall": 0.6849124282279363,
+          "ci_lower": 0.681850700968348,
+          "ci_upper": 0.6880139011155054,
+          "mean_prob": 0.6179192662239075
         },
         "thermophile": {
           "n_proteins": 16942,
-          "recall": 0.3825994569708417,
-          "ci_lower": 0.3751032935898949,
-          "ci_upper": 0.390098571597214,
-          "mean_prob": 0.4196847975254059
+          "recall": 0.3009680084995868,
+          "ci_lower": 0.2938805926100815,
+          "ci_upper": 0.3075802738755755,
+          "mean_prob": 0.3743021786212921
         }
       },
       "by_species": {
@@ -472,141 +472,141 @@
           "species": "Fragilariopsis cylindrus",
           "broad_class": "psychrophile",
           "n_proteins": 14442,
-          "recall": 0.6656280293588146,
-          "mean_prob": 0.5909932851791382
+          "recall": 0.6457554355352444,
+          "mean_prob": 0.5964803695678711
         },
         "GCA_002284615.2": {
           "species": "Dunaliella salina",
           "broad_class": "halophile",
           "n_proteins": 14501,
-          "recall": 0.6751258533894214,
-          "mean_prob": 0.6164702773094177
+          "recall": 0.6571270946831254,
+          "mean_prob": 0.6022019982337952
         },
         "GCA_002335675.1": {
           "species": "Chlamydomonas eustigma",
           "broad_class": "acidophile",
           "n_proteins": 10079,
-          "recall": 0.6202996329000893,
-          "mean_prob": 0.5746256709098816
+          "recall": 0.5879551542811787,
+          "mean_prob": 0.5471611618995667
         },
         "GCA_004565275.1": {
           "species": "Nannochloropsis salina",
           "broad_class": "halophile",
           "n_proteins": 5963,
-          "recall": 0.6865671641791045,
-          "mean_prob": 0.6183976531028748
+          "recall": 0.6697970820057019,
+          "mean_prob": 0.5891856551170349
         },
         "GCA_016618255.1": {
           "species": "Chlamydomonas sp. UWO 241",
           "broad_class": "psychrophile",
           "n_proteins": 11975,
-          "recall": 0.6761586638830898,
-          "mean_prob": 0.6115917563438416
+          "recall": 0.7193319415448852,
+          "mean_prob": 0.6431880593299866
         },
         "GCA_025991245.1": {
           "species": "Galdieria partita",
           "broad_class": "thermophile",
           "n_proteins": 4826,
-          "recall": 0.337546622461666,
-          "mean_prob": 0.38838568329811096
+          "recall": 0.2146705346042271,
+          "mean_prob": 0.32159554958343506
         },
         "GCA_026122205.1": {
           "species": "Galdieria yellowstonensis",
           "broad_class": "thermophile",
           "n_proteins": 4508,
-          "recall": 0.3560337178349601,
-          "mean_prob": 0.4049900472164154
+          "recall": 0.2513309671694765,
+          "mean_prob": 0.3454842269420624
         },
         "GCA_026184775.1": {
           "species": "Cyanidium caldarium",
           "broad_class": "thermophile",
           "n_proteins": 3018,
-          "recall": 0.47879390324718357,
-          "mean_prob": 0.48284637928009033
+          "recall": 0.5506958250497018,
+          "mean_prob": 0.5283558368682861
         },
         "GCA_037830525.2": {
           "species": "Nannochloropsis oceanica",
           "broad_class": "halophile",
           "n_proteins": 7779,
-          "recall": 0.6847923897673223,
-          "mean_prob": 0.6114643216133118
+          "recall": 0.6401851137678365,
+          "mean_prob": 0.574720025062561
         },
         "GCA_905237085.1": {
           "species": "Polarella glacialis",
           "broad_class": "psychrophile",
           "n_proteins": 43230,
-          "recall": 0.6698126301179737,
-          "mean_prob": 0.6064690947532654
+          "recall": 0.7120518158686098,
+          "mean_prob": 0.6350406408309937
         },
         "GCF_000240725.1": {
           "species": "Nannochloropsis gaditana",
           "broad_class": "halophile",
           "n_proteins": 2316,
-          "recall": 0.6701208981001727,
-          "mean_prob": 0.6110521554946899
+          "recall": 0.6679620034542314,
+          "mean_prob": 0.6072742938995361
         },
         "GCF_000258705.1": {
           "species": "Coccomyxa subellipsoidea",
           "broad_class": "psychrophile",
           "n_proteins": 6462,
-          "recall": 0.52909316001238,
-          "mean_prob": 0.5033777952194214
+          "recall": 0.5270813989476942,
+          "mean_prob": 0.5044670104980469
         },
         "GCF_000341285.1": {
           "species": "Galdieria sulphuraria",
           "broad_class": "thermophile",
           "n_proteins": 4590,
-          "recall": 0.39281045751633986,
-          "mean_prob": 0.42549553513526917
+          "recall": 0.2762527233115468,
+          "mean_prob": 0.3567292094230652
         }
       },
       "prokaryote_specificity": {
-        "value": 0.7686996547756041,
-        "ci_lower": 0.7529617175764399,
-        "ci_upper": 0.7849202459913662
+        "value": 0.7982832618025751,
+        "ci_lower": 0.7820956963288647,
+        "ci_upper": 0.8133735517534489
       },
       "prokaryote_accuracy": {
-        "value": 0.7911392405063291,
-        "ci_lower": 0.7803941311852705,
-        "ci_upper": 0.801879555044112
+        "value": 0.7996488490050722,
+        "ci_lower": 0.7889192352711666,
+        "ci_upper": 0.8097980881779165
       },
       "unfiltered": {
         "n_algae_proteins": 179715,
         "overall": {
           "n_proteins": 179715,
-          "recall": 0.5657568928581365,
-          "ci_lower": 0.5635528475641989,
-          "ci_upper": 0.5680222852850346,
-          "mean_prob": 0.5331512093544006
+          "recall": 0.5623570653534763,
+          "ci_lower": 0.5601748601953093,
+          "ci_upper": 0.5648443368667057,
+          "mean_prob": 0.5317134261131287
         },
         "by_class": {
           "acidophile": {
             "n_proteins": 13850,
-            "recall": 0.5657039711191336,
-            "ci_lower": 0.5572563176895307,
-            "ci_upper": 0.5738646209386281,
-            "mean_prob": 0.5326233506202698
+            "recall": 0.5310469314079422,
+            "ci_lower": 0.522812274368231,
+            "ci_upper": 0.5395685920577618,
+            "mean_prob": 0.5053087472915649
           },
           "halophile": {
             "n_proteins": 41300,
-            "recall": 0.6226392251815981,
-            "ci_lower": 0.6182082324455206,
-            "ci_upper": 0.6272179176755448,
-            "mean_prob": 0.5755513906478882
+            "recall": 0.5992493946731234,
+            "ci_lower": 0.594430387409201,
+            "ci_upper": 0.6039715496368039,
+            "mean_prob": 0.5542585849761963
           },
           "psychrophile": {
             "n_proteins": 98385,
-            "recall": 0.6126950246480662,
-            "ci_lower": 0.6096140163642833,
-            "ci_upper": 0.6156324642984194,
-            "mean_prob": 0.5628287196159363
+            "recall": 0.6380139248869238,
+            "ci_lower": 0.635085632972506,
+            "ci_upper": 0.6410834985007877,
+            "mean_prob": 0.5831706523895264
           },
           "thermophile": {
             "n_proteins": 26180,
-            "recall": 0.29965622612681436,
-            "ci_lower": 0.2941529793735676,
-            "ci_upper": 0.30504392666157376,
-            "mean_prob": 0.3550141155719757
+            "recall": 0.236401833460657,
+            "ci_lower": 0.2313216195569137,
+            "ci_upper": 0.24178953399541633,
+            "mean_prob": 0.3167390823364258
           }
         },
         "by_species": {
@@ -614,92 +614,92 @@
             "species": "Fragilariopsis cylindrus",
             "broad_class": "psychrophile",
             "n_proteins": 18045,
-            "recall": 0.6124134109171515,
-            "mean_prob": 0.5564697980880737
+            "recall": 0.5928512053200332,
+            "mean_prob": 0.5588778853416443
           },
           "GCA_002284615.2": {
             "species": "Dunaliella salina",
             "broad_class": "halophile",
             "n_proteins": 18309,
-            "recall": 0.6322573597684199,
-            "mean_prob": 0.585748553276062
+            "recall": 0.6149434704243815,
+            "mean_prob": 0.5715208649635315
           },
           "GCA_002335675.1": {
             "species": "Chlamydomonas eustigma",
             "broad_class": "acidophile",
             "n_proteins": 13850,
-            "recall": 0.5657039711191336,
-            "mean_prob": 0.5326233506202698
+            "recall": 0.5310469314079422,
+            "mean_prob": 0.5053087472915649
           },
           "GCA_004565275.1": {
             "species": "Nannochloropsis salina",
             "broad_class": "halophile",
             "n_proteins": 8739,
-            "recall": 0.6146012129534272,
-            "mean_prob": 0.5680521130561829
+            "recall": 0.5957203341343403,
+            "mean_prob": 0.5417343974113464
           },
           "GCA_016618255.1": {
             "species": "Chlamydomonas sp. UWO 241",
             "broad_class": "psychrophile",
             "n_proteins": 15816,
-            "recall": 0.6426403641881638,
-            "mean_prob": 0.5867049694061279
+            "recall": 0.684117349519474,
+            "mean_prob": 0.615760087966919
           },
           "GCA_025991245.1": {
             "species": "Galdieria partita",
             "broad_class": "thermophile",
             "n_proteins": 7492,
-            "recall": 0.2605445808862787,
-            "mean_prob": 0.3250017464160919
+            "recall": 0.16671115856914043,
+            "mean_prob": 0.2686365842819214
           },
           "GCA_026122205.1": {
             "species": "Galdieria yellowstonensis",
             "broad_class": "thermophile",
             "n_proteins": 6861,
-            "recall": 0.2766360588835447,
-            "mean_prob": 0.3402647078037262
+            "recall": 0.19326628771316134,
+            "mean_prob": 0.28881052136421204
           },
           "GCA_026184775.1": {
             "species": "Cyanidium caldarium",
             "broad_class": "thermophile",
             "n_proteins": 4852,
-            "recall": 0.38190436933223415,
-            "mean_prob": 0.4152930676937103
+            "recall": 0.43837592745259685,
+            "mean_prob": 0.4541763961315155
           },
           "GCA_037830525.2": {
             "species": "Nannochloropsis oceanica",
             "broad_class": "halophile",
             "n_proteins": 11013,
-            "recall": 0.6137292290928902,
-            "mean_prob": 0.5637414455413818
+            "recall": 0.5703259783891764,
+            "mean_prob": 0.5299341678619385
           },
           "GCA_905237085.1": {
             "species": "Polarella glacialis",
             "broad_class": "psychrophile",
             "n_proteins": 54791,
-            "recall": 0.6344655144093008,
-            "mean_prob": 0.5793989300727844
+            "recall": 0.6745998430399153,
+            "mean_prob": 0.6067907214164734
           },
           "GCF_000240725.1": {
             "species": "Nannochloropsis gaditana",
             "broad_class": "halophile",
             "n_proteins": 3239,
-            "recall": 0.620253164556962,
-            "mean_prob": 0.5782985091209412
+            "recall": 0.618400740969435,
+            "mean_prob": 0.5731775760650635
           },
           "GCF_000258705.1": {
             "species": "Coccomyxa subellipsoidea",
             "broad_class": "psychrophile",
             "n_proteins": 9733,
-            "recall": 0.44200143840542483,
-            "mean_prob": 0.4425388276576996
+            "recall": 0.4408712627144765,
+            "mean_prob": 0.44228458404541016
           },
           "GCF_000341285.1": {
             "species": "Galdieria sulphuraria",
             "broad_class": "thermophile",
             "n_proteins": 6975,
-            "recall": 0.30709677419354836,
-            "mean_prob": 0.35982757806777954
+            "recall": 0.21318996415770608,
+            "mean_prob": 0.30027398467063904
           }
         }
       }
