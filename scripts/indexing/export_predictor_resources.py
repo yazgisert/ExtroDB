@@ -84,7 +84,7 @@ def clustered_files(extremophile_records):
     files = {}
     for name, tsv, description in [
         ("binary_clustered", "dataset_splits/clustered_binary/binary_split.tsv",
-         "extremophile vs. non-extremophile; 13,031 non-extremophile cluster representatives (30%) + as many extremophiles, equal per class"),
+         "extremophile vs. non-extremophile; 12,813 non-extremophile cluster representatives (30%) + as many extremophiles, equal per class"),
         ("sixclass_clustered", "dataset_splits/clustered_binary/sixclass_split.tsv",
          "5 extremophile classes + non-extremophile, all classes equal size; test set identical to binary_clustered"),
     ]:

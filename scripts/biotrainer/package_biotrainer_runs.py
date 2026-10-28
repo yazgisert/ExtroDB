@@ -27,7 +27,7 @@ DESCRIPTIONS = {
     "fiveclass_split1_20pct":   "5 extremophile classes, MMseqs2 cluster representatives at 20% identity",
     "twelveclass_split2_30pct": "12 extremophile subtypes, MMseqs2 cluster representatives at 30% identity",
     "twelveclass_split2_20pct": "12 extremophile subtypes, MMseqs2 cluster representatives at 20% identity",
-    "binary_clustered":         "extremophile vs. non-extremophile; 13,031 non-extremophile cluster representatives (30%) "
+    "binary_clustered":         "extremophile vs. non-extremophile; 12,813 non-extremophile cluster representatives (30%) "
                                 "and as many extremophiles, equal per class",
     "sixclass_clustered":       "5 extremophile classes plus non-extremophile; test set identical to binary_clustered",
 }

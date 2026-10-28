@@ -1,6 +1,6 @@
-// Zenodo record of the predictor files (version 2 adds the biotrainer zips). A new Zenodo version gets a new ID,
+// Zenodo record of the predictor files (version 3: non-extremophiles filtered by species). A new Zenodo version gets a new ID,
 // so this is the only line to change.
-const ZENODO_RECORD_ID = "23452508";
+const ZENODO_RECORD_ID = "23727921";
 
 // Colors match the thesis figures (scripts/plotting/style.py)
 const EMBEDDER_COLORS = {
