@@ -1,5 +1,5 @@
-# Homology baseline on the algae: share of filtered algae proteins with a prokaryote extremophile hit at different
-# E-value thresholds.
+# Homology baseline on the algae: share of filtered algae sequences with a prokaryote extremophile hit at different
+# E-value thresholds. Identical sequences are counted once.
 
 import csv
 import json
@@ -8,6 +8,7 @@ from pathlib import Path
 
 BASE_DIR   = Path(__file__).resolve().parents[2]
 HITS_TSV   = BASE_DIR / "results" / "homology_inference" / "homology_hits.tsv"
+QUERY_FAA  = BASE_DIR / "results" / "homology_inference" / "filtered_eukaryote_query.faa"
 LABELS_TSV = BASE_DIR / "embeddings" / "eukaryote_algae_labels.tsv"
 BLACKLIST  = BASE_DIR / "results" / "eukaryote_leakage" / "flagged_protein_ids.txt"
 OUT_JSON   = BASE_DIR / "results" / "homology_inference" / "homology_inference_result.json"
@@ -28,6 +29,28 @@ def load_labels(blacklist):
             if pid not in blacklist:
                 labels[pid] = row["broad_class"]
     return labels
+
+
+def read_sequences():
+    seqs, current = {}, None
+    with open(QUERY_FAA) as f:
+        for line in f:
+            if line.startswith(">"):
+                current = line[1:].split()[0]
+                seqs[current] = []
+            else:
+                seqs[current].append(line.strip())
+    return {protein_id: "".join(chunks) for protein_id, chunks in seqs.items()}
+
+
+def unique_sequences(labels):
+    # One protein per distinct sequence; identical sequences have identical hits
+    seen, kept = set(), {}
+    for protein_id, seq in read_sequences().items():
+        if protein_id in labels and seq not in seen:
+            seen.add(seq)
+            kept[protein_id] = labels[protein_id]
+    return kept
 
 
 def load_best_evalue(hits_tsv):
@@ -75,10 +98,10 @@ def evaluate(labels, best_evalue, threshold):
 
 if __name__ == "__main__":
     blacklist   = load_blacklist()
-    labels      = load_labels(blacklist)
+    labels      = unique_sequences(load_labels(blacklist))
     best_evalue = load_best_evalue(HITS_TSV)
 
-    print(f"{len(labels):,} filtered proteins  |  {len(best_evalue):,} with at least one hit\n")
+    print(f"{len(labels):,} unique filtered sequences  |  {len(best_evalue):,} proteins with at least one hit\n")
 
     results_by_threshold = {}
     for thr in THRESHOLDS:
@@ -90,7 +113,7 @@ if __name__ == "__main__":
     out = {
         "thresholds":  [str(t) for t in THRESHOLDS],
         "results":     results_by_threshold,
-        "n_proteins":  len(labels),
+        "n_sequences": len(labels),
         "n_with_hits": len(best_evalue),
     }
 

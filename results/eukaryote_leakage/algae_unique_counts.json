@@ -1,0 +1,88 @@
+{
+  "species": {
+    "Chlamydomonas eustigma": {
+      "proteins": 14161,
+      "unique": 14139,
+      "removed": 3876,
+      "used": 10263
+    },
+    "Chlamydomonas sp. UWO 241": {
+      "proteins": 16018,
+      "unique": 15795,
+      "removed": 3858,
+      "used": 11937
+    },
+    "Coccomyxa subellipsoidea": {
+      "proteins": 9839,
+      "unique": 9688,
+      "removed": 3289,
+      "used": 6399
+    },
+    "Cyanidium caldarium": {
+      "proteins": 4870,
+      "unique": 4861,
+      "removed": 1837,
+      "used": 3024
+    },
+    "Dunaliella salina": {
+      "proteins": 18740,
+      "unique": 18450,
+      "removed": 3832,
+      "used": 14618
+    },
+    "Fragilariopsis cylindrus": {
+      "proteins": 18111,
+      "unique": 18075,
+      "removed": 3612,
+      "used": 14463
+    },
+    "Galdieria partita": {
+      "proteins": 8036,
+      "unique": 7492,
+      "removed": 2666,
+      "used": 4826
+    },
+    "Galdieria sulphuraria": {
+      "proteins": 7146,
+      "unique": 7009,
+      "removed": 2397,
+      "used": 4612
+    },
+    "Galdieria yellowstonensis": {
+      "proteins": 7022,
+      "unique": 6893,
+      "removed": 2366,
+      "used": 4527
+    },
+    "Nannochloropsis gaditana": {
+      "proteins": 3461,
+      "unique": 3241,
+      "removed": 924,
+      "used": 2317
+    },
+    "Nannochloropsis oceanica": {
+      "proteins": 11128,
+      "unique": 11121,
+      "removed": 3275,
+      "used": 7846
+    },
+    "Nannochloropsis salina": {
+      "proteins": 8919,
+      "unique": 8911,
+      "removed": 2839,
+      "used": 6072
+    },
+    "Polarella glacialis": {
+      "proteins": 58229,
+      "unique": 55419,
+      "removed": 11699,
+      "used": 43720
+    }
+  },
+  "total": {
+    "proteins": 185680,
+    "unique": 181020,
+    "removed": 46444,
+    "used": 134576
+  }
+}
