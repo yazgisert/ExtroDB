@@ -503,10 +503,17 @@ def build_membership_row(
         "merged_fasta_file": relative_to_base(dataset.get("merged_fasta")),
         "local_fasta_file": local_fasta_file,
         "local_fasta_path": raw_fasta_path,
-        "notes": row_value(primary_row, secondary_row, "notes"),
+        "notes": tempura_note(dataset, row_value(primary_row, secondary_row, "notes")),
     }
     row["proteome_id"] = compute_proteome_id(row)
     return row
+
+
+def tempura_note(dataset: Dict[str, object], note: str) -> str:
+    # Thermophiles were found in TEMPURA and confirmed in BacDive, but their curation note only names the BacDive record
+    if "tempura_bacdive" in str(dataset["source_table"]) and note.startswith("Matched BacDive ID"):
+        return "Candidate from TEMPURA, confirmed in BacDive. " + note
+    return note
 
 
 def phenotype_labels_for_row(row: Dict[str, object]) -> List[str]:
