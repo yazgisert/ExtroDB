@@ -153,6 +153,30 @@ def fig_dataset_optima():
         print(f"    organisms without a value for their class parameter: {dict(missing)}")
 
 
+def fig_proteome_sizes():
+    # Proteome sizes of the single-label prokaryotes per class, with the class median
+    rows = [r for r in load_dataset_rows() if r["group"] in ("archaea", "bacteria")]
+    fig, ax = plt.subplots(figsize=(FULL_WIDTH, 2.4))
+    rng = np.random.default_rng(0)
+    for i, cls in enumerate(CLASSES):
+        sizes = [int(r["protein_count"]) for r in rows if r["classes"] == [cls]]
+        for dom, marker in (("bacteria", "o"), ("archaea", "^")):
+            vals = [int(r["protein_count"]) for r in rows if r["classes"] == [cls] and r["group"] == dom]
+            ax.scatter(i + rng.uniform(-0.18, 0.18, len(vals)), vals, s=12, marker=marker,
+                       color=style.CLASS_COLORS[cls], alpha=0.8, edgecolors="white", linewidths=0.3)
+        ax.hlines(np.median(sizes), i - 0.28, i + 0.28, color="#334155", linewidth=1.2)
+    ax.set_xticks(range(len(CLASSES)), [label(c) for c in CLASSES])
+    ax.set_xlim(-0.6, len(CLASSES) - 0.4)
+    ax.set_ylabel("Proteins per proteome")
+    handles = [plt.Line2D([], [], marker="o", linestyle="", color="#64748b", label="Bacteria"),
+               plt.Line2D([], [], marker="^", linestyle="", color="#64748b", label="Archaea"),
+               plt.Line2D([], [], color="#334155", label="Median")]
+    ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.0, 1.0))
+    save(fig, "fig_data_proteome_sizes")
+    sizes = [int(r["protein_count"]) for r in rows]
+    print(f"    {len(rows)} proteomes, {sum(sizes):,} proteins, {min(sizes):,} to {max(sizes):,} (median {np.median(sizes):,.0f})")
+
+
 # ── R1: classification ──────────────────────────────────────────────────────────────────────────────────────────────
 def multiclass_result(split, embedder):
     return json.load(open(RESULTS / f"{split}{RESULT_SUFFIX[embedder]}_result.json"))
@@ -647,6 +671,23 @@ def table_thermo_overlap():
     write_table("table_a_thermo_overlap", lines)
 
 
+def table_literature():
+    # Organisms whose growth optimum was taken directly from the primary literature (evidence type "experimental")
+    rows = sorted((r for r in csv.DictReader(open(MASTER_INDEX), delimiter="\t") if r["evidence_type"] == "experimental"),
+                  key=lambda r: r["taxon_name"])
+    value = lambda v: f"{float(v):g}" if v else ""
+    lines = [r"\begin{tabular}{lp{5cm}rrr}", r"\hline",
+             r"\textbf{Organism} & \textbf{Label} & \textbf{OGT ($^\circ$C)} & \textbf{NaCl (M)} & \textbf{pH} \\",
+             r"\hline"]
+    for r in rows:
+        name = rf"\textit{{{r['taxon_name']}}}" + ("$^{a}$" if r["proteome_status"] != "downloaded" else "")
+        labels = ", ".join(r["phenotype_labels"].split("|"))
+        lines.append(f"{name} & {labels} & {value(r['ogt_celsius'])} & {value(r['nacl_optimum_M'])} & "
+                     f"{value(r['ph_optimum'])}" + r" \\")
+    lines += [r"\hline", r"\end{tabular}"]
+    write_table("table_a_literature", lines)
+
+
 SUBTYPES = [("thermophile", "Thermophile"), ("hyperthermophile", "Hyperthermophile"), ("psychrophile", "Psychrophile"),
             ("slight_halophile", "Slight halophile"), ("moderate_halophile", "Moderate halophile"),
             ("extreme_halophile", "Extreme halophile"), ("acidotolerant", "Acidotolerant"),
@@ -755,6 +796,7 @@ def fig_pfam_heatmap():
 FIGURES = {
     "r1": fig_dataset_organisms,
     "r2": fig_dataset_optima,
+    "data_proteome_sizes": fig_proteome_sizes,
     "r3": fig_fiveclass_per_class,
     "table_r1": table_multiclass,
     "table_a_20pct": lambda: table_multiclass("20pct", "table_a_multiclass_20pct"),
@@ -772,6 +814,7 @@ FIGURES = {
     "table_a_biotrainer": table_biotrainer,
     "table_a_hierarchical": table_hierarchical,
     "table_a_thermo_overlap": table_thermo_overlap,
+    "table_a_literature": table_literature,
     "a_twelveclass": fig_twelveclass_per_subtype,
     "a_crossval": fig_crossval_per_class,
     "a_algae_species": fig_algae_species,
