@@ -222,7 +222,7 @@
     }
   },
   "binary_clustered": {
-    "description": "extremophile vs. non-extremophile; 12,813 non-extremophile cluster representatives (30%) + as many extremophiles, equal per class",
+    "description": "extremophile vs. non-extremophile; 12,682 non-extremophile cluster representatives (30%) + as many extremophiles, equal per class",
     "splits": {
       "train": {
         "file": "binary_clustered_train.fasta.gz",
@@ -334,7 +334,7 @@
     },
     "biotrainer": {
       "file": "algae_filtered_test_biotrainer.fasta.gz",
-      "size_mb": 32.58
+      "size_mb": 32.54
     }
   }
 }
