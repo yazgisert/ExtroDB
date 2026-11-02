@@ -15,6 +15,7 @@ SEED = 42
 ALGAE_LABELS = "embeddings/eukaryote_algae_labels.tsv"
 ALGAE_FAA    = "results/homology_inference/filtered_eukaryote_query.faa"
 BLACKLIST    = "results/eukaryote_leakage/flagged_protein_ids.txt"
+DUPLICATES   = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 RESULTS      = "results/training_results"
 OUT_JSON     = f"{RESULTS}/eukaryote_embedder_clustered_result.json"
 MASTER_INDEX = "searchable_resource/extremophile_master_index.tsv"
@@ -66,8 +67,9 @@ def amino_acid_composition(seq):
 def algae_proteins(filtered=True):
     blacklist = set()
     if filtered:
-        with open(BLACKLIST) as f:
+        with open(BLACKLIST) as f, open(DUPLICATES) as g:
             blacklist = {line.strip() for line in f if line.strip()}
+            blacklist |= {line.strip() for line in g if line.strip()}
     with h5py.File(ALGAE_EMBEDDINGS["prott5"], "r") as f:
         embedded = set(f.keys())
 

@@ -21,6 +21,7 @@ BINARY_SPLIT  = "dataset_splits/clustered_binary/binary_split.tsv"
 NONEXTREM_FAA = "nonextremophile_data/nonextremophile_filtered.faa"
 ALGAE_FAA     = "results/homology_inference/filtered_eukaryote_query.faa"
 ALGAE_LABELS  = "embeddings/eukaryote_algae_labels.tsv"
+DUPLICATES    = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 MASTER_INDEX  = "searchable_resource/extremophile_master_index.tsv"
 OUT_JSON      = "results/training_results/acidic_residue_result.json"
 
@@ -111,6 +112,8 @@ if __name__ == "__main__":
                 groups["non-extremophile | Swiss-Prot bacteria"][taxid].append(props)
 
     # Leakage-filtered algae, per class (organism = proteome)
+    with open(DUPLICATES) as f:
+        duplicates = {line.strip() for line in f if line.strip()}
     algae_label = {}
     with open(ALGAE_LABELS) as f:
         next(f)
@@ -118,7 +121,7 @@ if __name__ == "__main__":
             protein_id, proteome, cls = line.rstrip("\n").split("\t")
             algae_label[protein_id] = (proteome, cls)
     for protein_id, (_, seq) in read_faa(ALGAE_FAA, lambda h: (h.split()[0], None)).items():
-        if protein_id in algae_label:
+        if protein_id in algae_label and protein_id not in duplicates:
             proteome, cls = algae_label[protein_id]
             props = properties(seq)
             if props is not None:

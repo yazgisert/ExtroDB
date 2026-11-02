@@ -30,6 +30,7 @@ ALGAE_FAA     = "results/homology_inference/filtered_eukaryote_query.faa"
 ALGAE_H5      = "embeddings/eukaryote_algae.h5"
 ALGAE_LABELS  = "embeddings/eukaryote_algae_labels.tsv"
 BLACKLIST     = "results/eukaryote_leakage/flagged_protein_ids.txt"
+DUPLICATES    = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 MASTER_INDEX  = "searchable_resource/extremophile_master_index.tsv"
 EMBEDDERS     = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "Amino acid composition"}
 ALGAE_CLASSES = ["acidophile", "halophile", "psychrophile", "thermophile"]
@@ -110,8 +111,9 @@ def clustered_files(extremophile_records):
 
 
 def algae_file():
-    with open(BLACKLIST) as f:
+    with open(BLACKLIST) as f, open(DUPLICATES) as g:
         blacklist = {line.strip() for line in f if line.strip()}
+        blacklist |= {line.strip() for line in g if line.strip()}
     with h5py.File(ALGAE_H5, "r") as f:
         embedded = set(f.keys())
     with open(MASTER_INDEX) as f:

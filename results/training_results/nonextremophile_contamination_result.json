@@ -5,24 +5,24 @@
     "thermophile_min_ogt": 45.0,
     "psychrophile_max_ogt": 15.0
   },
-  "n_nonextremophile": 12813,
-  "n_with_tempura_species": 1716,
+  "n_nonextremophile": 12682,
+  "n_with_tempura_species": 1745,
   "n_flagged": 0,
   "per_split": {
     "train": {
-      "n": 8969,
+      "n": 8877,
       "flagged": 0,
       "thermophile": 0,
       "psychrophile": 0
     },
     "val": {
-      "n": 1281,
+      "n": 1268,
       "flagged": 0,
       "thermophile": 0,
       "psychrophile": 0
     },
     "test": {
-      "n": 2563,
+      "n": 2537,
       "flagged": 0,
       "thermophile": 0,
       "psychrophile": 0
@@ -30,11 +30,11 @@
   },
   "top_species": [],
   "binary_prott5_test": {
-    "mcc_all": 0.5992999331973928,
-    "mcc_without_flagged": 0.5992999331973928,
-    "specificity_all": 0.7982832618025751,
-    "specificity_without_flagged": 0.7982832618025751,
+    "mcc_all": 0.5877378068654301,
+    "mcc_without_flagged": 0.5877378068654301,
+    "specificity_all": 0.7883326763894364,
+    "specificity_without_flagged": 0.7883326763894364,
     "predicted_extremophile_flagged": NaN,
-    "predicted_extremophile_other_non": 0.2017167381974249
+    "predicted_extremophile_other_non": 0.21166732361056365
   }
 }

@@ -1,16 +1,16 @@
 Test proteins vs. training proteins (MMseqs2), highest identity per test protein
 
-extremophile: 946 / 2,563 (36.9%) with a hit >= 30% identity
-    leaked (>= 30% identity, >= 80% coverage of both, same group): 26 (1.0%)
-     30-50 %      821
-     50-70 %      110
-     70-90 %       10
-     90-100%        5
-    no hit     1,303
-non_extremophile: 1,418 / 2,563 (55.3%) with a hit >= 30% identity
-    leaked (>= 30% identity, >= 80% coverage of both, same group): 106 (4.1%)
-     30-50 %    1,110
-     50-70 %      252
-     70-90 %       42
+extremophile: 900 / 2,537 (35.5%) with a hit >= 30% identity
+    leaked (>= 30% identity, >= 80% coverage of both, same group): 15 (0.6%)
+     30-50 %      775
+     50-70 %      113
+     70-90 %       12
+     90-100%        0
+    no hit     1,338
+non_extremophile: 1,402 / 2,537 (55.3%) with a hit >= 30% identity
+    leaked (>= 30% identity, >= 80% coverage of both, same group): 93 (3.7%)
+     30-50 %    1,118
+     50-70 %      231
+     70-90 %       39
      90-100%       14
-    no hit       701
+    no hit       695

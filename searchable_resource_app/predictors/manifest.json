@@ -226,47 +226,47 @@
     "splits": {
       "train": {
         "file": "binary_clustered_train.fasta.gz",
-        "n_proteins": 17938,
+        "n_proteins": 17754,
         "labels": {
-          "acidophile": 1794,
-          "alkaliphile": 1794,
-          "halophile": 1794,
-          "non_extremophile": 8969,
-          "psychrophile": 1794,
-          "thermophile": 1793
+          "acidophile": 1776,
+          "alkaliphile": 1776,
+          "halophile": 1775,
+          "non_extremophile": 8877,
+          "psychrophile": 1775,
+          "thermophile": 1775
         },
-        "size_mb": 3.27
+        "size_mb": 3.2
       },
       "val": {
         "file": "binary_clustered_val.fasta.gz",
-        "n_proteins": 2562,
+        "n_proteins": 2536,
         "labels": {
-          "acidophile": 257,
-          "alkaliphile": 256,
-          "halophile": 256,
-          "non_extremophile": 1281,
-          "psychrophile": 256,
-          "thermophile": 256
+          "acidophile": 254,
+          "alkaliphile": 254,
+          "halophile": 254,
+          "non_extremophile": 1268,
+          "psychrophile": 253,
+          "thermophile": 253
         },
-        "size_mb": 0.48
+        "size_mb": 0.46
       },
       "test": {
         "file": "binary_clustered_test.fasta.gz",
-        "n_proteins": 5126,
+        "n_proteins": 5074,
         "labels": {
-          "acidophile": 513,
-          "alkaliphile": 513,
-          "halophile": 513,
-          "non_extremophile": 2563,
-          "psychrophile": 512,
-          "thermophile": 512
+          "acidophile": 508,
+          "alkaliphile": 508,
+          "halophile": 507,
+          "non_extremophile": 2537,
+          "psychrophile": 507,
+          "thermophile": 507
         },
-        "size_mb": 0.94
+        "size_mb": 0.92
       }
     },
     "biotrainer": {
       "file": "binary_clustered.zip",
-      "size_mb": 4.98
+      "size_mb": 4.88
     }
   },
   "sixclass_clustered": {
@@ -274,47 +274,47 @@
     "splits": {
       "train": {
         "file": "sixclass_clustered_train.fasta.gz",
-        "n_proteins": 53814,
+        "n_proteins": 53262,
         "labels": {
-          "acidophile": 8969,
-          "alkaliphile": 8969,
-          "halophile": 8969,
-          "non_extremophile": 8969,
-          "psychrophile": 8969,
-          "thermophile": 8969
+          "acidophile": 8877,
+          "alkaliphile": 8877,
+          "halophile": 8877,
+          "non_extremophile": 8877,
+          "psychrophile": 8877,
+          "thermophile": 8877
         },
-        "size_mb": 9.21
+        "size_mb": 9.12
       },
       "val": {
         "file": "sixclass_clustered_val.fasta.gz",
-        "n_proteins": 7686,
+        "n_proteins": 7608,
         "labels": {
-          "acidophile": 1281,
-          "alkaliphile": 1281,
-          "halophile": 1281,
-          "non_extremophile": 1281,
-          "psychrophile": 1281,
-          "thermophile": 1281
+          "acidophile": 1268,
+          "alkaliphile": 1268,
+          "halophile": 1268,
+          "non_extremophile": 1268,
+          "psychrophile": 1268,
+          "thermophile": 1268
         },
-        "size_mb": 1.35
+        "size_mb": 1.33
       },
       "test": {
         "file": "sixclass_clustered_test.fasta.gz",
-        "n_proteins": 5126,
+        "n_proteins": 5074,
         "labels": {
-          "acidophile": 513,
-          "alkaliphile": 513,
-          "halophile": 513,
-          "non_extremophile": 2563,
-          "psychrophile": 512,
-          "thermophile": 512
+          "acidophile": 508,
+          "alkaliphile": 508,
+          "halophile": 507,
+          "non_extremophile": 2537,
+          "psychrophile": 507,
+          "thermophile": 507
         },
-        "size_mb": 0.94
+        "size_mb": 0.92
       }
     },
     "biotrainer": {
       "file": "sixclass_clustered.zip",
-      "size_mb": 11.66
+      "size_mb": 11.53
     }
   },
   "algae_filtered": {
@@ -322,14 +322,14 @@
     "splits": {
       "test": {
         "file": "algae_filtered_test.fasta.gz",
-        "n_proteins": 133689,
+        "n_proteins": 133392,
         "labels": {
-          "acidophile": 10079,
-          "halophile": 30559,
-          "psychrophile": 76109,
-          "thermophile": 16942
+          "acidophile": 10065,
+          "halophile": 30525,
+          "psychrophile": 75865,
+          "thermophile": 16937
         },
-        "size_mb": 32.76
+        "size_mb": 32.72
       }
     },
     "biotrainer": {

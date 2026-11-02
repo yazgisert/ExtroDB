@@ -25,6 +25,7 @@ EXTREM_TEST_FAA  = "dataset_splits/rep_split1_test.faa"
 ALGAE_H5         = "embeddings/eukaryote_algae.h5"
 ALGAE_LABELS_TSV = "embeddings/eukaryote_algae_labels.tsv"
 BLACKLIST_PATH   = "results/eukaryote_leakage/flagged_protein_ids.txt"
+DUPLICATES_PATH  = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 MODEL_PATH       = "results/training_results/fiveclass_extremophile_model.pt"
 BINARY_JSON      = "results/training_results/binary_eukaryote_eval_clustered_result.json"
 OUT_JSON         = "results/training_results/binarized_fiveclass_eukaryote_eval_result.json"
@@ -161,8 +162,9 @@ if __name__ == "__main__":
     print(f"  Saved to {MODEL_PATH}")
 
     print("\nLoading blacklist ...")
-    with open(BLACKLIST_PATH) as f:
+    with open(BLACKLIST_PATH) as f, open(DUPLICATES_PATH) as g:
         blacklist = set(line.strip() for line in f if line.strip())
+        blacklist |= set(line.strip() for line in g if line.strip())
     print(f"  {len(blacklist):,} proteins will be skipped")
 
     print("\nLoading filtered eukaryote labels ...")

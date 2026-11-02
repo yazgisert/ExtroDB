@@ -11,6 +11,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 ALGAE_H5     = "embeddings/eukaryote_algae.h5"
 ALGAE_LABELS = "embeddings/eukaryote_algae_labels.tsv"
 BLACKLIST    = "results/eukaryote_leakage/flagged_protein_ids.txt"
+DUPLICATES   = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 MODEL_PATH   = "results/training_results/fiveclass_extremophile_model.pt"
 OUT_JSON     = "results/training_results/eukaryote_fiveclass_filtered_result.json"
 
@@ -31,8 +32,9 @@ class FNN(nn.Module):
 
 
 if __name__ == "__main__":
-    with open(BLACKLIST) as f:
+    with open(BLACKLIST) as f, open(DUPLICATES) as g:
         blacklist = {line.strip() for line in f if line.strip()}
+        blacklist |= {line.strip() for line in g if line.strip()}
 
     labels = {}
     with open(ALGAE_LABELS) as f:
