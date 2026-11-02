@@ -1,7 +1,7 @@
 {
   "task": "binary_extremophile_vs_nonextremophile",
   "embedder": "esm2_650m",
-  "split": "dataset_splits/clustered_binary/binary_split.tsv (13,031 non-extremophile cluster representatives + as many extremophiles, equal per class)",
+  "split": "dataset_splits/clustered_binary/binary_split.tsv (non-extremophile cluster representatives + as many extremophiles, equal per class)",
   "n_features": 1280,
   "n_train": 17754,
   "n_val": 2536,

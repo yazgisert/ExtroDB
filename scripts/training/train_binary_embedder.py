@@ -229,7 +229,7 @@ if __name__ == "__main__":
     result = {
         "task":       "binary_extremophile_vs_nonextremophile",
         "embedder":   embedder,
-        "split":      SPLIT_TSV + " (13,031 non-extremophile cluster representatives + as many extremophiles, equal per class)",
+        "split":      SPLIT_TSV + " (non-extremophile cluster representatives + as many extremophiles, equal per class)",
         "n_features": int(X_train.shape[1]),
         "n_train":    int(len(y_train)),
         "n_val":      int(len(y_val)),

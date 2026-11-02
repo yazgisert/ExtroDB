@@ -21,15 +21,15 @@
 \node[box, below=of single] (cluster) {MMseqs2 clustering at 30\% (and 20\%)\\190{,}165 representatives};
 \node[result, below=of cluster] (splits) {Split~1 (5 classes): 142{,}889 proteins\\Split~2 (12 subtypes): 61{,}920 proteins};
 \node[box, below=7mm of splits] (algae) {13 algal proteomes, leakage filter\\against the Split~1 training data};
-\node[result, below=of algae] (algaetest) {Algae test set};
+\node[result, below=of algae] (algaetest) {Algae test set\\133{,}392 sequences};
 
 % Non-extremophiles
 \node[head] (h2) at ([xshift=73mm]h1) {Non-extremophile proteins};
 \node[box, below=3mm of h2] (swiss) {UniProt Swiss-Prot\\reviewed bacterial entries};
 \node[box, below=of swiss] (taxid) {Remove the curated organisms (taxonomy ID),\\random sample of 142{,}000 proteins};
 \node[box, below=of taxid] (near) {Remove near-identical sequences\\($\geq$90\% identity to extremophile proteins)};
-\node[box, below=of near] (species) {Remove extremophile species\\(BacDive type strain, TEMPURA)};
-\node[box, below=of species] (ncluster) {MMseqs2 clustering at 30\%};
+\node[box, below=of near] (species) {Remove extremophile species (BacDive,\\TEMPURA) and species of extremophile\\genera without growth data};
+\node[box, below=of species] (ncluster) {MMseqs2 clustering at 30\%\\12{,}682 representatives};
 \node[result, below=of ncluster] (binary) {Binary and six-class splits\\(with extremophiles from Split~1)};
 
 \foreach \a/\b in {tempura/screen, bacdive/screen, lit/screen, screen/genome, genome/proteome, proteome/single,

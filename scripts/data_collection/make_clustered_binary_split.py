@@ -1,4 +1,4 @@
-# Builds the clustered binary and 6-class splits: the 13,031 non-extremophile cluster representatives (30%) are
+# Builds the clustered binary and 6-class splits: the 12,682 non-extremophile cluster representatives (30%) are
 # split 70/10/20, and each split gets the same number of extremophiles, equal per class, from the existing
 # split1_30pct splits. 6-class: every class as large as the non-extremophile class in train/val; the test set is
 # the binary one.

@@ -65,7 +65,7 @@ def main():
     ax.axhline(1.0, color="#ccc", linewidth=0.8, linestyle="--")
 
     fig.text(0.99, -0.02,
-             f"n_train = {d['n_train']:,} (50/50)  ·  n_test = {d['n_test']:,}  ·  non-extremophiles clustered at 30% (13,031 representatives)"
+             f"n_train = {d['n_train']:,} (50/50)  ·  n_test = {d['n_test']:,}  ·  non-extremophiles clustered at 30%"
              f"     Error bars: 95% CI (bootstrap, 1000 iterations)",
              ha="right", va="top",
              fontsize=8.5, color="#888")
