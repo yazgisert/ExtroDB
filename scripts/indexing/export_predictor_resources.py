@@ -13,17 +13,13 @@ OUT_DIR    = Path("predictor_resources")
 WEB_DIR    = Path("searchable_resource_app/predictors")
 ZENODO_DIR = OUT_DIR / "zenodo"
 BIOTRAINER_DIR = OUT_DIR / "biotrainer"  # zips from scripts/biotrainer/package_biotrainer_runs.py (Zenodo version 2)
-RESULTS    = Path("results/training_results")
+BIOTRAINER_RESULTS = Path("results/biotrainer/biotrainer_dashboard_results.json")
 
 FIVECLASS_SPLITS = {
     "fiveclass_split1_30pct": ("rep_split1",       "5 broad classes, 30% identity clustering"),
     "fiveclass_split1_20pct": ("rep_split1_20pct", "5 broad classes, 20% identity clustering"),
     "twelveclass_split2_30pct": ("rep_split2",       "12 subtypes, 30% identity clustering"),
     "twelveclass_split2_20pct": ("rep_split2_20pct", "12 subtypes, 20% identity clustering"),
-}
-RESULT_PREFIX = {
-    "fiveclass_split1_30pct": "split1_30pct", "fiveclass_split1_20pct": "split1_20pct",
-    "twelveclass_split2_30pct": "split2_30pct", "twelveclass_split2_20pct": "split2_20pct",
 }
 NONEXTREM_FAA = "nonextremophile_data/nonextremophile_filtered.faa"
 ALGAE_FAA     = "results/homology_inference/filtered_eukaryote_query.faa"
@@ -32,7 +28,6 @@ ALGAE_LABELS  = "embeddings/eukaryote_algae_labels.tsv"
 BLACKLIST     = "results/eukaryote_leakage/flagged_protein_ids.txt"
 DUPLICATES    = "results/eukaryote_leakage/duplicate_protein_ids.txt"
 MASTER_INDEX  = "searchable_resource/extremophile_master_index.tsv"
-EMBEDDERS     = {"prott5": "ProtT5", "esm2_650m": "ESM2 650M", "esm2_8m": "ESM2 8M", "onehot": "Amino acid composition"}
 ALGAE_CLASSES = ["acidophile", "halophile", "psychrophile", "thermophile"]
 
 
@@ -144,66 +139,10 @@ def add_biotrainer_files(manifest):
             model["biotrainer"] = {"file": published, "size_mb": round(source.stat().st_size / 1e6, 2)}
 
 
-def metric(m, key):
-    if "value" in m[key]:
-        return {"value": m[key]["value"], "ci_lower": m[key]["ci_lower"], "ci_upper": m[key]["ci_upper"]}
-    return {"value": m[key], "ci_lower": None, "ci_upper": None}
-
-
 def results_summary():
-    summary = {"fiveclass": {}, "binary_clustered": {}, "binary_bacteria_only": {}, "sixclass_clustered": {}, "algae": {}, "homology": {}}
-
-    suffix = {"prott5": "", "esm2_650m": "_esm2", "esm2_8m": "_esm2_8m", "onehot": "_onehot"}
-    for name, prefix in RESULT_PREFIX.items():
-        summary["fiveclass"][name] = {}
-        for key, label in EMBEDDERS.items():
-            r = json.load(open(RESULTS / f"{prefix}{suffix[key]}_result.json"))
-            m, b = r["test_metrics"], r["test_metrics_bootstrap"]
-            summary["fiveclass"][name][label] = {
-                k: {"value": m[src], "ci_lower": b[src]["lower"], "ci_upper": b[src]["upper"]}
-                for k, src in (("accuracy", "accuracy"), ("macro_f1", "macro-f1_score"), ("mcc", "matthews-corr-coeff"))
-            } | {"n_test": r["n_test"]}
-
-    for key, label in EMBEDDERS.items():
-        r = json.load(open(RESULTS / f"binary_{key}_clustered_result.json"))
-        summary["binary_clustered"][label] = {k: metric(r["test_metrics"], k)
-                                              for k in ("accuracy", "specificity", "recall", "f1_extremophile", "mcc")}
-
-    # Non-extremophiles are bacteria only, so the same models are also scored without the archaeal extremophiles
-    bias = json.load(open(RESULTS / "binary_domain_bias_result.json"))["models"]
-    summary["binary_bacteria_only"] = {label: {k: metric(bias[key]["bacteria_only"], k)
-                                               for k in ("accuracy", "specificity", "recall", "mcc")}
-                                       for key, label in EMBEDDERS.items()}
-
-    six = json.load(open(RESULTS / "sixclass_clustered_result.json"))
-    five = json.load(open(RESULTS / "fiveclass_binarized_clustered_result.json"))
-    summary["sixclass_clustered"] = {
-        "Binarized 5-class": {k: metric(five["binarized_fiveclass"], k) for k in ("accuracy", "specificity", "recall", "mcc")},
-        "Binarized 6-class": {k: metric(six["binarized_sixclass"], k) for k in ("accuracy", "specificity", "recall", "mcc")},
-        "Dedicated binary":  {k: metric(six["dedicated_binary"], k) for k in ("accuracy", "specificity", "recall", "mcc")},
-    }
-
-    algae = json.load(open(RESULTS / "eukaryote_embedder_clustered_result.json"))["results"]
-    for key, label in EMBEDDERS.items():
-        r = algae[key]
-        groups = {"overall": r["overall"], **{c: r["by_class"][c] for c in ALGAE_CLASSES}}
-        summary["algae"][label] = {g: {"value": v["recall"], "ci_lower": v["ci_lower"], "ci_upper": v["ci_upper"]}
-                                   for g, v in groups.items()}
-
-    def subset(entry, key):
-        ci = entry.get(f"{key}_ci", [None, None])
-        return {"value": entry[key], "ci_lower": ci[0], "ci_upper": ci[1]}
-
-    summary["homology"] = {}
-    for name, file in (("fiveclass_split1_30pct", "homology_fiveclass_result.json"),
-                       ("binary_clustered", "homology_binary_clustered_result.json")):
-        h = json.load(open(RESULTS / file))
-        summary["homology"][name] = {
-            "homology_accuracy":           metric(h["homology"], "accuracy"),
-            "prott5_accuracy":             metric(h["prott5"], "accuracy"),
-            "prott5_accuracy_without_hit": subset(h["subsets"]["without_hit"], "prott5_accuracy"),
-        }
-    return summary
+    # The page shows the results of the published biotrainer models, so that they match a rerun of the biotrainer
+    # zips; computed by scripts/biotrainer/evaluate_biotrainer_models.py
+    return json.load(open(BIOTRAINER_RESULTS))
 
 
 README = """# Predictor input FASTAs

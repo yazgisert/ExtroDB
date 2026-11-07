@@ -57,7 +57,9 @@
             The zip holds the input FASTA in biotrainer format, one config per embedder and the output of our run
             (test metrics, training log, model checkpoint). Embeddings are not included; biotrainer computes them from the config.
             Extremophile proteins are MMseqs2 cluster representatives; non-extremophiles are clustered at 30% identity
-            as well, so no test protein has a close relative in training. Error bars show 95% bootstrap
+            as well, so no test protein has a close relative in training. All results on this page come from the
+            biotrainer models in the zips, so a rerun of a zip gives the same values. They differ slightly from the
+            thesis, whose models were trained with our own scripts. Error bars show 95% bootstrap
             confidence intervals; hover over a bar for the exact values.
           </p>
         </section>
@@ -103,7 +105,7 @@
               <div class="predictor-chart"><canvas id="chart-binary"></canvas></div>
               <figcaption>
                 <strong>ProtT5 separates extremophiles from non-extremophiles best.</strong>
-                Binary models on the clustered prokaryote test set (5,214 proteins).
+                Binary models on the clustered prokaryote test set (5,074 proteins).
                 <span id="binary-bias-note"></span>
               </figcaption>
             </figure>
@@ -137,8 +139,8 @@
               <div class="predictor-chart"><canvas id="chart-algae"></canvas></div>
               <figcaption>
                 <strong>Part of the signal transfers to eukaryotic algae.</strong>
-                Share of the 133,689 algae proteins that the binary models classify as extremophile.
-                ProtT5 recognizes the most (62.5%); for ProtT5, thermophilic algae are the hardest class.
+                Share of the 133,392 algae proteins that the binary models classify as extremophile.
+                ProtT5 recognizes the most (62.9%); for ProtT5, thermophilic algae are the hardest class.
               </figcaption>
             </figure>
             <div class="downloads" data-models="algae_filtered"></div>
