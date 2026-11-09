@@ -20,6 +20,7 @@ import style
 RESULTS = Path("results/training_results")
 OUT_DIR = Path("results/thesis_figures")
 MASTER_INDEX = Path("searchable_resource/extremophile_master_index.tsv")
+LITERATURE_KEYS = Path("curation/literature_citation_keys.tsv")
 DOMAINS = Path("curation/source_tables/proteome_domain_ncbi.tsv")
 ALGAE_LABELS = Path("embeddings/eukaryote_algae_labels.tsv")
 
@@ -872,14 +873,16 @@ def table_literature():
     rows = sorted((r for r in csv.DictReader(open(MASTER_INDEX), delimiter="\t") if r["evidence_type"] == "experimental"),
                   key=lambda r: r["taxon_name"])
     value = lambda v: f"{float(v):g}" if v else ""
-    lines = [r"\begin{tabular}{lp{5cm}rrr}", r"\hline",
-             r"\textbf{Organism} & \textbf{Label} & \textbf{OGT ($^\circ$C)} & \textbf{NaCl (M)} & \textbf{pH} \\",
+    # BibTeX keys of the source of every optimum (curation/literature_citations.bib, added to the thesis bibliography)
+    cite = {r["taxon_name"]: r["citation_key"] for r in csv.DictReader(open(LITERATURE_KEYS), delimiter="\t")}
+    lines = [r"\begin{tabular}{lp{4.2cm}rrrl}", r"\hline",
+             r"\textbf{Organism} & \textbf{Label} & \textbf{OGT ($^\circ$C)} & \textbf{NaCl (M)} & \textbf{pH} & \textbf{Source} \\",
              r"\hline"]
     for r in rows:
         name = rf"\textit{{{r['taxon_name']}}}" + ("$^{a}$" if r["proteome_status"] != "downloaded" else "")
         labels = ", ".join(r["phenotype_labels"].split("|"))
         lines.append(f"{name} & {labels} & {value(r['ogt_celsius'])} & {value(r['nacl_optimum_M'])} & "
-                     f"{value(r['ph_optimum'])}" + r" \\")
+                     f"{value(r['ph_optimum'])} & \\cite{{{cite[r['taxon_name']]}}}" + r" \\")
     lines += [r"\hline", r"\end{tabular}"]
     write_table("table_a_literature", lines)
 

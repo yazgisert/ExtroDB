@@ -1,0 +1,301 @@
+{
+  "n_all": 133392,
+  "n_representatives": 96047,
+  "min_seq_id": 0.3,
+  "binary": {
+    "onehot": {
+      "all": {
+        "overall": {
+          "n_proteins": 133392,
+          "recall": 0.29105193714765504,
+          "ci_lower": 0.28866048938467076,
+          "ci_upper": 0.29360849976010556
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 10065,
+            "recall": 0.14913065076999504,
+            "ci_lower": 0.1421758569299553,
+            "ci_upper": 0.1559885742672628
+          },
+          "halophile": {
+            "n_proteins": 30525,
+            "recall": 0.30024570024570024,
+            "ci_lower": 0.29523259623259623,
+            "ci_upper": 0.30525880425880425
+          },
+          "psychrophile": {
+            "n_proteins": 75865,
+            "recall": 0.26794964739998683,
+            "ci_lower": 0.2648256771897449,
+            "ci_upper": 0.27108778751730045
+          },
+          "thermophile": {
+            "n_proteins": 16937,
+            "recall": 0.4623014701541005,
+            "ci_lower": 0.45427023675975675,
+            "ci_upper": 0.4696256716065419
+          }
+        }
+      },
+      "representatives": {
+        "overall": {
+          "n_proteins": 96047,
+          "recall": 0.299551261361625,
+          "ci_lower": 0.2965732922423397,
+          "ci_upper": 0.3023733172301061
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 7502,
+            "recall": 0.15462543321780858,
+            "ci_lower": 0.14649426819514796,
+            "ci_upper": 0.16263329778725671
+          },
+          "halophile": {
+            "n_proteins": 23196,
+            "recall": 0.3128987756509743,
+            "ci_lower": 0.3070777289187791,
+            "ci_upper": 0.3189838765304363
+          },
+          "psychrophile": {
+            "n_proteins": 58282,
+            "recall": 0.28567996980199717,
+            "ci_lower": 0.28207679901170174,
+            "ci_upper": 0.28943799114649466
+          },
+          "thermophile": {
+            "n_proteins": 7067,
+            "recall": 0.5239847177019952,
+            "ci_lower": 0.5119569831611717,
+            "ci_upper": 0.5357329842931937
+          }
+        }
+      }
+    },
+    "esm2_8m": {
+      "all": {
+        "overall": {
+          "n_proteins": 133392,
+          "recall": 0.2965620127144057,
+          "ci_lower": 0.2941104039222742,
+          "ci_upper": 0.2989991903562432
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 10065,
+            "recall": 0.18390461997019375,
+            "ci_lower": 0.17625186289120717,
+            "ci_upper": 0.1916542473919523
+          },
+          "halophile": {
+            "n_proteins": 30525,
+            "recall": 0.3991809991809992,
+            "ci_lower": 0.3937755937755938,
+            "ci_upper": 0.40478542178542176
+          },
+          "psychrophile": {
+            "n_proteins": 75865,
+            "recall": 0.27527845515059646,
+            "ci_lower": 0.27196961708297634,
+            "ci_upper": 0.278456139194622
+          },
+          "thermophile": {
+            "n_proteins": 16937,
+            "recall": 0.27389738442463246,
+            "ci_lower": 0.2668123044222708,
+            "ci_upper": 0.2808053374269351
+          }
+        }
+      },
+      "representatives": {
+        "overall": {
+          "n_proteins": 96047,
+          "recall": 0.3066311285100003,
+          "ci_lower": 0.3035586743989922,
+          "ci_upper": 0.30952632565306565
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 7502,
+            "recall": 0.18621700879765396,
+            "ci_lower": 0.17808584377499334,
+            "ci_upper": 0.19421487603305784
+          },
+          "halophile": {
+            "n_proteins": 23196,
+            "recall": 0.4074409380927746,
+            "ci_lower": 0.4009290394895672,
+            "ci_upper": 0.41369201586480425
+          },
+          "psychrophile": {
+            "n_proteins": 58282,
+            "recall": 0.2827974331697608,
+            "ci_lower": 0.2790226828180227,
+            "ci_upper": 0.28652199649977694
+          },
+          "thermophile": {
+            "n_proteins": 7067,
+            "recall": 0.3001273524833734,
+            "ci_lower": 0.2889486344983727,
+            "ci_upper": 0.3096080373567285
+          }
+        }
+      }
+    },
+    "esm2_650m": {
+      "all": {
+        "overall": {
+          "n_proteins": 133392,
+          "recall": 0.5307139858462276,
+          "ci_lower": 0.5281201271440567,
+          "ci_upper": 0.5335177521890369
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 10065,
+            "recall": 0.5495280675608545,
+            "ci_lower": 0.5385966219572778,
+            "ci_upper": 0.5587704918032786
+          },
+          "halophile": {
+            "n_proteins": 30525,
+            "recall": 0.5521703521703522,
+            "ci_lower": 0.5465683865683866,
+            "ci_upper": 0.5578067158067158
+          },
+          "psychrophile": {
+            "n_proteins": 75865,
+            "recall": 0.574019640150267,
+            "ci_lower": 0.5703025110393463,
+            "ci_upper": 0.5772764120477163
+          },
+          "thermophile": {
+            "n_proteins": 16937,
+            "recall": 0.2868866977622956,
+            "ci_lower": 0.2800377870933459,
+            "ci_upper": 0.29385369309795123
+          }
+        }
+      },
+      "representatives": {
+        "overall": {
+          "n_proteins": 96047,
+          "recall": 0.5908773829479318,
+          "ci_lower": 0.5877117452913678,
+          "ci_upper": 0.5942327714556416
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 7502,
+            "recall": 0.618635030658491,
+            "ci_lower": 0.6073013862969875,
+            "ci_upper": 0.6294354838709677
+          },
+          "halophile": {
+            "n_proteins": 23196,
+            "recall": 0.5875581996896017,
+            "ci_lower": 0.5813922659079152,
+            "ci_upper": 0.5936821003621314
+          },
+          "psychrophile": {
+            "n_proteins": 58282,
+            "recall": 0.6145979890875399,
+            "ci_lower": 0.6108747126042345,
+            "ci_upper": 0.6182878075563639
+          },
+          "thermophile": {
+            "n_proteins": 7067,
+            "recall": 0.3766803452667327,
+            "ci_lower": 0.3653565869534456,
+            "ci_upper": 0.3875795953021084
+          }
+        }
+      }
+    },
+    "prott5": {
+      "all": {
+        "overall": {
+          "n_proteins": 133392,
+          "recall": 0.5447178241573708,
+          "ci_lower": 0.5420928541441765,
+          "ci_upper": 0.5474693010075566
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 10065,
+            "recall": 0.49269746646795826,
+            "ci_lower": 0.4826602086438152,
+            "ci_upper": 0.502237953303527
+          },
+          "halophile": {
+            "n_proteins": 30525,
+            "recall": 0.5454873054873055,
+            "ci_lower": 0.5399164619164619,
+            "ci_upper": 0.550992628992629
+          },
+          "psychrophile": {
+            "n_proteins": 75865,
+            "recall": 0.6109404863902985,
+            "ci_lower": 0.6078158571146115,
+            "ci_upper": 0.6142226323073882
+          },
+          "thermophile": {
+            "n_proteins": 16937,
+            "recall": 0.27761705142587234,
+            "ci_lower": 0.27082570703194186,
+            "ci_upper": 0.2844689142114897
+          }
+        }
+      },
+      "representatives": {
+        "overall": {
+          "n_proteins": 96047,
+          "recall": 0.6104511332993222,
+          "ci_lower": 0.6074000229054526,
+          "ci_upper": 0.613378866596562
+        },
+        "by_class": {
+          "acidophile": {
+            "n_proteins": 7502,
+            "recall": 0.5462543321780858,
+            "ci_lower": 0.5351872833910957,
+            "ci_upper": 0.5571914156225006
+          },
+          "halophile": {
+            "n_proteins": 23196,
+            "recall": 0.5894550784618038,
+            "ci_lower": 0.5829000689774099,
+            "ci_upper": 0.5955811346783928
+          },
+          "psychrophile": {
+            "n_proteins": 58282,
+            "recall": 0.655468240623177,
+            "ci_lower": 0.6518813698912186,
+            "ci_upper": 0.6594660444047905
+          },
+          "thermophile": {
+            "n_proteins": 7067,
+            "recall": 0.37625583698882126,
+            "ci_lower": 0.36465261072590915,
+            "ci_upper": 0.3878590632517334
+          }
+        }
+      }
+    }
+  },
+  "fiveclass_prott5": {
+    "all": {
+      "n_proteins": 133392,
+      "recall": 0.22923413697972891,
+      "ci_lower": 0.2267596632481708,
+      "ci_upper": 0.2315882886529927
+    },
+    "representatives": {
+      "n_proteins": 96047,
+      "recall": 0.2238903869980322,
+      "ci_lower": 0.22114147240413548,
+      "ci_upper": 0.22650447176902974
+    }
+  }
+}
