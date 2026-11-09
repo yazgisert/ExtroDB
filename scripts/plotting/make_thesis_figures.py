@@ -546,7 +546,8 @@ def table_acidic():
             ("non-extremophile | Swiss-Prot bacteria", "Non-extremophiles", "Bacteria"),
             ("algae halophile | eukaryote", "Halophilic algae", "Eukaryotes"),
             ("algae thermophile | eukaryote", "Thermophilic algae", "Eukaryotes"),
-            ("algae psychrophile | eukaryote", "Psychrophilic algae", "Eukaryotes")]
+            ("algae psychrophile | eukaryote", "Psychrophilic algae", "Eukaryotes"),
+            ("algae acidophile | eukaryote", "Acidophilic algae", "Eukaryotes")]
     lines = [r"\begin{tabular}{llrccc}", r"\hline",
              r"\textbf{Group} & \textbf{Domain} & \textbf{Organisms} & \textbf{Asp+Glu (\%)} & \textbf{Lys+Arg (\%)} & \textbf{pI} \\",
              r"\hline"]
