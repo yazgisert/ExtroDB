@@ -880,6 +880,8 @@ def table_literature():
              r"\hline"]
     for r in rows:
         name = rf"\textit{{{r['taxon_name']}}}" + ("$^{a}$" if r["proteome_status"] != "downloaded" else "")
+        # Kept as psychrophilic alga although its optimum is about 20 C (explained in the table caption)
+        name += "$^{b}$" if r["taxon_name"] == "Coccomyxa subellipsoidea" else ""
         labels = ", ".join(r["phenotype_labels"].split("|"))
         lines.append(f"{name} & {labels} & {value(r['ogt_celsius'])} & {value(r['nacl_optimum_M'])} & "
                      f"{value(r['ph_optimum'])} & \\cite{{{cite[r['taxon_name']]}}}" + r" \\")
