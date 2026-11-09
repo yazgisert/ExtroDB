@@ -1,0 +1,255 @@
+{
+  "random_fiveclass": 0.2,
+  "random_sixclass": 0.16666666666666666,
+  "species": [
+    {
+      "proteome_id": "GCA_002335675.1",
+      "species": "Chlamydomonas eustigma",
+      "broad_class": "acidophile",
+      "thermophile": false,
+      "n_proteins": 10065,
+      "thermo_probability": 0.15254502442002443,
+      "fiveclass_thermophile_share": 0.03805265772478887,
+      "sixclass_thermophile_share": 0.021758569299552905,
+      "random_fiveclass_ci": [
+        0.19244908097367114,
+        0.2084475906607054
+      ],
+      "random_sixclass_ci": [
+        0.15945851962245403,
+        0.17387729756582215
+      ]
+    },
+    {
+      "proteome_id": "GCA_016618255.1",
+      "species": "Chlamydomonas sp. UWO 241",
+      "broad_class": "psychrophile",
+      "thermophile": false,
+      "n_proteins": 11833,
+      "thermo_probability": 0.14721414206708325,
+      "fiveclass_thermophile_share": 0.09245330854390264,
+      "sixclass_thermophile_share": 0.05991718076565537,
+      "random_fiveclass_ci": [
+        0.19285050283106567,
+        0.20687906701597228
+      ],
+      "random_sixclass_ci": [
+        0.1599742246260458,
+        0.1733288261641173
+      ]
+    },
+    {
+      "proteome_id": "GCF_000258705.1",
+      "species": "Coccomyxa subellipsoidea",
+      "broad_class": "psychrophile",
+      "thermophile": false,
+      "n_proteins": 6360,
+      "thermo_probability": 0.12701531519328127,
+      "fiveclass_thermophile_share": 0.08757861635220125,
+      "sixclass_thermophile_share": 0.047327044025157236,
+      "random_fiveclass_ci": [
+        0.19009433962264152,
+        0.20990959119496855
+      ],
+      "random_sixclass_ci": [
+        0.15754716981132075,
+        0.17547169811320754
+      ]
+    },
+    {
+      "proteome_id": "GCA_026184775.1",
+      "species": "Cyanidium caldarium",
+      "broad_class": "thermophile",
+      "thermophile": true,
+      "n_proteins": 3013,
+      "thermo_probability": 0.20705683205683204,
+      "fiveclass_thermophile_share": 0.42748091603053434,
+      "sixclass_thermophile_share": 0.31695984069034183,
+      "random_fiveclass_ci": [
+        0.1851891802190508,
+        0.21308496515101227
+      ],
+      "random_sixclass_ci": [
+        0.15267175572519084,
+        0.18055094590109524
+      ]
+    },
+    {
+      "proteome_id": "GCA_002284615.2",
+      "species": "Dunaliella salina",
+      "broad_class": "halophile",
+      "thermophile": false,
+      "n_proteins": 14467,
+      "thermo_probability": 0.1732916574166574,
+      "fiveclass_thermophile_share": 0.08018248427455589,
+      "sixclass_thermophile_share": 0.05066703532176678,
+      "random_fiveclass_ci": [
+        0.19340395382594872,
+        0.20654074790903434
+      ],
+      "random_sixclass_ci": [
+        0.16071058270546762,
+        0.172737955346651
+      ]
+    },
+    {
+      "proteome_id": "GCA_001750085.1",
+      "species": "Fragilariopsis cylindrus",
+      "broad_class": "psychrophile",
+      "thermophile": false,
+      "n_proteins": 14442,
+      "thermo_probability": 0.10542546583850931,
+      "fiveclass_thermophile_share": 0.011909707796704057,
+      "sixclass_thermophile_share": 0.009001523334718183,
+      "random_fiveclass_ci": [
+        0.19367123667082123,
+        0.20668882426256752
+      ],
+      "random_sixclass_ci": [
+        0.16043311175737432,
+        0.1726215205650187
+      ]
+    },
+    {
+      "proteome_id": "GCA_025991245.1",
+      "species": "Galdieria partita",
+      "broad_class": "thermophile",
+      "thermophile": true,
+      "n_proteins": 4826,
+      "thermo_probability": 0.17618034717260728,
+      "fiveclass_thermophile_share": 0.2511396601740572,
+      "sixclass_thermophile_share": 0.09013675922088686,
+      "random_fiveclass_ci": [
+        0.1885515955242437,
+        0.2111479486116867
+      ],
+      "random_sixclass_ci": [
+        0.15665147119767925,
+        0.17716535433070865
+      ]
+    },
+    {
+      "proteome_id": "GCF_000341285.1",
+      "species": "Galdieria sulphuraria",
+      "broad_class": "thermophile",
+      "thermophile": true,
+      "n_proteins": 4590,
+      "thermo_probability": 0.20118034717260724,
+      "fiveclass_thermophile_share": 0.2596949891067538,
+      "sixclass_thermophile_share": 0.11132897603485839,
+      "random_fiveclass_ci": [
+        0.18845315904139434,
+        0.21133442265795208
+      ],
+      "random_sixclass_ci": [
+        0.15663943355119825,
+        0.17712418300653596
+      ]
+    },
+    {
+      "proteome_id": "GCA_026122205.1",
+      "species": "Galdieria yellowstonensis",
+      "broad_class": "thermophile",
+      "thermophile": true,
+      "n_proteins": 4508,
+      "thermo_probability": 0.17051030924593213,
+      "fiveclass_thermophile_share": 0.2664152617568767,
+      "sixclass_thermophile_share": 0.10603371783496007,
+      "random_fiveclass_ci": [
+        0.1881100266193434,
+        0.21074201419698316
+      ],
+      "random_sixclass_ci": [
+        0.1559449866903283,
+        0.1774622892635315
+      ]
+    },
+    {
+      "proteome_id": "GCF_000240725.1",
+      "species": "Nannochloropsis gaditana",
+      "broad_class": "halophile",
+      "thermophile": false,
+      "n_proteins": 2316,
+      "thermo_probability": 0.16395998810229553,
+      "fiveclass_thermophile_share": 0.1459412780656304,
+      "sixclass_thermophile_share": 0.09930915371329879,
+      "random_fiveclass_ci": [
+        0.18349525043177892,
+        0.21675302245250433
+      ],
+      "random_sixclass_ci": [
+        0.15155440414507773,
+        0.18264248704663213
+      ]
+    },
+    {
+      "proteome_id": "GCA_037830525.2",
+      "species": "Nannochloropsis oceanica",
+      "broad_class": "halophile",
+      "thermophile": false,
+      "n_proteins": 7779,
+      "thermo_probability": 0.16551434676434673,
+      "fiveclass_thermophile_share": 0.051291939838025456,
+      "sixclass_thermophile_share": 0.0350944851523332,
+      "random_fiveclass_ci": [
+        0.1912842267643656,
+        0.20826263015811802
+      ],
+      "random_sixclass_ci": [
+        0.1588893173929811,
+        0.17547885332304922
+      ]
+    },
+    {
+      "proteome_id": "GCA_004565275.1",
+      "species": "Nannochloropsis salina",
+      "broad_class": "halophile",
+      "thermophile": false,
+      "n_proteins": 5963,
+      "thermo_probability": 0.13216477966477969,
+      "fiveclass_thermophile_share": 0.06858963608921684,
+      "sixclass_thermophile_share": 0.04393761529431494,
+      "random_fiveclass_ci": [
+        0.19100704343451283,
+        0.20980211303035384
+      ],
+      "random_sixclass_ci": [
+        0.15680026832131477,
+        0.17608586282072783
+      ]
+    },
+    {
+      "proteome_id": "GCA_905237085.1",
+      "species": "Polarella glacialis",
+      "broad_class": "psychrophile",
+      "thermophile": false,
+      "n_proteins": 43230,
+      "thermo_probability": 0.14156834056877585,
+      "fiveclass_thermophile_share": 0.041360166551006244,
+      "sixclass_thermophile_share": 0.02234559333795975,
+      "random_fiveclass_ci": [
+        0.1963439740920657,
+        0.2036566042100393
+      ],
+      "random_sixclass_ci": [
+        0.1631031690955355,
+        0.170206453851492
+      ]
+    }
+  ],
+  "thermo_probability": {
+    "mean_thermophilic": 0.18873195891199468,
+    "mean_other": 0.14541100667063925,
+    "thermophilic_in_top4": 3
+  },
+  "fiveclass_thermophile_share": {
+    "mean_thermophilic": 0.3011827067670555,
+    "mean_other": 0.06859553280400352,
+    "thermophilic_in_top4": 4
+  },
+  "sixclass_thermophile_share": {
+    "mean_thermophilic": 0.15611482344526179,
+    "mean_other": 0.04326202224941746,
+    "thermophilic_in_top4": 3
+  }
+}

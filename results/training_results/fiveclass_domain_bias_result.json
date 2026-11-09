@@ -43,11 +43,15 @@
       "f1_bacteria_only": 0.7612793176972281,
       "archaea": {
         "n": 139,
-        "accuracy": 0.4892086330935252
+        "accuracy": 0.4892086330935252,
+        "ci_lower": 0.4028776978417266,
+        "ci_upper": 0.568525179856115
       },
       "bacteria": {
         "n": 5577,
-        "accuracy": 0.8002510310202617
+        "accuracy": 0.8002510310202617,
+        "ci_lower": 0.7894925587233279,
+        "ci_upper": 0.8097543482158867
       }
     },
     "alkaliphile": {
@@ -59,7 +63,9 @@
       },
       "bacteria": {
         "n": 5715,
-        "accuracy": 0.662992125984252
+        "accuracy": 0.662992125984252,
+        "ci_lower": 0.6510936132983377,
+        "ci_upper": 0.6745450568678915
       }
     },
     "halophile": {
@@ -67,11 +73,15 @@
       "f1_bacteria_only": 0.47599494630448513,
       "archaea": {
         "n": 1832,
-        "accuracy": 0.9143013100436681
+        "accuracy": 0.9143013100436681,
+        "ci_lower": 0.9017330786026201,
+        "ci_upper": 0.9268695414847161
       },
       "bacteria": {
         "n": 3883,
-        "accuracy": 0.3881019830028329
+        "accuracy": 0.3881019830028329,
+        "ci_lower": 0.3726500128766418,
+        "ci_upper": 0.40227916559361315
       }
     },
     "psychrophile": {
@@ -83,7 +93,9 @@
       },
       "bacteria": {
         "n": 5715,
-        "accuracy": 0.7566054243219598
+        "accuracy": 0.7566054243219598,
+        "ci_lower": 0.7455774278215224,
+        "ci_upper": 0.7676290463692038
       }
     },
     "thermophile": {
@@ -91,11 +103,15 @@
       "f1_bacteria_only": 0.7462916586399537,
       "archaea": {
         "n": 3309,
-        "accuracy": 0.9313992142641281
+        "accuracy": 0.9313992142641281,
+        "ci_lower": 0.9229374433363554,
+        "ci_upper": 0.9395587790873375
       },
       "bacteria": {
         "n": 2406,
-        "accuracy": 0.8050706566916043
+        "accuracy": 0.8050706566916043,
+        "ci_lower": 0.7892768079800498,
+        "ci_upper": 0.8216957605985037
       }
     }
   },
@@ -118,35 +134,51 @@
   "accuracy_by_subtype_and_domain": {
     "extreme_halophile|archaea": {
       "n": 1546,
-      "accuracy": 0.9217335058214747
+      "accuracy": 0.9217335058214747,
+      "ci_lower": 0.908150064683053,
+      "ci_upper": 0.9346862871927555
     },
     "moderate_halophile|archaea": {
       "n": 286,
-      "accuracy": 0.8741258741258742
+      "accuracy": 0.8741258741258742,
+      "ci_lower": 0.8356643356643356,
+      "ci_upper": 0.9090909090909091
     },
     "moderate_halophile|bacteria": {
       "n": 934,
-      "accuracy": 0.3436830835117773
+      "accuracy": 0.3436830835117773,
+      "ci_lower": 0.3147751605995717,
+      "ci_upper": 0.3747323340471092
     },
     "slight_halophile|bacteria": {
       "n": 2949,
-      "accuracy": 0.40217022719565954
+      "accuracy": 0.40217022719565954,
+      "ci_lower": 0.3855459477789081,
+      "ci_upper": 0.41946422516107157
     },
     "hyperthermophile|archaea": {
       "n": 2977,
-      "accuracy": 0.9358414511252939
+      "accuracy": 0.9358414511252939,
+      "ci_lower": 0.9267719180382936,
+      "ci_upper": 0.94391165602956
     },
     "hyperthermophile|bacteria": {
       "n": 93,
-      "accuracy": 0.8924731182795699
+      "accuracy": 0.8924731182795699,
+      "ci_lower": 0.8279569892473119,
+      "ci_upper": 0.956989247311828
     },
     "thermophile|archaea": {
       "n": 332,
-      "accuracy": 0.891566265060241
+      "accuracy": 0.891566265060241,
+      "ci_lower": 0.8554216867469879,
+      "ci_upper": 0.9246987951807228
     },
     "thermophile|bacteria": {
       "n": 2313,
-      "accuracy": 0.8015564202334631
+      "accuracy": 0.8015564202334631,
+      "ci_lower": 0.7864245568525724,
+      "ci_upper": 0.8175529615218331
     }
   }
 }

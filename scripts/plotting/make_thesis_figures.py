@@ -62,6 +62,20 @@ def error_bars(ax, x, values, lower, upper, color="#334155"):
     ax.errorbar(x, values, yerr=yerr, fmt="none", ecolor=color, elinewidth=0.8, capsize=2)
 
 
+RANDOM_STYLE = dict(color="#1e293b", linewidth=1.0, linestyle=(0, (2, 1.5)), zorder=5)
+
+
+def random_baseline(task):
+    # Random baseline (labels drawn from the training class distribution), see scripts/evaluation/random_baselines.py
+    return json.load(open(RESULTS / "random_baseline_result.json"))[task]
+
+
+def random_marks(ax, centers, values, half_width):
+    # A dashed segment at the random value over each group of bars; one legend entry "Random"
+    for i, (x, v) in enumerate(zip(centers, values)):
+        ax.plot([x - half_width, x + half_width], [v, v], label="Random" if i == 0 else None, **RANDOM_STYLE)
+
+
 # ── R0: dataset ─────────────────────────────────────────────────────────────────────────────────────────────────────
 def load_dataset_rows():
     domain = {r["proteome_id"]: r["domain"] for r in csv.DictReader(open(DOMAINS), delimiter="\t")}
@@ -177,6 +191,129 @@ def fig_proteome_sizes():
     print(f"    {len(rows)} proteomes, {sum(sizes):,} proteins, {min(sizes):,} to {max(sizes):,} (median {np.median(sizes):,.0f})")
 
 
+AMINO_ACIDS = "DEKRHNQSTGPCAVILMFWY"  # charged, polar, special, hydrophobic
+
+
+def proteome_statistics(rows):
+    # Protein lengths and amino acid composition (share of each residue over all proteins) of every proteome
+    stats = {}
+    for r in rows:
+        lengths, counts, seq = [], Counter(), []
+        for line in list(open(r["local_fasta_path"])) + [">"]:
+            if line.startswith(">"):
+                if seq:
+                    s = "".join(seq)
+                    lengths.append(len(s))
+                    counts.update(s)
+                seq = []
+            else:
+                seq.append(line.strip())
+        total = sum(counts[a] for a in AMINO_ACIDS)
+        stats[r["proteome_id"]] = (np.array(lengths), np.array([counts[a] / total for a in AMINO_ACIDS]))
+    return stats
+
+
+def fig_dataset_statistics():
+    # (A) protein length distribution of the whole dataset and per class, (B) amino acid composition per class as the
+    # difference from the mean over all single-label prokaryotes, (C) proteome size against the reported growth optima
+    from scipy.stats import kruskal, spearmanr
+    rows = load_dataset_rows()
+    stats = proteome_statistics(rows)
+    single = [r for r in rows if r["group"] in ("archaea", "bacteria")]
+    prokaryotes = [r for r in rows if r["group"] != "algae"]
+    algae = [r for r in rows if r["group"] == "algae"]
+
+    fig = plt.figure(figsize=(FULL_WIDTH, 5.6))
+    grid = fig.add_gridspec(2, 3, height_ratios=[1.3, 1], hspace=0.5, wspace=0.45)
+
+    # (A) lengths
+    ax = fig.add_subplot(grid[0, :2])
+    bins = np.arange(0, 1501, 25)
+    pooled = np.concatenate([stats[r["proteome_id"]][0] for r in prokaryotes])
+    ax.hist(pooled, bins=bins, density=True, color=style.BASELINE, alpha=0.6, label="All prokaryotes")
+    for cls in CLASSES:
+        lengths = np.concatenate([stats[r["proteome_id"]][0] for r in single if r["classes"] == [cls]])
+        ax.hist(lengths, bins=bins, density=True, histtype="step", linewidth=1.0, color=style.CLASS_COLORS[cls],
+                label=label(cls))
+    algae_lengths = np.concatenate([stats[r["proteome_id"]][0] for r in algae])
+    ax.hist(algae_lengths, bins=bins, density=True, histtype="step", linewidth=1.0, linestyle="--", color="#334155",
+            label="Algae")
+    ax.set_xlim(0, 1500)
+    ax.set_xlabel("Protein length (residues)")
+    ax.set_ylabel("Density")
+    ax.legend(loc="upper right", fontsize=7)
+    ax.text(-0.12, 1.02, "A", transform=ax.transAxes, fontweight="bold")
+
+    # (B) composition
+    ax = fig.add_subplot(grid[0, 2])
+    mean = np.mean([stats[r["proteome_id"]][1] for r in single], axis=0)
+    diff = np.array([np.mean([stats[r["proteome_id"]][1] for r in single if r["classes"] == [c]], axis=0) - mean
+                     for c in CLASSES]) * 100
+    vmax = np.abs(diff).max()
+    im = ax.imshow(diff.T, cmap="RdBu_r", vmin=-vmax, vmax=vmax, aspect="auto")
+    ax.set_xticks(range(len(CLASSES)), [label(c)[:4] + "." for c in CLASSES], rotation=90, fontsize=7)
+    ax.set_yticks(range(len(AMINO_ACIDS)), list(AMINO_ACIDS), fontsize=6.5)
+    ax.tick_params(length=0)
+    for side in ("left", "bottom"):
+        ax.spines[side].set_visible(False)
+    cbar = fig.colorbar(im, ax=ax, shrink=0.8, pad=0.04)
+    cbar.set_label("Difference from mean (pp)", fontsize=7)
+    cbar.ax.tick_params(labelsize=6.5)
+    ax.text(-0.45, 1.02, "B", transform=ax.transAxes, fontweight="bold")
+
+    # (C) proteome size against the growth optima
+    panels = [("ogt_celsius", "OGT (°C)"), ("nacl_optimum_M", "NaCl optimum (M)"), ("ph_optimum", "pH optimum")]
+    correlations = {}
+    for i, (field, xlabel) in enumerate(panels):
+        ax = fig.add_subplot(grid[1, i])
+        xs, ys = [], []
+        for r in single:
+            if not r[field]:
+                continue
+            x, y = float(r[field]), len(stats[r["proteome_id"]][0])
+            xs.append(x)
+            ys.append(y)
+            ax.scatter(x, y, s=10, marker="^" if r["group"] == "archaea" else "o",
+                       color=style.CLASS_COLORS[r["classes"][0]], alpha=0.8, edgecolors="white", linewidths=0.3)
+        rho, p = spearmanr(xs, ys)
+        correlations[field] = (rho, p, len(xs))
+        ax.text(0.97, 0.97, f"ρ = {rho:.2f}\nn = {len(xs)}", transform=ax.transAxes, ha="right", va="top", fontsize=7)
+        ax.set_xlabel(xlabel)
+        if i == 0:
+            ax.set_ylabel("Proteins per proteome")
+            ax.text(-0.38, 1.02, "C", transform=ax.transAxes, fontweight="bold")
+    save(fig, "fig_r2b_dataset_statistics")
+
+    # Numbers for the text
+    sizes = np.array([len(stats[r["proteome_id"]][0]) for r in rows])
+    print(f"    {len(rows)} proteomes: mean {sizes.mean():,.0f}, median {np.median(sizes):,.0f} proteins")
+    for name, group in (("prokaryotes", prokaryotes), ("algae", algae)):
+        s = np.array([len(stats[r["proteome_id"]][0]) for r in group])
+        print(f"    {name}: {len(group)} proteomes, mean {s.mean():,.0f}, median {np.median(s):,.0f} proteins")
+    for name, lengths in (("prokaryotes", pooled), ("algae", algae_lengths)):
+        q1, q3 = np.percentile(lengths, [25, 75])
+        print(f"    {name} lengths: median {np.median(lengths):.0f} (IQR {q1:.0f} to {q3:.0f}), "
+              f"{100 * (lengths > 1000).mean():.1f}% longer than 1,000")
+    medians = {c: [np.median(stats[r["proteome_id"]][0]) for r in single if r["classes"] == [c]] for c in CLASSES}
+    for c in CLASSES:
+        print(f"    {c}: median protein length per organism, median over organisms {np.median(medians[c]):.0f}")
+    print(f"    Kruskal-Wallis on the per-organism medians: p = {kruskal(*medians.values()).pvalue:.1e}")
+    for c, row in zip(CLASSES, diff):
+        top = np.argsort(-np.abs(row))[:4]
+        print(f"    {c}: " + ", ".join(f"{AMINO_ACIDS[k]} {row[k]:+.2f} pp" for k in top))
+    for field, (rho, p, n) in correlations.items():
+        print(f"    proteome size vs {field}: rho {rho:.2f}, p {p:.1e}, n {n}")
+    for field, name, subset in (
+            ("ogt_celsius", "thermophiles", [r for r in single if r["classes"] == ["thermophile"]]),
+            ("ogt_celsius", "other classes", [r for r in single if r["classes"] != ["thermophile"]]),
+            ("nacl_optimum_M", "halophiles", [r for r in single if r["classes"] == ["halophile"]]),
+            ("ph_optimum", "acidophiles", [r for r in single if r["classes"] == ["acidophile"]]),
+            ("ph_optimum", "alkaliphiles", [r for r in single if r["classes"] == ["alkaliphile"]])):
+        pairs = [(float(r[field]), len(stats[r["proteome_id"]][0])) for r in subset if r[field]]
+        rho, p = spearmanr(*zip(*pairs))
+        print(f"    proteome size vs {field} within {name}: rho {rho:.2f}, p {p:.1e}, n {len(pairs)}")
+
+
 # ── R1: classification ──────────────────────────────────────────────────────────────────────────────────────────────
 def multiclass_result(split, embedder):
     return json.load(open(RESULTS / f"{split}{RESULT_SUFFIX[embedder]}_result.json"))
@@ -194,10 +331,12 @@ def fig_fiveclass_per_class():
         xs = x + (i - 1.5) * w
         ax.bar(xs, vals, w, color=style.EMBEDDER_COLORS[key], label=name)
         error_bars(ax, xs, vals, [c["lower"] for c in ci], [c["upper"] for c in ci])
+    rnd = random_baseline("fiveclass_30pct")["metrics"]
+    random_marks(ax, x, [rnd[f"f1_{c}"]["value"] for c in CLASSES], 2 * w)
     ax.set_xticks(x, [label(c) for c in CLASSES])
     ax.set_ylabel("F1 score")
     ax.set_ylim(0, 1)
-    ax.legend(ncol=4, loc="upper center", bbox_to_anchor=(0.5, 1.12))
+    ax.legend(ncol=5, loc="upper center", bbox_to_anchor=(0.5, 1.12))
     save(fig, "fig_r3_fiveclass_per_class_f1")
 
 
@@ -211,11 +350,16 @@ def table_multiclass(pct="30pct", name="table_r1_multiclass"):
     lines = [r"\begin{tabular}{llccc}", r"\hline",
              r"\textbf{Task} & \textbf{Representation} & " + " & ".join(rf"\textbf{{{m}}}" for _, m in metrics) + r" \\",
              r"\hline"]
-    for split, task in ((f"split1_{pct}", "Five-class"), (f"split2_{pct}", "Twelve-class")):
+    for split, task, rnd_key in ((f"split1_{pct}", "Five-class", f"fiveclass_{pct}"),
+                                 (f"split2_{pct}", "Twelve-class", f"twelveclass_{pct}")):
         for i, (key, rep_name) in enumerate(reversed(EMBEDDERS)):
             r = multiclass_result(split, key)
             cells = [fmt_ci(r["test_metrics"][m], r["test_metrics_bootstrap"][m]) for m, _ in metrics]
             lines.append(f"{task if i == 0 else ''} & {rep_name} & " + " & ".join(cells) + r" \\")
+        rnd = random_baseline(rnd_key)["metrics"]
+        cells = [fmt_ci(rnd[k]["value"], {"lower": rnd[k]["ci_lower"], "upper": rnd[k]["ci_upper"]})
+                 for k in ("accuracy", "macro_f1", "mcc")]
+        lines.append(r" & \textit{Random} & " + " & ".join(cells) + r" \\")
         lines.append(r"\hline")
     lines.append(r"\end{tabular}")
     path = OUT_DIR / f"{name}.tex"
@@ -268,8 +412,8 @@ def table_leakage():
 def fig_homology():
     # Homology-based inference vs. ProtT5 on all test proteins and on those with and without a hit in training
     fig, axes = plt.subplots(1, 2, figsize=(FULL_WIDTH, 2.6), sharey=True)
-    for ax, (file, title) in zip(axes, (("homology_fiveclass_result.json", "Five-class test set"),
-                                         ("homology_binary_clustered_result.json", "Binary test set"))):
+    for ax, (file, title, rnd_key) in zip(axes, (("homology_fiveclass_result.json", "Five-class test set", "fiveclass_30pct"),
+                                                  ("homology_binary_clustered_result.json", "Binary test set", "binary_clustered"))):
         r = json.load(open(RESULTS / file))
         sub = r["subsets"]
         groups = [f"All\n{r['n_test']:,}", f"With hit\n{sub['with_hit']['n']:,}",
@@ -289,13 +433,14 @@ def fig_homology():
             ax.bar(x[idx] + offset, vals, w, color=color, label=name)
             error_bars(ax, x[idx] + offset, vals, [data[i][1] for i in idx], [data[i][2] for i in idx])
         ax.text(x[2] - w / 2, 0.03, "no prediction", ha="center", va="bottom", rotation=90, fontsize=7, color="#1e293b")
+        random_marks(ax, x, [random_baseline(rnd_key)["metrics"]["accuracy"]["value"]] * 3, w)
         ax.set_xticks(x, groups, fontsize=7.5)
         ax.set_title(title, fontsize=9)
         ax.set_ylim(0, 1)
     axes[0].set_ylabel("Accuracy")
     handles, labels_ = axes[0].get_legend_handles_labels()
     fig.tight_layout(w_pad=2)
-    fig.legend(handles, labels_, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2)
+    fig.legend(handles, labels_, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=3)
     save(fig, "fig_r4_homology_vs_prott5")
 
 
@@ -319,9 +464,10 @@ def fig_crossval():
     error_bars(ax, x - w / 2, split_vals, split_lo, split_hi)
     ax.bar(x + w / 2, cv_mean, w, color=style.SECONDARY, label="Unseen organisms, 5-fold CV (mean ± SD)")
     ax.errorbar(x + w / 2, cv_mean, yerr=cv_sd, fmt="none", ecolor="#334155", elinewidth=0.8, capsize=2)
-    ax.axhline(0.2, color="#94a3b8", linewidth=0.7, linestyle=":")
-    ax.set_xlim(-0.6, 4.1)
-    ax.text(3.62, 0.2, "chance", fontsize=7, color="#1e293b", ha="left", va="center")
+    rnd = [random_baseline(f"fiveclass_{pct}")["metrics"][k]["value"]
+           for pct in ("30pct", "20pct") for k in ("accuracy", "macro_f1")]
+    random_marks(ax, x, rnd, w)
+    ax.set_xlim(-0.6, 3.6)
     ax.set_xticks(x, labels, fontsize=7.5)
     ax.set_ylabel("Score")
     ax.set_ylim(0, 1)
@@ -343,9 +489,11 @@ def fig_archaea():
             d = pt5["per_class"][cls].get(dom)
             if d and d["n"] >= 100:
                 ax_a.bar(xi + offset, d["accuracy"], w, color=color, label=name if cls == "halophile" else None)
-                ax_a.text(xi + offset, d["accuracy"] + 0.02, f"{d['accuracy']:.2f}", ha="center", fontsize=6)
+                error_bars(ax_a, [xi + offset], [d["accuracy"]], [d["ci_lower"]], [d["ci_upper"]])
             elif not d or d["n"] == 0:
                 ax_a.text(xi + offset, 0.03, "none", ha="center", rotation=90, fontsize=7, color="#1e293b")
+    rnd = random_baseline("fiveclass_30pct")["metrics"]
+    random_marks(ax_a, x, [rnd[f"recall_{c}"]["value"] for c in CLASSES], w)
     ax_a.set_xticks(x, [label(c) for c in CLASSES])
     ax_a.set_ylabel("Accuracy (= recall)")
     ax_a.set_ylim(0, 1.08)
@@ -358,10 +506,11 @@ def fig_archaea():
               ("thermophile|bacteria", "Thermo-\nphile\nbacteria")]
     xb = np.arange(len(groups))
     for offset, res, color, name in ((-w / 2, pt5, style.MAIN, "ProtT5"), (w / 2, comp, style.RAMP[0], "Composition")):
-        vals = [res["accuracy_by_subtype_and_domain"][g]["accuracy"] for g, _ in groups]
+        entries = [res["accuracy_by_subtype_and_domain"][g] for g, _ in groups]
+        vals = [e["accuracy"] for e in entries]
         ax_b.bar(xb + offset, vals, w, color=color, label=name)
-        for xi, v in zip(xb + offset, vals):
-            ax_b.text(xi, v + 0.02, f"{v:.2f}", ha="center", fontsize=6)
+        error_bars(ax_b, xb + offset, vals, [e["ci_lower"] for e in entries], [e["ci_upper"] for e in entries])
+    random_marks(ax_b, xb, [rnd["recall_halophile"]["value"]] * 4 + [rnd["recall_thermophile"]["value"]] * 3, w)
     ax_b.axvline(3.5, color="#94a3b8", linewidth=0.7, linestyle="--")
     ax_b.text(1.5, 1.04, "Halophile subtypes", ha="center", fontsize=7.5, color="#475569")
     ax_b.text(5.0, 1.04, "Thermophile subtypes", ha="center", fontsize=7.5, color="#475569")
@@ -430,10 +579,16 @@ def fig_binary():
         xs = x + (i - 1.5) * w
         ax_a.bar(xs, vals, w, color=style.EMBEDDER_COLORS[key], label=name)
         error_bars(ax_a, xs, vals, [m[k]["ci_lower"] for k, _ in BINARY_METRICS], [m[k]["ci_upper"] for k, _ in BINARY_METRICS])
+    rnd = random_baseline("binary_clustered")["metrics"]
+    rnd_keys = {"accuracy": "accuracy", "specificity": "specificity", "recall": "recall",
+                "f1_extremophile": "f1_positive", "mcc": "mcc"}
+    random_marks(ax_a, x, [rnd[rnd_keys[k]]["value"] for k, _ in BINARY_METRICS], 2 * w)
     ax_a.set_xticks(x, [n for _, n in BINARY_METRICS], fontsize=7.5)
     ax_a.set_ylabel("Score")
     ax_a.set_ylim(0, 1)
-    ax_a.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2)
+    ax_a.set_ylim(min(0, rnd["mcc"]["value"]) - 0.02, 1)
+    ax_a.axhline(0, color="#1e293b", linewidth=0.5)
+    ax_a.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3)
     ax_a.text(-0.14, 1.2, "A", transform=ax_a.transAxes, fontweight="bold", fontsize=10)
 
     xb, wb = np.arange(len(EMBEDDERS)), 0.38
@@ -469,10 +624,13 @@ def fig_binarization():
         xs = x + (i - 1) * w
         ax.bar(xs, vals, w, color=color, label=name)
         error_bars(ax, xs, vals, [m[k]["ci_lower"] for k in keys], [m[k]["ci_upper"] for k in keys])
+    rnd = random_baseline("binary_clustered")["metrics"]
+    random_marks(ax, x, [rnd[{"f1": "f1_positive"}.get(k, k)]["value"] for k, _ in metrics], 1.5 * w)
     ax.set_xticks(x, [n for _, n in metrics])
     ax.set_ylabel("Score")
-    ax.set_ylim(0, 1)
-    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3)
+    ax.set_ylim(min(0, rnd["mcc"]["value"]) - 0.02, 1)
+    ax.axhline(0, color="#1e293b", linewidth=0.5)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
     save(fig, "fig_r8_binarization")
 
 
@@ -502,6 +660,13 @@ def fig_thermo():
         xs = x + i * w
         ax.bar(xs, vals, w, color=color, label=name)
         error_bars(ax, xs, vals, [m[k]["ci_lower"] for k in keys_ext], [m[k]["ci_upper"] for k in keys_ext])
+    # Random per protein over the bars per protein, random per proteome over the per-proteome bars
+    keys_rnd = ["accuracy", "macro_f1", "f1_positive", "mcc"]
+    per_protein = random_baseline("thermophile_30pct")["metrics"]
+    per_proteome = random_baseline("thermophile_per_proteome")["metrics"]
+    random_marks(ax, x - w, [per_protein[k]["value"] for k in keys_rnd], 1.5 * w)
+    for xi, k in zip(x, keys_rnd):
+        ax.plot([xi + 0.5 * w, xi + 2.5 * w], [per_proteome[k]["value"]] * 2, **RANDOM_STYLE)
     ax.set_xticks(x, labels)
     ax.set_ylabel("Score")
     ax.set_ylim(0, 1.05)
@@ -527,11 +692,13 @@ def fig_algae_recall():
         xs = x + (i - 1.5) * w
         ax.bar(xs, vals, w, color=style.EMBEDDER_COLORS[key], label=name)
         error_bars(ax, xs, vals, [e["ci_lower"] for e in entries], [e["ci_upper"] for e in entries])
+    rnd = random_baseline("algae_binary")
+    random_marks(ax, x, [rnd[g]["metrics"]["recall"]["value"] for g in groups], 2 * w)
     n = [res["prott5"]["overall"]["n_proteins"]] + [res["prott5"]["by_class"][c]["n_proteins"] for c in ALGAE_CLASSES]
     ax.set_xticks(x, [f"{g.capitalize()}\n{k:,}" for g, k in zip(["All algae"] + [label(c) for c in ALGAE_CLASSES], n)])
     ax.set_ylabel("Recall")
     ax.set_ylim(0, 1)
-    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=5)
     save(fig, "fig_r10_algae_recall")
 
 
@@ -551,10 +718,12 @@ def fig_algae_homology():
     ax_a.bar(x + w / 2, [e["recall"] for e in pt5_entries], w, color=style.MAIN, label="ProtT5")
     error_bars(ax_a, x + w / 2, [e["recall"] for e in pt5_entries], [e["ci_lower"] for e in pt5_entries],
                [e["ci_upper"] for e in pt5_entries])
+    rnd = random_baseline("algae_binary")
+    random_marks(ax_a, x, [rnd[g]["metrics"]["recall"]["value"] for g in groups], w)
     ax_a.set_xticks(x, names, rotation=30, ha="right")
     ax_a.set_ylabel("Recall")
     ax_a.set_ylim(0, 1)
-    ax_a.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=2)
+    ax_a.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3, fontsize=7)
     ax_a.text(-0.2, 1.1, "A", transform=ax_a.transAxes, fontweight="bold", fontsize=10)
 
     thresholds = [t for t in hom["thresholds"] if float(t) <= 1e-3]
@@ -597,6 +766,30 @@ def fig_algae_confusion():
     for spine in ax.spines.values():
         spine.set_visible(False)
     save(fig, "fig_r12_algae_confusion")
+
+
+def fig_algae_thermophily():
+    # Thermophily per algal species: THERMO probability per proteome, and the share of proteins assigned to the
+    # thermophile class by the five-class and six-class ProtT5 models, each with its decision threshold or random level
+    r = json.load(open(RESULTS / "algae_thermophile_per_species_result.json"))
+    order = {c: i for i, c in enumerate(ALGAE_CLASSES)}
+    sp = sorted(r["species"], key=lambda s: (order[s["broad_class"]], -s["fiveclass_thermophile_share"]))
+    y = np.arange(len(sp))[::-1]
+    panels = [("thermo_probability", "THERMO\nprobability of thermophily", 0.5, "Threshold"),
+              ("fiveclass_thermophile_share", "Five-class ProtT5\nshare predicted thermophile", r["random_fiveclass"], "Random"),
+              ("sixclass_thermophile_share", "Six-class ProtT5\nshare predicted thermophile", r["random_sixclass"], "Random")]
+    fig, axes = plt.subplots(1, 3, figsize=(FULL_WIDTH, 3.4), sharey=True)
+    for ax, (key, xlabel, ref, ref_label) in zip(axes, panels):
+        ax.barh(y, [s[key] for s in sp], 0.7, color=[style.CLASS_COLORS[s["broad_class"]] for s in sp])
+        ax.axvline(ref, **RANDOM_STYLE)
+        ax.text(ref, len(sp) - 0.2, f" {ref_label}", fontsize=6.5, va="bottom", ha="left")
+        ax.set_xlabel(xlabel, fontsize=8)
+        ax.set_xlim(0, max(0.55, max(s[key] for s in sp) * 1.15))
+    axes[0].set_yticks(y, [s["species"] for s in sp], fontsize=7, fontstyle="italic")
+    handles = [plt.Rectangle((0, 0), 1, 1, color=style.CLASS_COLORS[c]) for c in ALGAE_CLASSES]
+    fig.legend(handles, [label(c) for c in ALGAE_CLASSES], loc="lower center", bbox_to_anchor=(0.55, 1.0), ncol=4)
+    fig.tight_layout(w_pad=1.0)
+    save(fig, "fig_r12b_algae_thermophily")
 
 
 # ── Appendix ────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -645,6 +838,9 @@ def table_hierarchical():
              "Flat twelve-class & " + " & ".join(fmt_ci(flat["test_metrics"][m], flat["test_metrics_bootstrap"][m]) for m, _ in metrics) + r" \\",
              "Hierarchical & " + " & ".join(fmt_ci(h["test_metrics"][m], h["test_metrics_bootstrap"][m]) for m, _ in metrics) + r" \\",
              "Hierarchical, oracle routing & " + " & ".join(f"{h['oracle_metrics'][m]:.3f}" for m, _ in metrics) + r" \\",
+             r"\textit{Random} & " + " & ".join(
+                 fmt_ci(rnd[k]["value"], {"lower": rnd[k]["ci_lower"], "upper": rnd[k]["ci_upper"]})
+                 for rnd in [random_baseline("twelveclass_30pct")["metrics"]] for k in ("accuracy", "macro_f1", "mcc")) + r" \\",
              r"\hline", r"\multicolumn{4}{l}{\textit{Second step: subtypes within a class}} \\",
              r"\textbf{Class} & \textbf{Subtypes} & \textbf{Accuracy} & \textbf{Macro-F1} \\", r"\hline"]
     for cls in ("thermophile", "halophile", "acidophile", "alkaliphile"):
@@ -707,10 +903,12 @@ def fig_twelveclass_per_subtype():
         error_bars(ax, xs, vals, [c["lower"] for c in ci], [c["upper"] for c in ci])
     for boundary in (1.5, 2.5, 5.5, 8.5):
         ax.axvline(boundary, color="#94a3b8", linewidth=0.6, linestyle="--")
+    rnd = random_baseline("twelveclass_30pct")["metrics"]
+    random_marks(ax, x, [rnd[f"f1_{s}"]["value"] for s, _ in SUBTYPES], 2 * w)
     ax.set_xticks(x, [n for _, n in SUBTYPES], rotation=40, ha="right", fontsize=7.5)
     ax.set_ylabel("F1 score")
     ax.set_ylim(0, 1)
-    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=5)
     save(fig, "fig_a_twelveclass_per_subtype")
 
 
@@ -729,10 +927,12 @@ def fig_crossval_per_class():
         sds = [cv[c]["f1_score"]["std"] for c in CLASSES]
         ax.bar(x + offset, means, w, color=color, label=f"Unseen organisms, {pct[:2]}% (mean ± SD)")
         ax.errorbar(x + offset, means, yerr=sds, fmt="none", ecolor="#334155", elinewidth=0.8, capsize=2)
+    rnd = random_baseline("fiveclass_30pct")["metrics"]
+    random_marks(ax, x, [rnd[f"f1_{c}"]["value"] for c in CLASSES], 1.5 * w)
     ax.set_xticks(x, [label(c) for c in CLASSES])
     ax.set_ylabel("F1 score")
     ax.set_ylim(0, 1)
-    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=3, fontsize=7)
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4, fontsize=7)
     save(fig, "fig_a_crossval_per_class")
 
 
@@ -750,8 +950,11 @@ def fig_algae_species():
                   rotation=40, ha="right", fontsize=7, fontstyle="italic")
     ax.set_ylabel("Recall")
     ax.set_ylim(0, 1)
-    handles = [plt.Rectangle((0, 0), 1, 1, color=style.CLASS_COLORS[c]) for c in ALGAE_CLASSES]
-    ax.legend(handles, [label(c) for c in ALGAE_CLASSES], loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4)
+    ax.axhline(random_baseline("algae_binary")["overall"]["metrics"]["recall"]["value"], **RANDOM_STYLE)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=style.CLASS_COLORS[c]) for c in ALGAE_CLASSES] + \
+              [plt.Line2D([], [], **RANDOM_STYLE)]
+    ax.legend(handles, [label(c) for c in ALGAE_CLASSES] + ["Random"], loc="lower center", bbox_to_anchor=(0.5, 1.02),
+              ncol=5)
     save(fig, "fig_a_algae_species")
 
 
@@ -797,6 +1000,7 @@ FIGURES = {
     "r1": fig_dataset_organisms,
     "r2": fig_dataset_optima,
     "data_proteome_sizes": fig_proteome_sizes,
+    "r2b": fig_dataset_statistics,
     "r3": fig_fiveclass_per_class,
     "table_r1": table_multiclass,
     "table_a_20pct": lambda: table_multiclass("20pct", "table_a_multiclass_20pct"),
@@ -811,6 +1015,7 @@ FIGURES = {
     "r10": fig_algae_recall,
     "r11": fig_algae_homology,
     "r12": fig_algae_confusion,
+    "r12b": fig_algae_thermophily,
     "table_a_biotrainer": table_biotrainer,
     "table_a_hierarchical": table_hierarchical,
     "table_a_thermo_overlap": table_thermo_overlap,

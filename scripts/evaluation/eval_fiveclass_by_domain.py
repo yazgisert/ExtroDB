@@ -29,6 +29,13 @@ SEED = 42
 N_BOOTSTRAP = 1000
 
 
+def share_ci(correct):
+    # 95% bootstrap CI of the share of correctly classified proteins within one group
+    rng = np.random.default_rng(SEED)
+    boot = [correct[rng.choice(len(correct), len(correct), replace=True)].mean() for _ in range(N_BOOTSTRAP)]
+    return {"ci_lower": float(np.percentile(boot, 2.5)), "ci_upper": float(np.percentile(boot, 97.5))}
+
+
 def with_ci(y_true, y_pred):
     def metrics(t, p):
         return {"accuracy": accuracy_score(t, p), "macro_f1": f1_score(t, p, average="macro")}
@@ -122,7 +129,8 @@ if __name__ == "__main__":
         entry = {"f1_all": float(f1_all[c]), "f1_bacteria_only": float(f1_bac[c])}
         for domain in ("archaea", "bacteria"):
             mask = (y_true == c) & (domains == domain)
-            entry[domain] = {"n": int(mask.sum()), "accuracy": float((y_pred[mask] == c).mean()) if mask.any() else None}
+            entry[domain] = {"n": int(mask.sum()), "accuracy": float((y_pred[mask] == c).mean()) if mask.any() else None,
+                             **(share_ci(y_pred[mask] == c) if mask.any() else {})}
         result["per_class"][name] = entry
         a, b = entry["archaea"], entry["bacteria"]
         a_r = f"{a['accuracy']:.3f}" if a["accuracy"] is not None else "–"
@@ -145,7 +153,8 @@ if __name__ == "__main__":
                 mask = (y_true == c) & (subtypes == subtype) & (domains == domain)
                 if mask.any():
                     acc = float((y_pred[mask] == c).mean())
-                    result["accuracy_by_subtype_and_domain"][f"{subtype}|{domain}"] = {"n": int(mask.sum()), "accuracy": acc}
+                    result["accuracy_by_subtype_and_domain"][f"{subtype}|{domain}"] = {
+                        "n": int(mask.sum()), "accuracy": acc, **share_ci(y_pred[mask] == c)}
                     print(f"  {subtype:<20} {domain:<9} n={mask.sum():>5}  accuracy {acc:.3f}")
 
     with open(OUT_JSON[embedder], "w") as f:

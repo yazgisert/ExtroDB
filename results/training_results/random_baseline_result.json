@@ -1,0 +1,769 @@
+{
+  "fiveclass_30pct": {
+    "n_test": 28576,
+    "prior": {
+      "acidophile": 0.20000399928012957,
+      "alkaliphile": 0.20000399928012957,
+      "halophile": 0.19997400467915774,
+      "psychrophile": 0.20000399928012957,
+      "thermophile": 0.2000139974804535
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.2030025195968645,
+        "ci_lower": 0.1984847424412094,
+        "ci_upper": 0.20786674132138858
+      },
+      "macro_f1": {
+        "value": 0.20301448171357137,
+        "ci_lower": 0.19849813685256756,
+        "ci_upper": 0.2078543647821807
+      },
+      "mcc": {
+        "value": 0.0037532633529623184,
+        "ci_lower": -0.001893697675703923,
+        "ci_upper": 0.00984251202562391
+      },
+      "f1_acidophile": {
+        "value": 0.20296465222348917,
+        "ci_lower": 0.19377505625875063,
+        "ci_upper": 0.21267181319382417
+      },
+      "recall_acidophile": {
+        "value": 0.20241427571728482,
+        "ci_lower": 0.1923543680454708,
+        "ci_upper": 0.21288488500485991
+      },
+      "f1_alkaliphile": {
+        "value": 0.2044857192920974,
+        "ci_lower": 0.195197010550872,
+        "ci_upper": 0.21460234663871194
+      },
+      "recall_alkaliphile": {
+        "value": 0.2041994750656168,
+        "ci_lower": 0.19384925611379017,
+        "ci_upper": 0.21456606787518587
+      },
+      "f1_halophile": {
+        "value": 0.2060840513451732,
+        "ci_lower": 0.19604311118690895,
+        "ci_upper": 0.21579216370146373
+      },
+      "recall_halophile": {
+        "value": 0.20507436570428697,
+        "ci_lower": 0.19468808409605468,
+        "ci_upper": 0.21543415680438635
+      },
+      "f1_psychrophile": {
+        "value": 0.1992217898832685,
+        "ci_lower": 0.18975576273253125,
+        "ci_upper": 0.2087270682201645
+      },
+      "recall_psychrophile": {
+        "value": 0.2015748031496063,
+        "ci_lower": 0.19145924207648282,
+        "ci_upper": 0.211222288347556
+      },
+      "f1_thermophile": {
+        "value": 0.20231619582382873,
+        "ci_lower": 0.19280150563810175,
+        "ci_upper": 0.21249058502545684
+      },
+      "recall_thermophile": {
+        "value": 0.20174978127734033,
+        "ci_lower": 0.1915748994930956,
+        "ci_upper": 0.21281615528980447
+      }
+    }
+  },
+  "fiveclass_20pct": {
+    "n_test": 19601,
+    "prior": {
+      "acidophile": 0.20002040727081907,
+      "alkaliphile": 0.20002040727081907,
+      "halophile": 0.19997667740477823,
+      "psychrophile": 0.19997667740477823,
+      "thermophile": 0.20000583064880545
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.19759195959389828,
+        "ci_lower": 0.1920297433804398,
+        "ci_upper": 0.20295010458650067
+      },
+      "macro_f1": {
+        "value": 0.19757096144974254,
+        "ci_lower": 0.1919880996114996,
+        "ci_upper": 0.2029393004114846
+      },
+      "mcc": {
+        "value": -0.003009967891667152,
+        "ci_lower": -0.010009486746993397,
+        "ci_upper": 0.0037403554738395803
+      },
+      "f1_acidophile": {
+        "value": 0.19533936075385203,
+        "ci_lower": 0.18360112889029148,
+        "ci_upper": 0.20790213825933507
+      },
+      "recall_acidophile": {
+        "value": 0.19566326530612244,
+        "ci_lower": 0.1831677917087414,
+        "ci_upper": 0.20898376174046646
+      },
+      "f1_alkaliphile": {
+        "value": 0.19293756397134085,
+        "ci_lower": 0.18073281658592932,
+        "ci_upper": 0.20511752604139702
+      },
+      "recall_alkaliphile": {
+        "value": 0.1923469387755102,
+        "ci_lower": 0.17924826132603716,
+        "ci_upper": 0.2046870563205384
+      },
+      "f1_halophile": {
+        "value": 0.196490329191751,
+        "ci_lower": 0.18467530559551573,
+        "ci_upper": 0.2085248487644698
+      },
+      "recall_halophile": {
+        "value": 0.19566326530612244,
+        "ci_lower": 0.18308405158613023,
+        "ci_upper": 0.20813409160267568
+      },
+      "f1_psychrophile": {
+        "value": 0.20562634035574617,
+        "ci_lower": 0.1944487191820444,
+        "ci_upper": 0.21725885025538555
+      },
+      "recall_psychrophile": {
+        "value": 0.20790816326530612,
+        "ci_lower": 0.19611335296894125,
+        "ci_upper": 0.2196028903641587
+      },
+      "f1_thermophile": {
+        "value": 0.19746121297602257,
+        "ci_lower": 0.186186309159327,
+        "ci_upper": 0.20900762365760214
+      },
+      "recall_thermophile": {
+        "value": 0.19637847487885743,
+        "ci_lower": 0.1844474253773926,
+        "ci_upper": 0.2090868423294956
+      }
+    }
+  },
+  "twelveclass_30pct": {
+    "n_test": 12383,
+    "prior": {
+      "acidophile": 0.08334294746071667,
+      "acidotolerant": 0.08331987355499665,
+      "alkaliphile": 0.08334294746071667,
+      "alkalitolerant": 0.08334294746071667,
+      "extreme_alkaliphile": 0.08331987355499665,
+      "extreme_halophile": 0.08334294746071667,
+      "hyperthermophile": 0.08334294746071667,
+      "moderate_acidophile": 0.08334294746071667,
+      "moderate_halophile": 0.08334294746071667,
+      "psychrophile": 0.08334294746071667,
+      "slight_halophile": 0.08327372574355661,
+      "thermophile": 0.08334294746071667
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.08648954211418881,
+        "ci_lower": 0.08123637244609545,
+        "ci_upper": 0.09117742065735282
+      },
+      "macro_f1": {
+        "value": 0.08644317397707764,
+        "ci_lower": 0.0812092417240423,
+        "ci_upper": 0.09107936802384667
+      },
+      "mcc": {
+        "value": 0.003443044299029487,
+        "ci_lower": -0.0023091684996570778,
+        "ci_upper": 0.008568900650000275
+      },
+      "f1_acidophile": {
+        "value": 0.07017543859649122,
+        "ci_lower": 0.054507061742645545,
+        "ci_upper": 0.08574880353036235
+      },
+      "recall_acidophile": {
+        "value": 0.06976744186046512,
+        "ci_lower": 0.054000531772952214,
+        "ci_upper": 0.08579108301473738
+      },
+      "f1_acidotolerant": {
+        "value": 0.08687350835322195,
+        "ci_lower": 0.0710803285576485,
+        "ci_upper": 0.10399916607719246
+      },
+      "recall_acidotolerant": {
+        "value": 0.08817829457364341,
+        "ci_lower": 0.07184315984086574,
+        "ci_upper": 0.1056150493880308
+      },
+      "f1_alkaliphile": {
+        "value": 0.10551330798479087,
+        "ci_lower": 0.08869470883550037,
+        "ci_upper": 0.12320070595696159
+      },
+      "recall_alkaliphile": {
+        "value": 0.10755813953488372,
+        "ci_lower": 0.09028157628018468,
+        "ci_upper": 0.12549117882919006
+      },
+      "f1_alkalitolerant": {
+        "value": 0.08682926829268292,
+        "ci_lower": 0.07007243691874468,
+        "ci_upper": 0.10486269291599314
+      },
+      "recall_alkalitolerant": {
+        "value": 0.08624031007751938,
+        "ci_lower": 0.06929592575985621,
+        "ci_upper": 0.10466703001302505
+      },
+      "f1_extreme_alkaliphile": {
+        "value": 0.0855036855036855,
+        "ci_lower": 0.0687930622500557,
+        "ci_upper": 0.10225889026741805
+      },
+      "recall_extreme_alkaliphile": {
+        "value": 0.08430232558139535,
+        "ci_lower": 0.06724283086629988,
+        "ci_upper": 0.10070828793767121
+      },
+      "f1_extreme_halophile": {
+        "value": 0.08454810495626822,
+        "ci_lower": 0.06838833869706967,
+        "ci_upper": 0.10228328544794786
+      },
+      "recall_extreme_halophile": {
+        "value": 0.08430232558139535,
+        "ci_lower": 0.06817300916138125,
+        "ci_upper": 0.10279637666280043
+      },
+      "f1_hyperthermophile": {
+        "value": 0.08473760231102552,
+        "ci_lower": 0.06797695336908031,
+        "ci_upper": 0.09971713413426353
+      },
+      "recall_hyperthermophile": {
+        "value": 0.08527131782945736,
+        "ci_lower": 0.06826305552971497,
+        "ci_upper": 0.10119331207909442
+      },
+      "f1_moderate_acidophile": {
+        "value": 0.09460105112279026,
+        "ci_lower": 0.0774743648593878,
+        "ci_upper": 0.11231386761784638
+      },
+      "recall_moderate_acidophile": {
+        "value": 0.09593023255813954,
+        "ci_lower": 0.07744290182762797,
+        "ci_upper": 0.11393657347047177
+      },
+      "f1_moderate_halophile": {
+        "value": 0.08096385542168674,
+        "ci_lower": 0.06576886648301751,
+        "ci_upper": 0.09698036293503988
+      },
+      "recall_moderate_halophile": {
+        "value": 0.08139534883720931,
+        "ci_lower": 0.06534330606973741,
+        "ci_upper": 0.09817804925638875
+      },
+      "f1_psychrophile": {
+        "value": 0.09514467876410004,
+        "ci_lower": 0.07841191066997519,
+        "ci_upper": 0.11338152506891111
+      },
+      "recall_psychrophile": {
+        "value": 0.09408341416100872,
+        "ci_lower": 0.07767786399370435,
+        "ci_upper": 0.1135517869535045
+      },
+      "f1_slight_halophile": {
+        "value": 0.08141245708680726,
+        "ci_lower": 0.06524560746679459,
+        "ci_upper": 0.09789594199488447
+      },
+      "recall_slight_halophile": {
+        "value": 0.08042635658914729,
+        "ci_lower": 0.06479146400087817,
+        "ci_upper": 0.09657178689205458
+      },
+      "f1_thermophile": {
+        "value": 0.08101512933138116,
+        "ci_lower": 0.06511537549273186,
+        "ci_upper": 0.09764283800083666
+      },
+      "recall_thermophile": {
+        "value": 0.08042635658914729,
+        "ci_lower": 0.064395528701465,
+        "ci_upper": 0.09765324052633012
+      }
+    }
+  },
+  "twelveclass_20pct": {
+    "n_test": 8172,
+    "prior": {
+      "acidophile": 0.08333624759573352,
+      "acidotolerant": 0.08333624759573352,
+      "alkaliphile": 0.08333624759573352,
+      "alkalitolerant": 0.08333624759573352,
+      "extreme_alkaliphile": 0.08333624759573352,
+      "extreme_halophile": 0.08333624759573352,
+      "hyperthermophile": 0.08333624759573352,
+      "moderate_acidophile": 0.08333624759573352,
+      "moderate_halophile": 0.08333624759573352,
+      "psychrophile": 0.08330127644693128,
+      "slight_halophile": 0.08333624759573352,
+      "thermophile": 0.08333624759573352
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.08272148800783162,
+        "ci_lower": 0.07672540381791483,
+        "ci_upper": 0.08847283406754772
+      },
+      "macro_f1": {
+        "value": 0.08275765967217237,
+        "ci_lower": 0.07668929218334924,
+        "ci_upper": 0.08825958167597042
+      },
+      "mcc": {
+        "value": -0.0006674978977249395,
+        "ci_lower": -0.007194885022730994,
+        "ci_upper": 0.005485011291231733
+      },
+      "f1_acidophile": {
+        "value": 0.08333333333333333,
+        "ci_lower": 0.062213345484910795,
+        "ci_upper": 0.10644143646946917
+      },
+      "recall_acidophile": {
+        "value": 0.08223201174743025,
+        "ci_lower": 0.061389481895065275,
+        "ci_upper": 0.1059729464417657
+      },
+      "f1_acidotolerant": {
+        "value": 0.08577555396711938,
+        "ci_lower": 0.06625277167932286,
+        "ci_upper": 0.10745068514511821
+      },
+      "recall_acidotolerant": {
+        "value": 0.0881057268722467,
+        "ci_lower": 0.06723239474282353,
+        "ci_upper": 0.10984998047007676
+      },
+      "f1_alkaliphile": {
+        "value": 0.08110065170166546,
+        "ci_lower": 0.06221120689655172,
+        "ci_upper": 0.10095098756400878
+      },
+      "recall_alkaliphile": {
+        "value": 0.08223201174743025,
+        "ci_lower": 0.06349947415316749,
+        "ci_upper": 0.10275291371126714
+      },
+      "f1_alkalitolerant": {
+        "value": 0.06782106782106782,
+        "ci_lower": 0.050244974874371864,
+        "ci_upper": 0.08634676933802325
+      },
+      "recall_alkalitolerant": {
+        "value": 0.06901615271659324,
+        "ci_lower": 0.051242636544998416,
+        "ci_upper": 0.08841539525416652
+      },
+      "f1_extreme_alkaliphile": {
+        "value": 0.0946656649135988,
+        "ci_lower": 0.07305902718712788,
+        "ci_upper": 0.11583170508423625
+      },
+      "recall_extreme_alkaliphile": {
+        "value": 0.09251101321585903,
+        "ci_lower": 0.07163742690058479,
+        "ci_upper": 0.1134036215044372
+      },
+      "f1_extreme_halophile": {
+        "value": 0.08327246165084003,
+        "ci_lower": 0.0633183340903929,
+        "ci_upper": 0.10246237590553303
+      },
+      "recall_extreme_halophile": {
+        "value": 0.08370044052863436,
+        "ci_lower": 0.0632691676653541,
+        "ci_upper": 0.10354631852412115
+      },
+      "f1_hyperthermophile": {
+        "value": 0.09343065693430656,
+        "ci_lower": 0.07244365667322607,
+        "ci_upper": 0.11466037735849056
+      },
+      "recall_hyperthermophile": {
+        "value": 0.09397944199706314,
+        "ci_lower": 0.07236599518708275,
+        "ci_upper": 0.11590106155595394
+      },
+      "f1_moderate_acidophile": {
+        "value": 0.0782608695652174,
+        "ci_lower": 0.05911614785269234,
+        "ci_upper": 0.09791349623454389
+      },
+      "recall_moderate_acidophile": {
+        "value": 0.07929515418502203,
+        "ci_lower": 0.0588991352744275,
+        "ci_upper": 0.09916024397122519
+      },
+      "f1_moderate_halophile": {
+        "value": 0.07318894697535475,
+        "ci_lower": 0.054009238439503796,
+        "ci_upper": 0.0919207927541048
+      },
+      "recall_moderate_halophile": {
+        "value": 0.07195301027900147,
+        "ci_lower": 0.0521708270470443,
+        "ci_upper": 0.09013522084223619
+      },
+      "f1_psychrophile": {
+        "value": 0.08376963350785341,
+        "ci_lower": 0.06359316002412554,
+        "ci_upper": 0.10426067803102854
+      },
+      "recall_psychrophile": {
+        "value": 0.08223201174743025,
+        "ci_lower": 0.06130631951685784,
+        "ci_upper": 0.10335428222982807
+      },
+      "f1_slight_halophile": {
+        "value": 0.07912087912087912,
+        "ci_lower": 0.059292305970879894,
+        "ci_upper": 0.09929856115107911
+      },
+      "recall_slight_halophile": {
+        "value": 0.07929515418502203,
+        "ci_lower": 0.05925729219355927,
+        "ci_upper": 0.10062597036315697
+      },
+      "f1_thermophile": {
+        "value": 0.08935219657483247,
+        "ci_lower": 0.06814255765199162,
+        "ci_upper": 0.11153133847326412
+      },
+      "recall_thermophile": {
+        "value": 0.0881057268722467,
+        "ci_lower": 0.06706142605813306,
+        "ci_upper": 0.1120845250708918
+      }
+    }
+  },
+  "binary_clustered": {
+    "n_test": 5074,
+    "prior": {
+      "extremophile": 0.5,
+      "non_extremophile": 0.5
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.5035474970437525,
+        "ci_lower": 0.48974182104848246,
+        "ci_upper": 0.5179345683878597
+      },
+      "macro_f1": {
+        "value": 0.5035048970280268,
+        "ci_lower": 0.4897059192924973,
+        "ci_upper": 0.5179134614348558
+      },
+      "mcc": {
+        "value": 0.007096211923007573,
+        "ci_lower": -0.02052640877588439,
+        "ci_upper": 0.035885613520633845
+      },
+      "recall": {
+        "value": 0.5128104059913283,
+        "ci_lower": 0.4938159292890263,
+        "ci_upper": 0.5318573958880252
+      },
+      "specificity": {
+        "value": 0.4942845880961766,
+        "ci_lower": 0.47440539326403536,
+        "ci_upper": 0.5142756491014165
+      },
+      "f1_positive": {
+        "value": 0.5081038859597735,
+        "ci_lower": 0.49139247391816604,
+        "ci_upper": 0.5258244196305537
+      }
+    }
+  },
+  "thermophile_30pct": {
+    "n_test": 28576,
+    "prior": {
+      "other": 0.7999860025195464,
+      "thermophile": 0.2000139974804535
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.6818309070548713,
+        "ci_lower": 0.6771399076147817,
+        "ci_upper": 0.6872559140537514
+      },
+      "macro_f1": {
+        "value": 0.5018006646820328,
+        "ci_lower": 0.4959628341486895,
+        "ci_upper": 0.5079533156091145
+      },
+      "mcc": {
+        "value": 0.0036033079974365947,
+        "ci_lower": -0.008067021932751545,
+        "ci_upper": 0.015952042488783773
+      },
+      "recall": {
+        "value": 0.20174978127734033,
+        "ci_lower": 0.1915748994930956,
+        "ci_upper": 0.21281615528980447
+      },
+      "specificity": {
+        "value": 0.8018459384978784,
+        "ci_lower": 0.7970178489707928,
+        "ci_upper": 0.8067300161721179
+      },
+      "f1_positive": {
+        "value": 0.20231619582382873,
+        "ci_lower": 0.19280150563810175,
+        "ci_upper": 0.21249058502545684
+      }
+    }
+  },
+  "thermophile_20pct": {
+    "n_test": 19601,
+    "prior": {
+      "other": 0.7999941693511946,
+      "thermophile": 0.20000583064880545
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.6806795571654507,
+        "ci_lower": 0.6738418958216417,
+        "ci_upper": 0.6872621294831897
+      },
+      "macro_f1": {
+        "value": 0.4990745226743629,
+        "ci_lower": 0.492394092450898,
+        "ci_upper": 0.5061465742911654
+      },
+      "mcc": {
+        "value": -0.001843434748347965,
+        "ci_lower": -0.015107918578631715,
+        "ci_upper": 0.01231258854360295
+      },
+      "recall": {
+        "value": 0.19637847487885743,
+        "ci_lower": 0.1844474253773926,
+        "ci_upper": 0.2090868423294956
+      },
+      "specificity": {
+        "value": 0.8017857142857143,
+        "ci_lower": 0.7951002294465074,
+        "ci_upper": 0.8078734485959861
+      },
+      "f1_positive": {
+        "value": 0.19746121297602257,
+        "ci_lower": 0.186186309159327,
+        "ci_upper": 0.20900762365760214
+      }
+    }
+  },
+  "thermophile_per_proteome": {
+    "n_test": 225,
+    "prior": {
+      "other": 0.6844444444444444,
+      "thermophile": 0.31555555555555553
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.5822222222222222,
+        "ci_lower": 0.52,
+        "ci_upper": 0.6444444444444445
+      },
+      "macro_f1": {
+        "value": 0.5126728110599078,
+        "ci_lower": 0.4485241091628959,
+        "ci_upper": 0.5784101582585778
+      },
+      "mcc": {
+        "value": 0.02544091358146956,
+        "ci_lower": -0.09811013962578158,
+        "ci_upper": 0.16161471996609356
+      },
+      "recall": {
+        "value": 0.323943661971831,
+        "ci_lower": 0.21794871794871795,
+        "ci_upper": 0.4363700384122919
+      },
+      "specificity": {
+        "value": 0.7012987012987013,
+        "ci_lower": 0.6272303783173349,
+        "ci_upper": 0.7739830437687938
+      },
+      "f1_positive": {
+        "value": 0.32857142857142857,
+        "ci_lower": 0.23018562249437094,
+        "ci_upper": 0.43057010978043914
+      }
+    }
+  },
+  "algae_binary": {
+    "overall": {
+      "n_test": 133392,
+      "prior": {
+        "extremophile": 0.5,
+        "non_extremophile": 0.5
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.4984706729039223,
+          "ci_lower": 0.4957489954420055,
+          "ci_upper": 0.5010797124265323
+        }
+      }
+    },
+    "acidophile": {
+      "n_test": 10065,
+      "prior": {
+        "extremophile": 0.5,
+        "non_extremophile": 0.5
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.5013412816691505,
+          "ci_lower": 0.4919970193740686,
+          "ci_upper": 0.5110779930452062
+        }
+      }
+    },
+    "halophile": {
+      "n_test": 30525,
+      "prior": {
+        "extremophile": 0.5,
+        "non_extremophile": 0.5
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.4972972972972973,
+          "ci_lower": 0.4917927927927928,
+          "ci_upper": 0.5026380016380017
+        }
+      }
+    },
+    "psychrophile": {
+      "n_test": 75865,
+      "prior": {
+        "extremophile": 0.5,
+        "non_extremophile": 0.5
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.4973176036380413,
+          "ci_lower": 0.4940611612733144,
+          "ci_upper": 0.5007315626441705
+        }
+      }
+    },
+    "thermophile": {
+      "n_test": 16937,
+      "prior": {
+        "extremophile": 0.5,
+        "non_extremophile": 0.5
+      },
+      "metrics": {
+        "recall": {
+          "value": 0.4987896321662632,
+          "ci_lower": 0.4915244730471748,
+          "ci_upper": 0.505933754501978
+        }
+      }
+    }
+  },
+  "algae_fiveclass": {
+    "n_test": 133392,
+    "prior": {
+      "acidophile": 0.20000399928012957,
+      "alkaliphile": 0.20000399928012957,
+      "halophile": 0.19997400467915774,
+      "psychrophile": 0.20000399928012957,
+      "thermophile": 0.2000139974804535
+    },
+    "metrics": {
+      "accuracy": {
+        "value": 0.1991348806525129,
+        "ci_lower": 0.1969006762024709,
+        "ci_upper": 0.20124932529686937
+      },
+      "macro_f1": {
+        "value": 0.1924155803697597,
+        "ci_lower": 0.19001408642842368,
+        "ci_upper": 0.1944825796523226
+      },
+      "mcc": {
+        "value": -0.0027187790244672773,
+        "ci_lower": -0.005623340106964987,
+        "ci_upper": -0.0001633706128591172
+      },
+      "f1_acidophile": {
+        "value": 0.11177144103374952,
+        "ci_lower": 0.10734109209371866,
+        "ci_upper": 0.11601618801443611
+      },
+      "recall_acidophile": {
+        "value": 0.20367610531544958,
+        "ci_lower": 0.19618590012769477,
+        "ci_upper": 0.2110469078852382
+      },
+      "f1_alkaliphile": {
+        "value": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0
+      },
+      "recall_alkaliphile": {
+        "value": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0
+      },
+      "f1_halophile": {
+        "value": 0.2109664941717631,
+        "ci_lower": 0.20649109816727196,
+        "ci_upper": 0.2153114782566013
+      },
+      "recall_halophile": {
+        "value": 0.19832923832923832,
+        "ci_lower": 0.19382925254065939,
+        "ci_upper": 0.2027154256432618
+      },
+      "f1_psychrophile": {
+        "value": 0.29502739846023573,
+        "ci_lower": 0.29139663722967146,
+        "ci_upper": 0.2987038114933414
+      },
+      "recall_psychrophile": {
+        "value": 0.19977591774863243,
+        "ci_lower": 0.19688737014931404,
+        "ci_upper": 0.2026796921041737
+      },
+      "f1_thermophile": {
+        "value": 0.15189698781329042,
+        "ci_lower": 0.1471743794380506,
+        "ci_upper": 0.15609662687938192
+      },
+      "recall_thermophile": {
+        "value": 0.19501682706500562,
+        "ci_lower": 0.18895014435079807,
+        "ci_upper": 0.2008173122627961
+      }
+    }
+  }
+}
