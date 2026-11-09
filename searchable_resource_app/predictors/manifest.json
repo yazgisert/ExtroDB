@@ -4,15 +4,15 @@
     "splits": {
       "train": {
         "file": "fiveclass_split1_30pct_train.fasta.gz",
-        "n_proteins": 100024,
+        "n_proteins": 100018,
         "labels": {
-          "acidophile": 20005,
-          "alkaliphile": 20005,
-          "halophile": 20004,
-          "psychrophile": 20005,
+          "acidophile": 20004,
+          "alkaliphile": 20004,
+          "halophile": 20001,
+          "psychrophile": 20004,
           "thermophile": 20005
         },
-        "size_mb": 16.58
+        "size_mb": 16.55
       },
       "val": {
         "file": "fiveclass_split1_30pct_val.fasta.gz",
@@ -49,34 +49,34 @@
     "splits": {
       "train": {
         "file": "fiveclass_split1_20pct_train.fasta.gz",
-        "n_proteins": 68607,
+        "n_proteins": 68603,
         "labels": {
           "acidophile": 13722,
           "alkaliphile": 13722,
-          "halophile": 13721,
-          "psychrophile": 13721,
+          "halophile": 13719,
+          "psychrophile": 13719,
           "thermophile": 13721
         },
-        "size_mb": 10.82
+        "size_mb": 10.8
       },
       "val": {
         "file": "fiveclass_split1_20pct_val.fasta.gz",
-        "n_proteins": 9801,
+        "n_proteins": 9800,
         "labels": {
           "acidophile": 1960,
           "alkaliphile": 1960,
           "halophile": 1961,
-          "psychrophile": 1960,
+          "psychrophile": 1959,
           "thermophile": 1960
         },
         "size_mb": 1.6
       },
       "test": {
         "file": "fiveclass_split1_20pct_test.fasta.gz",
-        "n_proteins": 19603,
+        "n_proteins": 19601,
         "labels": {
-          "acidophile": 3921,
-          "alkaliphile": 3921,
+          "acidophile": 3920,
+          "alkaliphile": 3920,
           "halophile": 3920,
           "psychrophile": 3920,
           "thermophile": 3921
@@ -94,26 +94,26 @@
     "splits": {
       "train": {
         "file": "twelveclass_split2_30pct_train.fasta.gz",
-        "n_proteins": 43344,
+        "n_proteins": 43339,
         "labels": {
           "acidophile": 3612,
-          "acidotolerant": 3612,
+          "acidotolerant": 3611,
           "alkaliphile": 3612,
           "alkalitolerant": 3612,
-          "extreme_alkaliphile": 3612,
+          "extreme_alkaliphile": 3611,
           "extreme_halophile": 3612,
           "hyperthermophile": 3612,
           "moderate_acidophile": 3612,
           "moderate_halophile": 3612,
           "psychrophile": 3612,
-          "slight_halophile": 3612,
+          "slight_halophile": 3609,
           "thermophile": 3612
         },
-        "size_mb": 7.05
+        "size_mb": 7.02
       },
       "val": {
         "file": "twelveclass_split2_30pct_val.fasta.gz",
-        "n_proteins": 6192,
+        "n_proteins": 6191,
         "labels": {
           "acidophile": 516,
           "acidotolerant": 516,
@@ -125,14 +125,14 @@
           "moderate_acidophile": 516,
           "moderate_halophile": 516,
           "psychrophile": 516,
-          "slight_halophile": 516,
+          "slight_halophile": 515,
           "thermophile": 516
         },
-        "size_mb": 1.04
+        "size_mb": 1.03
       },
       "test": {
         "file": "twelveclass_split2_30pct_test.fasta.gz",
-        "n_proteins": 12384,
+        "n_proteins": 12383,
         "labels": {
           "acidophile": 1032,
           "acidotolerant": 1032,
@@ -143,7 +143,7 @@
           "hyperthermophile": 1032,
           "moderate_acidophile": 1032,
           "moderate_halophile": 1032,
-          "psychrophile": 1032,
+          "psychrophile": 1031,
           "slight_halophile": 1032,
           "thermophile": 1032
         },
@@ -160,7 +160,7 @@
     "splits": {
       "train": {
         "file": "twelveclass_split2_20pct_train.fasta.gz",
-        "n_proteins": 28596,
+        "n_proteins": 28595,
         "labels": {
           "acidophile": 2383,
           "acidotolerant": 2383,
@@ -171,11 +171,11 @@
           "hyperthermophile": 2383,
           "moderate_acidophile": 2383,
           "moderate_halophile": 2383,
-          "psychrophile": 2383,
+          "psychrophile": 2382,
           "slight_halophile": 2383,
           "thermophile": 2383
         },
-        "size_mb": 4.45
+        "size_mb": 4.44
       },
       "val": {
         "file": "twelveclass_split2_20pct_val.fasta.gz",

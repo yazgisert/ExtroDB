@@ -1,6 +1,6 @@
 # ProtT5 embeddings for the 5-class (split1) and 12-class (split2) splits at 30% and 20% identity via the
-# biocentral API. Batches of 500, falling back to 100 and then 10 if a batch fails; resumes from the
-# existing .h5 files.
+# biocentral API. Batches of 500, falling back to 100, then 10 and then single proteins if a batch fails; resumes
+# from the existing .h5 files.
 # Run: caffeinate -i python scripts/embeddings/compute_prott5_embeddings.py
 
 import time
@@ -93,7 +93,14 @@ def embed_batch_with_retry(api, batch_dict):
                     mini_result = _try_embed(api, mini_dict, max_retries=3)
                     result = mini_result if result is None else result.merge(mini_result)
                 except Exception as e2:
-                    print(f"    Skipping {len(mini_dict)} sequences permanently: {list(mini_dict.keys())}")
+                    # One long sequence can make a whole group fail, so the group is retried one protein at a time
+                    print(f"    Group of {len(mini_dict)} failed: {e2} — trying one protein at a time ...")
+                    for seq_id, seq in mini_dict.items():
+                        try:
+                            single = _try_embed(api, {seq_id: seq}, max_retries=3)
+                            result = single if result is None else result.merge(single)
+                        except Exception as e3:
+                            print(f"    Skipping {seq_id} ({len(seq)} residues) permanently: {e3}")
 
         if result is not None:
             combined = result if combined is None else combined.merge(result)
