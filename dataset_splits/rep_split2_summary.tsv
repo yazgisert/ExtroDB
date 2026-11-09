@@ -2,7 +2,7 @@ label	partition	n_representatives	pct
 acidophile	train	3612	70.0%
 acidophile	val	516	10.0%
 acidophile	test	1032	20.0%
-acidotolerant	train	3612	70.0%
+acidotolerant	train	3611	70.0%
 acidotolerant	val	516	10.0%
 acidotolerant	test	1032	20.0%
 alkaliphile	train	3612	70.0%
@@ -11,7 +11,7 @@ alkaliphile	test	1032	20.0%
 alkalitolerant	train	3612	70.0%
 alkalitolerant	val	516	10.0%
 alkalitolerant	test	1032	20.0%
-extreme_alkaliphile	train	3612	70.0%
+extreme_alkaliphile	train	3611	70.0%
 extreme_alkaliphile	val	516	10.0%
 extreme_alkaliphile	test	1032	20.0%
 extreme_halophile	train	3612	70.0%
@@ -28,9 +28,9 @@ moderate_halophile	val	516	10.0%
 moderate_halophile	test	1032	20.0%
 psychrophile	train	3612	70.0%
 psychrophile	val	516	10.0%
-psychrophile	test	1032	20.0%
-slight_halophile	train	3612	70.0%
-slight_halophile	val	516	10.0%
+psychrophile	test	1031	20.0%
+slight_halophile	train	3609	70.0%
+slight_halophile	val	515	10.0%
 slight_halophile	test	1032	20.0%
 thermophile	train	3612	70.0%
 thermophile	val	516	10.0%

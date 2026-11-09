@@ -26,7 +26,7 @@ moderate_acidophile	test	681	20.0%
 moderate_halophile	train	2383	70.0%
 moderate_halophile	val	340	10.0%
 moderate_halophile	test	681	20.0%
-psychrophile	train	2383	70.0%
+psychrophile	train	2382	70.0%
 psychrophile	val	340	10.0%
 psychrophile	test	681	20.0%
 slight_halophile	train	2383	70.0%
