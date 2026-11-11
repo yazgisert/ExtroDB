@@ -774,8 +774,8 @@ def fig_algae_thermophily():
     # Thermophily per algal species: THERMO probability per proteome, and the share of proteins assigned to the
     # thermophile class by the five-class and six-class ProtT5 models, each with its decision threshold or random level
     r = json.load(open(RESULTS / "algae_thermophile_per_species_result.json"))
-    order = {c: i for i, c in enumerate(ALGAE_CLASSES)}
-    sp = sorted(r["species"], key=lambda s: (order[s["broad_class"]], -s["fiveclass_thermophile_share"]))
+    # species ordered by THERMO probability, highest at the top (supervisor's request)
+    sp = sorted(r["species"], key=lambda s: -s["thermo_probability"])
     y = np.arange(len(sp))[::-1]
     panels = [("thermo_probability", "THERMO\nprobability of thermophily", 0.5, "Threshold"),
               ("fiveclass_thermophile_share", "Five-class ProtT5\nshare predicted thermophile", r["random_fiveclass"], "Random"),
